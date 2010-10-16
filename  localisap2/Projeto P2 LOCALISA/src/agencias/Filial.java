@@ -2,6 +2,12 @@ package agencias;
 
 import funcionarios.Gerente;
 
+/**
+ * 
+ * @author Felipe José
+ *
+ */
+
 public class Filial implements Agencia{
 	
 	private String CNPJ;
