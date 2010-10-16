@@ -17,6 +17,7 @@ public class locador implements Pessoas{
 	private String agencia;
 	private String telefone;
 	private String email;
+
 	@Override
 	public String getCPF() {
 		return cpf;
