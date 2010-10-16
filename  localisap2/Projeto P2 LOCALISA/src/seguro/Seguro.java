@@ -9,12 +9,16 @@ package seguro;
  */
 public class Seguro {
 	private boolean seguroTotal;
-	private int precoDoPlano;
-	
-	public Seguro(boolean seguroTotal, PlanoDeLocacoes plano){
-		this.seguroTotal = seguroTotal;
-		precoDoPlano = plano.getPreco();
-	}
+	private double precoDoPlano;
+
+//	public Seguro(boolean seguroTotal, PlanoDeLocacoes plano){
+//		this.seguroTotal = seguroTotal;
+//		precoDoPlano = plano.getPreco();
+//	}
+	/**
+	 *  Metodo que verifica se o seguro eh total , e retorna o preco que seguro custara.
+	 * @return - O preco da locacao com o seguro incluso.
+	 */
 	public double getPrecoDoSeguro(){
 		if (seguroTotal)
 			return (precoDoPlano*1.5);
