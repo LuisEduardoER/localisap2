@@ -7,7 +7,7 @@ package funcionarios;
  * @author Filipe de Alencar Ramos
  *
  */
-public class Gerente implements Funcionarios{
+public class Gerente implements Pessoas{
 	private String cpf;
 	private String nome;
 	private String rg;
