@@ -7,7 +7,7 @@ package funcionarios;
  * @author Filipe de Alencar Ramos
  *
  */
-public class locador implements Pessoas{
+public class Locador implements Pessoas{
 	private String cpf;
 	private String nome;
 	private String rg;

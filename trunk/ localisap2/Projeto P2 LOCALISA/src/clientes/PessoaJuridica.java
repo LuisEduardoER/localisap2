@@ -119,7 +119,7 @@ public class PessoaJuridica {
 	 * Permite mudar a razao social
 	 * @param razaoSocial - Recebe como String a razao social
 	 */
-	public void setaRazaoSocial(String razaoSocial) {
+	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial= razaoSocial;
 		
 	}
