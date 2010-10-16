@@ -1,13 +1,15 @@
 /**
  * 
  */
-package funcionarios;
+package clientes;
+
+import funcionarios.Pessoas;
 
 /**
  * @author Filipe de Alencar Ramos
  *
  */
-public class locador implements Pessoas{
+public class PessoaFisica implements Pessoas{
 	private String cpf;
 	private String nome;
 	private String rg;
@@ -159,4 +161,5 @@ public class locador implements Pessoas{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }
