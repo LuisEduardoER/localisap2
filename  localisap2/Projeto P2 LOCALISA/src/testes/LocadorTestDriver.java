@@ -43,6 +43,7 @@ public class LocadorTestDriver {
 		Assert.assertEquals("8333311111",locador.getTelefone());
 		
 	}
+/*
 	@Test
 	public void testaMetodosRemove(){
 		locador.removeAgencia();
@@ -64,6 +65,7 @@ public class LocadorTestDriver {
 		Assert.assertEquals(null,locador.getRG());
 		Assert.assertEquals(null,locador.getTelefone());
 	}
+	*/
 	@Test
 	public void testaMetodosSet(){
 		locador.setAgencia("agencia2");

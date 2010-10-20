@@ -53,42 +53,17 @@ public interface Pessoas {
 	 * @return - Em String o email
 	 */
 	String getEmail();
-	/**
-	 * Remove o CPF , mudando o para null
-	 */
+	/*
 	void removeCPF();
-	/**
-	 * Remove o nome , mudando o para null
-	 */
 	void removeNome();
-	/**
-	 * Remove o RG , mudando o para null
-	 */
 	void removeRG();
-	/**
-	 * Remove a data de nascimento , mudando o para null
-	 */
 	void removeNascimento();
-	/**
-	 * Remove a naturalidade , mudando o para null
-	 */
 	void removeNaturalidade();
-	/**
-	 * Remove o endereco , mudando o para null
-	 */
 	void removeEndereco();
-	/**
-	 * Remove a agencia , mudando o para null
-	 */
 	void removeAgencia();
-	/**
-	 * Remove o telefone , mudando o para null
-	 */
 	void removeTelefone();
-	/**
-	 * Remove o email , mudando o para null
-	 */
 	void removeEmail();
+	*/
 	/**
 	 * Permite mudar o numero do cpf
 	 * @param cpf - Recebe como String o CPF
