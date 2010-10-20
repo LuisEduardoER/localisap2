@@ -22,7 +22,7 @@ public class Locador implements Pessoas{
 	private String email;
 
 	@Override
-	public String getCPF() {
+	public String getCpf() {
 		return cpf;
 	}
 
@@ -32,7 +32,7 @@ public class Locador implements Pessoas{
 	}
 
 	@Override
-	public String getRG() {
+	public String getRg() {
 		return rg;
 	}
 
@@ -112,7 +112,7 @@ public class Locador implements Pessoas{
 	}
 */
 	@Override
-	public void setCPF(String cpf) throws Exception{
+	public void setCpf(String cpf) throws Exception{
 		ValidaCpf testeCpf = new ValidaCpf();
 		if(!(testeCpf.validacpf(cpf)))
 			throw new Exception("Um cpf valido deve ter onze numeros");
@@ -129,7 +129,7 @@ public class Locador implements Pessoas{
 	}
 
 	@Override
-	public void setRG(String rg) throws Exception {
+	public void setRg(String rg) throws Exception {
 		if(rg.length()==0)
 			throw new Exception("O RG nao deve ser vazio");
 		this.rg = rg;	

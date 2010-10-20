@@ -1,5 +1,6 @@
 package agencias;
 
+import verificacoes.ValidaCnpj;
 import funcionarios.Gerente;
 
 /**
@@ -16,13 +17,14 @@ public class Filial implements Agencia{
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
 	
-	public Filial(String cnpj, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel){
+	public Filial(String cnpj, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel) throws Exception{
 		this.setCnpj(cnpj);
 		this.setEndereco(endereco);
 		this.setGerenteResponsavel(gerenteResponsavel);
 		this.setInscEstadual(inscEstadual);
 		this.setTelefone(telefone);
 		}
+
 	
 	@Override
 	public String getCnpj() {
@@ -80,31 +82,41 @@ public class Filial implements Agencia{
 	}
 */
 	@Override
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCnpj(String Cnpj) throws Exception {
+		ValidaCnpj testeCnpj = new ValidaCnpj();
+		if(!(testeCnpj.validaCnpj(Cnpj)))
+			throw new Exception("Um CPNJ valido deve ter 14 numeros");
+		this.cnpj = Cnpj;
 		
 	}
 
 	@Override
-	public void setEndereco(String endereco) {
+	public void setEndereco(String endereco) throws Exception{
+		if(endereco.length()==0)
+			throw new Exception("O endereco nao deve ser vazio");
 		this.endereco = endereco;
 		
 	}
 
 	@Override
-	public void setInscEstadual(String inscEstadual) {
-		this.inscEstadual = inscEstadual;
+	public void setInscEstadual(String inscricaoEstadual)throws Exception {
+		if(inscricaoEstadual.length()==0){
+			throw new Exception("A inscricao estadual nao deve ser vazio");
+		}
+		this.inscEstadual = inscricaoEstadual;
 		
 	}
 
 	@Override
-	public void setTelefone(String telefone) {
+	public void setTelefone(String telefone)throws Exception {
+		if(telefone.length()!= 10)
+			throw new Exception("Um telefone valido deve ter o DD + o numero");
 		this.telefone = telefone;
 		
 	}
 
 	@Override
-	public void setGerenteResponsavel(Gerente gerente) {
+	public void setGerenteResponsavel(Gerente gerente){
 		this.gerenteResponsavel = gerente;
 		
 	}

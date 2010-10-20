@@ -22,20 +22,20 @@ public class PessoaFisica implements Pessoas{
 	private String email;
 
 	public PessoaFisica(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,String telefone,String email) throws Exception{
-		setCPF(cpf);
+		setCpf(cpf);
 		setEmail(email);
 		setEndereco(endereco);
 		setNascimento(nascimento);
 		setNaturalidade(naturalidade);
 		setNome(nome);
-		setRG(rg);
+		setRg(rg);
 		setTelefone(telefone);
 	}
 	public PessoaFisica(){
 		
 	}
 	@Override
-	public String getCPF() {
+	public String getCpf() {
 		return cpf;
 	}
 
@@ -45,7 +45,7 @@ public class PessoaFisica implements Pessoas{
 	}
 
 	@Override
-	public String getRG() {
+	public String getRg() {
 		return rg;
 	}
 
@@ -76,7 +76,7 @@ public class PessoaFisica implements Pessoas{
 	}
 /*
 	@Override
-	public void removeCPF() {
+	public void removeCpf() {
 		cpf = null;
 	}
 
@@ -121,7 +121,7 @@ public class PessoaFisica implements Pessoas{
 	}
 */
 	@Override
-	public void setCPF(String cpf) throws Exception{
+	public void setCpf(String cpf) throws Exception{
 		ValidaCpf testeCpf = new ValidaCpf();
 		if(!(testeCpf.validacpf(cpf)))
 			throw new Exception("Um cpf valido deve ter onze numeros");
@@ -138,7 +138,7 @@ public class PessoaFisica implements Pessoas{
 	}
 
 	@Override
-	public void setRG(String rg) throws Exception {
+	public void setRg(String rg) throws Exception {
 		if(rg.length()==0)
 			throw new Exception("O RG nao deve ser vazio");
 		this.rg = rg;	

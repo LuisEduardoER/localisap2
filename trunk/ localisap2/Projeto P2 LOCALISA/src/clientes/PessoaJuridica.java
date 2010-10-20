@@ -3,7 +3,7 @@ package clientes;
 import verificacoes.ValidaCnpj;
 
 public class PessoaJuridica {
-	private String CPNJ;
+	private String cnpj;
 	private String razaoSocial;
 	private String nomeFantasia;
 	private String inscricaoEstadual;
@@ -11,13 +11,14 @@ public class PessoaJuridica {
 	private String telefone;
 	private String email;
 	
-	public PessoaJuridica(String CPNJ,String razaoSocial,String nomeFantasia,String inscricaoEstadual,String endereco,String telefone,String email)throws Exception{
+	public PessoaJuridica(String cnpj,String razaoSocial,String nomeFantasia,String inscricaoEstadual,String endereco,String telefone,String email)throws Exception{
 		setEmail(email);
 		setEndereco(endereco);
 		setInscricaoEstadual(inscricaoEstadual);
 		setNomeFantasia(nomeFantasia);
 		setRazaoSocial(razaoSocial);
 		setTelefone(telefone);
+		setCnpj(cnpj);
 	}
 	public PessoaJuridica(){
 		
@@ -26,8 +27,8 @@ public class PessoaJuridica {
 	 * Metodo para capturar o CPNJ de uma pessoa juridica
 	 * @return - Em String o CPNJ
 	 */
-	public String getCPNJ() {
-		return CPNJ;
+	public String getCnpj() {
+		return cnpj;
 	}
 	/**
 	 * Metodo para capturar a razao social de uma pessoa juridica
@@ -74,8 +75,8 @@ public class PessoaJuridica {
 		return email;
 	}
 	/*
-	public void removeCPNJ() {
-		CPNJ = null;
+	public void removeCnpj() {
+		Cnpj = null;
 	}
 
 	public void removeRazaoSocial() {
@@ -105,11 +106,11 @@ public class PessoaJuridica {
 	 * @param CPNJ - Recebe como String o CPNJ
 	 * @throws Exception 
 	 */	 
-	public void CPNJ(String CPNJ) throws Exception {
+	public void setCnpj(String cnpj) throws Exception {
 		ValidaCnpj testeCpnj = new ValidaCnpj();
-		if(!(testeCpnj.validaCnpj(CPNJ)))
-			throw new Exception("Um CPNJ valido deve ter 14 numeros");
-		this.CPNJ = CPNJ;
+		if(!(testeCpnj.validaCnpj(cnpj)))
+			throw new Exception("Um cnpj valido deve ter 14 numeros");
+		this.cnpj = cnpj;
 		
 	}
 

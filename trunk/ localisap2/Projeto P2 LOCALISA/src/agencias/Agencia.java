@@ -22,9 +22,9 @@ public interface Agencia {
 	void removeGerenteResponsavel();
 	*/
 	
-	void setCnpj(String cnpj);
-	void setEndereco(String endereco);
-	void setInscEstadual(String inscEstadual);
-	void setTelefone(String telefone);
-	void setGerenteResponsavel(Gerente gerente);	
+	void setCnpj(String cnpj) throws Exception;
+	void setEndereco(String endereco)throws Exception;
+	void setInscEstadual(String inscEstadual)throws Exception;
+	void setTelefone(String telefone)throws Exception;
+	void setGerenteResponsavel(Gerente gerente)throws Exception;	
 }
