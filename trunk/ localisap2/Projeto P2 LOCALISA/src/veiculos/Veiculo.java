@@ -11,7 +11,8 @@ public interface Veiculo {
 	String getRENAVAM();
 	String getModelo();
 	String getMarca();
-	String getPotencia();
+	int getPotencia();
+	int getCilindradas();
 	int getAno();
 	String getCor();
 	String getTipoDeCombustivel();
@@ -22,12 +23,12 @@ public interface Veiculo {
 	int getNivelDoTanque();
 	
 	void adicionaLocacao();
-	void removeLocacao();
 	
 	void setRENAVAM(String RENAVAM);
 	void setModelo(String modelo);
 	void setMarca(String marca);
-	void setPotencia(String potencia);
+	void setPotencia(int potencia);
+	void setCilindradas(int cilindradas);
 	void setAno(int ano);
 	void setCor(String cor);
 	void setTipoDeCombustivel(String tipoDeCombustivel);
@@ -36,17 +37,19 @@ public interface Veiculo {
 	void setTipoDeFreios(String tipoDeFreios);
 	void setOpcionais(String opcionais);
 	void setNivelDoTanque(int nivel);
-	
+	/*
 	void removeRENAVAM();
 	void removeModelo();
 	void removeMarca();
 	void removePotencia();
 	void removeAno();
 	void removeCor();
+	void removeLocacao();
 	void removeTipoDeCombustivel();
 	void removeDataDeAquisicao();
 	void removeLocalizacao();
 	void removeTipoDeFreios();
 	void removeOpcionais();
 	void removeNivelDoTanque();
+	*/
 }

@@ -12,7 +12,7 @@ public class Automovel implements Veiculo{
 	private String RENAVAM;
 	private String modelo;
 	private String marca;
-	private String potencia;
+	private int potencia;
 	private int ano;
 	private String cor;
 	private String tipoDeCombustivel;
@@ -21,6 +21,21 @@ public class Automovel implements Veiculo{
 	private int nivelDoTanque;
 	private String acessoriosOpcionais;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
+
+	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, String cor, String tipoDeCombustivel
+					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, String acessoriosOpcionais){
+		this.setAno(ano);
+		this.setCor(cor);
+		this.setDataDeAquisicao(dataDeAquisicao);
+		this.setLocalizacao(localizacao);
+		this.setPotencia(potencia);
+		this.setMarca(marca);
+		this.setModelo(modelo);
+		this.setNivelDoTanque(nivelDoTanque);
+		this.setOpcionais(acessoriosOpcionais);
+		this.setRENAVAM(RENAVAM);
+		this.setTipoDeCombustivel(tipoDeCombustivel);
+	}
 	
 	@Override
 	public String getRENAVAM() {
@@ -35,7 +50,7 @@ public class Automovel implements Veiculo{
 		return marca;
 	}
 	@Override
-	public String getPotencia() {
+	public int getPotencia() {
 		return potencia;
 	}
 	@Override
@@ -82,11 +97,7 @@ public class Automovel implements Veiculo{
 		this.marca = marca;
 		
 	}
-	@Override
-	public void setPotencia(String potencia) {
-		this.potencia = potencia;
-		
-	}
+
 	@Override
 	public void setAno(int ano) {
 		this.ano = ano;
@@ -126,6 +137,7 @@ public class Automovel implements Veiculo{
 		// TODO Auto-generated method stub
 		
 	}
+	/*
 	@Override
 	public void removeLocacao() {
 		// TODO Auto-generated method stub
@@ -187,6 +199,12 @@ public class Automovel implements Veiculo{
 		
 	}
 	@Override
+	public void removeNivelDoTanque() {
+		this.nivelDoTanque = 0;
+		
+	}
+	*/
+	@Override
 	public int getNivelDoTanque() {
 		return nivelDoTanque;
 	}
@@ -196,8 +214,18 @@ public class Automovel implements Veiculo{
 		
 	}
 	@Override
-	public void removeNivelDoTanque() {
-		this.nivelDoTanque = 0;
+	public int getCilindradas() {
+		return 0;
+	}
+
+	@Override
+	public void setPotencia(int potencia) {
+		this.potencia = potencia;
 		
+	}
+
+	@Override
+	public void setCilindradas(int cilindradas) {
+		//TODO
 	}
 }

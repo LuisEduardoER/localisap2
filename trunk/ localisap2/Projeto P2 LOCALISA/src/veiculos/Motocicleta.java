@@ -12,7 +12,8 @@ public class Motocicleta implements Veiculo{
 	private String RENAVAM;
 	private String modelo;
 	private String marca;
-	private String potencia;
+	private int potencia;
+	private int clilindradas;
 	private int ano;
 	private String cor;
 	private String tipoDeCombustivel;
@@ -21,6 +22,21 @@ public class Motocicleta implements Veiculo{
 	private int nivelDoTanque;
 	private String tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
+	
+	public Motocicleta(String RENAVAM, String modelo, String marca, int potencia, int cilindradas, int ano, String cor, String tipoDeCombustivel
+			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque){
+		this.setAno(ano);
+		this.setCor(cor);
+		this.setDataDeAquisicao(dataDeAquisicao);
+		this.setLocalizacao(localizacao);
+		this.setMarca(marca);
+		this.setModelo(modelo);
+		this.setNivelDoTanque(nivelDoTanque);
+		this.setPotencia(potencia);
+		this.setCilindradas(cilindradas);
+		this.setRENAVAM(RENAVAM);
+		this.setTipoDeCombustivel(tipoDeCombustivel);
+}
 	
 	@Override
 	public String getRENAVAM() {
@@ -35,7 +51,7 @@ public class Motocicleta implements Veiculo{
 		return marca;
 	}
 	@Override
-	public String getPotencia() {
+	public int getPotencia() {
 		return potencia;
 	}
 	@Override
@@ -83,7 +99,7 @@ public class Motocicleta implements Veiculo{
 		
 	}
 	@Override
-	public void setPotencia(String potencia) {
+	public void setPotencia(int potencia) {
 		this.potencia = potencia;
 		
 	}
@@ -126,6 +142,7 @@ public class Motocicleta implements Veiculo{
 		// TODO Auto-generated method stub
 		
 	}
+	/*
 	@Override
 	public void removeLocacao() {
 		// TODO Auto-generated method stub
@@ -187,6 +204,12 @@ public class Motocicleta implements Veiculo{
 		
 	}
 	@Override
+	public void removeNivelDoTanque() {
+		this.nivelDoTanque = 0;
+		
+	}
+	*/
+	@Override
 	public int getNivelDoTanque() {
 		return nivelDoTanque;
 	}
@@ -195,9 +218,15 @@ public class Motocicleta implements Veiculo{
 		this.nivelDoTanque = nivel;
 		
 	}
+
 	@Override
-	public void removeNivelDoTanque() {
-		this.nivelDoTanque = 0;
+	public int getCilindradas() {
+		return this.clilindradas;
+	}
+
+	@Override
+	public void setCilindradas(int cilindradas) {
+		this.clilindradas = cilindradas;
 		
 	}
 }
