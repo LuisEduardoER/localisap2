@@ -3,6 +3,8 @@
  */
 package funcionarios;
 
+import agencias.Agencia;
+
 /**
  * @author Filipe de Alencar Ramos
  *
@@ -38,11 +40,7 @@ public interface Pessoas {
 	 * @return - Em String o endereco
 	 */
 	String getEndereco();
-	/**
-	 * Metodo para capturar a agencia de uma pessoa
-	 * @return - Em String a agencia
-	 */
-	String getAgencia();
+
 	/**
 	 * Metodo para capturar o telefone de uma pessoa
 	 * @return - Em String o telefone
@@ -78,7 +76,7 @@ public interface Pessoas {
 	 * Permite mudar o numero do RG
 	 * @param rg - Recebe como String o RG
 	 */
-	void setRG(String rg);
+	void setRG(String rg)throws Exception;
 	/**
 	 * Permite mudar a data de nascimento
 	 * @param nascimento - Recebe como String a data de nascimento
@@ -88,17 +86,13 @@ public interface Pessoas {
 	 * Permite mudar a naturalidade
 	 * @param naturalidade - Recebe como String a naturalidade
 	 */
-	void setNaturalidade(String naturalidade);
+	void setNaturalidade(String naturalidade)throws Exception;
 	/**
 	 * Permite mudar o endereco
 	 * @param endereco - Recebe como String o endereco
 	 */
-	void setEndereco(String endereco);
-	/**
-	 * Permite mudar a agencia
-	 * @param agencia - Recebe como String a agencia
-	 */
-	void setAgencia(String agencia);
+	void setEndereco(String endereco)throws Exception;
+
 	/**
 	 * Permite mudar o numero do telefone
 	 * @param telefone - Recebe como String o telefone
@@ -108,6 +102,6 @@ public interface Pessoas {
 	 * Permite mudar o email
 	 * @param email - Recebe como String o email
 	 */
-	void setEmail(String email);
+	void setEmail(String email)throws Exception;
 	
 }

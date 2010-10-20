@@ -3,6 +3,9 @@
  */
 package funcionarios;
 
+import agencias.Agencia;
+import verificacoes.ValidaCpf;
+
 /**
  * @author Filipe de Alencar Ramos
  *
@@ -14,11 +17,11 @@ public class Gerente implements Pessoas{
 	private String nascimento;	
 	private String naturalidade;
 	private String endereco;	
-	private String agencia;
+	private Agencia agencia;
 	private String telefone;
 	private String email;
 	
-	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,String agencia,String telefone,String email) throws Exception{
+	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,Agencia agencia,String telefone,String email) throws Exception{
 		setAgencia(agencia);
 		setCPF(cpf);
 		setEmail(email);
@@ -62,8 +65,8 @@ public class Gerente implements Pessoas{
 		return endereco;
 	}
 
-	@Override
-	public String getAgencia() {
+
+	public Agencia getAgencia() {
 		return agencia;
 	}
 
@@ -124,7 +127,8 @@ public class Gerente implements Pessoas{
 */
 	@Override
 	public void setCPF(String cpf) throws Exception{
-		if(cpf.length()!= 11)
+		ValidaCpf testeCpf = new ValidaCpf();
+		if(!(testeCpf.validacpf(cpf)))
 			throw new Exception("Um cpf valido deve ter onze numeros");
 		this.cpf = cpf;
 		
@@ -139,9 +143,10 @@ public class Gerente implements Pessoas{
 	}
 
 	@Override
-	public void setRG(String rg) {
-		this.rg = rg;
-		
+	public void setRG(String rg) throws Exception {
+		if(rg.length()==0)
+			throw new Exception("O RG nao deve ser vazio");
+		this.rg = rg;	
 	}
 
 	@Override
@@ -151,19 +156,23 @@ public class Gerente implements Pessoas{
 	}
 
 	@Override
-	public void setNaturalidade(String naturalidade) {
+	public void setNaturalidade(String naturalidade) throws Exception{
+		if(naturalidade.length()==0)
+			throw new Exception("A naturalidade nao deve ser vazia");
 		this.naturalidade = naturalidade;
 		
 	}
 
 	@Override
-	public void setEndereco(String endereco) {
+	public void setEndereco(String endereco) throws Exception{
+		if(endereco.length()==0)
+			throw new Exception("O endereco nao deve ser vazio");
 		this.endereco = endereco;
 		
 	}
 
-	@Override
-	public void setAgencia(String agencia) {
+
+	public void setAgencia(Agencia agencia) throws Exception{
 		this.agencia = agencia;
 		
 	}
@@ -177,7 +186,10 @@ public class Gerente implements Pessoas{
 	}
 
 	@Override
-	public void setEmail(String email) {
+	public void setEmail(String email) throws Exception{
+		if (email.contains("@")||email.length()==0)
+			throw new Exception("O email deve conter @ e ser maior que 3");
+
 		this.email = email;
 	}
 }

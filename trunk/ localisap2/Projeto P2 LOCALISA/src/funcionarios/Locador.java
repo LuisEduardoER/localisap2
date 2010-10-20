@@ -3,6 +3,9 @@
  */
 package funcionarios;
 
+import agencias.Agencia;
+import verificacoes.ValidaCpf;
+
 /**
  * @author Filipe de Alencar Ramos
  *
@@ -14,7 +17,7 @@ public class Locador implements Pessoas{
 	private String nascimento;	
 	private String naturalidade;
 	private String endereco;	
-	private String agencia;
+	private Agencia agencia;
 	private String telefone;
 	private String email;
 
@@ -48,8 +51,8 @@ public class Locador implements Pessoas{
 		return endereco;
 	}
 
-	@Override
-	public String getAgencia() {
+
+	public Agencia getAgencia() {
 		return agencia;
 	}
 
@@ -109,55 +112,69 @@ public class Locador implements Pessoas{
 	}
 */
 	@Override
-	public void setCPF(String cpf) {
+	public void setCPF(String cpf) throws Exception{
+		ValidaCpf testeCpf = new ValidaCpf();
+		if(!(testeCpf.validacpf(cpf)))
+			throw new Exception("Um cpf valido deve ter onze numeros");
 		this.cpf = cpf;
 		
 	}
 
 	@Override
-	public void setNome(String nome) {
+	public void setNome(String nome) throws Exception{
+		if(nome.length()==0 )
+			throw new Exception("O nome nao deve ser vazio");
 		this.nome = nome;
 		
 	}
 
 	@Override
-	public void setRG(String rg) {
-		this.rg = rg;
-		
+	public void setRG(String rg) throws Exception {
+		if(rg.length()==0)
+			throw new Exception("O RG nao deve ser vazio");
+		this.rg = rg;	
 	}
 
 	@Override
-	public void setNascimento(String nascimento) {
+	public void setNascimento(String nascimento) throws Exception{
 		this.nascimento = nascimento;
-		
 	}
 
 	@Override
-	public void setNaturalidade(String naturalidade) {
+	public void setNaturalidade(String naturalidade) throws Exception{
+		if(naturalidade.length()==0)
+			throw new Exception("A naturalidade nao deve ser vazia");
 		this.naturalidade = naturalidade;
 		
 	}
 
 	@Override
-	public void setEndereco(String endereco) {
+	public void setEndereco(String endereco) throws Exception{
+		if(endereco.length()==0)
+			throw new Exception("O endereco nao deve ser vazio");
 		this.endereco = endereco;
 		
 	}
 
-	@Override
-	public void setAgencia(String agencia) {
+
+	public void setAgencia(Agencia agencia) throws Exception{
 		this.agencia = agencia;
 		
 	}
 
 	@Override
-	public void setTelefone(String telefone) {
+	public void setTelefone(String telefone)throws Exception {
+		if(telefone.length()!= 10)
+			throw new Exception("Um telefone valido deve ter o DD + o numero");
 		this.telefone = telefone;
 		
 	}
 
 	@Override
-	public void setEmail(String email) {
+	public void setEmail(String email) throws Exception{
+		if (email.contains("@")||email.length()==0)
+			throw new Exception("O email deve conter @ e ser maior que 3");
+
 		this.email = email;
 	}
 }
