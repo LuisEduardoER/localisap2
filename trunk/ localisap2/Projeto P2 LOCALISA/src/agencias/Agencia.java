@@ -4,12 +4,12 @@ import funcionarios.Gerente;
 
 /**
  * 
- * @author Felipe José
+ * @author Felipe Josï¿½
  *
  */
 
 public interface Agencia {
-	String getCNPJ();
+	String getCnpj();
 	String getEndereco();
 	String getTelefone();
 	String getInscEstadual();
@@ -22,7 +22,7 @@ public interface Agencia {
 	void removeGerenteResponsavel();
 	*/
 	
-	void setCNPJ(String CNPJ);
+	void setCnpj(String cnpj);
 	void setEndereco(String endereco);
 	void setInscEstadual(String inscEstadual);
 	void setTelefone(String telefone);
