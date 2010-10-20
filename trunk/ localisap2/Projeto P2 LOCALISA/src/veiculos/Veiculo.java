@@ -1,8 +1,10 @@
 package veiculos;
 
 /**
- * @author Felipe José
+ * @author Felipe Josï¿½
  */
+
+import java.util.ArrayList;
 
 import agencias.Agencia;
 
@@ -19,7 +21,6 @@ public interface Veiculo {
 	String getDataDeAquisicao();
 	Agencia getLocalizacao();
 	String getTipoDeFreios();
-	String getOpcionais();
 	int getNivelDoTanque();
 	
 	void adicionaLocacao();
@@ -27,15 +28,12 @@ public interface Veiculo {
 	void setRENAVAM(String RENAVAM);
 	void setModelo(String modelo);
 	void setMarca(String marca);
-	void setPotencia(int potencia);
-	void setCilindradas(int cilindradas);
 	void setAno(int ano);
 	void setCor(String cor);
 	void setTipoDeCombustivel(String tipoDeCombustivel);
 	void setDataDeAquisicao(String dataDeAquisicao);
 	void setLocalizacao(Agencia localizacao);
 	void setTipoDeFreios(String tipoDeFreios);
-	void setOpcionais(String opcionais);
 	void setNivelDoTanque(int nivel);
 	/*
 	void removeRENAVAM();

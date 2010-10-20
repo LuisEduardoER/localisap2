@@ -1,7 +1,7 @@
 package veiculos;
 
 /**
- * @author Felipe José
+ * @author Felipe Josï¿½
  */
 
 import java.util.ArrayList;
@@ -79,11 +79,6 @@ public class Motocicleta implements Veiculo{
 		return tipoDeFreio;
 	}
 	@Override
-	public String getOpcionais() {
-		//TODO;
-		return null;
-	}
-	@Override
 	public void setRENAVAM(String RENAVAM) {
 		this.RENAVAM = RENAVAM;
 		
@@ -98,7 +93,7 @@ public class Motocicleta implements Veiculo{
 		this.marca = marca;
 		
 	}
-	@Override
+
 	public void setPotencia(int potencia) {
 		this.potencia = potencia;
 		
@@ -132,11 +127,6 @@ public class Motocicleta implements Veiculo{
 	public void setTipoDeFreios(String tipoDeFreios) {		
 		this.tipoDeFreio = tipoDeFreios;
 	}
-	@Override
-	public void setOpcionais(String opcionais) {
-		//TODO
-		
-	}	
 	@Override
 	public void adicionaLocacao() {
 		// TODO Auto-generated method stub
@@ -224,7 +214,6 @@ public class Motocicleta implements Veiculo{
 		return this.clilindradas;
 	}
 
-	@Override
 	public void setCilindradas(int cilindradas) {
 		this.clilindradas = cilindradas;
 		
