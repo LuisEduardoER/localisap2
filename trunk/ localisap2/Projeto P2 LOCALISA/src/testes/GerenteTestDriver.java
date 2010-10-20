@@ -17,10 +17,10 @@ import funcionarios.Gerente;
 public class GerenteTestDriver {
 	Gerente gerente;
 	@Before
-	public void inicio(){
+	public void inicio() throws Exception{
 		gerente = new Gerente();
 		gerente.setAgencia("agencia");
-		gerente.setCPF("0123456789");
+		gerente.setCPF("01234567891");
 		gerente.setEmail("filipe@teste");
 		gerente.setEndereco("endereco");
 		gerente.setNascimento("11/10/1980");
@@ -32,7 +32,7 @@ public class GerenteTestDriver {
 	
 	@Test
 	public void testaMetodosGet(){
-		Assert.assertEquals("0123456789",gerente.getCPF());
+		Assert.assertEquals("01234567891",gerente.getCPF());
 		Assert.assertEquals("agencia",gerente.getAgencia());
 		Assert.assertEquals("filipe@teste",gerente.getEmail());
 		Assert.assertEquals("endereco",gerente.getEndereco());
@@ -67,7 +67,7 @@ public class GerenteTestDriver {
 	}
 	*/
 	@Test
-	public void testaMetodosSet(){
+	public void testaMetodosSet() throws Exception{
 		gerente.setAgencia("agencia2");
 		gerente.setCPF("01234567890");
 		gerente.setEmail("filipe@teste2");

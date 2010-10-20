@@ -17,10 +17,10 @@ import funcionarios.Locador;
 public class LocadorTestDriver {
 	Locador locador;
 	@Before
-	public void inicio(){
+	public void inicio() throws Exception{
 		locador = new Locador();
 		locador.setAgencia("agencia");
-		locador.setCPF("0123456789");
+		locador.setCPF("01234567891");
 		locador.setEmail("filipe@teste");
 		locador.setEndereco("endereco");
 		locador.setNascimento("11/10/1980");
@@ -32,7 +32,7 @@ public class LocadorTestDriver {
 	
 	@Test
 	public void testaMetodosGet(){
-		Assert.assertEquals("0123456789",locador.getCPF());
+		Assert.assertEquals("01234567891",locador.getCPF());
 		Assert.assertEquals("agencia",locador.getAgencia());
 		Assert.assertEquals("filipe@teste",locador.getEmail());
 		Assert.assertEquals("endereco",locador.getEndereco());
@@ -67,7 +67,7 @@ public class LocadorTestDriver {
 	}
 	*/
 	@Test
-	public void testaMetodosSet(){
+	public void testaMetodosSet() throws Exception{
 		locador.setAgencia("agencia2");
 		locador.setCPF("01234567890");
 		locador.setEmail("filipe@teste2");
