@@ -68,12 +68,12 @@ public interface Pessoas {
 	 * Permite mudar o numero do cpf
 	 * @param cpf - Recebe como String o CPF
 	 */
-	void setCPF(String cpf);
+	void setCPF(String cpf) throws Exception;
 	/**
 	 * Permite mudar o  nome
 	 * @param nome - Recebe como String o nome
 	 */
-	void setNome(String nome);
+	void setNome(String nome) throws Exception;
 	/**
 	 * Permite mudar o numero do RG
 	 * @param rg - Recebe como String o RG
@@ -83,7 +83,7 @@ public interface Pessoas {
 	 * Permite mudar a data de nascimento
 	 * @param nascimento - Recebe como String a data de nascimento
 	 */
-	void setNascimento(String nascimento);
+	void setNascimento(String nascimento) throws Exception;
 	/**
 	 * Permite mudar a naturalidade
 	 * @param naturalidade - Recebe como String a naturalidade
@@ -103,7 +103,7 @@ public interface Pessoas {
 	 * Permite mudar o numero do telefone
 	 * @param telefone - Recebe como String o telefone
 	 */
-	void setTelefone(String telefone);
+	void setTelefone(String telefone) throws Exception;
 	/**
 	 * Permite mudar o email
 	 * @param email - Recebe como String o email
