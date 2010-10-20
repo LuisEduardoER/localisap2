@@ -43,6 +43,7 @@ public class PessoaFisicaTestDriver {
 		Assert.assertEquals("8333311111",pessoa1.getTelefone());
 		
 	}
+	/*
 	@Test
 	public void testaMetodosRemove(){
 		pessoa1.removeAgencia();
@@ -64,6 +65,7 @@ public class PessoaFisicaTestDriver {
 		Assert.assertEquals(null,pessoa1.getRG());
 		Assert.assertEquals(null,pessoa1.getTelefone());
 	}
+	*/
 	@Test
 	public void testaMetodosSet(){
 		pessoa1.setAgencia("agencia2");

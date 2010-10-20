@@ -60,52 +60,33 @@ public class PessoaJuridica {
 	public String getEmail() {
 		return email;
 	}
-	/**
-	 * Remove o CPNJ , mudando o para null
-	 */
+	/*
 	public void removeCPNJ() {
 		CPNJ = null;
 	}
 
-	/**
-	 * Remove a razao social , mudando o para null
-	 */	 
 	public void removeRazaoSocial() {
 		razaoSocial = null;
 	}
 
-	/**
-	 * Remove o nome fantasia , mudando o para null
-	 */ 
 	public void removeNomeFantasia() {
 		nomeFantasia = null;
 	}
 
-	/**
-	 * Remove a inscricao estadual , mudando o para null
-	 */ 
 	public void removeInscricaoEstadual() {
 		inscricaoEstadual = null;
 	}
-	/**
-	 * Remove o endereco , mudando o para null
-	 */ 
 	public void removeEndereco() {
 		endereco = null;
-	}
-	/**
-	 * Remove o telefone , mudando o para null
-	 */ 
+	} 
 	public void removeTelefone() {
 		telefone = null;
 	}
-	/**
-	 * Remove o email , mudando o para null
-	 */
 	public void removeEmail() {
 		email = null;
 	}
-
+	*/
+	
 	/**
 	 * Permite mudar o CPNJ
 	 * @param CPNJ - Recebe como String o CPNJ

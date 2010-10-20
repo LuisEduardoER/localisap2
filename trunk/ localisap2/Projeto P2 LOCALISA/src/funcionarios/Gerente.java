@@ -61,7 +61,7 @@ public class Gerente implements Pessoas{
 	public String getEmail() {
 		return email;
 	}
-
+/*
 	@Override
 	public void removeCPF() {
 		cpf = null;
@@ -106,7 +106,7 @@ public class Gerente implements Pessoas{
 	public void removeEmail() {
 		email = null;
 	}
-
+*/
 	@Override
 	public void setCPF(String cpf) {
 		this.cpf = cpf;
