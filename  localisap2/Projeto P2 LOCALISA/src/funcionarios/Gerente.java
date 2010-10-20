@@ -17,6 +17,21 @@ public class Gerente implements Pessoas{
 	private String agencia;
 	private String telefone;
 	private String email;
+	
+	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,String agencia,String telefone,String email) throws Exception{
+		setAgencia(agencia);
+		setCPF(cpf);
+		setEmail(email);
+		setEndereco(endereco);
+		setNascimento(nascimento);
+		setNaturalidade(naturalidade);
+		setNome(nome);
+		setRG(rg);
+		setTelefone(telefone);
+	}
+	public Gerente(){
+		
+	}
 	@Override
 	public String getCPF() {
 		return cpf;
@@ -108,13 +123,17 @@ public class Gerente implements Pessoas{
 	}
 */
 	@Override
-	public void setCPF(String cpf) {
+	public void setCPF(String cpf) throws Exception{
+		if(cpf.length()!= 11)
+			throw new Exception("Um cpf valido deve ter onze numeros");
 		this.cpf = cpf;
 		
 	}
 
 	@Override
-	public void setNome(String nome) {
+	public void setNome(String nome) throws Exception{
+		if(nome.length()==0 )
+			throw new Exception("O nome nao deve ser vazio");
 		this.nome = nome;
 		
 	}
@@ -126,7 +145,7 @@ public class Gerente implements Pessoas{
 	}
 
 	@Override
-	public void setNascimento(String nascimento) {
+	public void setNascimento(String nascimento) throws Exception{
 		this.nascimento = nascimento;
 		
 	}
@@ -150,7 +169,9 @@ public class Gerente implements Pessoas{
 	}
 
 	@Override
-	public void setTelefone(String telefone) {
+	public void setTelefone(String telefone)throws Exception {
+		if(telefone.length()!= 10)
+			throw new Exception("Um telefone valido deve ter o DD + o numero");
 		this.telefone = telefone;
 		
 	}
