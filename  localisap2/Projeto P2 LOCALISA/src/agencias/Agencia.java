@@ -14,11 +14,14 @@ public interface Agencia {
 	String getTelefone();
 	String getInscEstadual();
 	Gerente getGerenteResponsavel();
+	/*
 	void removeCNPJ();
 	void removeEndereco();
 	void removeInscEstadual();
 	void removeTelefone();
 	void removeGerenteResponsavel();
+	*/
+	
 	void setCNPJ(String CNPJ);
 	void setEndereco(String endereco);
 	void setInscEstadual(String inscEstadual);
