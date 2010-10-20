@@ -9,6 +9,17 @@ public class PessoaJuridica {
 	private String telefone;
 	private String email;
 	
+	public PessoaJuridica(String CPNJ,String razaoSocial,String nomeFantasia,String inscricaoEstadual,String endereco,String telefone,String email)throws Exception{
+		setEmail(email);
+		setEndereco(endereco);
+		setInscricaoEstadual(inscricaoEstadual);
+		setNomeFantasia(nomeFantasia);
+		setRazaoSocial(razaoSocial);
+		setTelefone(telefone);
+	}
+	public PessoaJuridica(){
+		
+	}
 	/**
 	 * Metodo para capturar o CPNJ de uma pessoa juridica
 	 * @return - Em String o CPNJ
@@ -90,8 +101,11 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o CPNJ
 	 * @param CPNJ - Recebe como String o CPNJ
+	 * @throws Exception 
 	 */	 
-	public void setCPNJ(String CPNJ) {
+	public void CPNJ(String CPNJ) throws Exception {
+		if(CPNJ.length()!= 14)
+			throw new Exception("Um CPNJ valido deve ter 14 numeros");
 		this.CPNJ = CPNJ;
 		
 	}
@@ -134,7 +148,9 @@ public class PessoaJuridica {
 	 * Permite mudar o telefone
 	 * @param telefone - Recebe como String o telefone
 	 */
-	public void setTelefone(String telefone) {
+	public void setTelefone(String telefone)throws Exception {
+		if(telefone.length()!= 10)
+			throw new Exception("Um telefone valido deve ter o DD + o numero");
 		this.telefone = telefone;
 		
 	}
