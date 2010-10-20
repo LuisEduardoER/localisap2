@@ -14,7 +14,7 @@ public interface Pessoas {
 	 * Metodo para capturar o CPF de uma pessoa
 	 * @return - Em String o CPF
 	 */
-	String getCPF();
+	String getCpf();
 	/**
 	 * Metodo para capturar o nome de uma pessoa
 	 * @return - Em String o nome
@@ -24,7 +24,7 @@ public interface Pessoas {
 	 * Metodo para capturar o RG de uma pessoa
 	 * @return - Em String o rg
 	 */
-	String getRG();
+	String getRg();
 	/**
 	 * Metodo para capturar a data de nascimento de uma pessoa
 	 * @return - Em String a data de nascimento
@@ -66,7 +66,7 @@ public interface Pessoas {
 	 * Permite mudar o numero do cpf
 	 * @param cpf - Recebe como String o CPF
 	 */
-	void setCPF(String cpf) throws Exception;
+	void setCpf(String cpf) throws Exception;
 	/**
 	 * Permite mudar o  nome
 	 * @param nome - Recebe como String o nome
@@ -76,7 +76,7 @@ public interface Pessoas {
 	 * Permite mudar o numero do RG
 	 * @param rg - Recebe como String o RG
 	 */
-	void setRG(String rg)throws Exception;
+	void setRg(String rg)throws Exception;
 	/**
 	 * Permite mudar a data de nascimento
 	 * @param nascimento - Recebe como String a data de nascimento
