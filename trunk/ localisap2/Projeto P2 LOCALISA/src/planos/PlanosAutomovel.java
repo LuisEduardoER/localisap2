@@ -10,9 +10,8 @@ public class PlanosAutomovel {
 	List<Automovel> listaAuto = new ArrayList<Automovel>();
 	private double preco;
 	
-	public PlanosAutomovel(double Preco){
+	public PlanosAutomovel(double preco){
 		this.preco = preco;
-	//terminar ainda..
 	}
 	
 	public void adicionaCarro(Automovel carro){
@@ -31,7 +30,7 @@ public class PlanosAutomovel {
 		this.preco = preco;
 	}
 	
-	public double getPreco(double preco){
+	public double getPreco(){
 		return this.preco;
 	}	
 	
