@@ -1,5 +1,7 @@
 package clientes;
 
+import verificacoes.ValidaCnpj;
+
 public class PessoaJuridica {
 	private String CPNJ;
 	private String razaoSocial;
@@ -104,7 +106,8 @@ public class PessoaJuridica {
 	 * @throws Exception 
 	 */	 
 	public void CPNJ(String CPNJ) throws Exception {
-		if(CPNJ.length()!= 14)
+		ValidaCnpj testeCpnj = new ValidaCnpj();
+		if(!(testeCpnj.validaCnpj(CPNJ)))
 			throw new Exception("Um CPNJ valido deve ter 14 numeros");
 		this.CPNJ = CPNJ;
 		
@@ -114,7 +117,10 @@ public class PessoaJuridica {
 	 * Permite mudar a razao social
 	 * @param razaoSocial - Recebe como String a razao social
 	 */
-	public void setRazaoSocial(String razaoSocial) {
+	public void setRazaoSocial(String razaoSocial)throws Exception {
+		if(razaoSocial.length()==0){
+			throw new Exception("A razao social nao deve ser vazio");
+		}
 		this.razaoSocial= razaoSocial;
 		
 	}
@@ -123,7 +129,10 @@ public class PessoaJuridica {
 	 * Permite mudar o nome fantasia
 	 * @param nomeFantasia - Recebe como String o nome fantasia
 	 */
-	public void setNomeFantasia(String nomeFantasia) {
+	public void setNomeFantasia(String nomeFantasia) throws Exception{
+		if(nomeFantasia.length()==0){
+			throw new Exception("O nome Fantasia nao deve ser vazio");
+		}
 		this.nomeFantasia = nomeFantasia;
 		
 	}
@@ -132,7 +141,10 @@ public class PessoaJuridica {
 	 * Permite mudar a inscricao estadual
 	 * @param inscricaoEstadual - Recebe como String a inscricao estadual
 	 */
-	public void setInscricaoEstadual(String inscricaoEstadual) {
+	public void setInscricaoEstadual(String inscricaoEstadual)throws Exception {
+		if(inscricaoEstadual.length()==0){
+			throw new Exception("A inscricao estadual nao deve ser vazio");
+		}
 		this.inscricaoEstadual = inscricaoEstadual;
 		
 	}
@@ -140,7 +152,10 @@ public class PessoaJuridica {
 	 * Permite mudar o endereco
 	 * @param endereco - Recebe como String o endereco
 	 */
-	public void setEndereco(String endereco) {
+
+	public void setEndereco(String endereco) throws Exception{
+		if(endereco.length()==0)
+			throw new Exception("O endereco nao deve ser vazio");
 		this.endereco = endereco;
 		
 	}
@@ -158,7 +173,10 @@ public class PessoaJuridica {
 	 * Permite mudar o email
 	 * @param nome - Recebe como String o email
 	 */	 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws Exception{
+		if (email.contains("@")||email.length()==0)
+			throw new Exception("O email deve conter @ e ser maior que 3");
+
 		this.email = email;
 	}
 }
