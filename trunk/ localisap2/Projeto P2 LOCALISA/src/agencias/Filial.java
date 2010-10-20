@@ -16,6 +16,13 @@ public class Filial implements Agencia{
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
 	
+	public Filial(String CNPJ, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel){
+		this.setCNPJ(CNPJ);
+		this.setEndereco(endereco);
+		this.setGerenteResponsavel(gerenteResponsavel);
+		this.setInscEstadual(inscEstadual);
+		this.setTelefone(telefone);
+		}
 	
 	@Override
 	public String getCNPJ() {
@@ -41,7 +48,7 @@ public class Filial implements Agencia{
 	public Gerente getGerenteResponsavel() {
 		return gerenteResponsavel;
 	}
-
+/*
 	@Override
 	public void removeCNPJ() {
 		CNPJ = null;
@@ -71,7 +78,7 @@ public class Filial implements Agencia{
 		gerenteResponsavel = null;
 		
 	}
-
+*/
 	@Override
 	public void setCNPJ(String CNPJ) {
 		this.CNPJ = CNPJ;
