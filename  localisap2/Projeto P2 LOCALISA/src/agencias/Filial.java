@@ -4,20 +4,20 @@ import funcionarios.Gerente;
 
 /**
  * 
- * @author Felipe José
+ * @author Felipe Josï¿½
  *
  */
 
 public class Filial implements Agencia{
 	
-	private String CNPJ;
+	private String cnpj;
 	private String endereco;
 	private String telefone;
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
 	
-	public Filial(String CNPJ, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel){
-		this.setCNPJ(CNPJ);
+	public Filial(String cnpj, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel){
+		this.setCnpj(cnpj);
 		this.setEndereco(endereco);
 		this.setGerenteResponsavel(gerenteResponsavel);
 		this.setInscEstadual(inscEstadual);
@@ -25,8 +25,8 @@ public class Filial implements Agencia{
 		}
 	
 	@Override
-	public String getCNPJ() {
-		return CNPJ;
+	public String getCnpj() {
+		return cnpj;
 	}
 
 	@Override
@@ -80,8 +80,8 @@ public class Filial implements Agencia{
 	}
 */
 	@Override
-	public void setCNPJ(String CNPJ) {
-		this.CNPJ = CNPJ;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 		
 	}
 
