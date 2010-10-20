@@ -1,7 +1,7 @@
 package veiculos;
 
 /**
- * @author Felipe José
+ * @author Felipe Josï¿½
  */
 
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ public class Automovel implements Veiculo{
 	private Agencia localizacao;
 	private String dataDeAquisicao;
 	private int nivelDoTanque;
-	private String acessoriosOpcionais;
+	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 
 	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, String cor, String tipoDeCombustivel
-					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, String acessoriosOpcionais){
+					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais){
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
@@ -32,7 +32,8 @@ public class Automovel implements Veiculo{
 		this.setMarca(marca);
 		this.setModelo(modelo);
 		this.setNivelDoTanque(nivelDoTanque);
-		this.setOpcionais(acessoriosOpcionais);
+		for (Acessorios acessorio : acessoriosOpcionais)
+			this.addOpcional(acessorio);
 		this.setRENAVAM(RENAVAM);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 	}
@@ -78,8 +79,8 @@ public class Automovel implements Veiculo{
 		// TODO
 		return null;
 	}
-	@Override
-	public String getOpcionais() {
+	
+	public ArrayList<Acessorios> getOpcionais() {
 		return acessoriosOpcionais;
 	}
 	@Override
@@ -127,9 +128,8 @@ public class Automovel implements Veiculo{
 	public void setTipoDeFreios(String tipoDeFreios) {		
 		//TODO
 	}
-	@Override
-	public void setOpcionais(String opcionais) {
-		this.acessoriosOpcionais = opcionais;
+	public void addOpcional(Acessorios acessorio) {
+		this.acessoriosOpcionais.add(acessorio);
 		
 	}	
 	@Override
@@ -218,14 +218,8 @@ public class Automovel implements Veiculo{
 		return 0;
 	}
 
-	@Override
 	public void setPotencia(int potencia) {
 		this.potencia = potencia;
 		
-	}
-
-	@Override
-	public void setCilindradas(int cilindradas) {
-		//TODO
 	}
 }
