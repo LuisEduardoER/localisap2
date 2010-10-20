@@ -17,10 +17,10 @@ import clientes.PessoaFisica;
 public class PessoaFisicaTestDriver {
 	PessoaFisica pessoa1;
 	@Before
-	public void inicio(){
+	public void inicio() throws Exception{
 		pessoa1 = new PessoaFisica();
 		pessoa1.setAgencia("agencia");
-		pessoa1.setCPF("0123456789");
+		pessoa1.setCPF("01234567891");
 		pessoa1.setEmail("filipe@teste");
 		pessoa1.setEndereco("endereco");
 		pessoa1.setNascimento("11/10/1980");
@@ -32,7 +32,7 @@ public class PessoaFisicaTestDriver {
 	
 	@Test
 	public void testaMetodosGet(){
-		Assert.assertEquals("0123456789",pessoa1.getCPF());
+		Assert.assertEquals("01234567891",pessoa1.getCPF());
 		Assert.assertEquals("agencia",pessoa1.getAgencia());
 		Assert.assertEquals("filipe@teste",pessoa1.getEmail());
 		Assert.assertEquals("endereco",pessoa1.getEndereco());
@@ -67,7 +67,7 @@ public class PessoaFisicaTestDriver {
 	}
 	*/
 	@Test
-	public void testaMetodosSet(){
+	public void testaMetodosSet() throws Exception{
 		pessoa1.setAgencia("agencia2");
 		pessoa1.setCPF("01234567890");
 		pessoa1.setEmail("filipe@teste2");
