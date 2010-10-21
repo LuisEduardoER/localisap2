@@ -4,17 +4,23 @@ import java.util.List;
 
 import veiculos.Automovel;
 import veiculos.Veiculo.Acessorios;
-
+/**
+ * @author Capitao Nascimento: Pede pra sair!
+ *
+ */
 public class PlanosAutomovel {
 	
 	private List<Automovel> listaAuto = new ArrayList<Automovel>();
 	private List<Acessorios> listaAcessorios = new ArrayList<Acessorios>();
 	private double preco;
+	private String nome;
 	/**
 	 * Construtor de um plano de automovel.
 	 * @param preco - Recebe o preco em double diario da locacao
+	 * @param nome - Recebe o nome em String do plano
 	 */
-	public PlanosAutomovel(double preco){
+	public PlanosAutomovel(String nome, double preco){
+		this.nome = nome;
 		this.preco = preco;
 	}
 	/**
@@ -23,6 +29,13 @@ public class PlanosAutomovel {
 	 */
 	public void adicionaAcessorios(Acessorios item){
 		listaAcessorios.add(item);
+	}
+	/**
+	 * Adiciona uma lista de acessorios que o plano contempla.
+	 * @param acessorios - Recebe uma lista de acessorios a serem adicionados
+	 */
+	public void adicionaListaAcessorios(List<Acessorios> acessorios){
+		this.listaAcessorios = acessorios;
 	}
 	/**
 	 * Adiciona um carro ao plano de locacao
@@ -61,11 +74,32 @@ public class PlanosAutomovel {
 		this.preco = preco;
 	}
 	/**
+	 * Permite mudar o nome do plano
+	 * @param nome - O nome em String do plano
+	 */
+	public void setNome(String nome){
+		this.nome = nome;
+	}
+	/**
 	 * Captura o preco do plano
 	 * @return - Em double o preco
 	 */
 	public double getPreco(){
 		return this.preco;
-	}	
+	}
+	/**
+	 * Captura o nome do plano
+	 * @return - Em String o nome
+	 */
+	public String getNome(){
+		return this.nome;
+	}
+	/**
+	 * Captura a lista de automoveis do plano
+	 * @return - Em List a lista
+	 */
+	public List<Automovel> getListaAutomovel(){
+		return this.listaAuto;
+	}
 	
 }
