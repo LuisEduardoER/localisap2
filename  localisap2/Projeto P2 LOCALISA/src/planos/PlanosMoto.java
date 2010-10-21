@@ -37,7 +37,7 @@ public class PlanosMoto {
 	 */
 	public void adicionaMoto(Motocicleta moto)throws Exception{
 		if (moto.getCilindradas()>cilindradas)
-			throw new Exception("A moto não atende as especicaçoes do plano");
+			throw new Exception("A moto nao atende as especicacoes do plano");
 		this.listaMoto.add(moto);
 	}
 	/**

@@ -50,7 +50,7 @@ public class PlanosAutomovel {
 				acertos++;
 		}
 		if(tamanho != acertos)
-			throw new Exception("O carro não atende as especicaçoes do plano");
+			throw new Exception("O carro nao atende as especicacoes do plano");
 		this.listaAuto.add(carro);
 		
 	}
@@ -66,6 +66,8 @@ public class PlanosAutomovel {
 			listaAuto.remove(carro);
 		}
 	}
+	
+	
 	/**
 	 * Permite mudar o preco do plano
 	 * @param preco - O preço em double do plano
@@ -84,6 +86,9 @@ public class PlanosAutomovel {
 	 * Captura o preco do plano
 	 * @return - Em double o preco
 	 */
+	
+	
+	
 	public double getPreco(){
 		return this.preco;
 	}
