@@ -1,10 +1,16 @@
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import clientes.PessoaFisica;
+import clientes.PessoaJuridica;
 
 import agencias.Agencia;
 import agencias.Filial;
 
 import funcionarios.Gerente;
+import funcionarios.Pessoas;
 
 /**
  * 
@@ -21,9 +27,11 @@ public class main {
 	private static int OPCAO_MINIMA_MENUD = 1;
 	private static int OPCAO_MAXIMA_MENUD = 3;
 	private static int STATUS_SUCCESS = 0;
-	private static ArrayList<Gerente> listaDeGerentes = new ArrayList<Gerente>();
-	private static ArrayList<Agencia> listaDeAgencias = new ArrayList<Agencia>();
-	
+	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
+	private static List<Agencia> listaDeAgencias = new ArrayList<Agencia>();
+	private static List<Pessoas> listaDeClientesPessoaFisica = new ArrayList<Pessoas>();
+	private static List<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
+
 	public static void main(String[] args) throws Exception{
 		input = new Scanner(System.in);
 		menuPrincipal();
@@ -65,7 +73,7 @@ public class main {
 	private static void menuAgencias() throws Exception{
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Agencia\n");
-		sb.append("2 - Exluir Agencia\n");
+		sb.append("2 - Excluir Agencia\n");
 		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
@@ -116,18 +124,141 @@ public class main {
 		System.out.println("A agencia foi removida com sucesso!");
 	}
 	
-	private static void menuClientes(){
+	private static void menuClientes() throws Exception{
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Cliente\n");
-		sb.append("2 - Exluir Cliente\n");
+		sb.append("2 - Excluir Cliente\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		switch(opcao){
+		case(1):
+			menuClientesTipo(1);
+			break;
+		case(2):
+			menuClientesTipo(0);
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();
+	}
+	private static void excluirClienteFisico() throws Exception {
+		if (listaDeClientesPessoaFisica.isEmpty()){
+			System.out.println("Nao ha cliente registrados.");
+			menuPrincipal();
+		}
+		for (int i = 0 ; i < listaDeClientesPessoaFisica.size() ; i++){
+			System.out.println(i+1+" - "+listaDeClientesPessoaFisica.get(i).getNome());
+		}
+		System.out.println("Qual cliente voce deseja excluir do registro?");
+		int cliente = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeClientesPessoaFisica.size())-1;
+		listaDeClientesPessoaFisica.remove(cliente);
+		System.out.println("O cliente foi removido com sucesso!");
+	}
+	private static void excluirClienteJuridico() throws Exception {
+		if (listaDeClientesPessoaJuridica.isEmpty()){
+			System.out.println("Nao ha cliente registrados.");
+			menuPrincipal();
+		}
+		for (int i = 0 ; i < listaDeClientesPessoaJuridica.size() ; i++){
+			System.out.println(i+1+" - "+listaDeClientesPessoaJuridica.get(i).getNomeFantasia());
+		}
+		System.out.println("Qual cliente voce deseja excluir do registro?");
+		int cliente = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeClientesPessoaJuridica.size())-1;
+		listaDeClientesPessoaJuridica.remove(cliente);
+		System.out.println("O cliente foi removido com sucesso!");
+	}
+
+
+	private static void menuClientesTipo(int propriedade) throws Exception{
+		sb = new StringBuilder();
+		sb.append("1 - Pessoa Fisica\n");
+		sb.append("2 - Pessoa Juridica\n");
+		System.out.println(sb.toString());
+		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		switch(opcao){
+		case(1):
+			if(propriedade ==1){
+				registrarClienteFisica();
+				break;
+			}else{
+				excluirClienteFisico();
+				break;
+			}
+		case(2):
+			if(propriedade ==1){
+				registrarClienteJuridico();
+				break;
+			}else{
+				excluirClienteJuridico();
+				break;
+			}
+		case(3):
+			break;
+		}
+		menuPrincipal();
 	}
 	
+
+
+	private static void registrarClienteJuridico() throws Exception {
+		System.out.println("Informe o CNPJ do cliente (formato: xx.xxx.xxx/xxxx-xx):");
+		String cnpj = readStringOption(">");
+		System.out.println("Informe a razao social Cliente:");
+		String razaoSocial = readStringOption(">");
+		System.out.println("Informe o nome fantasia do Cliente:");
+		String nomeFantasia = readStringOption(">");
+		System.out.println("Informe a inscricao estadual do Cliente:");
+		String inscricaoEstadual = readStringOption(">");
+		System.out.println("Informe o endereco do cliente:");
+		String endereco = readStringOption(">");
+		System.out.println("Informe o numero de telefone do cliente:");
+		String telefone = readStringOption(">");
+		System.out.println("Informe o email do cliente:");
+		String email = readStringOption(">");
+		try {
+			PessoaJuridica pessoa = new PessoaJuridica(cnpj,razaoSocial,nomeFantasia,inscricaoEstadual,endereco,telefone,email);
+			listaDeClientesPessoaJuridica.add(pessoa);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			menuPrincipal();
+		}
+		System.out.println("O cliente foi registrado com sucesso!");
+		menuPrincipal();
+	}
+
+	private static void registrarClienteFisica() throws Exception {
+		System.out.println("Informe o nome do Cliente:");
+		String nome = readStringOption(">");
+		System.out.println("Informe o cpf do Cliente:");
+		String cpf = readStringOption(">");
+		System.out.println("Informe o rg do Cliente:");
+		String rg = readStringOption(">");
+		System.out.println("Informe a data de nascimento do Cliente:");
+		String nascimento = readStringOption(">");
+		System.out.println("Informe a naturalidade do Cliente:");
+		String naturalidade = readStringOption(">");
+		System.out.println("Informe o endereco do cliente:");
+		String endereco = readStringOption(">");
+		System.out.println("Informe o numero de telefone do cliente:");
+		String telefone = readStringOption(">");
+		System.out.println("Informe o email do cliente:");
+		String email = readStringOption(">");
+		try{
+			Pessoas pessoa = new PessoaFisica(cpf,nome,rg,nascimento,naturalidade,endereco,telefone,email);
+			listaDeClientesPessoaFisica.add(pessoa);
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+			menuPrincipal();
+		}
+		System.out.println("O cliente foi registrado com sucesso!");
+		menuPrincipal();
+	}
+
 	private static void menuFuncionarios(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Funcionario\n");
-		sb.append("2 - Exluir Funcionario\n");
+		sb.append("2 - Excluir Funcionario\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 	}
@@ -135,7 +266,7 @@ public class main {
 	private static void menuPlanos(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Plano\n");
-		sb.append("2 - Exluir Plano\n");
+		sb.append("2 - Excluir Plano\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 	}
@@ -143,7 +274,7 @@ public class main {
 	private static void menuVeiculos(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Veiculo\n");
-		sb.append("2 - Exluir Veiculo\n");
+		sb.append("2 - Excluir Veiculo\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 	}
