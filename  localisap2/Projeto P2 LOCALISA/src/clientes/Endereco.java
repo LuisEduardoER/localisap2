@@ -2,7 +2,7 @@ package clientes;
 
 /**
  * 
- * @author Papai Noel
+ * @author Felipe Jose
  *
  */
 
@@ -25,6 +25,10 @@ public class Endereco {
 	    UnidadeFederativa(String nomePorExtenso) {
 			this.nomePorExtenso = nomePorExtenso;
 		}
+	    
+	    public String getNomePorExtenso(){
+	    	return this.nomePorExtenso;
+	    }
 	}
 	
 	private UnidadeFederativa estado;

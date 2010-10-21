@@ -3,6 +3,7 @@
  */
 package funcionarios;
 
+import clientes.Endereco;
 import agencias.Agencia;
 import verificacoes.ValidaCpf;
 
@@ -16,7 +17,7 @@ public class Locador implements Pessoas{
 	private String rg;
 	private String nascimento;	
 	private String naturalidade;
-	private String endereco;	
+	private Endereco endereco;	
 	private Agencia agencia;
 	private String telefone;
 	private String email;
@@ -33,7 +34,7 @@ public class Locador implements Pessoas{
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */
-	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,Agencia agencia,String telefone,String email) throws Exception{
+	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Agencia agencia,String telefone,String email) throws Exception{
 		setAgencia(agencia);
 		setCpf(cpf);
 		setEmail(email);
@@ -75,7 +76,7 @@ public class Locador implements Pessoas{
 	}
 
 	@Override
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
@@ -177,9 +178,7 @@ public class Locador implements Pessoas{
 	}
 
 	@Override
-	public void setEndereco(String endereco) throws Exception{
-		if(endereco.length()==0)
-			throw new Exception("O endereco nao deve ser vazio");
+	public void setEndereco(Endereco endereco) throws Exception{
 		this.endereco = endereco;
 		
 	}

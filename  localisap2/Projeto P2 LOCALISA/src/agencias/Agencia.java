@@ -1,5 +1,6 @@
 package agencias;
 
+import clientes.Endereco;
 import funcionarios.Gerente;
 
 /**
@@ -14,7 +15,7 @@ public interface Agencia {
 	 * @return - Em String o CPNJ
 	 */
 	String getCnpj();
-	String getEndereco();
+	Endereco getEndereco();
 	/**
 	 * Metodo para capturar o telefone de uma agencia
 	 * @return - Em String o telefone
@@ -30,15 +31,14 @@ public interface Agencia {
 	 * @return - Em Gerente o gerente de uma agencia
 	 */
 	Gerente getGerenteResponsavel();
-
+	
 	/**
 	 * Permite mudar o CPNJ
 	 * @param CPNJ - Recebe como String o CPNJ
 	 * @throws Exception - Erro de cpf invalido
 	 */	
 	void setCnpj(String cnpj) throws Exception;
-	
-	void setEndereco(String endereco)throws Exception;
+	void setEndereco(Endereco endereco)throws Exception;
 	/**
 	 * Permite mudar a inscricao estadual
 	 * @param inscricaoEstadual - Recebe como String a inscricao estadual

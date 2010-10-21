@@ -17,7 +17,7 @@ public class PessoaFisica implements Pessoas{
 	private String rg;
 	private String nascimento;	
 	private String naturalidade;
-	private String endereco;	
+	private Endereco endereco;	
 	private String telefone;
 	private String email;
 	/**
@@ -32,7 +32,7 @@ public class PessoaFisica implements Pessoas{
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */
-	public PessoaFisica(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,String telefone,String email) throws Exception{
+	public PessoaFisica(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,String telefone,String email) throws Exception{
 		setCpf(cpf);
 		setEmail(email);
 		setEndereco(endereco);
@@ -71,7 +71,7 @@ public class PessoaFisica implements Pessoas{
 	}
 
 	@Override
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
@@ -170,11 +170,8 @@ public class PessoaFisica implements Pessoas{
 	}
 
 	@Override
-	public void setEndereco(String endereco) throws Exception{
-		if(endereco.length()==0)
-			throw new Exception("O endereco nao deve ser vazio");
+	public void setEndereco(Endereco endereco){
 		this.endereco = endereco;
-		
 	}
 
 

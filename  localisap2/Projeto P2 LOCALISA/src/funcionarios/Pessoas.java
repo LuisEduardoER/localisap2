@@ -3,6 +3,7 @@
  */
 package funcionarios;
 
+import clientes.Endereco;
 import agencias.Agencia;
 
 /**
@@ -39,7 +40,7 @@ public interface Pessoas {
 	 * Metodo para capturar o endereco de uma pessoa
 	 * @return - Em String o endereco
 	 */
-	String getEndereco();
+	Endereco getEndereco();
 
 	/**
 	 * Metodo para capturar o telefone de uma pessoa
@@ -51,17 +52,6 @@ public interface Pessoas {
 	 * @return - Em String o email
 	 */
 	String getEmail();
-	/*
-	void removeCPF();
-	void removeNome();
-	void removeRG();
-	void removeNascimento();
-	void removeNaturalidade();
-	void removeEndereco();
-	void removeAgencia();
-	void removeTelefone();
-	void removeEmail();
-	*/
 	/**
 	 * Permite mudar o numero do cpf
 	 * @param cpf - Recebe como String o CPF
@@ -97,7 +87,7 @@ public interface Pessoas {
 	 * @param endereco - Recebe como String o endereco
 	 * @throws Exception - Erro de endereco com tamanho 0.
 	 */
-	void setEndereco(String endereco)throws Exception;
+	void setEndereco(Endereco endereco)throws Exception;
 
 	/**
 	 * Permite mudar o numero do telefone
