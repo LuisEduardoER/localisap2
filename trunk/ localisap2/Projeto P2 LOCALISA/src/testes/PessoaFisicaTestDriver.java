@@ -31,7 +31,7 @@ public class PessoaFisicaTestDriver {
 		filial2 = new Filial("58694458000178", endereco2, "8300004321", "56789", gerente);
 		pessoa1 = new PessoaFisica();
 		//pessoa1.setAgencia(filial1);
-		pessoa1.setCpf("01234567891");
+		pessoa1.setCpf("03468137435");
 		pessoa1.setEmail("filipe@teste");
 		pessoa1.setEndereco(endereco2);
 		pessoa1.setNascimento("11/10/1980");
@@ -43,7 +43,7 @@ public class PessoaFisicaTestDriver {
 	
 	@Test
 	public void testaMetodosGet(){
-		Assert.assertEquals("01234567891",pessoa1.getCpf());
+		Assert.assertEquals("03468137435",pessoa1.getCpf());
 		//Assert.assertEquals("agencia",pessoa1.getAgencia());
 		Assert.assertEquals("filipe@teste",pessoa1.getEmail());
 		Assert.assertEquals(endereco2,pessoa1.getEndereco());
