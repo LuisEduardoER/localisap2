@@ -14,7 +14,7 @@ public class Automovel implements Veiculo{
 	private String marca;
 	private int potencia;
 	private int ano;
-	private String cor;
+	private Cor cor;
 	private String tipoDeCombustivel;
 	private Agencia localizacao;
 	private String dataDeAquisicao;
@@ -22,7 +22,7 @@ public class Automovel implements Veiculo{
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 
-	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, String cor, String tipoDeCombustivel
+	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor, String tipoDeCombustivel
 					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais){
 		this.setAno(ano);
 		this.setCor(cor);
@@ -59,7 +59,7 @@ public class Automovel implements Veiculo{
 		return ano;
 	}
 	@Override
-	public String getCor() {
+	public Cor getCor() {
 		return cor;
 	}
 	@Override
@@ -105,7 +105,7 @@ public class Automovel implements Veiculo{
 		
 	}
 	@Override
-	public void setCor(String cor) {
+	public void setCor(Cor cor) {
 		this.cor = cor;
 		
 	}

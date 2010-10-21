@@ -16,7 +16,7 @@ public interface Veiculo {
 	int getPotencia();
 	int getCilindradas();
 	int getAno();
-	String getCor();
+	Cor getCor();
 	String getTipoDeCombustivel();
 	String getDataDeAquisicao();
 	Agencia getLocalizacao();
@@ -29,7 +29,7 @@ public interface Veiculo {
 	void setModelo(String modelo);
 	void setMarca(String marca);
 	void setAno(int ano);
-	void setCor(String cor);
+	void setCor(Cor cor);
 	void setTipoDeCombustivel(String tipoDeCombustivel);
 	void setDataDeAquisicao(String dataDeAquisicao);
 	void setLocalizacao(Agencia localizacao);

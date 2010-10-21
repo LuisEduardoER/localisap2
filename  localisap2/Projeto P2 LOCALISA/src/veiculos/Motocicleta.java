@@ -15,7 +15,7 @@ public class Motocicleta implements Veiculo{
 	private int potencia;
 	private int clilindradas;
 	private int ano;
-	private String cor;
+	private Cor cor;
 	private String tipoDeCombustivel;
 	private Agencia localizacao;
 	private String dataDeAquisicao;
@@ -23,7 +23,7 @@ public class Motocicleta implements Veiculo{
 	private String tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 	
-	public Motocicleta(String RENAVAM, String modelo, String marca, int potencia, int cilindradas, int ano, String cor, String tipoDeCombustivel
+	public Motocicleta(String RENAVAM, String modelo, String marca, int potencia, int cilindradas, int ano, Cor cor, String tipoDeCombustivel
 			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque){
 		this.setAno(ano);
 		this.setCor(cor);
@@ -59,7 +59,7 @@ public class Motocicleta implements Veiculo{
 		return ano;
 	}
 	@Override
-	public String getCor() {
+	public Cor getCor() {
 		return cor;
 	}
 	@Override
@@ -104,7 +104,7 @@ public class Motocicleta implements Veiculo{
 		
 	}
 	@Override
-	public void setCor(String cor) {
+	public void setCor(Cor cor) {
 		this.cor = cor;
 		
 	}
