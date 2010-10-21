@@ -16,9 +16,15 @@ import funcionarios.Gerente;
 
 
 /**
- * @author Saci Perere
- *
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+* 
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class GerenteTestDriver {
 	Gerente gerente;
 	Agencia filial1, filial2;
