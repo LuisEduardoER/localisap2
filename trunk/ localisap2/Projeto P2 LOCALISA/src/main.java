@@ -1,3 +1,4 @@
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -38,13 +39,14 @@ public class main {
 	
 	private static StringBuilder sb;
 	private static Scanner input;
-	private static int OPCAO_MINIMA_MENUP = 1;
-	private static int OPCAO_MAXIMA_MENUP = 6;
-	private static int OPCAO_MINIMA_MENUD = 1;
-	private static int OPCAO_MAXIMA_MENUD = 3;
-	private static int MINIMO_NIVEL_TANQUE = 1;
-	private static int MAXIMO_NIVEL_TANQUE = 100;
-	private static int STATUS_SUCCESS = 0;
+	private final static int OPCAO_MINIMA_MENUP = 1;
+	private final static int OPCAO_MAXIMA_MENUP = 6;
+	private final static int OPCAO_MINIMA_MENUD = 1;
+	private final static int OPCAO_MAXIMA_MENUD = 3;
+	private final static int MINIMO_NIVEL_TANQUE = 1;
+	private final static int MAXIMO_NIVEL_TANQUE = 100;
+	private final static int STATUS_SUCCESS = 0;
+	private final static String QUEBRA_DE_LINHA = System.getProperty("line.separator");
 
 	private static List<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
 
@@ -64,14 +66,14 @@ public class main {
 	
 	private static void menuPrincipal(){
 		sb = new StringBuilder();
-		sb.append("-== Main - Milestone 1 ==-\n");
-		sb.append("--------------------------\n");
-		sb.append("1 - Gerenciar Agencias\n");
-		sb.append("2 - Gerenciar Clientes\n");
-		sb.append("3 - Gerenciar Funcionarios\n");
-		sb.append("4 - Gerenciar Planos\n");
-		sb.append("5 - Gerenciar Veiculos\n");
-		sb.append("6 - Sair\n");
+		sb.append("-== Main - Milestone 1 ==-"+QUEBRA_DE_LINHA);
+		sb.append("--------------------------"+QUEBRA_DE_LINHA);
+		sb.append("1 - Gerenciar Agencias"+QUEBRA_DE_LINHA);
+		sb.append("2 - Gerenciar Clientes"+QUEBRA_DE_LINHA);
+		sb.append("3 - Gerenciar Funcionarios"+QUEBRA_DE_LINHA);
+		sb.append("4 - Gerenciar Planos"+QUEBRA_DE_LINHA);
+		sb.append("5 - Gerenciar Veiculos"+QUEBRA_DE_LINHA);
+		sb.append("6 - Sair"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUP, OPCAO_MAXIMA_MENUP);
 		switch(opcao){
@@ -97,9 +99,9 @@ public class main {
 	
 	private static void menuAgencias(){
 		sb = new StringBuilder();
-		sb.append("1 - Registrar Agencia\n");
-		sb.append("2 - Excluir Agencia\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Registrar Agencia"+QUEBRA_DE_LINHA);
+		sb.append("2 - Excluir Agencia"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -186,9 +188,9 @@ public class main {
 	
 	private static void menuClientes(){
 		sb = new StringBuilder();
-		sb.append("1 - Registrar Cliente\n");
-		sb.append("2 - Excluir Cliente\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Registrar Cliente"+QUEBRA_DE_LINHA);
+		sb.append("2 - Excluir Cliente"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -235,8 +237,8 @@ public class main {
 
 	private static void menuClientesTipo(int propriedade){
 		sb = new StringBuilder();
-		sb.append("1 - Pessoa Fisica\n");
-		sb.append("2 - Pessoa Juridica\n");
+		sb.append("1 - Pessoa Fisica"+QUEBRA_DE_LINHA);
+		sb.append("2 - Pessoa Juridica"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -369,9 +371,9 @@ public class main {
 
 	private static void menuFuncionarios(){
 		sb = new StringBuilder();
-		sb.append("1 - Registrar Funcionario\n");
-		sb.append("2 - Excluir Funcionario\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Registrar Funcionario"+QUEBRA_DE_LINHA);
+		sb.append("2 - Excluir Funcionario"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -389,10 +391,10 @@ public class main {
 	
 	private static void excluirFuncionario(){
 		sb = new StringBuilder();
-		sb.append("Que tipo de funcionario voce deseja apagar?\n");
-		sb.append("1 - Gerente\n");
-		sb.append("2 - Lodador\n");
-		sb.append("3 - Voltar\n");
+		sb.append("Que tipo de funcionario voce deseja apagar?"+QUEBRA_DE_LINHA);
+		sb.append("1 - Gerente"+QUEBRA_DE_LINHA);
+		sb.append("2 - Lodador"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		if (opcao == 3)
@@ -428,10 +430,10 @@ public class main {
 	private static void registrarFuncionario(){
 		Agencia ag;
 		sb = new StringBuilder();
-		sb.append("Tipo de funcionario a ser criado:\n");
-		sb.append("1 - Gerente\n");
-		sb.append("2 - Locador\n");
-		sb.append("3 - Voltar\n");
+		sb.append("Tipo de funcionario a ser criado:"+QUEBRA_DE_LINHA);
+		sb.append("1 - Gerente"+QUEBRA_DE_LINHA);
+		sb.append("2 - Locador"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int tipo = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		if (tipo == 3)
@@ -499,9 +501,9 @@ public class main {
 	
 	private static void menuPlanos(){
 		sb = new StringBuilder();
-		sb.append("1 - Registrar Plano\n");
-		sb.append("2 - Excluir Plano\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Registrar Plano"+QUEBRA_DE_LINHA);
+		sb.append("2 - Excluir Plano"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -519,9 +521,9 @@ public class main {
 	
 	private static void menuExcluiPlanos() {
 		sb = new StringBuilder();
-		sb.append("1 - Excluir Plano de Carro\n");
-		sb.append("2 - Excluir Plano de Moto\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Excluir Plano de Carro"+QUEBRA_DE_LINHA);
+		sb.append("2 - Excluir Plano de Moto"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -547,7 +549,8 @@ public class main {
 		}
 		System.out.println("Qual plano voce deseja excluir do registro?");
 		int plano = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDePlanosMoto.size())-1;
-		listaDeAgencias.remove(plano);		
+		listaDePlanosMoto.remove(plano);	
+		System.out.println("O plano foi excluido com sucesso!");
 		
 	}
 
@@ -561,15 +564,15 @@ public class main {
 		}
 		System.out.println("Qual plano voce deseja excluir do registro?");
 		int plano = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDePlanosCarros.size())-1;
-		listaDeAgencias.remove(plano);		
-		
+		listaDePlanosCarros.remove(plano);		
+		System.out.println("O plano foi excluido com sucesso!");
 	}
 
 	private static void menuRegistraPlanos() {
 		sb = new StringBuilder();
-		sb.append("1 - Registrar Plano de Carro\n");
-		sb.append("2 - Registrar Plano de Moto\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Registrar Plano de Carro"+QUEBRA_DE_LINHA);
+		sb.append("2 - Registrar Plano de Moto"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -592,6 +595,7 @@ public class main {
 		PlanosMoto plano = new PlanosMoto(nomeDoPlano,preco);
 		plano.adicionaCilindradas(cilindradas);
 		listaDePlanosMoto.add(plano);
+		System.out.println("O plano foi criado com sucesso!");
 	}
 
 	private static void registrarPlanoCarro() {
@@ -601,13 +605,14 @@ public class main {
 		PlanosAutomovel plano = new PlanosAutomovel(nomeDoPlano,preco);
 		plano.adicionaListaAcessorios(acessoriosDoPlano);
 		listaDePlanosCarros.add(plano);
+		System.out.println("O plano foi criado com sucesso!");
 	}
 
 	private static void menuVeiculos(){
 		sb = new StringBuilder();
-		sb.append("1 - Registrar Veiculo\n");
-		sb.append("2 - Excluir Veiculo\n");
-		sb.append("3 - Voltar\n");
+		sb.append("1 - Registrar Veiculo"+QUEBRA_DE_LINHA);
+		sb.append("2 - Excluir Veiculo"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -688,10 +693,10 @@ public class main {
 			menuPrincipal();
 		}
 		sb = new StringBuilder();
-		sb.append("Que tipo de veiculo voce deseja registrar?\n");
-		sb.append("1 - Carro\n");
-		sb.append("2 - Moto\n");
-		sb.append("3 - Voltar\n");
+		sb.append("Que tipo de veiculo voce deseja registrar?"+QUEBRA_DE_LINHA);
+		sb.append("1 - Carro"+QUEBRA_DE_LINHA);
+		sb.append("2 - Moto"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 
@@ -756,7 +761,7 @@ public class main {
 				System.out.println(i+1+" - " + TipoDePotencia.values()[i].toString());
 			tipoDePotencian = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDePotencia.values().length)-1;
 			tipoDePotencia = TipoDePotencia.values()[tipoDePotencian];
-			potencia =  readIntegerOptionNoLimit("Potencia da moto (em "+tipoDePotencia.toString()+": ", OPCAO_MINIMA_MENUD);
+			potencia =  readIntegerOptionNoLimit("Potencia da moto (em "+tipoDePotencia.toString()+"): ", OPCAO_MINIMA_MENUD);
 			ano =  readIntegerOptionNoLimit("Ano da moto: ", OPCAO_MINIMA_MENUD);
 			System.out.println("Cor da moto: ");
 			for (int i = 0 ; i< Cor.values().length ; i++)
@@ -803,10 +808,10 @@ public class main {
 		sb = new StringBuilder();
 		int numeroContador = 0;
 		int indexApagar;
-		sb.append("Que tipo de veiculo voce deseja excluir?");
-		sb.append("1 - Carro\n");
-		sb.append("2 - Moto\n");
-		sb.append("3 - Voltar\n");
+		sb.append("Que tipo de veiculo voce deseja excluir?"+QUEBRA_DE_LINHA);
+		sb.append("1 - Carro"+QUEBRA_DE_LINHA);
+		sb.append("2 - Moto"+QUEBRA_DE_LINHA);
+		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -819,11 +824,12 @@ public class main {
 			for (Veiculo v : listaDeVeiculos){
 				if (v instanceof Automovel) {
 					numeroContador++;
-					System.out.println(numeroContador + " - " + v.getMarca() + " " + v.getModelo() + " RENAVAM: " +v.getRenavam());
+					System.out.println(numeroContador + " - " + v.getMarca() + " " + v.getModelo() + "/ RENAVAM: " +v.getRenavam());
 				}
 			}
 			indexApagar = readIntegerOption("Qual carro sera apagado? ", OPCAO_MINIMA_MENUD, numeroContador)-1;
 			listaDeVeiculos.remove(indexApagar);
+			System.out.println("O carro foi removido com sucesso.");
 			break;
 		case(2):
 			if (!temMoto(listaDeVeiculos)){
@@ -834,11 +840,12 @@ public class main {
 			for (Veiculo v : listaDeVeiculos){
 				if (v instanceof Motocicleta) {
 					numeroContador++;
-					System.out.println(numeroContador + " - " + v.getMarca() + " " + v.getModelo() + " RENAVAM: " +v.getRenavam());
+					System.out.println(numeroContador + " - " + v.getMarca() + " " + v.getModelo() + "/ RENAVAM: " +v.getRenavam());
 				}
 			}
 			indexApagar = readIntegerOption("Qual moto sera apagada? ", OPCAO_MINIMA_MENUD, numeroContador)-1;
 			listaDeVeiculos.remove(indexApagar);
+			System.out.println("A moto foi removida com sucesso.");
 			break;
 		case(3):
 			break;
