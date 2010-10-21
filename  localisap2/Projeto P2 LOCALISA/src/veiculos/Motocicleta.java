@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import agencias.Agencia;
 
 public class Motocicleta implements Veiculo{
-	private String RENAVAM;
+	private String renavam;
 	private String modelo;
 	private String marca;
 	private int potencia;
@@ -23,7 +23,7 @@ public class Motocicleta implements Veiculo{
 	private TipoDeFreio tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 	
-	public Motocicleta(String RENAVAM, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
+	public Motocicleta(String renavam, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
 			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque){
 		this.setAno(ano);
 		this.setCor(cor);
@@ -34,13 +34,13 @@ public class Motocicleta implements Veiculo{
 		this.setNivelDoTanque(nivelDoTanque);
 		this.setPotencia(potencia);
 		this.setCilindradas(cilindradas);
-		this.setRENAVAM(RENAVAM);
+		this.setRENAVAM(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 }
 	
 	@Override
-	public String getRENAVAM() {
-		return RENAVAM;
+	public String getRenavam() {
+		return renavam;
 	}
 	@Override
 	public String getModelo() {
@@ -83,27 +83,36 @@ public class Motocicleta implements Veiculo{
 		return tipoDeFreio;
 	}
 	@Override
-	public void setRENAVAM(String RENAVAM) {
-		this.RENAVAM = RENAVAM;
+	public void setRENAVAM(String renavam) throws Exception{
+		if (renavam.length() == 0)
+			throw new Exception("Renavam de tamanho invalido");
+		this.renavam = renavam;
 		
 	}
 	@Override
-	public void setModelo(String modelo) {
+	public void setModelo(String modelo) throws Exception{
+		if (modelo.length()== 0)
+			throw new Exception("Modelo de tamanho invalido");
 		this.modelo = modelo;
 		
 	}
 	@Override
-	public void setMarca(String marca) {
+	public void setMarca(String marca) throws Exception{
+		if (marca.length()== 0)
+			throw new Exception("Marca de tamanho invalido");
 		this.marca = marca;
 		
 	}
-
-	public void setPotencia(int potencia) {
+	public void setPotencia(int potencia)throws Exception {
+		if (potencia<=0)
+			throw new Exception("A potencia deve ser maior que zero");
 		this.potencia = potencia;
 		
 	}
 	@Override
-	public void setAno(int ano) {
+	public void setAno(int ano)throws Exception{
+		if(ano<1950)
+			throw new Exception("Ano de tamanho invalido");
 		this.ano = ano;
 		
 	}
@@ -141,7 +150,9 @@ public class Motocicleta implements Veiculo{
 		return nivelDoTanque;
 	}
 	@Override
-	public void setNivelDoTanque(int nivel) {
+	public void setNivelDoTanque(int nivel) throws Exception{
+		if(nivel<=0 || nivel >100)
+			throw new Exception("O nivel do tanque deve variar ser maior que zero e menor ou igual a 100");
 		this.nivelDoTanque = nivel;
 		
 	}
@@ -150,7 +161,9 @@ public class Motocicleta implements Veiculo{
 		return this.clilindradas;
 	}
 
-	public void setCilindradas(int cilindradas) {
+	public void setCilindradas(int cilindradas)throws Exception {
+		if(cilindradas <= 0)
+			throw Exception("As cilindradas devem ser maiores que zero")
 		this.clilindradas = cilindradas;
 		
 	}
