@@ -11,6 +11,9 @@ public class ValidaCpf {
         int     digito1, digito2, resto;
         int     digitoCPF;
         String  nDigResult;
+        strCpf = strCpf.replace(".", " ");
+        strCpf = strCpf.replace("-", " ");
+        strCpf = strCpf.replace(" ", "");
         d1 = d2 = 0;
         digito1 = digito2 = resto = 0;
         for (int nCount = 1; nCount < strCpf.length() -1; nCount++)
