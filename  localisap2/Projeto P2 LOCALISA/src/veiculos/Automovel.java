@@ -5,6 +5,8 @@ package veiculos;
  */
 
 import java.util.ArrayList;
+
+import verificacoes.ValidaData;
 import agencias.Agencia;
 
 public class Automovel implements Veiculo{
@@ -22,7 +24,23 @@ public class Automovel implements Veiculo{
 	private int nivelDoTanque;
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
-
+	/**
+	 * Construtor de um automovel 
+	 * @param renavam - O renavam do veiculo
+	 * @param modelo - O modelo do veiculo
+	 * @param marca - A marca do veiculo
+	 * @param potencia - A potencia do veiculo
+	 * @param ano - O ano do veiculo
+	 * @param cor - A cor do veiculo
+	 * @param tipoDeFreio - O tipo de freio do veiculo
+	 * @param tipoDeCombustivel - O tipo de combustivel do veiculo
+	 * @param localizacao - A agencia que o veiculo estah.
+	 * @param dataDeAquisicao - A data que o veiculo foi adquirido
+	 * @param nivelDoTanque - O nivel do tanque que o veiculo estah.
+	 * @param acessoriosOpcionais - O acessorios opcionais que o veiculo tem
+	 * @param tipoDePotencia - O tipo de pontencia (hp ou cc)
+	 * @throws Exception - Erro de algum parametro errado.
+	 */
 	public Automovel(String renavam, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
 					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais,TipoDePotencia tipoDePotencia) throws Exception{
 		this.setAno(ano);
@@ -86,7 +104,10 @@ public class Automovel implements Veiculo{
 	public TipoDePotencia getTipoDePotencia() {
 		return this.tipoPotencia;
 	}
-	
+	/**
+	 * Capturar em forma de ArrayList os opcionais do automovel
+	 * @return - Em ArrayList os opcionais do automovel
+	 */
 	public ArrayList<Acessorios> getOpcionais() {
 		return acessoriosOpcionais;
 	}
@@ -131,9 +152,13 @@ public class Automovel implements Veiculo{
 	}
 	@Override
 	public void setDataDeAquisicao(String dataDeAquisicao) throws Exception{
+		ValidaData testaData = new ValidaData();
+		if(!(testaData.validar(dataDeAquisicao)))
+			throw new Exception("Data invalida");
 		this.dataDeAquisicao = dataDeAquisicao;
 		
 	}
+
 	@Override
 	public void setLocalizacao(Agencia localizacao){
 		this.localizacao = localizacao;
@@ -143,7 +168,11 @@ public class Automovel implements Veiculo{
 	public void setTipoDeFreios(TipoDeFreio tipoDeFreios){		
 		this.tipoDeFreio = tipoDeFreios;
 	}
-	public void addOpcional(Acessorios acessorio) throws Exception{
+	/**
+	 * Adiciona uma acessorio opcional ao automovel.
+	 * @param acessorio - Uma constante do enum que representa um acessorio ao automovel.
+	 */
+	public void addOpcional(Acessorios acessorio){
 		this.acessoriosOpcionais.add(acessorio);
 		
 	}	
@@ -163,7 +192,11 @@ public class Automovel implements Veiculo{
 		this.nivelDoTanque = nivel;
 		
 	}
-
+	/**
+	 * Permite mudar a potencia do automovel
+	 * @param potencia - Recebe como inteiro a potencia do automovel
+	 * @throws Exception - Erro de potencia menor ou igual a zero.
+	 */
 	public void setPotencia(int potencia)throws Exception {
 		if (potencia<=0)
 			throw new Exception("A potencia deve ser maior que zero");

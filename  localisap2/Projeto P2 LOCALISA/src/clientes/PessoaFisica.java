@@ -3,8 +3,8 @@
  */
 package clientes;
 
-import agencias.Agencia;
 import verificacoes.ValidaCpf;
+import verificacoes.ValidaData;
 import funcionarios.Pessoas;
 
 /**
@@ -27,7 +27,7 @@ public class PessoaFisica implements Pessoas{
 	 * @param rg - Recebe como String o rg
 	 * @param nascimento -  Recebe como String a data de nascimento
 	 * @param naturalidade - Recebe como String a naturalidade
-	 * @param endereco - 
+	 * @param endereco - Recebe como Endereco o endereco
 	 * @param telefone -  Recebe como String o telefone
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
@@ -157,6 +157,9 @@ public class PessoaFisica implements Pessoas{
 
 	@Override
 	public void setNascimento(String nascimento) throws Exception{
+		ValidaData testaData = new ValidaData();
+		if(!(testaData.validar(nascimento)))
+			throw new Exception("Data invalida");
 		this.nascimento = nascimento;
 		
 	}

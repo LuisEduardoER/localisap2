@@ -16,7 +16,7 @@ public class PessoaJuridica {
 	 * @param razaoSocial - Recebe como String a razao social
 	 * @param nomeFantasia - Recebe como String o nome Fantasia
 	 * @param inscricaoEstadual -  Recebe como String a inscricao estadual
-	 * @param endereco - 
+	 * @param endereco - Recebe como Endereco o endereco
 	 * @param telefone -  Recebe como String o telefone
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
@@ -84,32 +84,6 @@ public class PessoaJuridica {
 	public String getEmail() {
 		return email;
 	}
-	/*
-	public void removeCnpj() {
-		Cnpj = null;
-	}
-
-	public void removeRazaoSocial() {
-		razaoSocial = null;
-	}
-
-	public void removeNomeFantasia() {
-		nomeFantasia = null;
-	}
-
-	public void removeInscricaoEstadual() {
-		inscricaoEstadual = null;
-	}
-	public void removeEndereco() {
-		endereco = null;
-	} 
-	public void removeTelefone() {
-		telefone = null;
-	}
-	public void removeEmail() {
-		email = null;
-	}
-	*/
 	
 	/**
 	 * Permite mudar o CPNJ

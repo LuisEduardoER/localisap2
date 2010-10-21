@@ -6,7 +6,7 @@ import funcionarios.Gerente;
 
 /**
  * 
- * @author Felipe Jos�
+ * @author Felipe Jose
  *
  */
 
