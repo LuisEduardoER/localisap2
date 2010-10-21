@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import planos.PlanosAutomovel;
+import planos.PlanosMoto;
+
+import veiculos.Veiculo.Acessorios;
+
 import clientes.Endereco;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
@@ -29,6 +34,8 @@ public class main {
 	private static int OPCAO_MINIMA_MENUD = 1;
 	private static int OPCAO_MAXIMA_MENUD = 3;
 	private static int STATUS_SUCCESS = 0;
+	private static List<PlanosAutomovel> listaDePlanosCarros = new ArrayList<PlanosAutomovel>();
+	private static List<PlanosMoto> listaDePlanosMoto = new ArrayList<PlanosMoto>();
 	private static List<Locador> listaDeLocadores = new ArrayList<Locador>();
 	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
 	private static List<Agencia> listaDeAgencias = new ArrayList<Agencia>();
@@ -417,15 +424,67 @@ public class main {
 		System.out.println("Seu novo funcionario foi criado com sucesso!");
 	}
 	
-	private static void menuPlanos(){
+	private static void menuPlanos() throws Exception{
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Plano\n");
 		sb.append("2 - Excluir Plano\n");
 		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		if(opcao ==1)
+			menuRegistraPlanos();
+		if(opcao ==2)
+			menuExcluiPlanos();
+		if(opcao ==3)
+			menuPrincipal();
 	}
 	
+	private static void menuExcluiPlanos() {
+		sb = new StringBuilder();
+		sb.append("1 - Excluir Plano de Carro\n");
+		sb.append("2 - Excluir Plano de Moto\n");
+		sb.append("3 - Voltar\n");
+		System.out.println(sb.toString());
+		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		if(opcao ==1)
+			excluirPlanoDeCarro();
+		if(opcao == 2 )
+			excluirPlanoDeMoto();
+	}
+
+	private static void menuRegistraPlanos() {
+		sb = new StringBuilder();
+		sb.append("1 - Registrar Plano de Carro\n");
+		sb.append("2 - Registrar Plano de Moto\n");
+		sb.append("3 - Voltar\n");
+		System.out.println(sb.toString());
+		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		if(opcao ==1)	
+			registrarPlanoCarro();
+		if(opcao ==2)
+			registrarPlanoMoto();
+		if(opcao ==3)
+			
+	}
+
+	private static void registrarPlanoMoto() {
+		String nomeDoPlano = readStringOption("Nome do plano:");
+		double preco = readDoubleOptionNoLimit("Preco: ", 0);
+		int cilindradas = readIntegerOptionNoLimit("Cilindradas maxima:", 0);
+		PlanosMoto plano = new PlanosMoto(nomeDoPlano,preco);
+		plano.adicionaCilindradas(cilindradas);
+		listaDePlanosMoto.add(plano);
+	}
+
+	private static void registrarPlanoCarro() {
+		String nomeDoPlano = readStringOption("Nome do plano:");
+		double preco = readDoubleOptionNoLimit("Preco: ", 0);
+		List<Acessorios> acessoriosDoPlano = pegarAcessorios();
+		PlanosAutomovel plano = new PlanosAutomovel(nomeDoPlano,preco);
+		plano.adicionaListaAcessorios(acessoriosDoPlano);
+		listaDePlanosCarros.add(plano);
+	}
+
 	private static void menuVeiculos(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Veiculo\n");
@@ -457,6 +516,20 @@ public class main {
 				Integer number = 0;
 				do {
 					number = Integer.valueOf(input.nextLine());
+				}while(number < lowerLimit);
+				return number;
+			}catch (NumberFormatException nfe) {
+				// Just to avoid crashing in the user's face.
+			}
+		}
+	}
+	private static double readDoubleOptionNoLimit(String message, int lowerLimit) {
+		while(true){
+			try{
+				System.out.print(message);
+				double number = 0;
+				do {
+					number = Double.valueOf(input.nextLine());
 				}while(number < lowerLimit);
 				return number;
 			}catch (NumberFormatException nfe) {
