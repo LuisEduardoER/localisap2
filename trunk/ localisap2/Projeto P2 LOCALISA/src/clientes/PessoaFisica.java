@@ -123,8 +123,8 @@ public class PessoaFisica implements Pessoas{
 	@Override
 	public void setCpf(String cpf) throws Exception{
 		ValidaCpf testeCpf = new ValidaCpf();
-		if(!(testeCpf.validacpf(cpf)))
-			throw new Exception("Um cpf valido deve ter onze numeros");
+		if(!(testeCpf.valida(cpf)))
+			throw new Exception("CPF invalido.");
 		this.cpf = cpf;
 		
 	}

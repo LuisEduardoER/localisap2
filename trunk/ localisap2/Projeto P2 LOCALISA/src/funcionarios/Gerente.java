@@ -128,8 +128,8 @@ public class Gerente implements Pessoas{
 	@Override
 	public void setCpf(String cpf) throws Exception{
 		ValidaCpf testeCpf = new ValidaCpf();
-		if(!(testeCpf.validacpf(cpf)))
-			throw new Exception("Um cpf valido deve ter onze numeros");
+		if(!(testeCpf.valida(cpf)))
+			throw new Exception("CPF invalido.");
 		this.cpf = cpf;
 		
 	}
@@ -187,7 +187,7 @@ public class Gerente implements Pessoas{
 
 	@Override
 	public void setEmail(String email) throws Exception{
-		if (email.contains("@")||email.length()==0)
+		if (!email.contains("@") || email.length()==0)
 			throw new Exception("O email deve conter @ e ser maior que 3");
 
 		this.email = email;

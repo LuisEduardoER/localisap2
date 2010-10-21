@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +9,7 @@ import agencias.Agencia;
 import agencias.Filial;
 
 import funcionarios.Gerente;
+import funcionarios.Locador;
 import funcionarios.Pessoas;
 
 /**
@@ -27,6 +27,7 @@ public class main {
 	private static int OPCAO_MINIMA_MENUD = 1;
 	private static int OPCAO_MAXIMA_MENUD = 3;
 	private static int STATUS_SUCCESS = 0;
+	private static List<Locador> listaDeLocadores = new ArrayList<Locador>();
 	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
 	private static List<Agencia> listaDeAgencias = new ArrayList<Agencia>();
 	private static List<Pessoas> listaDeClientesPessoaFisica = new ArrayList<Pessoas>();
@@ -90,6 +91,10 @@ public class main {
 	}
 	
 	private static void registrarAgencia() throws Exception{
+		if (listaDeGerentes.isEmpty()){
+			System.out.println("Voce deve ter gerentes cadastrados para criar uma agencia.");
+			menuPrincipal();
+		}
 		System.out.println("Informe o CNPJ da filial (formato: xx.xxx.xxx/xxxx-xx):");
 		String cnpj = readStringOption(">");
 		System.out.println("Informe o endereco da nova filial:");
@@ -102,9 +107,8 @@ public class main {
 		for (int i = 0 ; i<listaDeGerentes.size(); i++){
 			System.out.println(i+1+" - "+listaDeGerentes.get(i).getNome());
 		}
-		System.out.println(listaDeGerentes.size()+1+ " - Nenhum gerente inicialmente");
 		System.out.println("Qual gerente sera responsavel pela agencia?");
-		int gerente = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeGerentes.size()+1)-1;
+		int gerente = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeGerentes.size())-1;
 		Gerente g = listaDeGerentes.get(gerente);
 		listaDeAgencias.add(new Filial(cnpj, endereco, telefone, inscEstadual, g));
 		System.out.println("A sua agencia foi registrada com sucesso!");
@@ -128,6 +132,7 @@ public class main {
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Cliente\n");
 		sb.append("2 - Excluir Cliente\n");
+		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
@@ -142,6 +147,7 @@ public class main {
 		}
 		menuPrincipal();
 	}
+	
 	private static void excluirClienteFisico() throws Exception {
 		if (listaDeClientesPessoaFisica.isEmpty()){
 			System.out.println("Nao ha cliente registrados.");
@@ -155,6 +161,7 @@ public class main {
 		listaDeClientesPessoaFisica.remove(cliente);
 		System.out.println("O cliente foi removido com sucesso!");
 	}
+	
 	private static void excluirClienteJuridico() throws Exception {
 		if (listaDeClientesPessoaJuridica.isEmpty()){
 			System.out.println("Nao ha cliente registrados.");
@@ -255,18 +262,106 @@ public class main {
 		menuPrincipal();
 	}
 
-	private static void menuFuncionarios(){
+	private static void menuFuncionarios() throws Exception{
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Funcionario\n");
 		sb.append("2 - Excluir Funcionario\n");
+		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		switch(opcao){
+		case(1):
+			registrarFuncionario();
+			break;
+		case(2):
+			excluirFuncionario();
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();
+	}
+	
+	private static void excluirFuncionario() throws Exception{
+		sb = new StringBuilder();
+		sb.append("Que tipo de funcionario voce deseja apagar?");
+		sb.append("1 - Gerente\n");
+		sb.append("2 - Lodador\n");
+		sb.append("3 - Voltar\n");
+		System.out.println(sb.toString());
+		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		if (opcao == 3)
+			menuPrincipal();
+		
+		if (opcao == 1){
+			if(listaDeGerentes.size()<=0){
+				System.out.println("Nao ha gerentes cadastrados.");
+				menuPrincipal();
+			}
+			System.out.println("Lista de gerentes:");
+			for (int i = 0 ; i<listaDeGerentes.size() ; i++)
+				System.out.println(i+1+" - "+listaDeGerentes.get(i).getNome());
+			int del = readIntegerOption("Qual gerente voce deseja deletar? ",OPCAO_MINIMA_MENUD, listaDeGerentes.size())-1;
+			listaDeGerentes.remove(del);
+		}
+		
+		if (opcao == 2){
+			if(listaDeLocadores.size()<=0){
+				System.out.println("Nao ha locadores cadastrados.");
+				menuPrincipal();
+			}
+			System.out.println("Lista de locadores:");
+			for (int i = 0 ; i<listaDeLocadores.size() ; i++)
+				System.out.println(i+1+" - "+listaDeLocadores.get(i).getNome());
+			int del = readIntegerOption("Qual locador voce deseja deletar? ",OPCAO_MINIMA_MENUD, listaDeLocadores.size())-1;
+			listaDeLocadores.remove(del);
+		}
+		System.out.println("O funcionario foi deletado com sucesso!");
+		menuPrincipal();
+	}
+	
+	private static void registrarFuncionario() throws Exception{
+		Agencia ag;
+		sb = new StringBuilder();
+		sb.append("Tipo de funcionario a ser criado:\n");
+		sb.append("1 - Gerente\n");
+		sb.append("2 - Locador\n");
+		sb.append("3 - Voltar\n");
+		System.out.println(sb.toString());
+		int tipo = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		if (tipo == 3)
+			menuPrincipal();
+		String nome = readStringOption("Nome: ");
+		String cpf = readStringOption("CPF: ");
+		String rg = readStringOption("RG: ");
+		String naturalidade = readStringOption("Naturalidade: ");
+		String endereco = readStringOption("Endereço: ");
+		String email = readStringOption("E-Mail: ");
+		String nascimento = readStringOption("Data de nascimento: ");
+		String telefone = readStringOption("Telefone: ");
+		if (listaDeAgencias.size()>0){
+			System.out.println("Lista de agencias disponiveis para seu funcionario trabalhar:");
+			for (int i=0 ; i < listaDeAgencias.size() ; i++){
+				System.out.println(i+1+" - "+listaDeAgencias.get(i).getEndereco());
+			}
+			int agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
+			ag = listaDeAgencias.get(agencia);
+		}else{
+			System.out.println("Nao ha agencias disponiveis para seu funcionario trabalhar no momento.");
+			ag = null;
+		}
+		if (tipo == 1)
+			listaDeGerentes.add(new Gerente(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+		else
+			listaDeLocadores.add(new Locador(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+		System.out.println("Seu novo funcionario foi criado com sucesso!");
 	}
 	
 	private static void menuPlanos(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Plano\n");
 		sb.append("2 - Excluir Plano\n");
+		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 	}
@@ -275,6 +370,7 @@ public class main {
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Veiculo\n");
 		sb.append("2 - Excluir Veiculo\n");
+		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 	}
