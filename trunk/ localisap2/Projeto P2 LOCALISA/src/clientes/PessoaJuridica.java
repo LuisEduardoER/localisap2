@@ -114,7 +114,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o CPNJ
 	 * @param CPNJ - Recebe como String o CPNJ
-	 * @throws Exception 
+	 * @throws Exception - Erro de cpf invalido
 	 */	 
 	public void setCnpj(String cnpj) throws Exception {
 		ValidaCnpj testeCpnj = new ValidaCnpj();
@@ -163,7 +163,6 @@ public class PessoaJuridica {
 	 * Permite mudar o endereco
 	 * @param endereco - Recebe como String o endereco
 	 */
-
 	public void setEndereco(String endereco) throws Exception{
 		if(endereco.length()==0)
 			throw new Exception("O endereco nao deve ser vazio");

@@ -16,7 +16,15 @@ public class Filial implements Agencia{
 	private String telefone;
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
-	
+	/**
+	 * Construtor que cria uma Agencia
+	 * @param cnpj - Recebe como String o cnpj
+	 * @param endereco
+	 * @param telefone - Recebe como String o telefone
+	 * @param inscEstadual - Recebe como String a inscricao estadual
+	 * @param gerenteResponsavel - Recebe como Gerente  o gerente responsavel pela adm da agencia
+	 * @throws Exception - Erros de parametros errados vide sets.
+	 */
 	public Filial(String cnpj, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel) throws Exception{
 		this.setCnpj(cnpj);
 		this.setEndereco(endereco);
