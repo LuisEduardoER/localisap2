@@ -52,7 +52,7 @@ public class MotocicletaTestDriver {
 		moto.setRenavam("NovoRenavam");
 		moto.setModelo("NovoModelo");
 		moto.setMarca("NovaMarca");
-		moto.setTipoDePotencia(TipoDePotencia.CC);
+		moto.setTipoDePotencia(TipoDePotencia.CV);
 		moto.setPotencia(1500);
 		moto.setCilindradas(1000);
 		moto.setAno(2005);
@@ -65,7 +65,7 @@ public class MotocicletaTestDriver {
 		Assert.assertEquals("NovoRenavam", moto.getRenavam());
 		Assert.assertEquals("NovoModelo", moto.getModelo());
 		Assert.assertEquals("NovaMarca", moto.getMarca());
-		Assert.assertEquals(TipoDePotencia.CC, moto.getTipoDePotencia());
+		Assert.assertEquals(TipoDePotencia.CV, moto.getTipoDePotencia());
 		Assert.assertEquals(1500, moto.getPotencia());
 		Assert.assertEquals(1000, moto.getCilindradas());
 		Assert.assertEquals(2005, moto.getAno());

@@ -36,7 +36,7 @@ public class PessoaJuridicaTestDriver {
 		Assert.assertEquals("30851837000105",empresa.getCnpj());
 		Assert.assertEquals("LocaLisa",empresa.getRazaoSocial());
 		Assert.assertEquals("filipe@teste",empresa.getEmail());
-		Assert.assertEquals("endereco",empresa.getEndereco());
+		Assert.assertEquals(endereco,empresa.getEndereco());
 		Assert.assertEquals("Fantasia",empresa.getNomeFantasia());
 		Assert.assertEquals("123456",empresa.getInscricaoEstadual());
 		Assert.assertEquals("8333311111",empresa.getTelefone());
