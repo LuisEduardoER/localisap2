@@ -23,8 +23,8 @@ public class SeguroTestDriver {
 	
 	@Before
 	public void inicio() throws Exception {
-		planoA = new PlanosAutomovel(55.00);
-		planoB = new PlanosMoto(35.00);
+		planoA = new PlanosAutomovel("Plano A", 55.00);
+		planoB = new PlanosMoto("Plano B", 35.00);
 		
 		seguroA1 = new Seguro(true, planoA);
 		seguroA2 = new Seguro(false, planoA);
