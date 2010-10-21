@@ -10,28 +10,30 @@ import org.junit.Test;
 import agencias.Agencia;
 import agencias.Filial;
 
+import clientes.Endereco;
 import clientes.PessoaFisica;
 import funcionarios.Gerente;
 
 
 /**
- * @author Filipe de Alencar Ramos
+ * @author Pinoquio
  *
  */
 public class PessoaFisicaTestDriver {
 	PessoaFisica pessoa1;
 	Agencia filial1, filial2;
 	Gerente gerente;
+	Endereco endereco, endereco2;
 	
 	@Before
 	public void inicio() throws Exception{
-		filial1 = new Filial("51851873000149", "Aqui em casa", "8333331234", "01234", gerente);
-		filial2 = new Filial("58694458000178", "Lah no japao", "8300004321", "56789", gerente);
+		filial1 = new Filial("51851873000149", endereco, "8333331234", "01234", gerente);
+		filial2 = new Filial("58694458000178", endereco2, "8300004321", "56789", gerente);
 		pessoa1 = new PessoaFisica();
 		//pessoa1.setAgencia(filial1);
 		pessoa1.setCpf("01234567891");
 		pessoa1.setEmail("filipe@teste");
-		pessoa1.setEndereco("endereco");
+		pessoa1.setEndereco(endereco2);
 		pessoa1.setNascimento("11/10/1980");
 		pessoa1.setNaturalidade("Paraiba");
 		pessoa1.setNome("Filipe");
@@ -44,7 +46,7 @@ public class PessoaFisicaTestDriver {
 		Assert.assertEquals("01234567891",pessoa1.getCpf());
 		//Assert.assertEquals("agencia",pessoa1.getAgencia());
 		Assert.assertEquals("filipe@teste",pessoa1.getEmail());
-		Assert.assertEquals("endereco",pessoa1.getEndereco());
+		Assert.assertEquals(endereco2,pessoa1.getEndereco());
 		Assert.assertEquals("11/10/1980",pessoa1.getNascimento());
 		Assert.assertEquals("Paraiba",pessoa1.getNaturalidade());
 		Assert.assertEquals("Filipe",pessoa1.getNome());
@@ -80,7 +82,7 @@ public class PessoaFisicaTestDriver {
 		//pessoa1.setAgencia("agencia2");
 		pessoa1.setCpf("01234567890");
 		pessoa1.setEmail("filipe@teste2");
-		pessoa1.setEndereco("endereco2");
+		pessoa1.setEndereco(endereco);
 		pessoa1.setNascimento("10/10/1980");
 		pessoa1.setNaturalidade("Sao Paulo");
 		pessoa1.setNome("Filipe A");
@@ -89,7 +91,7 @@ public class PessoaFisicaTestDriver {
 		Assert.assertEquals("01234567890",pessoa1.getCpf());
 		//Assert.assertEquals("agencia2",pessoa1.getAgencia());
 		Assert.assertEquals("filipe@teste2",pessoa1.getEmail());
-		Assert.assertEquals("endereco2",pessoa1.getEndereco());
+		Assert.assertEquals(endereco,pessoa1.getEndereco());
 		Assert.assertEquals("10/10/1980",pessoa1.getNascimento());
 		Assert.assertEquals("Sao Paulo",pessoa1.getNaturalidade());
 		Assert.assertEquals("Filipe A",pessoa1.getNome());
