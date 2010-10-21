@@ -54,29 +54,7 @@ public class PessoaFisicaTestDriver {
 		Assert.assertEquals("8333311111",pessoa1.getTelefone());
 		
 	}
-	/*
-	@Test
-	public void testaMetodosRemove(){
-		pessoa1.removeAgencia();
-		pessoa1.removeCPF();
-		pessoa1.removeEmail();
-		pessoa1.removeEndereco();
-		pessoa1.removeNascimento();
-		pessoa1.removeNaturalidade();
-		pessoa1.removeNome();
-		pessoa1.removeRG();
-		pessoa1.removeTelefone();
-		Assert.assertEquals(null,pessoa1.getCPF());
-		Assert.assertEquals(null,pessoa1.getAgencia());
-		Assert.assertEquals(null,pessoa1.getEmail());
-		Assert.assertEquals(null,pessoa1.getEndereco());
-		Assert.assertEquals(null,pessoa1.getNascimento());
-		Assert.assertEquals(null,pessoa1.getNaturalidade());
-		Assert.assertEquals(null,pessoa1.getNome());
-		Assert.assertEquals(null,pessoa1.getRG());
-		Assert.assertEquals(null,pessoa1.getTelefone());
-	}
-	*/
+
 	@Test
 	public void testaMetodosSet() throws Exception{
 		//pessoa1.setAgencia("agencia2");

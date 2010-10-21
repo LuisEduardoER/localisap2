@@ -52,29 +52,7 @@ public class GerenteTestDriver {
 		Assert.assertEquals("8333311111",gerente.getTelefone());
 		
 	}
-/*
-	@Test
-	public void testaMetodosRemove(){
-	gerente.removeAgencia();
-		gerente.removeCPF();
-		gerente.removeEmail();
-		gerente.removeEndereco();
-		gerente.removeNascimento();
-		gerente.removeNaturalidade();
-		gerente.removeNome();
-		gerente.removeRG();
-		gerente.removeTelefone();
-		Assert.assertEquals(null,gerente.getCPF());
-		Assert.assertEquals(null,gerente.getAgencia());
-		Assert.assertEquals(null,gerente.getEmail());
-		Assert.assertEquals(null,gerente.getEndereco());
-		Assert.assertEquals(null,gerente.getNascimento());
-		Assert.assertEquals(null,gerente.getNaturalidade());
-		Assert.assertEquals(null,gerente.getNome());
-		Assert.assertEquals(null,gerente.getRG());
-		Assert.assertEquals(null,gerente.getTelefone());
-	}
-	*/
+
 	@Test
 	public void testaMetodosSet() throws Exception{
 		gerente.setAgencia(filial2);
