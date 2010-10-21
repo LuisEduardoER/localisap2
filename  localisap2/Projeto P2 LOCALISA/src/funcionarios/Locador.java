@@ -21,6 +21,18 @@ public class Locador implements Pessoas{
 	private String telefone;
 	private String email;
 
+	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,Agencia agencia,String telefone,String email) throws Exception{
+		setAgencia(agencia);
+		setCpf(cpf);
+		setEmail(email);
+		setEndereco(endereco);
+		setNascimento(nascimento);
+		setNaturalidade(naturalidade);
+		setNome(nome);
+		setRg(rg);
+		setTelefone(telefone);
+	}
+
 	@Override
 	public String getCpf() {
 		return cpf;
@@ -114,8 +126,8 @@ public class Locador implements Pessoas{
 	@Override
 	public void setCpf(String cpf) throws Exception{
 		ValidaCpf testeCpf = new ValidaCpf();
-		if(!(testeCpf.validacpf(cpf)))
-			throw new Exception("Um cpf valido deve ter onze numeros");
+		if(!(testeCpf.valida(cpf)))
+			throw new Exception("CPF invalido.");
 		this.cpf = cpf;
 		
 	}
@@ -172,7 +184,7 @@ public class Locador implements Pessoas{
 
 	@Override
 	public void setEmail(String email) throws Exception{
-		if (email.contains("@")||email.length()==0)
+		if (!email.contains("@")||email.length()==0)
 			throw new Exception("O email deve conter @ e ser maior que 3");
 
 		this.email = email;
