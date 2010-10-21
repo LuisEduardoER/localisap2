@@ -1,7 +1,7 @@
 package veiculos;
 
 /**
- * @author Felipe Jose
+ * @author Lobo Mau
  */
 
 import java.util.ArrayList;
@@ -53,6 +53,7 @@ public class Motocicleta implements Veiculo{
 		this.setCilindradas(cilindradas);
 		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
+		this.setTipoDePotencia(tipoPotencia);
 }
 	
 	@Override
@@ -174,13 +175,6 @@ public class Motocicleta implements Veiculo{
 	public int getNivelDoTanque() {
 		return nivelDoTanque;
 	}
-	@Override
-	public void setNivelDoTanque(int nivel) throws Exception{
-		if(nivel<0 || nivel >100)
-			throw new Exception("O nivel do tanque deve  ser maior  ou igual a zero e menor ou igual a 100");
-		this.nivelDoTanque = nivel;
-		
-	}
 	/**
 	 * Metodo que captura as cilindradas da motocicleta
 	 * @return - Retorna como int as cilindradas
@@ -188,6 +182,15 @@ public class Motocicleta implements Veiculo{
 	public int getCilindradas() {
 		return this.clilindradas;
 	}
+	
+	@Override
+	public void setNivelDoTanque(int nivel) throws Exception{
+		if(nivel<0 || nivel >100)
+			throw new Exception("O nivel do tanque deve  ser maior  ou igual a zero e menor ou igual a 100");
+		this.nivelDoTanque = nivel;
+		
+	}
+
 	/**
 	 * Permite mudar as cilindradas da motocicleta
 	 * @param cilindradas - Recebe como int as cilindradas
