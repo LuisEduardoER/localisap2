@@ -1,7 +1,7 @@
 package veiculos;
 
 /**
- * @author Felipe Jos�
+ * @author Felipe Jose
  */
 
 import java.util.ArrayList;
@@ -13,17 +13,18 @@ public class Motocicleta implements Veiculo{
 	private String modelo;
 	private String marca;
 	private int potencia;
+	private TipoDePotencia tipoPotencia;
 	private int clilindradas;
 	private int ano;
 	private Cor cor;
-	private String tipoDeCombustivel;
+	private TipoDeCombustivel tipoDeCombustivel;
 	private Agencia localizacao;
 	private String dataDeAquisicao;
 	private int nivelDoTanque;
 	private String tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 	
-	public Motocicleta(String RENAVAM, String modelo, String marca, int potencia, int cilindradas, int ano, Cor cor, String tipoDeCombustivel
+	public Motocicleta(String RENAVAM, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
 			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque){
 		this.setAno(ano);
 		this.setCor(cor);
@@ -55,6 +56,10 @@ public class Motocicleta implements Veiculo{
 		return potencia;
 	}
 	@Override
+	public TipoDePotencia getTipoDePotencia() {
+		return this.tipoPotencia;
+	}
+	@Override
 	public int getAno() {
 		return ano;
 	}
@@ -63,7 +68,7 @@ public class Motocicleta implements Veiculo{
 		return cor;
 	}
 	@Override
-	public String getTipoDeCombustivel() {
+	public TipoDeCombustivel getTipoDeCombustivel() {
 		return tipoDeCombustivel;
 	}
 	@Override
@@ -109,7 +114,7 @@ public class Motocicleta implements Veiculo{
 		
 	}
 	@Override
-	public void setTipoDeCombustivel(String tipoDeCombustivel) {
+	public void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel) {
 		this.tipoDeCombustivel = tipoDeCombustivel;
 		
 	}
@@ -132,73 +137,6 @@ public class Motocicleta implements Veiculo{
 		// TODO Auto-generated method stub
 		
 	}
-	/*
-	@Override
-	public void removeLocacao() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void removeRENAVAM() {
-		this.RENAVAM = null;
-		
-	}
-	@Override
-	public void removeModelo() {
-		this.modelo = null;
-		
-	}
-	@Override
-	public void removeMarca() {
-		this.marca = null;
-		
-	}
-	@Override
-	public void removePotencia() {
-		this.potencia = null;
-		
-	}
-	@Override
-	public void removeAno() {
-		this.ano = 0;
-		
-	}
-	@Override
-	public void removeCor() {
-		this.cor = null;
-		
-	}
-	@Override
-	public void removeTipoDeCombustivel() {
-		this.tipoDeCombustivel = null;
-		
-	}
-	@Override
-	public void removeDataDeAquisicao() {
-		this.dataDeAquisicao = null;
-		
-	}
-	@Override
-	public void removeLocalizacao() {
-		this.localizacao = null;
-		
-	}
-	@Override
-	public void removeTipoDeFreios() {
-		this.tipoDeFreio = null;
-		
-	}
-	@Override
-	public void removeOpcionais() {
-		//TODO
-		
-	}
-	@Override
-	public void removeNivelDoTanque() {
-		this.nivelDoTanque = 0;
-		
-	}
-	*/
 	@Override
 	public int getNivelDoTanque() {
 		return nivelDoTanque;
@@ -209,7 +147,6 @@ public class Motocicleta implements Veiculo{
 		
 	}
 
-	@Override
 	public int getCilindradas() {
 		return this.clilindradas;
 	}
@@ -217,5 +154,10 @@ public class Motocicleta implements Veiculo{
 	public void setCilindradas(int cilindradas) {
 		this.clilindradas = cilindradas;
 		
+	}
+
+	@Override
+	public void setTipoDePotencia(TipoDePotencia tipoPotencia) {
+		this.tipoPotencia = tipoPotencia;
 	}
 }

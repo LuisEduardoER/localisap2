@@ -12,17 +12,18 @@ public class Automovel implements Veiculo{
 	private String RENAVAM;
 	private String modelo;
 	private String marca;
+	private TipoDePotencia tipoPotencia;
 	private int potencia;
 	private int ano;
 	private Cor cor;
-	private String tipoDeCombustivel;
+	private TipoDeCombustivel tipoDeCombustivel;
 	private Agencia localizacao;
 	private String dataDeAquisicao;
 	private int nivelDoTanque;
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 
-	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor, String tipoDeCombustivel
+	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
 					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais){
 		this.setAno(ano);
 		this.setCor(cor);
@@ -63,7 +64,7 @@ public class Automovel implements Veiculo{
 		return cor;
 	}
 	@Override
-	public String getTipoDeCombustivel() {
+	public TipoDeCombustivel getTipoDeCombustivel() {
 		return tipoDeCombustivel;
 	}
 	@Override
@@ -78,6 +79,11 @@ public class Automovel implements Veiculo{
 	public String getTipoDeFreios() {
 		// TODO
 		return null;
+	}
+	
+	@Override
+	public TipoDePotencia getTipoDePotencia() {
+		return this.tipoPotencia;
 	}
 	
 	public ArrayList<Acessorios> getOpcionais() {
@@ -110,7 +116,7 @@ public class Automovel implements Veiculo{
 		
 	}
 	@Override
-	public void setTipoDeCombustivel(String tipoDeCombustivel) {
+	public void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel) {
 		this.tipoDeCombustivel = tipoDeCombustivel;
 		
 	}
@@ -137,73 +143,6 @@ public class Automovel implements Veiculo{
 		// TODO Auto-generated method stub
 		
 	}
-	/*
-	@Override
-	public void removeLocacao() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void removeRENAVAM() {
-		this.RENAVAM = null;
-		
-	}
-	@Override
-	public void removeModelo() {
-		this.modelo = null;
-		
-	}
-	@Override
-	public void removeMarca() {
-		this.marca = null;
-		
-	}
-	@Override
-	public void removePotencia() {
-		this.potencia = null;
-		
-	}
-	@Override
-	public void removeAno() {
-		this.ano = 0;
-		
-	}
-	@Override
-	public void removeCor() {
-		this.cor = null;
-		
-	}
-	@Override
-	public void removeTipoDeCombustivel() {
-		this.tipoDeCombustivel = null;
-		
-	}
-	@Override
-	public void removeDataDeAquisicao() {
-		this.dataDeAquisicao = null;
-		
-	}
-	@Override
-	public void removeLocalizacao() {
-		this.localizacao = null;
-		
-	}
-	@Override
-	public void removeTipoDeFreios() {
-		//TODO
-		
-	}
-	@Override
-	public void removeOpcionais() {
-		this.acessoriosOpcionais = null;
-		
-	}
-	@Override
-	public void removeNivelDoTanque() {
-		this.nivelDoTanque = 0;
-		
-	}
-	*/
 	@Override
 	public int getNivelDoTanque() {
 		return nivelDoTanque;
@@ -213,13 +152,15 @@ public class Automovel implements Veiculo{
 		this.nivelDoTanque = nivel;
 		
 	}
-	@Override
-	public int getCilindradas() {
-		return 0;
-	}
 
 	public void setPotencia(int potencia) {
 		this.potencia = potencia;
+		
+	}
+
+	@Override
+	public void setTipoDePotencia(TipoDePotencia tipoPotencia) {
+		this.tipoPotencia = tipoPotencia;
 		
 	}
 }
