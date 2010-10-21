@@ -44,6 +44,10 @@ public class Locador implements Pessoas{
 		setRg(rg);
 		setTelefone(telefone);
 	}
+	
+	public Locador(){
+		
+	}
 
 	@Override
 	public String getCpf() {
