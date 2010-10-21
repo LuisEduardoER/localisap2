@@ -24,7 +24,7 @@ public class Motocicleta implements Veiculo{
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 	
 	public Motocicleta(String renavam, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
-			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque){
+			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
@@ -34,7 +34,7 @@ public class Motocicleta implements Veiculo{
 		this.setNivelDoTanque(nivelDoTanque);
 		this.setPotencia(potencia);
 		this.setCilindradas(cilindradas);
-		this.setRENAVAM(renavam);
+		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 }
 	
@@ -83,7 +83,7 @@ public class Motocicleta implements Veiculo{
 		return tipoDeFreio;
 	}
 	@Override
-	public void setRENAVAM(String renavam) throws Exception{
+	public void setRenavam(String renavam) throws Exception{
 		if (renavam.length() == 0)
 			throw new Exception("Renavam de tamanho invalido");
 		this.renavam = renavam;
@@ -151,8 +151,8 @@ public class Motocicleta implements Veiculo{
 	}
 	@Override
 	public void setNivelDoTanque(int nivel) throws Exception{
-		if(nivel<=0 || nivel >100)
-			throw new Exception("O nivel do tanque deve variar ser maior que zero e menor ou igual a 100");
+		if(nivel<0 || nivel >100)
+			throw new Exception("O nivel do tanque deve  ser maior  ou igual a zero e menor ou igual a 100");
 		this.nivelDoTanque = nivel;
 		
 	}
@@ -161,11 +161,10 @@ public class Motocicleta implements Veiculo{
 		return this.clilindradas;
 	}
 
-	public void setCilindradas(int cilindradas)throws Exception {
+	public void setCilindradas(int cilindradas) throws Exception {
 		if(cilindradas <= 0)
-			throw Exception("As cilindradas devem ser maiores que zero")
-		this.clilindradas = cilindradas;
-		
+			throw new Exception("As cilindradas devem ser maiores que zero");
+		this.clilindradas = cilindradas;	
 	}
 
 	@Override

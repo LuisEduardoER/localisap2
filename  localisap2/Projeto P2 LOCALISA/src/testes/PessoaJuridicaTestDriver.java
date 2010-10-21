@@ -42,27 +42,6 @@ public class PessoaJuridicaTestDriver {
 		Assert.assertEquals("8333311111",empresa.getTelefone());
 		
 	}
-	/*
-	@Test
-	public void testaMetodosRemove(){
-		empresa.removeRazaoSocial();
-		empresa.removeCPNJ();
-		empresa.removeEmail();
-		empresa.removeEndereco();
-		empresa.removeInscricaoEstadual();
-		empresa.removeNomeFantasia();
-		empresa.removeTelefone();
-		Assert.assertEquals(null,empresa.getCPNJ());
-		Assert.assertEquals(null,empresa.getRazaoSocial());
-		Assert.assertEquals(null,empresa.getEmail());
-		Assert.assertEquals(null,empresa.getEndereco());
-		Assert.assertEquals(null,empresa.getNomeFantasia());
-		Assert.assertEquals(null,empresa.getInscricaoEstadual());
-		Assert.assertEquals(null,empresa.getTelefone());
-
-
-	}
-	*/
 	@Test
 	public void testaMetodosSet() throws Exception{
 		empresa.setRazaoSocial("agencia2");
