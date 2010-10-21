@@ -16,6 +16,10 @@ public interface Veiculo {
 		ALCOOL,GASOLINA,GAS,DIESEL,FLEX;
 	}
 	
+	public enum TipoDeFreio{
+		TAMBOR, DISCO, ABS;
+	}
+	
 	public enum Acessorios {
 	    P2 ("Duas Portas"), 
 	    P4 ("Quatro Portas"),
@@ -49,7 +53,7 @@ public interface Veiculo {
 	TipoDeCombustivel getTipoDeCombustivel();
 	String getDataDeAquisicao();
 	Agencia getLocalizacao();
-	String getTipoDeFreios();
+	TipoDeFreio getTipoDeFreios();
 	int getNivelDoTanque();
 	void adicionaLocacao();
 	void setTipoDePotencia(TipoDePotencia tipo);
@@ -61,6 +65,6 @@ public interface Veiculo {
 	void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel);
 	void setDataDeAquisicao(String dataDeAquisicao);
 	void setLocalizacao(Agencia localizacao);
-	void setTipoDeFreios(String tipoDeFreios);
+	void setTipoDeFreios(TipoDeFreio tipoDeFreios);
 	void setNivelDoTanque(int nivel);
 }
