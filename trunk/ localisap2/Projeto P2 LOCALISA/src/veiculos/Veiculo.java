@@ -9,7 +9,7 @@ import agencias.Agencia;
 public interface Veiculo {
 	
 	public enum TipoDePotencia{
-		HP,CC;
+		HP,CV;
 	}
 	
 	public enum TipoDeCombustivel{

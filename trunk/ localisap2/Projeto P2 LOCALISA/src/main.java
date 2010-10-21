@@ -2,6 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import veiculos.Automovel;
+import veiculos.Motocicleta;
+import veiculos.Veiculo;
+import veiculos.Veiculo.Acessorios;
+import veiculos.Veiculo.Cor;
+import veiculos.Veiculo.TipoDeCombustivel;
+import veiculos.Veiculo.TipoDeFreio;
+import veiculos.Veiculo.TipoDePotencia;
+
 import planos.PlanosAutomovel;
 import planos.PlanosMoto;
 
@@ -33,21 +42,27 @@ public class main {
 	private static int OPCAO_MAXIMA_MENUP = 6;
 	private static int OPCAO_MINIMA_MENUD = 1;
 	private static int OPCAO_MAXIMA_MENUD = 3;
+	private static int MINIMO_NIVEL_TANQUE = 1;
+	private static int MAXIMO_NIVEL_TANQUE = 100;
 	private static int STATUS_SUCCESS = 0;
+
+	private static List<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
+
 	private static List<PlanosAutomovel> listaDePlanosCarros = new ArrayList<PlanosAutomovel>();
 	private static List<PlanosMoto> listaDePlanosMoto = new ArrayList<PlanosMoto>();
+
 	private static List<Locador> listaDeLocadores = new ArrayList<Locador>();
 	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
 	private static List<Agencia> listaDeAgencias = new ArrayList<Agencia>();
 	private static List<Pessoas> listaDeClientesPessoaFisica = new ArrayList<Pessoas>();
 	private static List<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args){
 		input = new Scanner(System.in);
 		menuPrincipal();
 	}
 	
-	private static void menuPrincipal() throws Exception{
+	private static void menuPrincipal(){
 		sb = new StringBuilder();
 		sb.append("-== Main - Milestone 1 ==-\n");
 		sb.append("--------------------------\n");
@@ -80,7 +95,7 @@ public class main {
 		}
 	}
 	
-	private static void menuAgencias() throws Exception{
+	private static void menuAgencias(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Agencia\n");
 		sb.append("2 - Excluir Agencia\n");
@@ -92,6 +107,7 @@ public class main {
 			registrarAgencia();
 			break;
 		case(2):
+			excluirAgencia();
 			break;
 		case(3):
 			break;
@@ -99,7 +115,7 @@ public class main {
 		menuPrincipal();
 	}
 	
-	private static void registrarAgencia() throws Exception{
+	private static void registrarAgencia(){
 		if (listaDeGerentes.isEmpty()){
 			System.out.println("Voce deve ter gerentes cadastrados para criar uma agencia.");
 			menuPrincipal();
@@ -117,11 +133,21 @@ public class main {
 		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
 		String cep = readStringOption("CEP: ");
 		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
-		Endereco endereco;
+		Endereco endereco = null;
 		if (!pontoDeReferencia.isEmpty())
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		else
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		System.out.println("Informe o numero de telefone da nova filial:");
 		String telefone = readStringOption(">");
 		System.out.println("Informe a inscricao estadual da agencia:");
@@ -133,17 +159,24 @@ public class main {
 		System.out.println("Qual gerente sera responsavel pela agencia?");
 		int gerente = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeGerentes.size())-1;
 		Gerente g = listaDeGerentes.get(gerente);
-		listaDeAgencias.add(new Filial(cnpj, endereco, telefone, inscEstadual, g));
+		try {
+			listaDeAgencias.add(new Filial(cnpj, endereco, telefone, inscEstadual, g));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			menuPrincipal();
+		}
 		System.out.println("A sua agencia foi registrada com sucesso!");
 	}
 	
-	private static void excluirAgencia() throws Exception{
+	private static void excluirAgencia(){
 		if (listaDeAgencias.isEmpty()){
 			System.out.println("Nao ha agencias criadas.");
 			menuPrincipal();
 		}
 		for (int i = 0 ; i < listaDeAgencias.size() ; i++){
-			System.out.println(i+1+" - "+listaDeAgencias.get(i).getEndereco());
+			Endereco endereco = listaDeAgencias.get(i).getEndereco();
+			System.out.println(i+1+" - Filial situada em: "+endereco.getCidade() + " - " + endereco.getEstado().toString() + 
+					" / "+endereco.getRua()+","+endereco.getNumero()+","+endereco.getBairro());
 		}
 		System.out.println("Qual agencia voce deseja excluir do registro?");
 		int agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
@@ -151,7 +184,7 @@ public class main {
 		System.out.println("A agencia foi removida com sucesso!");
 	}
 	
-	private static void menuClientes() throws Exception{
+	private static void menuClientes(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Cliente\n");
 		sb.append("2 - Excluir Cliente\n");
@@ -171,7 +204,7 @@ public class main {
 		menuPrincipal();
 	}
 	
-	private static void excluirClienteFisico() throws Exception {
+	private static void excluirClienteFisico(){
 		if (listaDeClientesPessoaFisica.isEmpty()){
 			System.out.println("Nao ha cliente registrados.");
 			menuPrincipal();
@@ -185,7 +218,7 @@ public class main {
 		System.out.println("O cliente foi removido com sucesso!");
 	}
 	
-	private static void excluirClienteJuridico() throws Exception {
+	private static void excluirClienteJuridico(){
 		if (listaDeClientesPessoaJuridica.isEmpty()){
 			System.out.println("Nao ha cliente registrados.");
 			menuPrincipal();
@@ -200,7 +233,7 @@ public class main {
 	}
 
 
-	private static void menuClientesTipo(int propriedade) throws Exception{
+	private static void menuClientesTipo(int propriedade){
 		sb = new StringBuilder();
 		sb.append("1 - Pessoa Fisica\n");
 		sb.append("2 - Pessoa Juridica\n");
@@ -231,7 +264,7 @@ public class main {
 
 
 
-	private static void registrarClienteJuridico() throws Exception {
+	private static void registrarClienteJuridico(){
 		System.out.println("Informe o CNPJ do cliente (formato: xx.xxx.xxx/xxxx-xx):");
 		String cnpj = readStringOption(">");
 		System.out.println("Informe a razao social Cliente:");
@@ -241,7 +274,7 @@ public class main {
 		System.out.println("Informe a inscricao estadual do Cliente:");
 		String inscricaoEstadual = readStringOption(">");
 		System.out.println("Informe o endereco do cliente:");
-		System.out.println("Em que estado esta situado o cliente:");
+		System.out.println("Em que estado mora o cliente:");
 		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
 			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
@@ -252,11 +285,21 @@ public class main {
 		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
 		String cep = readStringOption("CEP: ");
 		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
-		Endereco endereco;
+		Endereco endereco = null;
 		if (!pontoDeReferencia.isEmpty())
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		else
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		System.out.println("Informe o numero de telefone do cliente:");
 		String telefone = readStringOption(">");
 		System.out.println("Informe o email do cliente:");
@@ -272,7 +315,7 @@ public class main {
 		menuPrincipal();
 	}
 
-	private static void registrarClienteFisica() throws Exception {
+	private static void registrarClienteFisica(){
 		System.out.println("Informe o nome do Cliente:");
 		String nome = readStringOption(">");
 		System.out.println("Informe o cpf do Cliente:");
@@ -283,7 +326,7 @@ public class main {
 		String nascimento = readStringOption(">");
 		System.out.println("Informe a naturalidade do Cliente:");
 		String naturalidade = readStringOption(">");
-		System.out.println("Em que estado esta situado o cliente:");
+		System.out.println("Em que estado mora o cliente:");
 		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
 			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
@@ -294,11 +337,21 @@ public class main {
 		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
 		String cep = readStringOption("CEP: ");
 		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
-		Endereco endereco;
+		Endereco endereco = null;
 		if (!pontoDeReferencia.isEmpty())
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		else
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		System.out.println("Informe o numero de telefone do cliente:");
 		String telefone = readStringOption(">");
 		System.out.println("Informe o email do cliente:");
@@ -314,7 +367,7 @@ public class main {
 		menuPrincipal();
 	}
 
-	private static void menuFuncionarios() throws Exception{
+	private static void menuFuncionarios(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Funcionario\n");
 		sb.append("2 - Excluir Funcionario\n");
@@ -334,7 +387,7 @@ public class main {
 		menuPrincipal();
 	}
 	
-	private static void excluirFuncionario() throws Exception{
+	private static void excluirFuncionario(){
 		sb = new StringBuilder();
 		sb.append("Que tipo de funcionario voce deseja apagar?\n");
 		sb.append("1 - Gerente\n");
@@ -372,7 +425,7 @@ public class main {
 		menuPrincipal();
 	}
 	
-	private static void registrarFuncionario() throws Exception{
+	private static void registrarFuncionario(){
 		Agencia ag;
 		sb = new StringBuilder();
 		sb.append("Tipo de funcionario a ser criado:\n");
@@ -387,7 +440,7 @@ public class main {
 		String cpf = readStringOption("CPF: ");
 		String rg = readStringOption("RG: ");
 		String naturalidade = readStringOption("Naturalidade: ");
-		System.out.println("Em que estado esta situada o cliente:");
+		System.out.println("Em que estado mora o funcionario:");
 		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
 			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
@@ -398,11 +451,21 @@ public class main {
 		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
 		String cep = readStringOption("CEP: ");
 		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
-		Endereco endereco;
+		Endereco endereco = null;
 		if (!pontoDeReferencia.isEmpty())
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			try{
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		else
-			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			try {
+				endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		String email = readStringOption("E-Mail: ");
 		String nascimento = readStringOption("Data de nascimento: ");
 		String telefone = readStringOption("Telefone: ");
@@ -418,25 +481,40 @@ public class main {
 			ag = null;
 		}
 		if (tipo == 1)
-			listaDeGerentes.add(new Gerente(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+			try {
+				listaDeGerentes.add(new Gerente(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		else
-			listaDeLocadores.add(new Locador(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+			try {
+				listaDeLocadores.add(new Locador(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
 		System.out.println("Seu novo funcionario foi criado com sucesso!");
 	}
 	
-	private static void menuPlanos() throws Exception{
+	private static void menuPlanos(){
 		sb = new StringBuilder();
 		sb.append("1 - Registrar Plano\n");
 		sb.append("2 - Excluir Plano\n");
 		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
-		if(opcao ==1)
+		switch(opcao){
+		case(1):
 			menuRegistraPlanos();
-		if(opcao ==2)
+			break;
+		case(2):
 			menuExcluiPlanos();
-		if(opcao ==3)
-			menuPrincipal();
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();	
 	}
 	
 	private static void menuExcluiPlanos() {
@@ -446,15 +524,20 @@ public class main {
 		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
-		if(opcao ==1)
+		switch(opcao){
+		case(1):
 			excluirPlanoDeCarro();
-		if(opcao == 2 )
+			break;
+		case(2):
 			excluirPlanoDeMoto();
-		if(opcao ==3)
-			
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();	
 	}
 
-	private static void excluirPlanoDeMoto() throws Exception {
+	private static void excluirPlanoDeMoto(){
 		if (listaDePlanosMoto.isEmpty()){
 			System.out.println("Nao ha planos criados.");
 			menuPrincipal();
@@ -468,7 +551,7 @@ public class main {
 		
 	}
 
-	private static void excluirPlanoDeCarro() throws Exception {
+	private static void excluirPlanoDeCarro(){
 		if (listaDePlanosCarros.isEmpty()){
 			System.out.println("Nao ha planos criados.");
 			menuPrincipal();
@@ -489,12 +572,17 @@ public class main {
 		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
-		if(opcao ==1)	
+		switch(opcao){
+		case(1):
 			registrarPlanoCarro();
-		if(opcao ==2)
+			break;
+		case(2):
 			registrarPlanoMoto();
-		if(opcao ==3)
-			
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();			
 	}
 
 	private static void registrarPlanoMoto() {
@@ -522,6 +610,232 @@ public class main {
 		sb.append("3 - Voltar\n");
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		switch(opcao){
+		case(1):
+			break;
+		case(2):
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();
+	}
+	
+	private static boolean temCarro(List<Veiculo> lista){
+		int qntCarros = 0;
+		for (Veiculo veiculo : listaDeVeiculos){
+			if (veiculo instanceof Automovel)
+				qntCarros++;			
+		}
+		if (qntCarros <= 0)
+			return false;
+		return true;
+	}
+
+	private static boolean temMoto(List<Veiculo> lista){
+		int qntMotos = 0;
+		for (Veiculo veiculo : listaDeVeiculos){
+			if (veiculo instanceof Motocicleta)
+				qntMotos++;			
+		}
+		if (qntMotos <= 0)
+			return false;
+		return true;
+	}
+	
+	private static ArrayList<Acessorios> pegarAcessorios(){
+		int opcao = 0;
+		ArrayList<Acessorios> lista = new ArrayList<Veiculo.Acessorios>();
+		System.out.println("Adicionar Acessorios: ");
+		for (int i = 0 ; i< Acessorios.values().length ; i++)
+			System.out.println(i+1 + " - "+Acessorios.values()[i].getNomeCompleto());
+		System.out.println(Acessorios.values().length+1+" - Nao desejo mais adicionar acessorios");
+		while(!(opcao == Acessorios.values().length)){
+			opcao = readIntegerOption("Acessorio a ser adicionado: ", OPCAO_MINIMA_MENUD, Acessorios.values().length)-1;
+			lista.add(Acessorios.values()[opcao]);
+			System.out.println(Acessorios.values()[opcao].getNomeCompleto()+ "adicionado(a) com sucesso!");
+		}
+		return lista;
+	}
+	
+	private static void registrarVeiculo(){
+		String renavam;
+		String modelo;
+		String marca;
+		int potencia;
+		int ano;
+		int corn;
+		Cor cor;
+		int tipoDeCombustiveln;
+		TipoDeCombustivel tipoDeCombustivel;
+		int tipoDeFreion;
+		TipoDeFreio tipoDeFreio;
+		Endereco endereco;
+		int agencia;
+		Agencia localizacao;
+		String dataDeAquisicao;
+		int nivelDoTanque;
+		Veiculo v;
+		int tipoDePotencian;
+		TipoDePotencia tipoDePotencia;
+		
+		if (listaDeAgencias.size() <= 0){
+			System.out.println("Voce nao tem agencias registradas, sendo assim, nao pode registrar veiculos.");
+			menuPrincipal();
+		}
+		sb = new StringBuilder();
+		sb.append("Que tipo de veiculo voce deseja registrar?");
+		sb.append("1 - Carro\n");
+		sb.append("2 - Moto\n");
+		sb.append("3 - Voltar\n");
+		System.out.println(sb.toString());
+		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+
+		switch(opcao){
+		case(1):
+			System.out.println("Informacoes do veiculo: ");
+			renavam = readStringOption("RENAVAM: ");
+			modelo = readStringOption("Modelo: ");
+			marca = readStringOption("Marca: ");
+			System.out.println("Tipo de potencia:");
+			for (int i = 0 ; i<TipoDePotencia.values().length ; i++)
+				System.out.println(i+1+" - " + TipoDePotencia.values()[i].toString());
+			tipoDePotencian = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDePotencia.values().length)-1;
+			tipoDePotencia = TipoDePotencia.values()[tipoDePotencian];
+			potencia =  readIntegerOptionNoLimit("Potencia do carro (em "+tipoDePotencia.toString()+"): ", OPCAO_MINIMA_MENUD);
+			ano =  readIntegerOptionNoLimit("Ano do carro: ", OPCAO_MINIMA_MENUD);
+			System.out.println("Cor do carro: ");
+			for (int i = 0 ; i< Cor.values().length ; i++)
+				System.out.println(i+1+" - " + Cor.values()[i].toString());
+			corn = readIntegerOption(">", OPCAO_MINIMA_MENUD, Cor.values().length)-1;
+			cor = Cor.values()[corn];
+			System.out.println("Tipo de combustivel:");
+			for (int i = 0 ; i<TipoDeCombustivel.values().length ; i++)
+				System.out.println(i+1+" - " + TipoDeCombustivel.values()[i].toString());
+			tipoDeCombustiveln = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDeCombustivel.values().length)-1;
+			tipoDeCombustivel = TipoDeCombustivel.values()[tipoDeCombustiveln];
+			System.out.println("Tipo de freio:");
+			for (int i = 0 ; i<TipoDeFreio.values().length ; i++)
+				System.out.println(i+1+" - " + TipoDeFreio.values()[i].toString());
+			tipoDeFreion = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDeFreio.values().length)-1;
+			tipoDeFreio = TipoDeFreio.values()[tipoDeFreion];
+			System.out.println("Localizacao:");
+			for (int i = 0 ; i < listaDeAgencias.size() ; i++){
+				endereco = listaDeAgencias.get(i).getEndereco();
+				System.out.println(i+1+" - Filial situada em: "+endereco.getCidade() + " - " + endereco.getEstado().toString() + 
+						" / "+endereco.getRua()+","+endereco.getNumero()+","+endereco.getBairro());
+			}
+			agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
+			localizacao = listaDeAgencias.get(agencia);
+			dataDeAquisicao = readStringOption("Data de aquisicao do veiculo: ");
+			ArrayList<Acessorios> listaDeAcessorios = pegarAcessorios();
+			nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE , MAXIMO_NIVEL_TANQUE);
+			v = null;
+			try {
+				v = new Automovel(renavam, modelo, marca, potencia, ano, cor, tipoDeFreio, tipoDeCombustivel, localizacao, dataDeAquisicao, nivelDoTanque, listaDeAcessorios, tipoDePotencia);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
+			listaDeVeiculos.add(v);
+		case(2):
+			
+			System.out.println("Informacoes do veiculo: ");
+			renavam = readStringOption("RENAVAM: ");
+			modelo = readStringOption("Modelo: ");
+			marca = readStringOption("Marca: ");
+			int cilindradas = readIntegerOptionNoLimit("Cilindradas: ", OPCAO_MINIMA_MENUD);
+			System.out.println("Tipo de potencia:");
+			for (int i = 0 ; i<TipoDePotencia.values().length ; i++)
+				System.out.println(i+1+" - " + TipoDePotencia.values()[i].toString());
+			tipoDePotencian = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDePotencia.values().length)-1;
+			tipoDePotencia = TipoDePotencia.values()[tipoDePotencian];
+			potencia =  readIntegerOptionNoLimit("Potencia da moto (em "+tipoDePotencia.toString()+": ", OPCAO_MINIMA_MENUD);
+			ano =  readIntegerOptionNoLimit("Ano da moto: ", OPCAO_MINIMA_MENUD);
+			System.out.println("Cor da moto: ");
+			for (int i = 0 ; i< Cor.values().length ; i++)
+				System.out.println(i+1+" - " + Cor.values()[i].toString());
+			corn = readIntegerOption(">", OPCAO_MINIMA_MENUD, Cor.values().length)-1;
+			cor = Cor.values()[corn];
+			System.out.println("Tipo de combustivel:");
+			for (int i = 0 ; i<TipoDeCombustivel.values().length ; i++)
+				System.out.println(i+1+" - " + TipoDeCombustivel.values()[i].toString());
+			tipoDeCombustiveln = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDeCombustivel.values().length)-1;
+			tipoDeCombustivel = TipoDeCombustivel.values()[tipoDeCombustiveln];
+			System.out.println("Tipo de freio:");
+			for (int i = 0 ; i<TipoDeFreio.values().length ; i++)
+				System.out.println(i+1+" - " + TipoDeFreio.values()[i].toString());
+			tipoDeFreion = readIntegerOption(">", OPCAO_MINIMA_MENUD, TipoDeFreio.values().length)-1;
+			tipoDeFreio = TipoDeFreio.values()[tipoDeFreion];
+			System.out.println("Localizacao:");
+			for (int i = 0 ; i < listaDeAgencias.size() ; i++){
+				endereco = listaDeAgencias.get(i).getEndereco();
+				System.out.println(i+1+" - Filial situada em: "+endereco.getCidade() + " - " + endereco.getEstado().toString() + 
+						" / "+endereco.getRua()+","+endereco.getNumero()+","+endereco.getBairro());
+			}
+			agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
+			localizacao = listaDeAgencias.get(agencia);
+			dataDeAquisicao = readStringOption("Data de aquisicao do veiculo: ");
+			nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE , MAXIMO_NIVEL_TANQUE);
+			v = null;
+			try {
+				v = new Motocicleta(renavam, modelo, marca, tipoDePotencia, potencia, cilindradas, ano, cor, tipoDeCombustivel, localizacao, dataDeAquisicao, nivelDoTanque);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				menuPrincipal();
+			}
+			listaDeVeiculos.add(v);
+			case(3):
+				break;
+			}
+		menuPrincipal();
+	}
+				
+	private static void excluirVeiculo(){
+		sb = new StringBuilder();
+		int numeroContador = 0;
+		int indexApagar;
+		sb.append("Que tipo de veiculo voce deseja excluir?");
+		sb.append("1 - Carro\n");
+		sb.append("2 - Moto\n");
+		sb.append("3 - Voltar\n");
+		System.out.println(sb.toString());
+		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
+		switch(opcao){
+		case(1):
+			if (!temCarro(listaDeVeiculos)){
+				System.out.println("Nao ha nenhum carro cadastrado!");
+				menuPrincipal();
+			}
+			System.out.println("Lista de carros disponiveis:");
+			for (Veiculo v : listaDeVeiculos){
+				if (v instanceof Automovel) {
+					numeroContador++;
+					System.out.println(numeroContador + " - " + v.getMarca() + " " + v.getModelo() + " RENAVAM: " +v.getRenavam());
+				}
+			}
+			indexApagar = readIntegerOption("Qual carro sera apagado? ", OPCAO_MINIMA_MENUD, numeroContador)-1;
+			listaDeVeiculos.remove(indexApagar);
+			break;
+		case(2):
+			if (!temMoto(listaDeVeiculos)){
+				System.out.println("Nao ha nenhuma moto cadastrada!");
+				menuPrincipal();
+			}
+			System.out.println("Lista de motos disponiveis:");
+			for (Veiculo v : listaDeVeiculos){
+				if (v instanceof Motocicleta) {
+					numeroContador++;
+					System.out.println(numeroContador + " - " + v.getMarca() + " " + v.getModelo() + " RENAVAM: " +v.getRenavam());
+				}
+			}
+			indexApagar = readIntegerOption("Qual moto sera apagada? ", OPCAO_MINIMA_MENUD, numeroContador)-1;
+			listaDeVeiculos.remove(indexApagar);
+			break;
+		case(3):
+			break;
+		}
+		menuPrincipal();
 	}
 	
 	private static int readIntegerOption(String message, int lowerLimit, int upperLimit) {
