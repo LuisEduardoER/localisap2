@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import agencias.Agencia;
 
 public class Automovel implements Veiculo{
-	private String RENAVAM;
+	private String renavam;
 	private String modelo;
 	private String marca;
 	private TipoDePotencia tipoPotencia;
@@ -24,7 +24,7 @@ public class Automovel implements Veiculo{
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 
 	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
-					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais){
+					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
@@ -42,7 +42,7 @@ public class Automovel implements Veiculo{
 	
 	@Override
 	public String getRENAVAM() {
-		return RENAVAM;
+		return renavam;
 	}
 	@Override
 	public String getModelo() {
@@ -90,23 +90,31 @@ public class Automovel implements Veiculo{
 		return acessoriosOpcionais;
 	}
 	@Override
-	public void setRENAVAM(String RENAVAM) {
-		this.RENAVAM = RENAVAM;
+	public void setRENAVAM(String renavam) throws Exception{
+		if (renavam.length() == 0)
+			throw new Exception("Renavam de tamanho invalido");
+		this.renavam = renavam;
 		
 	}
 	@Override
-	public void setModelo(String modelo) {
+	public void setModelo(String modelo) throws Exception{
+		if (modelo.length()== 0)
+			throw new Exception("Modelo de tamanho invalido");
 		this.modelo = modelo;
 		
 	}
 	@Override
-	public void setMarca(String marca) {
+	public void setMarca(String marca) throws Exception{
+		if (marca.length()== 0)
+			throw new Exception("Marca de tamanho invalido");
 		this.marca = marca;
 		
 	}
 
 	@Override
-	public void setAno(int ano) {
+	public void setAno(int ano)throws Exception{
+		if(ano<1950)
+			throw new Exception("Ano de tamanho invalido");
 		this.ano = ano;
 		
 	}
@@ -116,25 +124,25 @@ public class Automovel implements Veiculo{
 		
 	}
 	@Override
-	public void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel) {
+	public void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel){
 		this.tipoDeCombustivel = tipoDeCombustivel;
 		
 	}
 	@Override
-	public void setDataDeAquisicao(String dataDeAquisicao) {
+	public void setDataDeAquisicao(String dataDeAquisicao) throws Exception{
 		this.dataDeAquisicao = dataDeAquisicao;
 		
 	}
 	@Override
-	public void setLocalizacao(Agencia localizacao) {
+	public void setLocalizacao(Agencia localizacao){
 		this.localizacao = localizacao;
 		
 	}
 	@Override
-	public void setTipoDeFreios(TipoDeFreio tipoDeFreios) {		
+	public void setTipoDeFreios(TipoDeFreio tipoDeFreios){		
 		this.tipoDeFreio = tipoDeFreios;
 	}
-	public void addOpcional(Acessorios acessorio) {
+	public void addOpcional(Acessorios acessorio) throws Exception{
 		this.acessoriosOpcionais.add(acessorio);
 		
 	}	
@@ -148,12 +156,16 @@ public class Automovel implements Veiculo{
 		return nivelDoTanque;
 	}
 	@Override
-	public void setNivelDoTanque(int nivel) {
+	public void setNivelDoTanque(int nivel) throws Exception{
+		if(nivel<=0 || nivel >100)
+			throw new Exception("O nivel do tanque deve variar ser maior que zero e menor ou igual a 100");
 		this.nivelDoTanque = nivel;
 		
 	}
 
-	public void setPotencia(int potencia) {
+	public void setPotencia(int potencia)throws Exception {
+		if (potencia<=0)
+			throw new Exception("A potencia deve ser maior que zero");
 		this.potencia = potencia;
 		
 	}
