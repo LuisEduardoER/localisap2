@@ -20,7 +20,19 @@ public class Gerente implements Pessoas{
 	private Agencia agencia;
 	private String telefone;
 	private String email;
-	
+	/**
+	 * Construtor que cria um gerente.
+	 * @param cpf - Recebe como String o CPF
+	 * @param nome - Recebe como String o nome
+	 * @param rg - Recebe como String o rg
+	 * @param nascimento -  Recebe como String a data de nascimento
+	 * @param naturalidade - Recebe como String a naturalidade
+	 * @param endereco - 
+	 * @param agencia - Recebe como Agencia a agencia
+	 * @param telefone -  Recebe como String o telefone
+	 * @param email - Recebe como String o email
+	 * @throws Exception - Erros de parametros invalidos
+	 */
 	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,String endereco,Agencia agencia,String telefone,String email) throws Exception{
 		setAgencia(agencia);
 		setCpf(cpf);
