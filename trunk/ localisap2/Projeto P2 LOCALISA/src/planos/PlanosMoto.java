@@ -4,17 +4,23 @@ import java.util.List;
 
 import veiculos.Motocicleta;
 import veiculos.Veiculo.Acessorios;
-
+/**
+ * @author Capitao Nascimento: Pede pra sair!
+ *
+ */
 public class PlanosMoto {
 	
 	private List<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
 	private int cilindradas;
 	private double preco;
+	private String nome;
 	/**
 	 * Construtor de um plano de moto.
 	 * @param preco - Recebe o preco em double diario da locacao
+	 *  @param nome - Recebe o nome em String do plano
 	 */	
-	public PlanosMoto(double preco){
+	public PlanosMoto(String nome, double preco){
+		this.nome = nome;
 		this.preco = preco;
 	}
 	/**
@@ -54,11 +60,32 @@ public class PlanosMoto {
 		this.preco = preco;
 	}
 	/**
+	 * Permite mudar o nome do plano
+	 * @param nome - O nome em String do plano
+	 */
+	public void setNome(String nome){
+		this.nome = nome;
+	}
+	/**
 	 * Captura o preco do plano
 	 * @return - Em double o preco
 	 */
 	public double getPreco(){
 		return this.preco;
+	}
+	/**
+	 * Captura o nome do plano
+	 * @return - Em String o nome do plano
+	 */
+	public String getNome(){
+		return this.nome;
+	}
+	/**
+	 * Captura a lista de Motos do plano
+	 * @return - Em List a lista de motos
+	 */
+	public List<Motocicleta> getListaMoto(){
+		return this.listaMoto;
 	}
 	
 	
