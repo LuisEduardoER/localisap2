@@ -20,7 +20,7 @@ public class PessoaJuridicaTestDriver {
 	public void inicio() throws Exception{
 		empresa = new PessoaJuridica();
 		empresa.setRazaoSocial("LocaLisa");
-		empresa.CPNJ("01234567891234");
+		empresa.setCnpj("30851837000105");
 		empresa.setEmail("filipe@teste");
 		empresa.setEndereco("endereco");
 		empresa.setNomeFantasia("Fantasia");
@@ -30,7 +30,7 @@ public class PessoaJuridicaTestDriver {
 	
 	@Test
 	public void testaMetodosGet(){
-		Assert.assertEquals("01234567891234",empresa.getCPNJ());
+		Assert.assertEquals("30851837000105",empresa.getCnpj());
 		Assert.assertEquals("LocaLisa",empresa.getRazaoSocial());
 		Assert.assertEquals("filipe@teste",empresa.getEmail());
 		Assert.assertEquals("endereco",empresa.getEndereco());
@@ -63,13 +63,13 @@ public class PessoaJuridicaTestDriver {
 	@Test
 	public void testaMetodosSet() throws Exception{
 		empresa.setRazaoSocial("agencia2");
-		empresa.CPNJ("01234567890123");
+		empresa.setCnpj("75416229000100");
 		empresa.setEmail("filipe@teste2");
 		empresa.setEndereco("endereco2");
 		empresa.setNomeFantasia("Filipe A");
 		empresa.setInscricaoEstadual("1234567");
 		empresa.setTelefone("8333312222");
-		Assert.assertEquals("01234567890123",empresa.getCPNJ());
+		Assert.assertEquals("75416229000100",empresa.getCnpj());
 		Assert.assertEquals("agencia2",empresa.getRazaoSocial());
 		Assert.assertEquals("filipe@teste2",empresa.getEmail());
 		Assert.assertEquals("endereco2",empresa.getEndereco());
