@@ -177,7 +177,7 @@ public class PessoaFisica implements Pessoas{
 
 	@Override
 	public void setEmail(String email) throws Exception{
-		if (email.contains("@")||email.length()==0)
+		if (!email.contains("@")||email.length()==0)
 			throw new Exception("O email deve conter @ e ser maior que 3");
 
 		this.email = email;

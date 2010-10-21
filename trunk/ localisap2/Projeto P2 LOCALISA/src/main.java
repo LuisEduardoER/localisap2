@@ -284,7 +284,7 @@ public class main {
 	
 	private static void excluirFuncionario() throws Exception{
 		sb = new StringBuilder();
-		sb.append("Que tipo de funcionario voce deseja apagar?");
+		sb.append("Que tipo de funcionario voce deseja apagar?\n");
 		sb.append("1 - Gerente\n");
 		sb.append("2 - Lodador\n");
 		sb.append("3 - Voltar\n");
