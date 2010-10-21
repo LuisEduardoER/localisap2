@@ -16,7 +16,7 @@ import funcionarios.Pessoas;
 
 /**
  * 
- * @author Felipe José
+ * @author Felipe Jose && Filipe Alencar
  *
  */
 
