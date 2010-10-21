@@ -2,8 +2,11 @@ package verificacoes;
 
 public class ValidaCnpj {  
 
-    public ValidaCnpj() {  
-    }  
+    /**
+     * Metodo que valida o cnpj.
+     * @param cnpj - Recebe como string o cnpj a ser verificado.
+     * @return - True se o cnpj for valido e false caso contrario
+     */
     public  boolean validaCnpj( String cnpj ) {  
         if (! cnpj.substring(0,1).equals("")){  
             try{  

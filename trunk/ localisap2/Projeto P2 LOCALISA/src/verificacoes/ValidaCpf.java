@@ -1,7 +1,11 @@
 package verificacoes;
 
 public class ValidaCpf {  
-      
+    /**
+     * Metodo que valida o cpf. 
+     * @param strCpf - Recebe como string o cpf a ser verificado.
+     * @return - True se for valido e false caso contrario.
+     */
     public boolean valida(String strCpf)    {
         int     d1, d2;
         int     digito1, digito2, resto;

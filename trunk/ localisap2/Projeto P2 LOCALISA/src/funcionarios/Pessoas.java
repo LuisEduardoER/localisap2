@@ -65,42 +65,50 @@ public interface Pessoas {
 	/**
 	 * Permite mudar o numero do cpf
 	 * @param cpf - Recebe como String o CPF
+	 * @throws Exception - Erro de cpf invalido
 	 */
 	void setCpf(String cpf) throws Exception;
 	/**
-	 * Permite mudar o  nome
+	 * Permite mudar o nome
 	 * @param nome - Recebe como String o nome
+	 * @throws Exception - Erro de nome de tamanho 0.
 	 */
 	void setNome(String nome) throws Exception;
 	/**
 	 * Permite mudar o numero do RG
 	 * @param rg - Recebe como String o RG
+	 * @throws Exception - Erro de rg com tamanho 0.
 	 */
 	void setRg(String rg)throws Exception;
 	/**
 	 * Permite mudar a data de nascimento
 	 * @param nascimento - Recebe como String a data de nascimento
+	 * @throws Exception - Erro de data invalida.
 	 */
 	void setNascimento(String nascimento) throws Exception;
 	/**
 	 * Permite mudar a naturalidade
 	 * @param naturalidade - Recebe como String a naturalidade
+	 * @throws Exception - Erro de naturalidade com tamanho 0.
 	 */
 	void setNaturalidade(String naturalidade)throws Exception;
 	/**
 	 * Permite mudar o endereco
 	 * @param endereco - Recebe como String o endereco
+	 * @throws Exception - Erro de endereco com tamanho 0.
 	 */
 	void setEndereco(String endereco)throws Exception;
 
 	/**
 	 * Permite mudar o numero do telefone
 	 * @param telefone - Recebe como String o telefone
+	 * @throws Exception - Erro de telefone com formato diferente de DD+Numero.
 	 */
 	void setTelefone(String telefone) throws Exception;
 	/**
 	 * Permite mudar o email
 	 * @param email - Recebe como String o email
+	 * @throws Exception - Erro de email invalido , ou seja com tamanho menor que 3 e sem a presenca de @.
 	 */
 	void setEmail(String email)throws Exception;
 	

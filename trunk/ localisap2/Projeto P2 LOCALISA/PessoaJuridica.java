@@ -114,7 +114,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o CPNJ
 	 * @param CPNJ - Recebe como String o CPNJ
-	 * @throws Exception 
+	 * @throws Exception - Erro de cnpj invalido
 	 */	 
 	public void setCnpj(String cnpj) throws Exception {
 		ValidaCnpj testeCpnj = new ValidaCnpj();
@@ -127,6 +127,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar a razao social
 	 * @param razaoSocial - Recebe como String a razao social
+	 * @throws Exception - Erro de razao social com tamanho 0
 	 */
 	public void setRazaoSocial(String razaoSocial)throws Exception {
 		if(razaoSocial.length()==0){
@@ -139,6 +140,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o nome fantasia
 	 * @param nomeFantasia - Recebe como String o nome fantasia
+	 * @throws Exception - Erro de nome fantasia com tamanho 0
 	 */
 	public void setNomeFantasia(String nomeFantasia) throws Exception{
 		if(nomeFantasia.length()==0){
@@ -151,6 +153,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar a inscricao estadual
 	 * @param inscricaoEstadual - Recebe como String a inscricao estadual
+	 * @throws Exception - Erro de inscricao estadual com tamanho 0.
 	 */
 	public void setInscricaoEstadual(String inscricaoEstadual)throws Exception {
 		if(inscricaoEstadual.length()==0){
@@ -162,6 +165,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o endereco
 	 * @param endereco - Recebe como String o endereco
+	 * @throws Exception -
 	 */
 
 	public void setEndereco(String endereco) throws Exception{
@@ -173,6 +177,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o telefone
 	 * @param telefone - Recebe como String o telefone
+	 * @throws Exception - Erro de telefone com formato diferente de DD+Numero. 
 	 */
 	public void setTelefone(String telefone)throws Exception {
 		if(telefone.length()!= 10)
@@ -183,6 +188,7 @@ public class PessoaJuridica {
 	/**
 	 * Permite mudar o email
 	 * @param nome - Recebe como String o email
+	 * @throws Exception - Erro de email invalido , ou seja com tamanho menor que 3 e sem a presenca de @.
 	 */	 
 	public void setEmail(String email) throws Exception{
 		if (!email.contains("@")||email.length()==0)
