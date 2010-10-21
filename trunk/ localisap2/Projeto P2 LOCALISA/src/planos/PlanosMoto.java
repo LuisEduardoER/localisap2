@@ -5,9 +5,15 @@ import java.util.List;
 import veiculos.Motocicleta;
 import veiculos.Veiculo.Acessorios;
 /**
- * @author Capitao Nascimento: Pede pra sair!
- *
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+* 
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class PlanosMoto {
 	
 	private List<Motocicleta> listaMoto = new ArrayList<Motocicleta>();

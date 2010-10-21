@@ -1,7 +1,14 @@
 package veiculos;
 
 /**
- * @author Lobo Mau
+ * 
+ * @author Felipe Jose      -twitter.com/felipejosefc
+ * @author Filipe Alencar   -twitter.com/filipealencar_
+ * @author Emilio Farias    -twitter.com/militofarias
+ * 
+ * http://code.google.com/p/localisap2/
+ * Universidade Federal de Campina Grande - Computacao
+ *
  */
 
 import java.util.ArrayList;

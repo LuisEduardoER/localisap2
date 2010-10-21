@@ -15,9 +15,15 @@ import agencias.Filial;
 
 
 /**
- * @author Capitao Nascimento
- *
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+* 
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class FilialTestDriver {
 	
 	Filial filial1, filial2;
