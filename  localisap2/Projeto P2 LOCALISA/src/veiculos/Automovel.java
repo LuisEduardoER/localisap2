@@ -5,7 +5,6 @@ package veiculos;
  */
 
 import java.util.ArrayList;
-
 import agencias.Agencia;
 
 public class Automovel implements Veiculo{
