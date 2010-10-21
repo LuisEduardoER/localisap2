@@ -23,8 +23,8 @@ public class Automovel implements Veiculo{
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 
-	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
-					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais) throws Exception{
+	public Automovel(String renavam, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
+					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais,TipoDePotencia tipoDePotencia) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
@@ -36,12 +36,13 @@ public class Automovel implements Veiculo{
 		this.setNivelDoTanque(nivelDoTanque);
 		for (Acessorios acessorio : acessoriosOpcionais)
 			this.addOpcional(acessorio);
-		this.setRENAVAM(RENAVAM);
+		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
+		this.setTipoDePotencia(tipoDePotencia);
 	}
 	
 	@Override
-	public String getRENAVAM() {
+	public String getRenavam() {
 		return renavam;
 	}
 	@Override
@@ -90,7 +91,7 @@ public class Automovel implements Veiculo{
 		return acessoriosOpcionais;
 	}
 	@Override
-	public void setRENAVAM(String renavam) throws Exception{
+	public void setRenavam(String renavam) throws Exception{
 		if (renavam.length() == 0)
 			throw new Exception("Renavam de tamanho invalido");
 		this.renavam = renavam;
@@ -157,8 +158,8 @@ public class Automovel implements Veiculo{
 	}
 	@Override
 	public void setNivelDoTanque(int nivel) throws Exception{
-		if(nivel<=0 || nivel >100)
-			throw new Exception("O nivel do tanque deve variar ser maior que zero e menor ou igual a 100");
+		if(nivel<0 || nivel >100)
+			throw new Exception("O nivel do tanque deve  ser maior  ou igual a zero e menor ou igual a 100");
 		this.nivelDoTanque = nivel;
 		
 	}
