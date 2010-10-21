@@ -221,7 +221,7 @@ public class main {
 		}
 		menuPrincipal();
 	}
-	
+
 
 
 	private static void registrarClienteJuridico() throws Exception {
@@ -234,7 +234,22 @@ public class main {
 		System.out.println("Informe a inscricao estadual do Cliente:");
 		String inscricaoEstadual = readStringOption(">");
 		System.out.println("Informe o endereco do cliente:");
-		String endereco = readStringOption(">");
+		System.out.println("Em que estado esta situado o cliente:");
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
+			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
+		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
+		String cidade = readStringOption("Cidade: ");
+		String bairro = readStringOption("Bairro: ");
+		String rua = readStringOption("Rua: ");
+		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
+		String cep = readStringOption("CEP: ");
+		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
+		Endereco endereco;
+		if (!pontoDeReferencia.isEmpty())
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+		else
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
 		System.out.println("Informe o numero de telefone do cliente:");
 		String telefone = readStringOption(">");
 		System.out.println("Informe o email do cliente:");
@@ -261,8 +276,22 @@ public class main {
 		String nascimento = readStringOption(">");
 		System.out.println("Informe a naturalidade do Cliente:");
 		String naturalidade = readStringOption(">");
-		System.out.println("Informe o endereco do cliente:");
-		String endereco = readStringOption(">");
+		System.out.println("Em que estado esta situado o cliente:");
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
+			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
+		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
+		String cidade = readStringOption("Cidade: ");
+		String bairro = readStringOption("Bairro: ");
+		String rua = readStringOption("Rua: ");
+		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
+		String cep = readStringOption("CEP: ");
+		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
+		Endereco endereco;
+		if (!pontoDeReferencia.isEmpty())
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+		else
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
 		System.out.println("Informe o numero de telefone do cliente:");
 		String telefone = readStringOption(">");
 		System.out.println("Informe o email do cliente:");
@@ -351,7 +380,22 @@ public class main {
 		String cpf = readStringOption("CPF: ");
 		String rg = readStringOption("RG: ");
 		String naturalidade = readStringOption("Naturalidade: ");
-		String endereco = readStringOption("Endereço: ");
+		System.out.println("Em que estado esta situada o cliente:");
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
+			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
+		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
+		String cidade = readStringOption("Cidade: ");
+		String bairro = readStringOption("Bairro: ");
+		String rua = readStringOption("Rua: ");
+		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
+		String cep = readStringOption("CEP: ");
+		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
+		Endereco endereco;
+		if (!pontoDeReferencia.isEmpty())
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+		else
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
 		String email = readStringOption("E-Mail: ");
 		String nascimento = readStringOption("Data de nascimento: ");
 		String telefone = readStringOption("Telefone: ");
