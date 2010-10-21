@@ -7,7 +7,7 @@ public class PessoaJuridica {
 	private String razaoSocial;
 	private String nomeFantasia;
 	private String inscricaoEstadual;
-	private String endereco;
+	private Endereco endereco;
 	private String telefone;
 	private String email;
 	/**
@@ -21,7 +21,7 @@ public class PessoaJuridica {
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */	
-	public PessoaJuridica(String cnpj,String razaoSocial,String nomeFantasia,String inscricaoEstadual,String endereco,String telefone,String email)throws Exception{
+	public PessoaJuridica(String cnpj,String razaoSocial,String nomeFantasia,String inscricaoEstadual,Endereco endereco,String telefone,String email)throws Exception{
 		setEmail(email);
 		setEndereco(endereco);
 		setInscricaoEstadual(inscricaoEstadual);
@@ -67,7 +67,7 @@ public class PessoaJuridica {
 	 * Metodo para capturar o endereco de uma pessoa juridica
 	 * @return - Em String o endereco
 	 */
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 	/**
@@ -163,9 +163,7 @@ public class PessoaJuridica {
 	 * Permite mudar o endereco
 	 * @param endereco - Recebe como String o endereco
 	 */
-	public void setEndereco(String endereco) throws Exception{
-		if(endereco.length()==0)
-			throw new Exception("O endereco nao deve ser vazio");
+	public void setEndereco(Endereco endereco) throws Exception{
 		this.endereco = endereco;
 		
 	}
