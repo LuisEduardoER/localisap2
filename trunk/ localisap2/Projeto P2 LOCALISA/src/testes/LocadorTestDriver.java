@@ -54,29 +54,7 @@ public class LocadorTestDriver {
 		Assert.assertEquals("8333311111",locador.getTelefone());
 		
 	}
-/*
-	@Test
-	public void testaMetodosRemove(){
-		locador.removeAgencia();
-		locador.removeCPF();
-		locador.removeEmail();
-		locador.removeEndereco();
-		locador.removeNascimento();
-		locador.removeNaturalidade();
-		locador.removeNome();
-		locador.removeRG();
-		locador.removeTelefone();
-		Assert.assertEquals(null,locador.getCPF());
-		Assert.assertEquals(null,locador.getAgencia());
-		Assert.assertEquals(null,locador.getEmail());
-		Assert.assertEquals(null,locador.getEndereco());
-		Assert.assertEquals(null,locador.getNascimento());
-		Assert.assertEquals(null,locador.getNaturalidade());
-		Assert.assertEquals(null,locador.getNome());
-		Assert.assertEquals(null,locador.getRG());
-		Assert.assertEquals(null,locador.getTelefone());
-	}
-	*/
+
 	@Test
 	public void testaMetodosSet() throws Exception{
 		locador.setAgencia(filial2);

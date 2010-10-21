@@ -612,8 +612,10 @@ public class main {
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
 		switch(opcao){
 		case(1):
+			registrarVeiculo();
 			break;
 		case(2):
+			excluirVeiculo();
 			break;
 		case(3):
 			break;
@@ -651,9 +653,11 @@ public class main {
 			System.out.println(i+1 + " - "+Acessorios.values()[i].getNomeCompleto());
 		System.out.println(Acessorios.values().length+1+" - Nao desejo mais adicionar acessorios");
 		while(!(opcao == Acessorios.values().length)){
-			opcao = readIntegerOption("Acessorio a ser adicionado: ", OPCAO_MINIMA_MENUD, Acessorios.values().length)-1;
-			lista.add(Acessorios.values()[opcao]);
-			System.out.println(Acessorios.values()[opcao].getNomeCompleto()+ "adicionado(a) com sucesso!");
+			opcao = readIntegerOption("Acessorio a ser adicionado: ", OPCAO_MINIMA_MENUD, Acessorios.values().length+1)-1;
+			if(opcao <= 8){
+				lista.add(Acessorios.values()[opcao]);
+				System.out.println(Acessorios.values()[opcao].getNomeCompleto()+ " adicionado(a) com sucesso!");
+			}
 		}
 		return lista;
 	}
@@ -684,7 +688,7 @@ public class main {
 			menuPrincipal();
 		}
 		sb = new StringBuilder();
-		sb.append("Que tipo de veiculo voce deseja registrar?");
+		sb.append("Que tipo de veiculo voce deseja registrar?\n");
 		sb.append("1 - Carro\n");
 		sb.append("2 - Moto\n");
 		sb.append("3 - Voltar\n");
@@ -738,6 +742,8 @@ public class main {
 				menuPrincipal();
 			}
 			listaDeVeiculos.add(v);
+			System.out.println("O carro foi adicionado com sucesso!");
+			break;
 		case(2):
 			
 			System.out.println("Informacoes do veiculo: ");
@@ -785,6 +791,8 @@ public class main {
 				menuPrincipal();
 			}
 			listaDeVeiculos.add(v);
+			System.out.println("A moto foi adicionada com sucesso!");
+			break;
 			case(3):
 				break;
 			}
