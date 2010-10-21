@@ -15,6 +15,10 @@ public interface Agencia {
 	 * @return - Em String o CPNJ
 	 */
 	String getCnpj();
+	/**
+	 * Metodo para capturar o Endereco de uma agencia
+	 * @return - Em endereco o Endereco
+	 */
 	Endereco getEndereco();
 	/**
 	 * Metodo para capturar o telefone de uma agencia
@@ -38,6 +42,11 @@ public interface Agencia {
 	 * @throws Exception - Erro de cpf invalido
 	 */	
 	void setCnpj(String cnpj) throws Exception;
+	/**
+	 * Permite mudar o Endereco 
+	 * @param endereco - Recebe como Endereco o endereco
+	 * @throws Exception
+	 */
 	void setEndereco(Endereco endereco)throws Exception;
 	/**
 	 * Permite mudar a inscricao estadual

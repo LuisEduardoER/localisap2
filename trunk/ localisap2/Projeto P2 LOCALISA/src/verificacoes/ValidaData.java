@@ -22,6 +22,7 @@ public class ValidaData {
 	
 	public boolean validar(String data){
 		data = data.replace("/", " ");
+		data = data.replace(".", " ");
 		data = data.replace(" ", "");
 		if (data.length()!=8) 
 			return false;

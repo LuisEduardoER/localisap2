@@ -125,79 +125,74 @@ public interface Veiculo {
 	
 	/**
 	 * Permite mudar o tipo de potencia do veiculo
-	 * @param cep - Recebe o tipo de potencia do tipo enum TipoDePotencia
+	 * @param tipo - Recebe o tipo de potencia do tipo enum TipoDePotencia
 	 * 
-	 * @throw Exception - 
 	 */
-	void setTipoDePotencia(TipoDePotencia tipo) throws Exception;
+	void setTipoDePotencia(TipoDePotencia tipo);
 	/**
 	 * Permite mudar o RENAVAM do veiculo
 	 * @param renavam - Recebe o novo RENAVAM do tipo String
 	 * 
-	 * @throw Exception - 
+	 * @throw Exception - Erro se o tamanho do renavam for zero
 	 */
 	void setRenavam(String renavam) throws Exception;
 	/**
 	 * Permite mudar o modelo do veiculo
 	 * @param modelo - Recebe o novo modelo do tipo String
 	 * 
-	 * @throw Exception - 
+	 * @throw Exception - Erro se o tamanho do modelo for zero
 	 */
 	void setModelo(String modelo) throws Exception;
 	/**
 	 * Permite mudar a marca do veiculo
 	 * @param marca - Recebe a nova marca do tipo String
 	 * 
-	 * @throw Exception - 
+	 * @throw Exception - Erro se o tamanho da marca for zero.
 	 */
 	void setMarca(String marca) throws Exception;
 	/**
 	 * Permite mudar o ano do veiculo
 	 * @param ano - Recebe o novo ano do tipo int
 	 * 
-	 * @throw Exception - 
+	 * @throw Exception - Erro se o ano for menor que 1950.
 	 */
 	void setAno(int ano) throws Exception;
 	/**
 	 * Permite mudar a cor do veiculo
 	 * @param cor - Recebe a nova cor do tipo enum Cor
 	 * 
-	 * @throw Exception - 
 	 */
-	void setCor(Cor cor) throws Exception;
+	void setCor(Cor cor);
 	/**
 	 * Permite mudar o tipo de combustivel do veiculo
 	 * @param tipoDeCombustivel - Recebe o novo tipo de combustivel do tipo enum TipoDeCombustivel
 	 * 
-	 * @throw Exception - 
 	 */
-	void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel) throws Exception;
+	void setTipoDeCombustivel(TipoDeCombustivel tipoDeCombustivel);
 	/**
 	 * Permite mudar a data de aquisicao do veiculo
 	 * @param dataDeAquisicao - Recebe a nova data de aquisicao do tipo String
 	 * 
-	 * @throw Exception - 
+	 * @throw Exception - Erro de data invalida
 	 */
 	void setDataDeAquisicao(String dataDeAquisicao) throws Exception;
 	/**
 	 * Permite mudar a agencia do veiculo
 	 * @param localizacao - Recebe a nova agencia do tipo Agencia
 	 * 
-	 * @throw Exception - 
 	 */
-	void setLocalizacao(Agencia localizacao) throws Exception;
+	void setLocalizacao(Agencia localizacao) ;
 	/**
 	 * Permite mudar o tipo de freio do veiculo
 	 * @param tipoDeFreios - Recebe o novo tipo de freio do tipo enum TipoDeFreio
 	 * 
-	 * @throw Exception - 
 	 */
-	void setTipoDeFreios(TipoDeFreio tipoDeFreios) throws Exception;
+	void setTipoDeFreios(TipoDeFreio tipoDeFreios);
 	/**
 	 * Permite mudar o nivel do tanque do veiculo
 	 * @param nivel - Recebe o novo nivel do tanque do tipo int
 	 * 
-	 * @throw Exception - 
+	 * @throw Exception - Erro se o nivel do tanque for menor que zero ou maior que 100.
 	 */
 	void setNivelDoTanque(int nivel) throws Exception;
 }

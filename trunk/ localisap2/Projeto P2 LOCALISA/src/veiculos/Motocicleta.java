@@ -5,6 +5,8 @@ package veiculos;
  */
 
 import java.util.ArrayList;
+
+import verificacoes.ValidaData;
 import agencias.Agencia;
 
 public class Motocicleta implements Veiculo{
@@ -22,7 +24,22 @@ public class Motocicleta implements Veiculo{
 	private int nivelDoTanque;
 	private TipoDeFreio tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
-	
+	/**
+	 * 
+	 * @param renavam - O renavam do veiculo
+	 * @param modelo - O modelo do veiculo
+	 * @param marca - A marca do veiculo
+	 * @param tipoPotencia - O tipo de pontencia (hp ou cc)
+	 * @param potencia - A potencia do veiculo
+	 * @param cilindradas - As cilindradas da motocicleta
+	 * @param ano - O ano do veiculo
+	 * @param cor - A cor do veiculo
+	 * @param tipoDeCombustivel
+	 * @param localizacao - A agencia que o veiculo estah.
+	 * @param dataDeAquisicao - A data que o veiculo foi adquirido
+	 * @param nivelDoTanque  - O nivel do tanque que o veiculo estah.
+	 * @throws Exception - Erro de algum parametro errado.
+	 */
 	public Motocicleta(String renavam, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
 			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque) throws Exception{
 		this.setAno(ano);
@@ -103,6 +120,11 @@ public class Motocicleta implements Veiculo{
 		this.marca = marca;
 		
 	}
+	/**
+	 * Permite mudar a potencia da motocicleta
+	 * @param potencia - Recebe como inteiro a potencia da motocicleta
+	 * @throws Exception - Erro de potencia menor ou igual a zero.
+	 */
 	public void setPotencia(int potencia)throws Exception {
 		if (potencia<=0)
 			throw new Exception("A potencia deve ser maior que zero");
@@ -127,7 +149,10 @@ public class Motocicleta implements Veiculo{
 		
 	}
 	@Override
-	public void setDataDeAquisicao(String dataDeAquisicao) {
+	public void setDataDeAquisicao(String dataDeAquisicao) throws Exception{
+		ValidaData testaData = new ValidaData();
+		if(!(testaData.validar(dataDeAquisicao)))
+			throw new Exception("Data invalida");
 		this.dataDeAquisicao = dataDeAquisicao;
 		
 	}
@@ -156,11 +181,18 @@ public class Motocicleta implements Veiculo{
 		this.nivelDoTanque = nivel;
 		
 	}
-
+	/**
+	 * Metodo que captura as cilindradas da motocicleta
+	 * @return - Retorna como int as cilindradas
+	 */
 	public int getCilindradas() {
 		return this.clilindradas;
 	}
-
+	/**
+	 * Permite mudar as cilindradas da motocicleta
+	 * @param cilindradas - Recebe como int as cilindradas
+	 * @throws Exception - Erro de cilindradas menor ou igual a zero
+	 */
 	public void setCilindradas(int cilindradas) throws Exception {
 		if(cilindradas <= 0)
 			throw new Exception("As cilindradas devem ser maiores que zero");

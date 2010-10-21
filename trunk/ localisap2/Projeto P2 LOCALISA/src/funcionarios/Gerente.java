@@ -6,6 +6,7 @@ package funcionarios;
 import clientes.Endereco;
 import agencias.Agencia;
 import verificacoes.ValidaCpf;
+import verificacoes.ValidaData;
 
 /**
  * @author Filipe de Alencar Ramos
@@ -28,7 +29,7 @@ public class Gerente implements Pessoas{
 	 * @param rg - Recebe como String o rg
 	 * @param nascimento -  Recebe como String a data de nascimento
 	 * @param naturalidade - Recebe como String a naturalidade
-	 * @param endereco - 
+	 * @param endereco - Recebe como Endereco o endereco
 	 * @param agencia - Recebe como Agencia a agencia
 	 * @param telefone -  Recebe como String o telefone
 	 * @param email - Recebe como String o email
@@ -78,7 +79,10 @@ public class Gerente implements Pessoas{
 		return endereco;
 	}
 
-
+	/**
+	 * Captura a agencia
+	 * @return - Como Agencia a agencia
+	 */
 	public Agencia getAgencia() {
 		return agencia;
 	}
@@ -92,52 +96,7 @@ public class Gerente implements Pessoas{
 	public String getEmail() {
 		return email;
 	}
-/*
-	@Override
-	public void removeCPF() {
-		cpf = null;
-	}
 
-	@Override
-	public void removeNome() {
-		nome = null;
-	}
-
-	@Override
-	public void removeRG() {
-		rg = null;
-	}
-
-	@Override
-	public void removeNascimento() {
-		nascimento = null;
-	}
-
-	@Override
-	public void removeNaturalidade() {
-		naturalidade = null;
-	}
-
-	@Override
-	public void removeEndereco() {
-		endereco = null;
-	}
-
-	@Override
-	public void removeAgencia() {
-		agencia = null;
-	}
-
-	@Override
-	public void removeTelefone() {
-		telefone = null;
-	}
-
-	@Override
-	public void removeEmail() {
-		email = null;
-	}
-*/
 	@Override
 	public void setCpf(String cpf) throws Exception{
 		ValidaCpf testeCpf = new ValidaCpf();
@@ -164,6 +123,9 @@ public class Gerente implements Pessoas{
 
 	@Override
 	public void setNascimento(String nascimento) throws Exception{
+		ValidaData testaData = new ValidaData();
+		if(!(testaData.validar(nascimento)))
+			throw new Exception("Data invalida");
 		this.nascimento = nascimento;
 		
 	}
@@ -182,8 +144,11 @@ public class Gerente implements Pessoas{
 		
 	}
 
-
-	public void setAgencia(Agencia agencia) throws Exception{
+	/**
+	 * Permite mudar a agencia.
+	 * @param agencia - Recebe como Agencia a agencia
+	 */
+	public void setAgencia(Agencia agencia) {
 		this.agencia = agencia;
 		
 	}
