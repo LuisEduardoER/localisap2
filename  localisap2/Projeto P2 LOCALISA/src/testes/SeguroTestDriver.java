@@ -7,6 +7,11 @@ import org.junit.Assert;
 import planos.*;
 import seguro.Seguro;
 
+/**
+ * @author Papai Noel
+ *
+ */
+
 public class SeguroTestDriver {
 
 	PlanosAutomovel planoA;

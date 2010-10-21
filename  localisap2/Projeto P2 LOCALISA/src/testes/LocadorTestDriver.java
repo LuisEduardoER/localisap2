@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import clientes.Endereco;
+
 import agencias.Agencia;
 import agencias.Filial;
 
@@ -15,22 +17,23 @@ import funcionarios.Locador;
 
 
 /**
- * @author Filipe de Alencar Ramos
+ * @author Papai Noel
  *
  */
 public class LocadorTestDriver {
 	Locador locador;
 	Agencia filial1, filial2;
 	Gerente gerente;
+	Endereco endereco, endereco2;
 	@Before
 	public void inicio() throws Exception{
-		filial1 = new Filial("51851873000149", "Aqui em casa", "8333331234", "01234", gerente);
-		filial2 = new Filial("58694458000178", "Lah no japao", "8300004321", "56789", gerente);
+		filial1 = new Filial("51851873000149", endereco, "8333331234", "01234", gerente);
+		filial2 = new Filial("58694458000178", endereco2, "8300004321", "56789", gerente);
 		locador = new Locador();
 		locador.setAgencia(filial1);
 		locador.setCpf("32456373570");
 		locador.setEmail("filipe@teste");
-		locador.setEndereco("endereco");
+		locador.setEndereco(endereco2);
 		locador.setNascimento("11/10/1980");
 		locador.setNaturalidade("Paraiba");
 		locador.setNome("Filipe");
@@ -43,7 +46,7 @@ public class LocadorTestDriver {
 		Assert.assertEquals("32456373570",locador.getCpf());
 		Assert.assertEquals(filial1,locador.getAgencia());
 		Assert.assertEquals("filipe@teste",locador.getEmail());
-		Assert.assertEquals("endereco",locador.getEndereco());
+		Assert.assertEquals(endereco2,locador.getEndereco());
 		Assert.assertEquals("11/10/1980",locador.getNascimento());
 		Assert.assertEquals("Paraiba",locador.getNaturalidade());
 		Assert.assertEquals("Filipe",locador.getNome());
@@ -79,7 +82,7 @@ public class LocadorTestDriver {
 		locador.setAgencia(filial2);
 		locador.setCpf("58548316780");
 		locador.setEmail("filipe@teste2");
-		locador.setEndereco("endereco2");
+		locador.setEndereco(endereco);
 		locador.setNascimento("10/10/1980");
 		locador.setNaturalidade("Sao Paulo");
 		locador.setNome("Filipe A");
@@ -88,7 +91,7 @@ public class LocadorTestDriver {
 		Assert.assertEquals("58548316780",locador.getCpf());
 		Assert.assertEquals(filial2,locador.getAgencia());
 		Assert.assertEquals("filipe@teste2",locador.getEmail());
-		Assert.assertEquals("endereco2",locador.getEndereco());
+		Assert.assertEquals(endereco,locador.getEndereco());
 		Assert.assertEquals("10/10/1980",locador.getNascimento());
 		Assert.assertEquals("Sao Paulo",locador.getNaturalidade());
 		Assert.assertEquals("Filipe A",locador.getNome());
