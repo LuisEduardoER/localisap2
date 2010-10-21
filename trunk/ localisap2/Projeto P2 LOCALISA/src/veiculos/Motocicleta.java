@@ -20,7 +20,7 @@ public class Motocicleta implements Veiculo{
 	private Agencia localizacao;
 	private String dataDeAquisicao;
 	private int nivelDoTanque;
-	private String tipoDeFreio;
+	private TipoDeFreio tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 	
 	public Motocicleta(String RENAVAM, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
@@ -79,7 +79,7 @@ public class Motocicleta implements Veiculo{
 		return localizacao;
 	}
 	@Override
-	public String getTipoDeFreios() {
+	public TipoDeFreio getTipoDeFreios() {
 		return tipoDeFreio;
 	}
 	@Override
@@ -128,7 +128,7 @@ public class Motocicleta implements Veiculo{
 		
 	}
 	@Override
-	public void setTipoDeFreios(String tipoDeFreios) {		
+	public void setTipoDeFreios(TipoDeFreio tipoDeFreios) {		
 		this.tipoDeFreio = tipoDeFreios;
 	}
 	@Override

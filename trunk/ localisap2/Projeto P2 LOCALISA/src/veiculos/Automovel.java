@@ -1,7 +1,7 @@
 package veiculos;
 
 /**
- * @author Felipe Jos�
+ * @author Felipe Jose
  */
 
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ public class Automovel implements Veiculo{
 	private String modelo;
 	private String marca;
 	private TipoDePotencia tipoPotencia;
+	private TipoDeFreio tipoDeFreio;
 	private int potencia;
 	private int ano;
 	private Cor cor;
@@ -22,13 +23,14 @@ public class Automovel implements Veiculo{
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
 
-	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
+	public Automovel(String RENAVAM, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
 					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais){
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
 		this.setLocalizacao(localizacao);
 		this.setPotencia(potencia);
+		this.setTipoDeFreios(tipoDeFreio);
 		this.setMarca(marca);
 		this.setModelo(modelo);
 		this.setNivelDoTanque(nivelDoTanque);
@@ -75,9 +77,8 @@ public class Automovel implements Veiculo{
 		return localizacao;
 	}
 	@Override
-	public String getTipoDeFreios() {
-		// TODO
-		return null;
+	public TipoDeFreio getTipoDeFreios() {
+		return tipoDeFreio;
 	}
 	
 	@Override
@@ -130,8 +131,8 @@ public class Automovel implements Veiculo{
 		
 	}
 	@Override
-	public void setTipoDeFreios(String tipoDeFreios) {		
-		//TODO
+	public void setTipoDeFreios(TipoDeFreio tipoDeFreios) {		
+		this.tipoDeFreio = tipoDeFreios;
 	}
 	public void addOpcional(Acessorios acessorio) {
 		this.acessoriosOpcionais.add(acessorio);
