@@ -1,5 +1,6 @@
 package agencias;
 
+import clientes.Endereco;
 import verificacoes.ValidaCnpj;
 import funcionarios.Gerente;
 
@@ -12,7 +13,7 @@ import funcionarios.Gerente;
 public class Filial implements Agencia{
 	
 	private String cnpj;
-	private String endereco;
+	private Endereco endereco;
 	private String telefone;
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
@@ -25,7 +26,7 @@ public class Filial implements Agencia{
 	 * @param gerenteResponsavel - Recebe como Gerente  o gerente responsavel pela adm da agencia
 	 * @throws Exception - Erros de parametros errados vide sets.
 	 */
-	public Filial(String cnpj, String endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel) throws Exception{
+	public Filial(String cnpj, Endereco endereco, String telefone, String inscEstadual, Gerente gerenteResponsavel) throws Exception{
 		this.setCnpj(cnpj);
 		this.setEndereco(endereco);
 		this.setGerenteResponsavel(gerenteResponsavel);
@@ -40,7 +41,7 @@ public class Filial implements Agencia{
 	}
 
 	@Override
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
@@ -58,37 +59,6 @@ public class Filial implements Agencia{
 	public Gerente getGerenteResponsavel() {
 		return gerenteResponsavel;
 	}
-/*
-	@Override
-	public void removeCNPJ() {
-		CNPJ = null;
-		
-	}
-
-	@Override
-	public void removeEndereco() {
-		endereco = null;
-		
-	}
-
-	@Override
-	public void removeInscEstadual() {
-		inscEstadual = null;
-		
-	}
-
-	@Override
-	public void removeTelefone() {
-		telefone = null;
-		
-	}
-
-	@Override
-	public void removeGerenteResponsavel() {
-		gerenteResponsavel = null;
-		
-	}
-*/
 	@Override
 	public void setCnpj(String Cnpj) throws Exception {
 		ValidaCnpj testeCnpj = new ValidaCnpj();
@@ -99,9 +69,7 @@ public class Filial implements Agencia{
 	}
 
 	@Override
-	public void setEndereco(String endereco) throws Exception{
-		if(endereco.length()==0)
-			throw new Exception("O endereco nao deve ser vazio");
+	public void setEndereco(Endereco endereco) throws Exception{
 		this.endereco = endereco;
 		
 	}

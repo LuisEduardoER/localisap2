@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import clientes.Endereco;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
+import clientes.Endereco.UnidadeFederativa;
 
 import agencias.Agencia;
 import agencias.Filial;
@@ -97,8 +99,22 @@ public class main {
 		}
 		System.out.println("Informe o CNPJ da filial (formato: xx.xxx.xxx/xxxx-xx):");
 		String cnpj = readStringOption(">");
-		System.out.println("Informe o endereco da nova filial:");
-		String endereco = readStringOption(">");
+		System.out.println("Em que estado esta situada a agencia:");
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
+			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
+		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
+		String cidade = readStringOption("Cidade: ");
+		String bairro = readStringOption("Bairro: ");
+		String rua = readStringOption("Rua: ");
+		int numero = readIntegerOptionNoLimit("Numero: ",OPCAO_MINIMA_MENUD);
+		String cep = readStringOption("CEP: ");
+		String pontoDeReferencia = readStringOption("Ponto de referencia (opcional) : ");
+		Endereco endereco;
+		if (!pontoDeReferencia.isEmpty())
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+		else
+			endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
 		System.out.println("Informe o numero de telefone da nova filial:");
 		String telefone = readStringOption(">");
 		System.out.println("Informe a inscricao estadual da agencia:");
@@ -383,6 +399,21 @@ public class main {
 				do {
 					number = Integer.valueOf(input.nextLine());
 				}while(number < lowerLimit || number > upperLimit);
+				return number;
+			}catch (NumberFormatException nfe) {
+				// Just to avoid crashing in the user's face.
+			}
+		}
+	}
+	
+	private static int readIntegerOptionNoLimit(String message, int lowerLimit) {
+		while(true){
+			try{
+				System.out.print(message);
+				Integer number = 0;
+				do {
+					number = Integer.valueOf(input.nextLine());
+				}while(number < lowerLimit);
 				return number;
 			}catch (NumberFormatException nfe) {
 				// Just to avoid crashing in the user's face.
