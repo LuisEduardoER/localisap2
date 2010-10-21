@@ -450,6 +450,36 @@ public class main {
 			excluirPlanoDeCarro();
 		if(opcao == 2 )
 			excluirPlanoDeMoto();
+		if(opcao ==3)
+			
+	}
+
+	private static void excluirPlanoDeMoto() throws Exception {
+		if (listaDePlanosMoto.isEmpty()){
+			System.out.println("Nao ha planos criados.");
+			menuPrincipal();
+		}
+		for (int i = 0 ; i < listaDePlanosMoto.size() ; i++){
+			System.out.println(i+1+" - "+listaDePlanosMoto.get(i).getNome());
+		}
+		System.out.println("Qual plano voce deseja excluir do registro?");
+		int plano = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDePlanosMoto.size())-1;
+		listaDeAgencias.remove(plano);		
+		
+	}
+
+	private static void excluirPlanoDeCarro() throws Exception {
+		if (listaDePlanosCarros.isEmpty()){
+			System.out.println("Nao ha planos criados.");
+			menuPrincipal();
+		}
+		for (int i = 0 ; i < listaDePlanosCarros.size() ; i++){
+			System.out.println(i+1+" - "+listaDePlanosCarros.get(i).getNome());
+		}
+		System.out.println("Qual plano voce deseja excluir do registro?");
+		int plano = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDePlanosCarros.size())-1;
+		listaDeAgencias.remove(plano);		
+		
 	}
 
 	private static void menuRegistraPlanos() {
