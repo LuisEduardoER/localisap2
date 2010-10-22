@@ -1,4 +1,3 @@
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,8 +13,6 @@ import veiculos.Veiculo.TipoDePotencia;
 
 import planos.PlanosAutomovel;
 import planos.PlanosMoto;
-
-import veiculos.Veiculo.Acessorios;
 
 import clientes.Endereco;
 import clientes.PessoaFisica;
@@ -35,7 +32,7 @@ import funcionarios.Pessoas;
  *
  */
 
-public class main {
+public class start {
 	
 	private static StringBuilder sb;
 	private static Scanner input;
@@ -118,6 +115,8 @@ public class main {
 	}
 	
 	private static void registrarAgencia(){
+		int aux = 0;
+		String format = "%1$-2s - %2$-21s| ";
 		if (listaDeGerentes.isEmpty()){
 			System.out.println("Voce deve ter gerentes cadastrados para criar uma agencia.");
 			menuPrincipal();
@@ -125,8 +124,17 @@ public class main {
 		System.out.println("Informe o CNPJ da filial (formato: xx.xxx.xxx/xxxx-xx):");
 		String cnpj = readStringOption(">");
 		System.out.println("Em que estado esta situada a agencia:");
-		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
-			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++){
+			if (aux<=4){
+				System.out.format(format, i+1,UnidadeFederativa.values()[i].getNomePorExtenso());
+				aux++;
+			}
+			if (aux==4){ 
+				System.out.println();
+				aux=0;
+			}
+		}
+		System.out.println("");
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
 		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
 		String cidade = readStringOption("Cidade: ");
@@ -267,6 +275,8 @@ public class main {
 
 
 	private static void registrarClienteJuridico(){
+		int aux = 0;
+		String format = "%1$-2s - %2$-21s| ";
 		System.out.println("Informe o CNPJ do cliente (formato: xx.xxx.xxx/xxxx-xx):");
 		String cnpj = readStringOption(">");
 		System.out.println("Informe a razao social Cliente:");
@@ -277,8 +287,17 @@ public class main {
 		String inscricaoEstadual = readStringOption(">");
 		System.out.println("Informe o endereco do cliente:");
 		System.out.println("Em que estado mora o cliente:");
-		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
-			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++){
+			if (aux<=4){
+				System.out.format(format, i+1,UnidadeFederativa.values()[i].getNomePorExtenso());
+				aux++;
+			}
+			if (aux==4){ 
+				System.out.println();
+				aux=0;
+			}
+		}
+		System.out.println("");
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
 		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
 		String cidade = readStringOption("Cidade: ");
@@ -318,6 +337,8 @@ public class main {
 	}
 
 	private static void registrarClienteFisica(){
+		int aux = 0;
+		String format = "%1$-2s - %2$-21s| ";
 		System.out.println("Informe o nome do Cliente:");
 		String nome = readStringOption(">");
 		System.out.println("Informe o cpf do Cliente:");
@@ -329,8 +350,17 @@ public class main {
 		System.out.println("Informe a naturalidade do Cliente:");
 		String naturalidade = readStringOption(">");
 		System.out.println("Em que estado mora o cliente:");
-		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
-			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++){
+			if (aux<=4){
+				System.out.format(format, i+1,UnidadeFederativa.values()[i].getNomePorExtenso());
+				aux++;
+			}
+			if (aux==4){ 
+				System.out.println();
+				aux=0;
+			}
+		}
+		System.out.println("");
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
 		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
 		String cidade = readStringOption("Cidade: ");
@@ -430,6 +460,8 @@ public class main {
 	private static void registrarFuncionario(){
 		Agencia ag;
 		sb = new StringBuilder();
+		String format = "%1$-2s - %2$-21s| ";
+		int aux = 0;
 		sb.append("Tipo de funcionario a ser criado:"+QUEBRA_DE_LINHA);
 		sb.append("1 - Gerente"+QUEBRA_DE_LINHA);
 		sb.append("2 - Locador"+QUEBRA_DE_LINHA);
@@ -443,8 +475,17 @@ public class main {
 		String rg = readStringOption("RG: ");
 		String naturalidade = readStringOption("Naturalidade: ");
 		System.out.println("Em que estado mora o funcionario:");
-		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++)
-			System.out.println(i+1+" - "+UnidadeFederativa.values()[i].getNomePorExtenso());
+		for (int i = 0 ; i < UnidadeFederativa.values().length ; i++){
+			if (aux<=4){
+				System.out.format(format, i+1,UnidadeFederativa.values()[i].getNomePorExtenso());
+				aux++;
+			}
+			if (aux==4){ 
+				System.out.println();
+				aux=0;
+			}
+		}
+		System.out.println("");
 		int numEstado = readIntegerOption(">", OPCAO_MINIMA_MENUD, UnidadeFederativa.values().length)-1;
 		UnidadeFederativa estado = UnidadeFederativa.values()[numEstado];
 		String cidade = readStringOption("Cidade: ");
