@@ -32,7 +32,7 @@ import funcionarios.Pessoas;
  *
  */
 
-public class start {
+public class Start {
 	
 	private static StringBuilder sb;
 	private static Scanner input;
@@ -423,7 +423,7 @@ public class start {
 		sb = new StringBuilder();
 		sb.append("Que tipo de funcionario voce deseja apagar?"+QUEBRA_DE_LINHA);
 		sb.append("1 - Gerente"+QUEBRA_DE_LINHA);
-		sb.append("2 - Lodador"+QUEBRA_DE_LINHA);
+		sb.append("2 - Locador"+QUEBRA_DE_LINHA);
 		sb.append("3 - Voltar"+QUEBRA_DE_LINHA);
 		System.out.println(sb.toString());
 		int opcao = readIntegerOption(">", OPCAO_MINIMA_MENUD, OPCAO_MAXIMA_MENUD);
@@ -777,7 +777,7 @@ public class start {
 			}
 			agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
 			localizacao = listaDeAgencias.get(agencia);
-			dataDeAquisicao = readStringOption("Data de aquisicao do veiculo: ");
+			dataDeAquisicao = readStringOption("Data de aquisicao do veiculo (Formato XX/XX/XXXX): ");
 			ArrayList<Acessorios> listaDeAcessorios = pegarAcessorios();
 			nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE , MAXIMO_NIVEL_TANQUE);
 			v = null;
@@ -827,7 +827,7 @@ public class start {
 			}
 			agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
 			localizacao = listaDeAgencias.get(agencia);
-			dataDeAquisicao = readStringOption("Data de aquisicao do veiculo: ");
+			dataDeAquisicao = readStringOption("Data de aquisicao do veiculo (Formato XX/XX/XXXX): ");
 			nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE , MAXIMO_NIVEL_TANQUE);
 			v = null;
 			try {
