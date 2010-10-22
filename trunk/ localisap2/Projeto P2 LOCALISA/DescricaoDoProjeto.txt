@@ -1,0 +1,23 @@
+﻿	Universidade Federal de Campina Grande 
+              Ciência da Computação
+Grupo: Filipe de Alencar
+  Felipe Jose
+      Emilio Farias
+
+Tema: Locadora de Veiculos LocaLisa
+
+http://code.google.com/p/localisap2/
+
+Descrição do projeto:
+
+		A locadora de veículos Loca Lisa acaba de abrir uma filial em Campina Grande. A 	presidente Lisa Abreu pessoalmente veio à nossa cidade a procura de uma equipe para 	desenvolver o 	sistema da empresa. As funcionalidades desse sistema incluem registro de 	clientes, automóveis e seguradoras; além da gerência de locação, pagamento e devolução dos 	automóveis.
+
+Neste  1º milestone nós abordamos:
+
+	Caso de uso 1: Manter registros dos veículos.
+	Caso de uso 2: Manter registros das agências.
+	Caso de uso 3: Manter registros dos seguros.
+	Caso de uso 5: Manter registros dos planos de locação.
+	Caso de uso 9: Manter registros dos funcionários
+
+ Além disso, foi criado um metodo main para uso dos casos , podendo adicionar ou remover.
