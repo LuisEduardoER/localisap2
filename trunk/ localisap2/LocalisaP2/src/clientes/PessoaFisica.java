@@ -1,6 +1,3 @@
-/**
- *
- */
 package clientes;
 
 import verificacoes.ValidaCpf;
