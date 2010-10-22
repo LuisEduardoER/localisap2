@@ -31,7 +31,7 @@ import veiculos.Veiculo.TipoDePotencia;
 *
 */
 
-public class planosTestDriver {
+public class PlanosTestDriver {
 
 	PlanosAutomovel planoCarroA, planoCarroB;
 	PlanosMoto planoMotoA, planoMotoB;
