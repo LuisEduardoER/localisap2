@@ -17,7 +17,6 @@ import veiculos.Veiculo.Cor;
 import veiculos.Veiculo.TipoDeCombustivel;
 import veiculos.Veiculo.TipoDeFreio;
 import veiculos.Veiculo.TipoDePotencia;
-import verificacoes.ValidaData;
 
 import clientes.Endereco;
 
