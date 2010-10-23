@@ -1,5 +1,6 @@
 package clientes;
 
+import locacoes.CodigosExclusivos;
 import verificacoes.Validacao;
 /**
 *
@@ -19,6 +20,7 @@ public class PessoaJuridica {
 	private Endereco endereco;
 	private String telefone;
 	private String email;
+        private String codigoDaPessoaJuridica;
 	/**
 	 * Construtor que cria uma Pessoa Juridca.
 	 * @param cnpj - Recebe como String o cnpj
@@ -38,10 +40,18 @@ public class PessoaJuridica {
 		setRazaoSocial(razaoSocial);
 		setTelefone(telefone);
 		setCnpj(cnpj);
+                setCodigo();
 	}
 	public PessoaJuridica(){
-
+            setCodigo();
 	}
+       /**
+         * Metodo que captura o codigo exclusivo.
+         * @return - O codigo exclusivo
+         */
+        public String getCodigoExclusivo(){
+            return codigoDaPessoaJuridica;
+        }
 	/**
 	 * Metodo para capturar o CPNJ de uma pessoa juridica
 	 * @return - Em String o CPNJ
@@ -170,4 +180,11 @@ public class PessoaJuridica {
 
 		this.email = email;
 	}
+        /**
+         * Metodo que cria o codigo exclusivo.
+         */
+        private void setCodigo() {
+            CodigosExclusivos codigo = new CodigosExclusivos();
+            codigoDaPessoaJuridica = codigo.geraCodigoInternoDeArmazenamento(20);
+        }
 }

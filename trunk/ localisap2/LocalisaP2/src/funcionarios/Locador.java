@@ -5,6 +5,7 @@ package funcionarios;
 
 import clientes.Endereco;
 import agencias.Agencia;
+import locacoes.CodigosExclusivos;
 import verificacoes.Validacao;
 
 /**
@@ -27,6 +28,7 @@ public class Locador implements Pessoas{
 	private Agencia agencia;
 	private String telefone;
 	private String email;
+        private String codigoDoLocador;
 	/**
 	 * Construtor que cria um locador.
 	 * @param cpf - Recebe como String o CPF
@@ -50,12 +52,19 @@ public class Locador implements Pessoas{
 		setNome(nome);
 		setRg(rg);
 		setTelefone(telefone);
+                setCodigo();
 	}
 
 	public Locador(){
-
+            setCodigo();
 	}
-
+        /**
+         * Metodo que captura o codigo exclusivo.
+         * @return - O codigo exclusivo
+         */
+        public String getCodigoExclusivo(){
+            return codigoDoLocador;
+        }
 	@Override
 	public String getCpf() {
 		return cpf;
@@ -176,4 +185,11 @@ public class Locador implements Pessoas{
 
 		this.email = email;
 	}
+        /**
+         * Metodo que cria o codigo exclusivo.
+         */
+        private void setCodigo() {
+            CodigosExclusivos codigo = new CodigosExclusivos();
+            codigoDoLocador = codigo.geraCodigoInternoDeArmazenamento(20);
+        }
 }

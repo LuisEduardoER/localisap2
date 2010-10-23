@@ -14,6 +14,7 @@ package veiculos;
 import java.util.ArrayList;
 
 import agencias.Agencia;
+import locacoes.CodigosExclusivos;
 import verificacoes.Validacao;
 
 public class Automovel implements Veiculo{
@@ -31,6 +32,7 @@ public class Automovel implements Veiculo{
 	private int nivelDoTanque;
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
+        private String codigoDoCarro;
 	/**
 	 * Construtor de um automovel
 	 * @param renavam - O renavam do veiculo
@@ -64,8 +66,15 @@ public class Automovel implements Veiculo{
 		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 		this.setTipoDePotencia(tipoDePotencia);
+                this.setCodigo();
 	}
-
+        /**
+         * Metodo que captura o codigo exclusivo.
+         * @return - O codigo exclusivo
+         */
+        public String getCodigoExclusivo(){
+            return codigoDoCarro;
+        }
 	@Override
 	public String getRenavam() {
 		return renavam;
@@ -216,4 +225,12 @@ public class Automovel implements Veiculo{
 		this.tipoPotencia = tipoPotencia;
 
 	}
+
+        /**
+         * Metodo que cria o codigo exclusivo.
+         */
+        private void setCodigo() {
+            CodigosExclusivos codigo = new CodigosExclusivos();
+            codigoDoCarro = codigo.geraCodigoInternoDeArmazenamento(20);
+        }
 }

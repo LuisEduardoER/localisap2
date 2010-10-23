@@ -5,6 +5,7 @@ package funcionarios;
 
 import clientes.Endereco;
 import agencias.Agencia;
+import locacoes.CodigosExclusivos;
 import verificacoes.Validacao;
 
 /**
@@ -27,6 +28,7 @@ public class Gerente implements Pessoas{
 	private Agencia agencia;
 	private String telefone;
 	private String email;
+        private String codigoDoGerente;
 	/**
 	 * Construtor que cria um gerente.
 	 * @param cpf - Recebe como String o CPF
@@ -50,10 +52,18 @@ public class Gerente implements Pessoas{
 		setNome(nome);
 		setRg(rg);
 		setTelefone(telefone);
+                setCodigo();
 	}
 	public Gerente(){
-
+            setCodigo();
 	}
+       /**
+         * Metodo que captura o codigo exclusivo.
+         * @return - O codigo exclusivo
+         */
+        public String getCodigoExclusivo(){
+            return codigoDoGerente;
+        }
 	@Override
 	public String getCpf() {
 		return cpf;
@@ -173,4 +183,11 @@ public class Gerente implements Pessoas{
 
 		this.email = email;
 	}
+        /**
+         * Metodo que cria o codigo exclusivo.
+         */
+        private void setCodigo() {
+            CodigosExclusivos codigo = new CodigosExclusivos();
+            codigoDoGerente = codigo.geraCodigoInternoDeArmazenamento(20);
+        }
 }
