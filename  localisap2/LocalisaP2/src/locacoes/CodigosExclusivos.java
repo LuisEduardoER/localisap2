@@ -21,18 +21,22 @@ import net.sourceforge.barbecue.BarcodeImageHandler;
  */
 public class CodigosExclusivos {
     /**
-     * Metodo responsavel por gerar uma string aleatoria do tamanho desejado.
-     * @param tamanho - Recebe o tamanho desejado da String.
+     * Metodo responsavel por gerar uma string aleatoria de  tamanho entre 0 e o valor maximo desejado.
+     * @param tamanho - Recebe o tamanho maximo desejado da String.
      * @return - Uma string aleatoria do tamanho desejado.
      */
     public String geraCodigoInternoDeArmazenamento(int tamanho){
         SecureRandom numeroAleatorio = new SecureRandom();
-        return new BigInteger(30, numeroAleatorio).toString(tamanho);
+        String numero = new BigInteger(100, numeroAleatorio).toString();
+        if(numero.length()>tamanho)
+            numero = numero.substring(0, tamanho);
+        return numero;
+
 
 }
 
     /**
-     * Metodo responsável por gerar codigo de barras no padrao Code39
+     * Metodo responsavel por gerar codigo de barras no padrao Code39
      * @param codigoUnico - Valor que sera transformado em codigo de barras
      */
     public void GeraCodigoBarras(String codigoUnico){
