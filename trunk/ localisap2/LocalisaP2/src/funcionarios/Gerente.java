@@ -5,8 +5,7 @@ package funcionarios;
 
 import clientes.Endereco;
 import agencias.Agencia;
-import verificacoes.ValidaCpf;
-import verificacoes.ValidaData;
+import verificacoes.Validacao;
 
 /**
 *
@@ -105,8 +104,8 @@ public class Gerente implements Pessoas{
 
 	@Override
 	public void setCpf(String cpf) throws Exception{
-		ValidaCpf testeCpf = new ValidaCpf();
-		if(!(testeCpf.valida(cpf)))
+		Validacao testeCpf = new Validacao();
+		if(!(testeCpf.validaCpf(cpf)))
 			throw new Exception("CPF invalido.");
 		this.cpf = cpf;
 
@@ -129,8 +128,8 @@ public class Gerente implements Pessoas{
 
 	@Override
 	public void setNascimento(String nascimento) throws Exception{
-		ValidaData testaData = new ValidaData();
-		if(!(testaData.validar(nascimento)))
+		Validacao testaData = new Validacao();
+		if(!(testaData.validaData(nascimento)))
 			throw new Exception("Data invalida");
 		this.nascimento = nascimento;
 

@@ -1,8 +1,8 @@
 package agencias;
 
 import clientes.Endereco;
-import verificacoes.ValidaCnpj;
 import funcionarios.Gerente;
+import verificacoes.Validacao;
 
 /**
 *
@@ -65,11 +65,11 @@ public class Filial implements Agencia{
 		return gerenteResponsavel;
 	}
 	@Override
-	public void setCnpj(String Cnpj) throws Exception {
-		ValidaCnpj testeCnpj = new ValidaCnpj();
-		if(!(testeCnpj.validaCnpj(Cnpj)))
-			throw new Exception("Um CPNJ valido deve ter 14 numeros");
-		this.cnpj = Cnpj;
+	public void setCnpj(String cnpj) throws Exception {
+		Validacao testeCpnj = new Validacao();
+		if(!(testeCpnj.validaCnpj(cnpj)))
+			throw new Exception("Um cnpj valido deve ter 14 numeros");
+		this.cnpj = cnpj;
 
 	}
 

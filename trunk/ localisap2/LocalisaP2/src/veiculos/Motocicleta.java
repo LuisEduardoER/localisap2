@@ -13,8 +13,8 @@ package veiculos;
 
 import java.util.ArrayList;
 
-import verificacoes.ValidaData;
 import agencias.Agencia;
+import verificacoes.Validacao;
 
 public class Motocicleta implements Veiculo{
 	private String renavam;
@@ -158,8 +158,8 @@ public class Motocicleta implements Veiculo{
 	}
 	@Override
 	public void setDataDeAquisicao(String dataDeAquisicao) throws Exception{
-		ValidaData testaData = new ValidaData();
-		if(!(testaData.validar(dataDeAquisicao)))
+		Validacao testaData = new Validacao();
+		if(!(testaData.validaData(dataDeAquisicao)))
 			throw new Exception("Data invalida");
 		this.dataDeAquisicao = dataDeAquisicao;
 
