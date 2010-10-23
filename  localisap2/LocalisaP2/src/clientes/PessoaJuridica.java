@@ -1,6 +1,6 @@
 package clientes;
 
-import verificacoes.ValidaCnpj;
+import verificacoes.Validacao;
 /**
 *
 * @author Filipe Alencar   -twitter.com/filipealencar_
@@ -100,7 +100,7 @@ public class PessoaJuridica {
 	 * @throws Exception - Erro de cpf invalido
 	 */
 	public void setCnpj(String cnpj) throws Exception {
-		ValidaCnpj testeCpnj = new ValidaCnpj();
+		Validacao testeCpnj = new Validacao();
 		if(!(testeCpnj.validaCnpj(cnpj)))
 			throw new Exception("Um cnpj valido deve ter 14 numeros");
 		this.cnpj = cnpj;
