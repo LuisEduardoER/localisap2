@@ -4,8 +4,7 @@
 package funcionarios;
 
 import clientes.Endereco;
-import agencias.Agencia;
-import locacoes.CodigosExclusivos;
+import agencias.Filial;
 import verificacoes.Validacao;
 
 /**
@@ -25,7 +24,7 @@ public class Gerente implements Pessoa{
 	private String nascimento;
 	private String naturalidade;
 	private Endereco endereco;
-	private Agencia agencia;
+	private Filial agencia;
 	private String telefone;
 	private String email;
         private String codigoDoGerente;
@@ -37,12 +36,12 @@ public class Gerente implements Pessoa{
 	 * @param nascimento -  Recebe como String a data de nascimento
 	 * @param naturalidade - Recebe como String a naturalidade
 	 * @param endereco - Recebe como Endereco o endereco
-	 * @param agencia - Recebe como Agencia a agencia
+	 * @param agencia - Recebe como Filial a agencia
 	 * @param telefone -  Recebe como String o telefone
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */
-	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Agencia agencia,String telefone,String email) throws Exception{
+	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Filial agencia,String telefone,String email) throws Exception{
 		setAgencia(agencia);
 		setCpf(cpf);
 		setEmail(email);
@@ -52,10 +51,8 @@ public class Gerente implements Pessoa{
 		setNome(nome);
 		setRg(rg);
 		setTelefone(telefone);
-                setCodigo();
 	}
 	public Gerente(){
-            setCodigo();
 	}
        /**
          * Metodo que captura o codigo exclusivo.
@@ -96,9 +93,9 @@ public class Gerente implements Pessoa{
 
 	/**
 	 * Captura a agencia
-	 * @return - Como Agencia a agencia
+	 * @return - Como Filial a agencia
 	 */
-	public Agencia getAgencia() {
+	public Filial getAgencia() {
 		return agencia;
 	}
 
@@ -161,9 +158,9 @@ public class Gerente implements Pessoa{
 
 	/**
 	 * Permite mudar a agencia.
-	 * @param agencia - Recebe como Agencia a agencia
+	 * @param agencia - Recebe como Filial a agencia
 	 */
-	public void setAgencia(Agencia agencia) {
+	public void setAgencia(Filial agencia) {
 		this.agencia = agencia;
 
 	}
@@ -183,11 +180,5 @@ public class Gerente implements Pessoa{
 
 		this.email = email;
 	}
-        /**
-         * Metodo que cria o codigo exclusivo.
-         */
-        private void setCodigo() {
-            CodigosExclusivos codigo = new CodigosExclusivos();
-            codigoDoGerente = codigo.geraCodigoInternoDeArmazenamento(20);
-        }
+
 }

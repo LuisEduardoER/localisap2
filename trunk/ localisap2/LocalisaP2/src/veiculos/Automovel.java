@@ -13,8 +13,7 @@ package veiculos;
 
 import java.util.ArrayList;
 
-import agencias.Agencia;
-import locacoes.CodigosExclusivos;
+import agencias.Filial;
 import verificacoes.Validacao;
 
 public class Automovel implements Veiculo{
@@ -27,7 +26,7 @@ public class Automovel implements Veiculo{
 	private int ano;
 	private Cor cor;
 	private TipoDeCombustivel tipoDeCombustivel;
-	private Agencia localizacao;
+	private Filial localizacao;
 	private String dataDeAquisicao;
 	private int nivelDoTanque;
 	private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
@@ -43,7 +42,7 @@ public class Automovel implements Veiculo{
 	 * @param cor - A cor do veiculo
 	 * @param tipoDeFreio - O tipo de freio do veiculo
 	 * @param tipoDeCombustivel - O tipo de combustivel do veiculo
-	 * @param localizacao - A agencia que o veiculo estah.
+	 * @param localizacao - A Filial que o veiculo estah.
 	 * @param dataDeAquisicao - A data que o veiculo foi adquirido
 	 * @param nivelDoTanque - O nivel do tanque que o veiculo estah.
 	 * @param acessoriosOpcionais - O acessorios opcionais que o veiculo tem
@@ -51,7 +50,7 @@ public class Automovel implements Veiculo{
 	 * @throws Exception - Erro de algum parametro errado.
 	 */
 	public Automovel(String renavam, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
-					 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais,TipoDePotencia tipoDePotencia) throws Exception{
+					 ,Filial localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais,TipoDePotencia tipoDePotencia) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
@@ -66,7 +65,6 @@ public class Automovel implements Veiculo{
 		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 		this.setTipoDePotencia(tipoDePotencia);
-                this.setCodigo();
 	}
         /**
          * Metodo que captura o codigo exclusivo.
@@ -108,7 +106,7 @@ public class Automovel implements Veiculo{
 		return dataDeAquisicao;
 	}
 	@Override
-	public Agencia getLocalizacao() {
+	public Filial getLocalizacao() {
 		return localizacao;
 	}
 	@Override
@@ -176,7 +174,7 @@ public class Automovel implements Veiculo{
 	}
 
 	@Override
-	public void setLocalizacao(Agencia localizacao){
+	public void setLocalizacao(Filial localizacao){
 		this.localizacao = localizacao;
 
 	}
@@ -226,11 +224,4 @@ public class Automovel implements Veiculo{
 
 	}
 
-        /**
-         * Metodo que cria o codigo exclusivo.
-         */
-        private void setCodigo() {
-            CodigosExclusivos codigo = new CodigosExclusivos();
-            codigoDoCarro = codigo.geraCodigoInternoDeArmazenamento(20);
-        }
 }

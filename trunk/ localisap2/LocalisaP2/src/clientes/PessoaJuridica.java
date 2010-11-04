@@ -1,6 +1,5 @@
 package clientes;
 
-import locacoes.CodigosExclusivos;
 import verificacoes.Validacao;
 /**
 *
@@ -40,10 +39,8 @@ public class PessoaJuridica {
 		setRazaoSocial(razaoSocial);
 		setTelefone(telefone);
 		setCnpj(cnpj);
-                setCodigo();
 	}
 	public PessoaJuridica(){
-            setCodigo();
 	}
        /**
          * Metodo que captura o codigo exclusivo.
@@ -180,11 +177,4 @@ public class PessoaJuridica {
 
 		this.email = email;
 	}
-        /**
-         * Metodo que cria o codigo exclusivo.
-         */
-        private void setCodigo() {
-            CodigosExclusivos codigo = new CodigosExclusivos();
-            codigoDaPessoaJuridica = codigo.geraCodigoInternoDeArmazenamento(20);
-        }
 }

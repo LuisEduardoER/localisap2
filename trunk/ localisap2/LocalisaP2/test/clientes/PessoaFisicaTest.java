@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import agencias.Agencia;
 import agencias.Filial;
 
 import funcionarios.Gerente;
@@ -26,7 +25,7 @@ import funcionarios.Gerente;
 
 public class PessoaFisicaTest{
 	PessoaFisica pessoa1;
-	Agencia filial1, filial2;
+	Filial filial1, filial2;
 	Gerente gerente;
 	Endereco endereco, endereco2;
 

@@ -13,8 +13,7 @@ package veiculos;
 
 import java.util.ArrayList;
 
-import agencias.Agencia;
-import locacoes.CodigosExclusivos;
+import agencias.Filial;
 import verificacoes.Validacao;
 
 public class Motocicleta implements Veiculo{
@@ -27,7 +26,7 @@ public class Motocicleta implements Veiculo{
 	private int ano;
 	private Cor cor;
 	private TipoDeCombustivel tipoDeCombustivel;
-	private Agencia localizacao;
+	private Filial localizacao;
 	private String dataDeAquisicao;
 	private int nivelDoTanque;
 	private TipoDeFreio tipoDeFreio;
@@ -44,13 +43,13 @@ public class Motocicleta implements Veiculo{
 	 * @param ano - O ano do veiculo
 	 * @param cor - A cor do veiculo
 	 * @param tipoDeCombustivel
-	 * @param localizacao - A agencia que o veiculo estah.
+	 * @param localizacao - A Filial que o veiculo estah.
 	 * @param dataDeAquisicao - A data que o veiculo foi adquirido
 	 * @param nivelDoTanque  - O nivel do tanque que o veiculo estah.
 	 * @throws Exception - Erro de algum parametro errado.
 	 */
 	public Motocicleta(String renavam, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
-			 ,Agencia localizacao, String dataDeAquisicao,int nivelDoTanque) throws Exception{
+			 ,Filial localizacao, String dataDeAquisicao,int nivelDoTanque) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
@@ -63,7 +62,6 @@ public class Motocicleta implements Veiculo{
 		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 		this.setTipoDePotencia(tipoPotencia);
-                this.setCodigo();
 }
        /**
          * Metodo que captura o codigo exclusivo.
@@ -109,7 +107,7 @@ public class Motocicleta implements Veiculo{
 		return dataDeAquisicao;
 	}
 	@Override
-	public Agencia getLocalizacao() {
+	public Filial getLocalizacao() {
 		return localizacao;
 	}
 	@Override
@@ -174,7 +172,7 @@ public class Motocicleta implements Veiculo{
 
 	}
 	@Override
-	public void setLocalizacao(Agencia localizacao) {
+	public void setLocalizacao(Filial localizacao) {
 		this.localizacao = localizacao;
 
 	}
@@ -222,11 +220,5 @@ public class Motocicleta implements Veiculo{
 	public void setTipoDePotencia(TipoDePotencia tipoPotencia) {
 		this.tipoPotencia = tipoPotencia;
 	}
-        /**
-         * Metodo que cria o codigo exclusivo.
-         */
-        private void setCodigo() {
-            CodigosExclusivos codigo = new CodigosExclusivos();
-            codigoDaMoto = codigo.geraCodigoInternoDeArmazenamento(20);
-        }
+
 }
