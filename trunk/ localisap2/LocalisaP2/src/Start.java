@@ -11,8 +11,8 @@ import veiculos.Veiculo.TipoDeCombustivel;
 import veiculos.Veiculo.TipoDeFreio;
 import veiculos.Veiculo.TipoDePotencia;
 
-import planos.PlanosAutomovel;
-import planos.PlanosMoto;
+import planos.PlanoAutomovel;
+import planos.PlanoMoto;
 
 import clientes.Endereco;
 import clientes.PessoaFisica;
@@ -24,7 +24,7 @@ import agencias.Filial;
 
 import funcionarios.Gerente;
 import funcionarios.Locador;
-import funcionarios.Pessoas;
+import funcionarios.Pessoa;
 
 /**
  * 
@@ -47,13 +47,13 @@ public class Start {
 
 	private static List<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
 
-	private static List<PlanosAutomovel> listaDePlanosCarros = new ArrayList<PlanosAutomovel>();
-	private static List<PlanosMoto> listaDePlanosMoto = new ArrayList<PlanosMoto>();
+	private static List<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
+	private static List<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
 
 	private static List<Locador> listaDeLocadores = new ArrayList<Locador>();
 	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
 	private static List<Agencia> listaDeAgencias = new ArrayList<Agencia>();
-	private static List<Pessoas> listaDeClientesPessoaFisica = new ArrayList<Pessoas>();
+	private static List<Pessoa> listaDeClientesPessoaFisica = new ArrayList<Pessoa>();
 	private static List<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
 
 	public static void main(String[] args){
@@ -389,7 +389,7 @@ public class Start {
 		System.out.println("Informe o email do cliente:");
 		String email = readStringOption(">");
 		try{
-			Pessoas pessoa = new PessoaFisica(cpf,nome,rg,nascimento,naturalidade,endereco,telefone,email);
+			Pessoa pessoa = new PessoaFisica(cpf,nome,rg,nascimento,naturalidade,endereco,telefone,email);
 			listaDeClientesPessoaFisica.add(pessoa);
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -633,7 +633,7 @@ public class Start {
 		String nomeDoPlano = readStringOption("Nome do plano:");
 		double preco = readDoubleOptionNoLimit("Preco: ", 0);
 		int cilindradas = readIntegerOptionNoLimit("Cilindradas maxima:", 0);
-		PlanosMoto plano = new PlanosMoto(nomeDoPlano,preco);
+		PlanoMoto plano = new PlanoMoto(nomeDoPlano,preco);
 		plano.adicionaCilindradas(cilindradas);
 		listaDePlanosMoto.add(plano);
 		System.out.println("O plano foi criado com sucesso!");
@@ -643,7 +643,7 @@ public class Start {
 		String nomeDoPlano = readStringOption("Nome do plano:");
 		double preco = readDoubleOptionNoLimit("Preco: ", 0);
 		List<Acessorios> acessoriosDoPlano = pegarAcessorios();
-		PlanosAutomovel plano = new PlanosAutomovel(nomeDoPlano,preco);
+		PlanoAutomovel plano = new PlanoAutomovel(nomeDoPlano,preco);
 		plano.adicionaListaAcessorios(acessoriosDoPlano);
 		listaDePlanosCarros.add(plano);
 		System.out.println("O plano foi criado com sucesso!");

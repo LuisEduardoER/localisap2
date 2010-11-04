@@ -14,7 +14,7 @@ import veiculos.Veiculo.Acessorios;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class PlanosAutomovel {
+public class PlanoAutomovel {
 
 	private List<Automovel> listaAuto = new ArrayList<Automovel>();
 	private List<Acessorios> listaAcessorios = new ArrayList<Acessorios>();
@@ -25,7 +25,7 @@ public class PlanosAutomovel {
 	 * @param preco - Recebe o preco em double diario da locacao
 	 * @param nome - Recebe o nome em String do plano
 	 */
-	public PlanosAutomovel(String nome, double preco){
+	public PlanoAutomovel(String nome, double preco){
 		this.nome = nome;
 		this.preco = preco;
 	}
