@@ -15,7 +15,7 @@ import verificacoes.Validacao;
 *
 */
 
-public class Filial implements Agencia{
+public class Filial{
 
 	private String cnpj;
 	private Endereco endereco;
@@ -39,32 +39,26 @@ public class Filial implements Agencia{
 		this.setTelefone(telefone);
 		}
 
-
-	@Override
 	public String getCnpj() {
 		return cnpj;
 	}
 
-	@Override
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	@Override
 	public String getTelefone() {
 		return telefone;
 	}
 
-	@Override
 	public String getInscEstadual() {
 		return inscEstadual;
 	}
 
-	@Override
 	public Gerente getGerenteResponsavel() {
 		return gerenteResponsavel;
 	}
-	@Override
+
 	public void setCnpj(String cnpj) throws Exception {
 		Validacao testeCpnj = new Validacao();
 		if(!(testeCpnj.validaCnpj(cnpj)))
@@ -73,13 +67,11 @@ public class Filial implements Agencia{
 
 	}
 
-	@Override
 	public void setEndereco(Endereco endereco) throws Exception{
 		this.endereco = endereco;
 
 	}
 
-	@Override
 	public void setInscEstadual(String inscricaoEstadual)throws Exception {
 		if(inscricaoEstadual.length()==0){
 			throw new Exception("A inscricao estadual nao deve ser vazio");
@@ -88,7 +80,6 @@ public class Filial implements Agencia{
 
 	}
 
-	@Override
 	public void setTelefone(String telefone)throws Exception {
 		if(telefone.length()!= 10)
 			throw new Exception("Um telefone valido deve ter o DD + o numero");
@@ -96,7 +87,6 @@ public class Filial implements Agencia{
 
 	}
 
-	@Override
 	public void setGerenteResponsavel(Gerente gerente){
 		this.gerenteResponsavel = gerente;
 

@@ -1,14 +1,13 @@
 package planos;
 
 
+import agencias.Filial;
 import java.util.ArrayList;
 
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import agencias.Agencia;
 
 import veiculos.Automovel;
 import veiculos.Motocicleta;
@@ -36,7 +35,7 @@ public class PlanoTest {
 	Automovel carro;
 	Motocicleta moto;
 	ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
-	Agencia centro, agencia;
+	Filial centro, agencia;
 
 
 	@Before

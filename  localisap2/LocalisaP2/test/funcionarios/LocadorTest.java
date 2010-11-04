@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import clientes.Endereco;
 
-import agencias.Agencia;
 import agencias.Filial;
 
 
@@ -22,7 +21,7 @@ import agencias.Filial;
 */
 public class LocadorTest {
 	Locador locador;
-	Agencia filial1, filial2;
+	Filial filial1, filial2;
 	Gerente gerente;
 	Endereco endereco, endereco2;
 	@Before

@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import agencias.Agencia;
+import agencias.Filial;
 
 import veiculos.Veiculo.Acessorios;
 import veiculos.Veiculo.Cor;
@@ -30,8 +30,8 @@ import clientes.Endereco;
 */
 public class AutomovelTest {
 	Automovel carro;
-	Agencia centro;
-	Agencia interior;
+	Filial centro;
+	Filial interior;
 	Endereco endereco, endereco2;
 	ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
 

@@ -4,8 +4,7 @@
 package funcionarios;
 
 import clientes.Endereco;
-import agencias.Agencia;
-import locacoes.CodigosExclusivos;
+import agencias.Filial;
 import verificacoes.Validacao;
 
 /**
@@ -25,7 +24,7 @@ public class Locador implements Pessoa{
 	private String nascimento;
 	private String naturalidade;
 	private Endereco endereco;
-	private Agencia agencia;
+	private Filial agencia;
 	private String telefone;
 	private String email;
         private String codigoDoLocador;
@@ -37,12 +36,12 @@ public class Locador implements Pessoa{
 	 * @param nascimento -  Recebe como String a data de nascimento
 	 * @param naturalidade - Recebe como String a naturalidade
 	 * @param endereco - Recebe como Endereco o endereco
-	 * @param agencia - Recebe como Agencia a agencia
+	 * @param agencia - Recebe como Agencia a Filial
 	 * @param telefone -  Recebe como String o telefone
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */
-	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Agencia agencia,String telefone,String email) throws Exception{
+	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Filial agencia,String telefone,String email) throws Exception{
 		setAgencia(agencia);
 		setCpf(cpf);
 		setEmail(email);
@@ -52,11 +51,9 @@ public class Locador implements Pessoa{
 		setNome(nome);
 		setRg(rg);
 		setTelefone(telefone);
-                setCodigo();
 	}
 
 	public Locador(){
-            setCodigo();
 	}
         /**
          * Metodo que captura o codigo exclusivo.
@@ -97,9 +94,9 @@ public class Locador implements Pessoa{
 
 	/**
 	 * Captura a agencia
-	 * @return - Como Agencia a agencia
+	 * @return - Como Filial a agencia
 	 */
-	public Agencia getAgencia() {
+	public Filial getAgencia() {
 		return agencia;
 	}
 
@@ -163,9 +160,9 @@ public class Locador implements Pessoa{
 
 	/**
 	 * Permite mudar a agencia.
-	 * @param agencia - Recebe como Agencia a agencia
+	 * @param agencia - Recebe como Filial a agencia
 	 */
-	public void setAgencia(Agencia agencia) {
+	public void setAgencia(Filial agencia) {
 		this.agencia = agencia;
 
 	}
@@ -185,11 +182,4 @@ public class Locador implements Pessoa{
 
 		this.email = email;
 	}
-        /**
-         * Metodo que cria o codigo exclusivo.
-         */
-        private void setCodigo() {
-            CodigosExclusivos codigo = new CodigosExclusivos();
-            codigoDoLocador = codigo.geraCodigoInternoDeArmazenamento(20);
-        }
 }

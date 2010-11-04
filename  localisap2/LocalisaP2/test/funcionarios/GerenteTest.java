@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import clientes.Endereco;
 
-import agencias.Agencia;
 import agencias.Filial;
 
 
@@ -23,7 +22,7 @@ import agencias.Filial;
 */
 public class GerenteTest {
 	Gerente gerente;
-	Agencia filial1, filial2;
+	Filial filial1, filial2;
 	Endereco endereco, endereco2;
 	@Before
 	public void inicio() throws Exception{

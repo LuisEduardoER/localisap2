@@ -1,7 +1,6 @@
 package clientes;
 
 import funcionarios.Pessoa;
-import locacoes.CodigosExclusivos;
 import verificacoes.Validacao;
 
 /**
@@ -45,10 +44,8 @@ public class PessoaFisica implements Pessoa{
 		setNome(nome);
 		setRg(rg);
 		setTelefone(telefone);
-                setCodigo();
 	}
 	public PessoaFisica(){
-            setCodigo();
 	}
        /**
          * Metodo que captura o codigo exclusivo.
@@ -205,11 +202,4 @@ public class PessoaFisica implements Pessoa{
 
 		this.email = email;
 	}
-        /**
-         * Metodo que cria o codigo exclusivo.
-         */
-        private void setCodigo() {
-            CodigosExclusivos codigo = new CodigosExclusivos();
-            codigoDaPessoaFisica = codigo.geraCodigoInternoDeArmazenamento(20);
-        }
 }

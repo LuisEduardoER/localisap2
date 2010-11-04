@@ -19,7 +19,6 @@ import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import clientes.Endereco.UnidadeFederativa;
 
-import agencias.Agencia;
 import agencias.Filial;
 
 import funcionarios.Gerente;
@@ -52,7 +51,7 @@ public class Start {
 
 	private static List<Locador> listaDeLocadores = new ArrayList<Locador>();
 	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
-	private static List<Agencia> listaDeAgencias = new ArrayList<Agencia>();
+	private static List<Filial> listaDeAgencias = new ArrayList<Filial>();
 	private static List<Pessoa> listaDeClientesPessoaFisica = new ArrayList<Pessoa>();
 	private static List<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
 
@@ -458,7 +457,7 @@ public class Start {
 	}
 	
 	private static void registrarFuncionario(){
-		Agencia ag;
+		Filial ag;
 		sb = new StringBuilder();
 		String format = "%1$-2s - %2$-21s| ";
 		int aux = 0;
@@ -722,7 +721,7 @@ public class Start {
 		TipoDeFreio tipoDeFreio;
 		Endereco endereco;
 		int agencia;
-		Agencia localizacao;
+		Filial localizacao;
 		String dataDeAquisicao;
 		int nivelDoTanque;
 		Veiculo v;
