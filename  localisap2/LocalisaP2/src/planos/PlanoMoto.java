@@ -14,7 +14,7 @@ import veiculos.Veiculo.Acessorios;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class PlanosMoto {
+public class PlanoMoto {
 
 	private List<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
 	private int cilindradas;
@@ -25,7 +25,7 @@ public class PlanosMoto {
 	 * @param preco - Recebe o preco em double diario da locacao
 	 *  @param nome - Recebe o nome em String do plano
 	 */
-	public PlanosMoto(String nome, double preco){
+	public PlanoMoto(String nome, double preco){
 		this.nome = nome;
 		this.preco = preco;
 	}

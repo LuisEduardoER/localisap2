@@ -18,7 +18,7 @@ import verificacoes.Validacao;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class Locador implements Pessoas{
+public class Locador implements Pessoa{
 	private String cpf;
 	private String nome;
 	private String rg;

@@ -24,7 +24,7 @@ public class Seguro {
 	 * @param seguroTotal - Recebe true se for seguro total e false se for seguro parcial
 	 * @param plano - Recebe o plano do automovel
 	 */
-	public Seguro(boolean seguroTotal, PlanosAutomovel plano){
+	public Seguro(boolean seguroTotal, PlanoAutomovel plano){
 		this.seguroTotal = seguroTotal;
 		precoDoPlano = plano.getPreco();
 	}
@@ -34,7 +34,7 @@ public class Seguro {
 	 * @param seguroTotal - Recebe true se for seguro total e false se for seguro parcial
 	 * @param plano - Recebe o plano da moto
 	 */
-	public Seguro(boolean seguroTotal, PlanosMoto plano){
+	public Seguro(boolean seguroTotal, PlanoMoto plano){
 		this.seguroTotal = seguroTotal;
 		precoDoPlano = plano.getPreco();
 	}

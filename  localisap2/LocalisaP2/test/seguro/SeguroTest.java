@@ -19,8 +19,8 @@ import planos.*;
 
 public class SeguroTest {
 
-	PlanosAutomovel planoA;
-	PlanosMoto planoB;
+	PlanoAutomovel planoA;
+	PlanoMoto planoB;
 	Seguro seguroA1;
 	Seguro seguroA2;
 	Seguro seguroB1;
@@ -28,8 +28,8 @@ public class SeguroTest {
 
 	@Before
 	public void inicio() throws Exception {
-		planoA = new PlanosAutomovel("Plano A", 55.00);
-		planoB = new PlanosMoto("Plano B", 35.00);
+		planoA = new PlanoAutomovel("Plano A", 55.00);
+		planoB = new PlanoMoto("Plano B", 35.00);
 
 		seguroA1 = new Seguro(true, planoA);
 		seguroA2 = new Seguro(false, planoA);
