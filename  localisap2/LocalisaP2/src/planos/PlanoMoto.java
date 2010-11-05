@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import veiculos.Motocicleta;
-import veiculos.Veiculo.Acessorios;
 /**
 *
 * @author Filipe Alencar   -twitter.com/filipealencar_

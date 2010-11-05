@@ -8,14 +8,14 @@ import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import veiculos.Acessorios;
 
 import veiculos.Automovel;
+import veiculos.Cor;
 import veiculos.Motocicleta;
-import veiculos.Veiculo.Acessorios;
-import veiculos.Veiculo.Cor;
-import veiculos.Veiculo.TipoDeCombustivel;
-import veiculos.Veiculo.TipoDeFreio;
-import veiculos.Veiculo.TipoDePotencia;
+import veiculos.TipoDeCombustivel;
+import veiculos.TipoDeFreio;
+import veiculos.TipoDePotencia;
 
 /**
 *

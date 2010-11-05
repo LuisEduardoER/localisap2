@@ -15,7 +15,7 @@ import clientes.Endereco;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public interface Pessoa {
+public interface Pessoa{
 	/**
 	 * Metodo para capturar o CPF de uma pessoa
 	 * @return - Em String o CPF

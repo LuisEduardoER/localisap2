@@ -15,55 +15,6 @@ import agencias.Filial;
 
 public interface Veiculo {
 
-	public enum TipoDePotencia{
-		HP,CV;
-	}
-
-	public enum TipoDeCombustivel{
-		ALCOOL,GASOLINA,GAS,DIESEL,FLEX;
-	}
-
-	public enum TipoDeFreio{
-		TAMBOR, DISCO, ABS;
-	}
-
-	public enum Acessorios {
-	    P2 ("Duas Portas"),
-	    P4 ("Quatro Portas"),
-	    AC ("Ar Condicionado"),
-	    GPS ("GPS - Global Positioning System"),
-	    DH ("Direcao Hidraulica"),
-	    VE ("Vidro Eletrico"),
-	    TE ("Trava Eletrica"),
-	    AB ("Air Bag"),
-	    BC ("Bancos de Couro");
-
-
-	    private String nomeCompleto;
-
-	    private Acessorios(String nomeCompleto){
-	    	this.nomeCompleto = nomeCompleto;
-	    }
-
-	    public String getNomeCompleto(){
-	            return nomeCompleto;
-	    }
-	}
-
-	public enum Cor {
-		VERMELHO,
-		AMARELO,
-		AZUL,
-		VERDE,
-		CINZA,
-		PRATA,
-		PRETO,
-		DOURADO,
-		VINHO,
-		BRANCO
-	}
-
-
 	/**
 	 * Metodo para capturar o RENAVAM
 	 * @return - Retorna o RENAVAM do veiculo do tipo String

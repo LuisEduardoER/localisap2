@@ -7,9 +7,6 @@ import org.junit.Test;
 
 import agencias.Filial;
 
-import veiculos.Veiculo.Cor;
-import veiculos.Veiculo.TipoDeCombustivel;
-import veiculos.Veiculo.TipoDePotencia;
 
 
 
