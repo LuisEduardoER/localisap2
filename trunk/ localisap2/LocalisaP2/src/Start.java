@@ -24,6 +24,7 @@ import agencias.Filial;
 import funcionarios.Gerente;
 import funcionarios.Locador;
 import funcionarios.Pessoa;
+import persistencia.Persistencia;
 
 /**
  * 
@@ -44,22 +45,24 @@ public class Start {
 	private final static int STATUS_SUCCESS = 0;
 	private final static String QUEBRA_DE_LINHA = System.getProperty("line.separator");
 
-	private static List<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
+	private static ArrayList<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
 
-	private static List<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
-	private static List<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
+	private static ArrayList<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
+	private static ArrayList<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
 
-	private static List<Locador> listaDeLocadores = new ArrayList<Locador>();
-	private static List<Gerente> listaDeGerentes = new ArrayList<Gerente>();
-	private static List<Filial> listaDeAgencias = new ArrayList<Filial>();
-	private static List<Pessoa> listaDeClientesPessoaFisica = new ArrayList<Pessoa>();
-	private static List<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
-
+	private static ArrayList<Locador> listaDeLocadores = new ArrayList<Locador>();
+	private static ArrayList<Gerente> listaDeGerentes = new ArrayList<Gerente>();
+	private static ArrayList<Filial> listaDeAgencias = new ArrayList<Filial>();
+	private static ArrayList<Pessoa> listaDeClientesPessoaFisica = new ArrayList<Pessoa>();
+	private static ArrayList<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
+        private static Persistencia prs = new Persistencia();
+        
 	public static void main(String[] args){
 		input = new Scanner(System.in);
-		menuPrincipal();
+                listaDeAgencias = prs.carregarFiliais();
+                listaDeGerentes = prs.carregarGerentes();
+                menuPrincipal();
 	}
-	
 	private static void menuPrincipal(){
 		sb = new StringBuilder();
 		sb.append("-== Main - Milestone 1 ==-"+QUEBRA_DE_LINHA);
@@ -170,7 +173,8 @@ public class Start {
 		Gerente g = listaDeGerentes.get(gerente);
 		try {
 			listaDeAgencias.add(new Filial(cnpj, endereco, telefone, inscEstadual, g));
-		} catch (Exception e) {
+                        prs.atualizarFiliais(listaDeAgencias);
+                } catch (Exception e) {
 			System.out.println(e.getMessage());
 			menuPrincipal();
 		}
@@ -190,6 +194,7 @@ public class Start {
 		System.out.println("Qual agencia voce deseja excluir do registro?");
 		int agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
 		listaDeAgencias.remove(agencia);
+                prs.atualizarFiliais(listaDeAgencias);
 		System.out.println("A agencia foi removida com sucesso!");
 	}
 	
@@ -439,6 +444,7 @@ public class Start {
 				System.out.println(i+1+" - "+listaDeGerentes.get(i).getNome());
 			int del = readIntegerOption("Qual gerente voce deseja deletar? ",OPCAO_MINIMA_MENUD, listaDeGerentes.size())-1;
 			listaDeGerentes.remove(del);
+                        prs.atualizarGerentes(listaDeGerentes);
 		}
 		
 		if (opcao == 2){
@@ -513,9 +519,11 @@ public class Start {
 		String telefone = readStringOption("Telefone: ");
 		if (listaDeAgencias.size()>0){
 			System.out.println("Lista de agencias disponiveis para seu funcionario trabalhar:");
-			for (int i=0 ; i < listaDeAgencias.size() ; i++){
-				System.out.println(i+1+" - "+listaDeAgencias.get(i).getEndereco());
-			}
+                        for (int i = 0 ; i < listaDeAgencias.size() ; i++){
+                            Endereco enderecoA = listaDeAgencias.get(i).getEndereco();
+                            System.out.println(i+1+" - Filial situada em: "+enderecoA.getCidade() + " - " + enderecoA.getEstado().toString() +
+					" / "+enderecoA.getRua()+","+enderecoA.getNumero()+","+enderecoA.getBairro());
+                        }
 			int agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size())-1;
 			ag = listaDeAgencias.get(agencia);
 		}else{
@@ -525,6 +533,7 @@ public class Start {
 		if (tipo == 1)
 			try {
 				listaDeGerentes.add(new Gerente(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+                                prs.atualizarGerentes(listaDeGerentes);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 				menuPrincipal();

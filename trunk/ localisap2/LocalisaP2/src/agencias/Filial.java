@@ -2,6 +2,10 @@ package agencias;
 
 import clientes.Endereco;
 import funcionarios.Gerente;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import veiculos.Automovel;
 import verificacoes.Validacao;
 
 /**
@@ -15,13 +19,14 @@ import verificacoes.Validacao;
 *
 */
 
-public class Filial{
+public class Filial implements Serializable{
 
 	private String cnpj;
 	private Endereco endereco;
 	private String telefone;
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
+        private List<Automovel> listaDeAutomoveis;
 	/**
 	 * Construtor que cria uma Agencia
 	 * @param cnpj - Recebe como String o cnpj
@@ -37,28 +42,49 @@ public class Filial{
 		this.setGerenteResponsavel(gerenteResponsavel);
 		this.setInscEstadual(inscEstadual);
 		this.setTelefone(telefone);
+                listaDeAutomoveis = new ArrayList<Automovel>();
 		}
 
+	/**
+	 * Metodo para capturar o CPNJ de uma agencia
+	 * @return - Em String o CPNJ
+	 */
 	public String getCnpj() {
 		return cnpj;
 	}
-
+	/**
+	 * Metodo para capturar o Endereco de uma agencia
+	 * @return - Em endereco o Endereco
+	 */
 	public Endereco getEndereco() {
 		return endereco;
 	}
-
+	/**
+	 * Metodo para capturar o telefone de uma agencia
+	 * @return - Em String o telefone
+	 */
 	public String getTelefone() {
 		return telefone;
 	}
-
+	/**
+	 * Metodo para capturar a inscricao estadual de uma agencia
+	 * @return - Em String a inscricao estadual
+	 */
 	public String getInscEstadual() {
 		return inscEstadual;
 	}
-
+	/**
+	 * Metodo para capturar o gerente de uma agencia
+	 * @return - Em Gerente o gerente de uma agencia
+	 */
 	public Gerente getGerenteResponsavel() {
 		return gerenteResponsavel;
 	}
-
+	/**
+	 * Permite mudar o CPNJ
+	 * @param CPNJ - Recebe como String o CPNJ
+	 * @throws Exception - Erro de cpf invalido
+	 */
 	public void setCnpj(String cnpj) throws Exception {
 		Validacao testeCpnj = new Validacao();
 		if(!(testeCpnj.validaCnpj(cnpj)))
@@ -66,12 +92,19 @@ public class Filial{
 		this.cnpj = cnpj;
 
 	}
-
+	/**
+	 * Permite mudar o Endereco
+	 * @param endereco - Recebe como Endereco o endereco
+	 * @throws Exception
+	 */
 	public void setEndereco(Endereco endereco) throws Exception{
 		this.endereco = endereco;
 
 	}
-
+	/**
+	 * Permite mudar a inscricao estadual
+	 * @param inscricaoEstadual - Recebe como String a inscricao estadual
+	 */
 	public void setInscEstadual(String inscricaoEstadual)throws Exception {
 		if(inscricaoEstadual.length()==0){
 			throw new Exception("A inscricao estadual nao deve ser vazio");
@@ -79,17 +112,53 @@ public class Filial{
 		this.inscEstadual = inscricaoEstadual;
 
 	}
-
+	/**
+	 * Permite mudar o telefone
+	 * @param telefone - Recebe como String o telefone
+	 */
 	public void setTelefone(String telefone)throws Exception {
 		if(telefone.length()!= 10)
 			throw new Exception("Um telefone valido deve ter o DD + o numero");
 		this.telefone = telefone;
 
 	}
-
+	/**
+	 * Permite mudar o gerente responsavel
+	 * @param gerente - Recebe como Gerente o gerente responsavel
+	 */
 	public void setGerenteResponsavel(Gerente gerente){
 		this.gerenteResponsavel = gerente;
 
 	}
+
+        /**
+         * Adiciona um automovel a lista de automoveis da filial.
+         * @param Automovel a
+         */
+        public void adicionarAutomovel(Automovel a){
+            listaDeAutomoveis.add(a);
+        }
+
+        /**
+         * Retorna a lista de automoveis da filial.
+         * @return List<Automovel>
+         */
+        public List<Automovel> getListaDeAutomoveis(){
+            return listaDeAutomoveis;
+        }
+
+        /**
+         * Remove um automovel da lista de automoveis da filial.
+         * @param Automovel a
+         * @return Verdadeiro, caso o automovel exista e seja apagado com sucesso ou false, caso contrario.
+         */
+        public boolean removerAutomovel(Automovel a){
+            if (!(listaDeAutomoveis.contains(a)))
+                return false;
+            else{
+                listaDeAutomoveis.remove(a);
+                return true;
+            }
+        }
 
 }
