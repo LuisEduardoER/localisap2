@@ -13,7 +13,7 @@ import veiculos.Motocicleta;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class PlanoMoto {
+public class PlanoMoto implements Plano {
 
 	private List<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
 	private int cilindradas;
@@ -61,6 +61,7 @@ public class PlanoMoto {
 	 * Permite mudar o preco do plano
 	 * @param preco - O preço em double do plano
 	 */
+        @Override
 	public void setPreco(double preco){
 		this.preco = preco;
 	}
@@ -68,6 +69,7 @@ public class PlanoMoto {
 	 * Permite mudar o nome do plano
 	 * @param nome - O nome em String do plano
 	 */
+        @Override
 	public void setNome(String nome){
 		this.nome = nome;
 	}
@@ -75,6 +77,7 @@ public class PlanoMoto {
 	 * Captura o preco do plano
 	 * @return - Em double o preco
 	 */
+        @Override
 	public double getPreco(){
 		return this.preco;
 	}
@@ -82,6 +85,7 @@ public class PlanoMoto {
 	 * Captura o nome do plano
 	 * @return - Em String o nome do plano
 	 */
+        @Override
 	public String getNome(){
 		return this.nome;
 	}
