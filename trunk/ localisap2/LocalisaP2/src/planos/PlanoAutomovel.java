@@ -16,7 +16,7 @@ import veiculos.Automovel;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PlanoAutomovel {
+public class PlanoAutomovel implements Plano{
 
     private List<Automovel> listaAuto = new ArrayList<Automovel>();
     private List<Acessorios> listaAcessorios = new ArrayList<Acessorios>();
@@ -86,6 +86,7 @@ public class PlanoAutomovel {
      * Permite mudar o preco do plano
      * @param preco - O preço em double do plano
      */
+    @Override
     public void setPreco(double preco) {
         this.preco = preco;
     }
@@ -94,6 +95,7 @@ public class PlanoAutomovel {
      * Permite mudar o nome do plano
      * @param nome - O nome em String do plano
      */
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -102,6 +104,7 @@ public class PlanoAutomovel {
      * Captura o preco do plano
      * @return - Em double o preco
      */
+    @Override
     public double getPreco() {
         return this.preco;
     }
@@ -110,6 +113,7 @@ public class PlanoAutomovel {
      * Captura o nome do plano
      * @return - Em String o nome
      */
+    @Override
     public String getNome() {
         return this.nome;
     }

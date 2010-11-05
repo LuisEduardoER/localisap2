@@ -63,6 +63,9 @@ public class Motocicleta implements Veiculo{
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 		this.setTipoDePotencia(tipoPotencia);
 }
+
+
+
        /**
          * Metodo que captura o codigo exclusivo.
          * @return - O codigo exclusivo

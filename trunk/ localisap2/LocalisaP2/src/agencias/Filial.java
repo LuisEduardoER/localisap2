@@ -20,13 +20,14 @@ import verificacoes.Validacao;
 */
 
 public class Filial implements Serializable{
-
+        private int numeroDeLocacoes = 0;
 	private String cnpj;
 	private Endereco endereco;
 	private String telefone;
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
         private List<Veiculo> listaDeVeiculos;
+        private int numeroDeClientes;
 	/**
 	 * Construtor que cria uma Agencia
 	 * @param cnpj - Recebe como String o cnpj
@@ -159,6 +160,9 @@ public class Filial implements Serializable{
                 listaDeVeiculos.remove(a);
                 return true;
             }
+        }
+        public void aumentaLocacoes(){
+            numeroDeLocacoes++;
         }
 
 }
