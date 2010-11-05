@@ -4,7 +4,7 @@
  */
 
 package funcionarios;
-import Funcoes.verificacoes.Validacao;
+import verificacoes.Validacao;
 import clientes.Endereco;
 import java.io.Serializable;
 

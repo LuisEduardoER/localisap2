@@ -12,7 +12,7 @@ package veiculos;
  */
 
 import java.util.ArrayList;
-
+import veiculos.*;
 import agencias.Filial;
 import verificacoes.Validacao;
 

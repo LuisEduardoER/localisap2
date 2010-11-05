@@ -8,11 +8,6 @@ import org.junit.Test;
 
 import agencias.Filial;
 
-import veiculos.Veiculo.Acessorios;
-import veiculos.Veiculo.Cor;
-import veiculos.Veiculo.TipoDeCombustivel;
-import veiculos.Veiculo.TipoDeFreio;
-import veiculos.Veiculo.TipoDePotencia;
 
 import clientes.Endereco;
 

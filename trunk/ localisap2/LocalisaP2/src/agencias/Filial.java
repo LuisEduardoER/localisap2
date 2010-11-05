@@ -5,7 +5,7 @@ import funcionarios.Gerente;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import veiculos.Automovel;
+import veiculos.Veiculo;
 import verificacoes.Validacao;
 
 /**
@@ -26,7 +26,7 @@ public class Filial implements Serializable{
 	private String telefone;
 	private String inscEstadual;
 	private Gerente gerenteResponsavel;
-        private List<Automovel> listaDeAutomoveis;
+        private List<Veiculo> listaDeVeiculos;
 	/**
 	 * Construtor que cria uma Agencia
 	 * @param cnpj - Recebe como String o cnpj
@@ -42,7 +42,7 @@ public class Filial implements Serializable{
 		this.setGerenteResponsavel(gerenteResponsavel);
 		this.setInscEstadual(inscEstadual);
 		this.setTelefone(telefone);
-                listaDeAutomoveis = new ArrayList<Automovel>();
+                listaDeVeiculos = new ArrayList<Veiculo>();
 		}
 
 	/**
@@ -135,16 +135,16 @@ public class Filial implements Serializable{
          * Adiciona um automovel a lista de automoveis da filial.
          * @param Automovel a
          */
-        public void adicionarAutomovel(Automovel a){
-            listaDeAutomoveis.add(a);
+        public void adicionarAutomovel(Veiculo a){
+            listaDeVeiculos.add(a);
         }
 
         /**
          * Retorna a lista de automoveis da filial.
          * @return List<Automovel>
          */
-        public List<Automovel> getListaDeAutomoveis(){
-            return listaDeAutomoveis;
+        public List<Veiculo> getListaDeAutomoveis(){
+            return listaDeVeiculos;
         }
 
         /**
@@ -152,11 +152,11 @@ public class Filial implements Serializable{
          * @param Automovel a
          * @return Verdadeiro, caso o automovel exista e seja apagado com sucesso ou false, caso contrario.
          */
-        public boolean removerAutomovel(Automovel a){
-            if (!(listaDeAutomoveis.contains(a)))
+        public boolean removerAutomovel(Veiculo a){
+            if (!(listaDeVeiculos.contains(a)))
                 return false;
             else{
-                listaDeAutomoveis.remove(a);
+                listaDeVeiculos.remove(a);
                 return true;
             }
         }

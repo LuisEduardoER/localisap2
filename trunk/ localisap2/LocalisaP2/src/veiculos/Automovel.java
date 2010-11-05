@@ -10,9 +10,8 @@ package veiculos;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-
+import veiculos.Acessorios;
 import java.util.ArrayList;
-
 import agencias.Filial;
 import verificacoes.Validacao;
 
