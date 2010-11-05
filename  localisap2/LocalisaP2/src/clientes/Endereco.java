@@ -1,5 +1,7 @@
 package clientes;
 
+import java.io.Serializable;
+
 /**
 *
 * @author Filipe Alencar   -twitter.com/filipealencar_
@@ -11,7 +13,7 @@ package clientes;
 *
 */
 
-public class Endereco {
+public class Endereco implements Serializable{
 
 	public enum UnidadeFederativa{
 		PB("Paraiba"),PR("Parana"),SP("Sao Paulo"),

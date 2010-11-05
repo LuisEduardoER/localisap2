@@ -1,5 +1,6 @@
 package clientes;
 
+import java.io.Serializable;
 import verificacoes.Validacao;
 /**
 *
@@ -11,7 +12,7 @@ import verificacoes.Validacao;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class PessoaJuridica {
+public class PessoaJuridica implements Serializable {
 	private String cnpj;
 	private String razaoSocial;
 	private String nomeFantasia;

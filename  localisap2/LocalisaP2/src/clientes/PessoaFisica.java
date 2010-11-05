@@ -1,6 +1,7 @@
 package clientes;
 
 import funcionarios.Pessoa;
+import java.io.Serializable;
 import verificacoes.Validacao;
 
 /**
@@ -13,7 +14,7 @@ import verificacoes.Validacao;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class PessoaFisica implements Pessoa{
+public class PessoaFisica implements Pessoa,Serializable{
 	private String cpf;
 	private String nome;
 	private String rg;
