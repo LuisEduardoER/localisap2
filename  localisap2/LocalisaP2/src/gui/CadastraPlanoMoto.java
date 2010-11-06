@@ -143,6 +143,8 @@ public class CadastraPlanoMoto extends javax.swing.JFrame {
         PlanoMoto plano = new PlanoMoto(nomeDoPlano, preco);
         plano.adicionaCilindradas(cilindradas);
         arquivo.adicionaPlanoMoto(plano);
+        new MenuInicial(arquivo).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
     /**

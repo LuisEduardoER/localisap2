@@ -59,6 +59,7 @@ public class EfetuaLocacao extends javax.swing.JFrame {
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
         LabelException = new java.awt.Label();
+        label8 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -75,28 +76,24 @@ public class EfetuaLocacao extends javax.swing.JFrame {
 
         label5.setText("Data Da Locacao");
 
-        textField1.setText("Digite o nome do cliente");
         textField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textField1MouseClicked(evt);
             }
         });
 
-        textField2.setText("Digite o renavam do veiculo");
         textField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textField2MouseClicked(evt);
             }
         });
 
-        textField3.setText("Data de devolucao");
         textField3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textField3MouseClicked(evt);
             }
         });
 
-        textField4.setText("Data de locacao");
         textField4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textField4MouseClicked(evt);
@@ -105,7 +102,6 @@ public class EfetuaLocacao extends javax.swing.JFrame {
 
         label6.setText("Plano da Locacao");
 
-        textField5.setText("Digite o nome do Plano");
         textField5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textField5MouseClicked(evt);
@@ -136,6 +132,8 @@ public class EfetuaLocacao extends javax.swing.JFrame {
         });
 
         LabelException.setForeground(new java.awt.Color(255, 0, 0));
+
+        label8.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,6 +173,9 @@ public class EfetuaLocacao extends javax.swing.JFrame {
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -208,6 +209,8 @@ public class EfetuaLocacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,8 +294,8 @@ public class EfetuaLocacao extends javax.swing.JFrame {
             }
             Locacao locacao1 = new Locacao(veiculo, cliente1, plano1, dataDeLocacao, dataDevolucao, tipoSeguro);
             arquivo.adicionaLocacao(locacao1);
-            new MenuInicial(arquivo).setVisible(true);
-            this.dispose();
+            label8.setText("Locacao efetuada com sucesso.");
+            LabelException.setText("Seu codigo eh: "+locacao1.getCodigo());
         } catch (Exception e) {
             LabelException.setText(e.getMessage());
         }
@@ -321,6 +324,7 @@ public class EfetuaLocacao extends javax.swing.JFrame {
     private java.awt.Label label5;
     private java.awt.Label label6;
     private java.awt.Label label7;
+    private java.awt.Label label8;
     private java.awt.TextField textField1;
     private java.awt.TextField textField2;
     private java.awt.TextField textField3;

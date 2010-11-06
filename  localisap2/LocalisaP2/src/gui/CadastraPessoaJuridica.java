@@ -285,6 +285,8 @@ public class CadastraPessoaJuridica extends javax.swing.JFrame {
         try {
             PessoaJuridica pessoa = new PessoaJuridica(cnpj, razaoSocial, nomeFantasia, inscEstadual, endereco, telefone, email);
             arquivo.adicionaPessoaJuridica(pessoa);
+            new MenuInicial(arquivo).setVisible(true);
+            this.dispose();
         } catch (Exception e) {
             LabelException.setText(e.getMessage());
 

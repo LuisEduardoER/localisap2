@@ -231,6 +231,8 @@ public class CadastraPlanoCarro extends javax.swing.JFrame {
         PlanoAutomovel plano = new PlanoAutomovel(nomeDoPlano, preco);
         plano.adicionaListaAcessorios(listaDeAcessorios);
         arquivo.adicionaPlanoAutomovel(plano);
+        new MenuInicial(arquivo).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
     /**

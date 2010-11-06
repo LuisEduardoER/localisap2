@@ -37,10 +37,7 @@
                           <Component id="label9" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="label12" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="label13" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="label13" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">

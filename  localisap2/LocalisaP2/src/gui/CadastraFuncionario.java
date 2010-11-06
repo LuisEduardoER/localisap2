@@ -478,6 +478,8 @@ public class CadastraFuncionario extends javax.swing.JFrame {
             try {
             Gerente pessoa = new Gerente(cpf,nome,rg,nascimento,naturalidade,endereco,telefone,email);
             arquivo.adicionaGerente(pessoa);
+            new MenuInicial(arquivo).setVisible(true);
+            this.dispose();
             } catch (Exception e) {
                 LabelException.setText(e.getMessage());
             }
@@ -485,6 +487,8 @@ public class CadastraFuncionario extends javax.swing.JFrame {
             try {
                 Locador pessoa = new Locador(cpf,nome,rg,nascimento,naturalidade,endereco,telefone,email);
                 arquivo.adicionaLocador(pessoa);
+                 new MenuInicial(arquivo).setVisible(true);
+                 this.dispose();
             } catch (Exception e) {
                 LabelException.setText(e.getMessage());
             }

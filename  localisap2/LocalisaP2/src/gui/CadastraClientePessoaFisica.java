@@ -329,6 +329,8 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
          try {
             PessoaFisica pessoa = new PessoaFisica(cpf, nome, rg, nascimento, naturalidade, endereco, telefone, email);
             arquivo.adicionaPessoaFisica(pessoa);
+            new MenuInicial(arquivo).setVisible(true);
+            this.dispose();
         } catch (Exception e) {
             LabelException.setText(e.getMessage());
         }
