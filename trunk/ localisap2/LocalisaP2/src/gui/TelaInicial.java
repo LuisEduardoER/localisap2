@@ -40,6 +40,10 @@ public class TelaInicial extends javax.swing.JFrame {
         label3 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocationByPlatform(true);
+        setName("Localisa"); // NOI18N
+        setResizable(false);
 
         jButton1.setText("Entrar");
 
@@ -113,6 +117,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new Cadastrar().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

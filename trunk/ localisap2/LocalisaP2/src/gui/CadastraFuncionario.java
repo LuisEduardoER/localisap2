@@ -66,8 +66,10 @@ public class CadastraFuncionario extends javax.swing.JFrame {
         button2 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
 
-        label1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        label1.setFont(new java.awt.Font("Verdana", 0, 24));
         label1.setText("Cadastre o funcionário");
 
         textField1.setText("textField1");
@@ -139,6 +141,11 @@ public class CadastraFuncionario extends javax.swing.JFrame {
         button1.setLabel("Cadastrar");
 
         button2.setLabel("Voltar");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -303,6 +310,11 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textField2ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        new MenuInicial().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
     * @param args the command line arguments

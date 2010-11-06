@@ -20,6 +20,7 @@ public class MenuInicial extends javax.swing.JFrame {
     /** Creates new form MenuInicial */
     public MenuInicial() {
         initComponents();
+
     }
 
     /** This method is called from within the constructor to
@@ -43,8 +44,15 @@ public class MenuInicial extends javax.swing.JFrame {
         button9 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
 
         button6.setLabel("Realizar Locação");
+        button6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button6MouseEntered(evt);
+            }
+        });
         button6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button6ActionPerformed(evt);
@@ -52,14 +60,16 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         button2.setLabel("Gerenciar Clientes");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         button1.setLabel("Gerenciar Agência");
         button1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 button1MouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                button1MousePressed(evt);
             }
         });
         button1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +79,11 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         button5.setLabel("Gerenciar Veiculos");
+        button5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button5MouseEntered(evt);
+            }
+        });
 
         button8.setLabel("Sair");
         button8.setName("Sair"); // NOI18N
@@ -79,15 +94,40 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         button3.setLabel("Gerenciar Funcionarios");
+        button3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button3MouseEntered(evt);
+            }
+        });
+        button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button3ActionPerformed(evt);
+            }
+        });
 
         button7.setLabel("Efetuar Devolução");
+        button7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button7MouseEntered(evt);
+            }
+        });
 
         button4.setLabel("Gerenciar Planos");
+        button4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button4MouseEntered(evt);
+            }
+        });
 
         label1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36));
         label1.setText("LOCALISA  - Locadora de Veículos");
 
         button9.setLabel("Remover Cadastros");
+        button9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button9MouseEntered(evt);
+            }
+        });
         button9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button9ActionPerformed(evt);
@@ -126,7 +166,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,7 +180,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -155,20 +195,42 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_button8ActionPerformed
 
     private void button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseEntered
-        // TODO add your handling code here:
     }//GEN-LAST:event_button1MouseEntered
-
-    private void button1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MousePressed
-       
-    }//GEN-LAST:event_button1MousePressed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         new CadastraAgencia().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
         new RemoverCadastros().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_button9ActionPerformed
+
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        new CadastraFuncionario().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_button3ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+    }//GEN-LAST:event_button2ActionPerformed
+
+    private void button3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseEntered
+    }//GEN-LAST:event_button3MouseEntered
+
+    private void button4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseEntered
+    }//GEN-LAST:event_button4MouseEntered
+    private void button5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseEntered
+    }//GEN-LAST:event_button5MouseEntered
+
+    private void button6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button6MouseEntered
+    }//GEN-LAST:event_button6MouseEntered
+
+    private void button7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button7MouseEntered
+    }//GEN-LAST:event_button7MouseEntered
+
+    private void button9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button9MouseEntered
+    }//GEN-LAST:event_button9MouseEntered
 
     /**
     * @param args the command line arguments
@@ -177,6 +239,7 @@ public class MenuInicial extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuInicial().setVisible(true);
+
             }
         });
     }
