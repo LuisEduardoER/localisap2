@@ -49,7 +49,8 @@ public class PessoaJuridica implements Serializable {
 
     public PessoaJuridica() {
     }
-    public Boolean emDebito(){
+
+    public Boolean getEmDebito(){
         return emDebito;
     }
     /**
@@ -116,6 +117,9 @@ public class PessoaJuridica implements Serializable {
         return email;
     }
 
+    public void setEmDebito(Boolean flag) {
+        emDebito = flag;
+    }
     /**
      * Permite mudar o CPNJ
      * @param CPNJ - Recebe como String o CPNJ
