@@ -42,8 +42,7 @@ public class Locador extends PessoaAbstrata implements Serializable{
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */
-	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Filial agencia,String telefone,String email) throws Exception{
-		setAgencia(agencia);
+	public Locador(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,String telefone,String email) throws Exception{
 		setCpf(cpf);
 		setEmail(email);
 		setEndereco(endereco);
