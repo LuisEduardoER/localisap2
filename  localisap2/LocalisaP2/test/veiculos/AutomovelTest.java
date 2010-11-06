@@ -32,7 +32,7 @@ public class AutomovelTest {
 
 	@Before
 	public void inicio() throws Exception{
-		carro = new Automovel("123","Corsa","Chevrolet",90,2009, Cor.PRETO,TipoDeFreio.TAMBOR,TipoDeCombustivel.FLEX,centro,"23/10/2009",80,acessoriosOpcionais, TipoDePotencia.HP);
+		carro = new Automovel("123","Corsa","Chevrolet",90,2009, Cor.PRETO,TipoDeFreio.TAMBOR,TipoDeCombustivel.FLEX,"23/10/2009",80,acessoriosOpcionais, TipoDePotencia.HP);
 	}
 
 	@Test
@@ -42,7 +42,6 @@ public class AutomovelTest {
 		Assert.assertEquals(2009,carro.getAno());
 		Assert.assertEquals("123",carro.getRenavam());
 		Assert.assertEquals("23/10/2009",carro.getDataDeAquisicao());
-		Assert.assertEquals(centro,carro.getLocalizacao());
 		Assert.assertEquals("Chevrolet",carro.getMarca());
 		Assert.assertEquals("Corsa",carro.getModelo());
 		Assert.assertEquals(80,carro.getNivelDoTanque());
@@ -58,7 +57,6 @@ public class AutomovelTest {
 		carro.setAno(1950);
 		carro.setCor(Cor.AMARELO);
 		carro.setDataDeAquisicao("21/10/1980");
-		carro.setLocalizacao(interior);
 		carro.setMarca("Chevrolet1");
 		carro.setModelo("Chevet");
 		carro.setNivelDoTanque(0);
@@ -75,7 +73,6 @@ public class AutomovelTest {
 		Assert.assertEquals(1950,carro.getAno());
 		Assert.assertEquals("1111",carro.getRenavam());
 		Assert.assertEquals("21/10/1980",carro.getDataDeAquisicao());
-		Assert.assertEquals(interior,carro.getLocalizacao());
 		Assert.assertEquals("Chevrolet1",carro.getMarca());
 		Assert.assertEquals("Chevet",carro.getModelo());
 		Assert.assertEquals(0,carro.getNivelDoTanque());

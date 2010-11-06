@@ -40,8 +40,8 @@ public class PlanoTest {
 
 	@Before
 	public void inicio() throws Exception {
-		carro = new Automovel("123","Corsa","Chevrolet",90,2009, Cor.PRETO,TipoDeFreio.TAMBOR,TipoDeCombustivel.FLEX,centro,"23/10/2009",80,acessoriosOpcionais, TipoDePotencia.HP);
-		moto = new Motocicleta("renavam", "modelo", "marca", TipoDePotencia.HP, 1000, 500, 2000, Cor.PRETO, TipoDeCombustivel.GASOLINA, agencia, "27/11/2000",100);
+		carro = new Automovel("123","Corsa","Chevrolet",90,2009, Cor.PRETO,TipoDeFreio.TAMBOR,TipoDeCombustivel.FLEX,"23/10/2009",80,acessoriosOpcionais, TipoDePotencia.HP);
+		moto = new Motocicleta("renavam", "modelo", "marca", TipoDePotencia.HP, 1000, 500, 2000, Cor.PRETO, TipoDeCombustivel.GASOLINA,  "27/11/2000",100);
 		planoCarroA = new PlanoAutomovel("PlanoA", 55);
 		planoCarroB = new PlanoAutomovel("PlanoB", 60);
 		planoMotoA = new PlanoMoto("PlanoA", 25);
