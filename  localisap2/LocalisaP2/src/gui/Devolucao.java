@@ -54,7 +54,7 @@ public class Devolucao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        label1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        label1.setFont(new java.awt.Font("Verdana", 0, 24));
         label1.setText("Devolver Veiculos");
 
         label2.setName("Codigo da locacao"); // NOI18N
@@ -74,6 +74,11 @@ public class Devolucao extends javax.swing.JFrame {
         });
 
         button2.setLabel("Voltar");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         textField1.setText("textField1");
 
@@ -185,6 +190,11 @@ public class Devolucao extends javax.swing.JFrame {
             LabelException.setText(e.getMessage());
         }
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        new MenuInicial(arquivo).setVisible(true);
+        this.dispose();        
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
      * @param args the command line arguments
