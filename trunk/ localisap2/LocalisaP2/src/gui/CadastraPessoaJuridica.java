@@ -69,6 +69,8 @@ public class CadastraPessoaJuridica extends javax.swing.JFrame {
         textField15 = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
 
         label1.setFont(new java.awt.Font("Verdana", 0, 24));
         label1.setText("Cadastre o cliente Juridico");
