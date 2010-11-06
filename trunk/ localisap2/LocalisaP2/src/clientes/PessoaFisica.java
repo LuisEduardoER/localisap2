@@ -28,6 +28,7 @@ public class PessoaFisica extends PessoaAbstrata implements Serializable {
     private String codigoDaPessoaFisica;
     private int quantidadeLocacao;
     private Boolean emDebito = false;
+    private double divida = 0;
 
     /**
      * Construtor que cria uma Pessoa Fisica.
@@ -58,7 +59,12 @@ public class PessoaFisica extends PessoaAbstrata implements Serializable {
     public Boolean getEmDebito() {
         return this.emDebito;
     }
-
+    public double getDivida(){
+        return divida;
+    }
+    public void setDivida(double divida){
+        this.divida=divida;
+    }
     /**
      * Metodo que captura o codigo exclusivo.
      * @return - O codigo exclusivo
@@ -78,5 +84,8 @@ public class PessoaFisica extends PessoaAbstrata implements Serializable {
         if (numero == 1) {
             quantidadeLocacao++;
         }
+    }
+    public int getQuantidadeDeLocacao(){
+        return quantidadeLocacao;
     }
 }

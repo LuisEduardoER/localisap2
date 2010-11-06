@@ -25,6 +25,7 @@ public class PessoaJuridica implements Serializable {
     private String codigoDaPessoaJuridica;
     private int quantidadeLocacao;
     private Boolean emDebito = false;
+    private double divida=0;
 
     /**
      * Construtor que cria uma Pessoa Juridca.
@@ -210,5 +211,14 @@ public class PessoaJuridica implements Serializable {
         if (numero == 1) {
             quantidadeLocacao++;
         }
+    }
+    public int getQuantidadeDeLocacao(){
+        return quantidadeLocacao;
+    }
+    public double getDivida(){
+        return divida;
+    }
+    public void setDivida(double divida){
+        this.divida=divida;
     }
 }
