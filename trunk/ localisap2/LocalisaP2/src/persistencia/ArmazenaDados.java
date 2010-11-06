@@ -5,6 +5,7 @@
 
 package persistencia;
 
+import agencias.Filial;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import funcionarios.Gerente;
@@ -29,7 +30,10 @@ public class ArmazenaDados {
     private Collection<PessoaFisica> listaDeClientesPessoaFisica = new ArrayList<PessoaFisica>();
     private Collection<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
     private Usuario user;
-
+    private Filial agencia;
+    public void adicionaAgencia(Filial agencia){
+        this.agencia = agencia;
+    }
     public void adicionaUsuario(Usuario user){
         this.user = user;
     }
