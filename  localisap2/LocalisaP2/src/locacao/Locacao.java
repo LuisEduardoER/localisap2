@@ -9,6 +9,7 @@ import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Random;
 import planos.Plano;
 import seguro.Seguro;
 import veiculos.Veiculo;
@@ -20,6 +21,7 @@ import verificacoes.Validacao;
  */
 public class Locacao {
 
+    private int codigo;
     static Filial agencia2;
     Object cliente;
     private Veiculo veiculo;
@@ -39,16 +41,27 @@ public class Locacao {
         setDataEntrega(dataEntrega);
         setDataDevolucao(dataDevolucao);
         this.tipoSeguro = tipoSeguro;
-        if (tipoSeguro == 1) {
+        if (tipoSeguro == 2) {
             Seguro seguro = new Seguro(true, planoDaLocacao);
             tipoDoSeguro = seguro;
         }
-        if (tipoSeguro == 0) {
+        if (tipoSeguro == 1) {
             Seguro seguro = new Seguro(false, planoDaLocacao);
             tipoDoSeguro = seguro;
         }
+        setCodigo();
+
     }
-    public Object getCliente(){
+
+    public void setCodigo() {
+        Random numero = new Random();
+        int numeroAleatorio = (int) (numero.nextDouble() * 1000);
+        codigo = numeroAleatorio;
+    }
+    public int getCodigo(){
+        return codigo;
+    }
+    public Object getCliente() {
         return cliente;
     }
 
@@ -112,9 +125,11 @@ public class Locacao {
     private void setPlano(Plano planoDaLocacao) {
         this.planoDaLocacao = planoDaLocacao;
     }
+
     public Plano getPlano() {
-       return planoDaLocacao;
+        return planoDaLocacao;
     }
+
     public String getDataEntrega() {
         return this.dataEntrega;
     }
@@ -124,11 +139,11 @@ public class Locacao {
     }
 
     public Double getPrecoLocacao() {
-        if(tipoSeguro==0 || tipoSeguro ==1){
-            Double preco = diferencaData(dataEntrega,dataDevolucao)*tipoDoSeguro.getPrecoDoSeguro();
+        if (tipoSeguro == 0 || tipoSeguro == 1) {
+            Double preco = diferencaData(dataEntrega, dataDevolucao) * tipoDoSeguro.getPrecoDoSeguro();
             return preco;
         }
-        return diferencaData(dataEntrega,dataDevolucao)*planoDaLocacao.getPreco();
+        return diferencaData(dataEntrega, dataDevolucao) * planoDaLocacao.getPreco();
     }
 
     public long diferencaData(String dataEntrega, String dataDevolucao) {
@@ -145,12 +160,13 @@ public class Locacao {
         int mes2 = Integer.parseInt(dataDevolucao.substring(2, 4));
         int ano2 = Integer.parseInt(dataDevolucao.substring(4, 8));
         Calendar calendario = new GregorianCalendar(ano1, mes1, dia1);
-        Calendar calendario2 = new GregorianCalendar(ano2,mes2,dia2);
+        Calendar calendario2 = new GregorianCalendar(ano2, mes2, dia2);
         long diferencaMilisegundos = calendario2.getTimeInMillis() - calendario.getTimeInMillis();
         long resultadoDias = diferencaMilisegundos / 86400000;
         return resultadoDias;
     }
-    public int getNivelInicialTanque(){
+
+    public int getNivelInicialTanque() {
         return nivelDoTanqueInicial;
     }
 }
