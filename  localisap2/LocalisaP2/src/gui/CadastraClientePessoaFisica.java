@@ -11,6 +11,10 @@
 
 package gui;
 
+import clientes.Endereco;
+import clientes.Endereco.UnidadeFederativa;
+import clientes.PessoaFisica;
+import funcionarios.Pessoa;
 import persistencia.ArmazenaDados;
 
 /**
@@ -66,6 +70,7 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
         jComboBox1 = new javax.swing.JComboBox();
+        LabelException = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -146,6 +151,8 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "SP", "RJ", "PE", "PI", "RN", "RS", "RO", "RR", "SC", "SE", "TO" }));
         jComboBox1.setSelectedItem("PB");
 
+        LabelException.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,6 +204,10 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(LabelException, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +275,9 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
                         .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelException, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -280,6 +293,7 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        LabelException.setText("");
         String nome = textField6.getText();
         String cpf = textField5.getText();
         String rg = textField4.getText();
@@ -290,6 +304,34 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
         int numero = Integer.parseInt(textField11.getText());
         String cep = textField16.getText();
         String pontoDeReferencia = textField12.getText();
+        String email = textField13.getText();
+        String nascimento = textField14.getText();
+        String telefone = textField15.getText();
+        UnidadeFederativa estado = UnidadeFederativa.valueOf((String) jComboBox1.getSelectedItem());
+        Endereco endereco = null;
+
+        if (!pontoDeReferencia.isEmpty()) {
+            try {
+                endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+            } catch (Exception e) {
+                LabelException.setText(e.getMessage());
+
+            }
+        } else {
+            try {
+                endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+            } catch (Exception e) {
+                LabelException.setText(e.getMessage());
+
+            }
+        }
+
+         try {
+            PessoaFisica pessoa = new PessoaFisica(cpf, nome, rg, nascimento, naturalidade, endereco, telefone, email);
+            arquivo.adicionaPessoaFisica(pessoa);
+        } catch (Exception e) {
+            LabelException.setText(e.getMessage());
+        }
     }//GEN-LAST:event_button1ActionPerformed
 
     /**
@@ -304,6 +346,7 @@ public class CadastraClientePessoaFisica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label LabelException;
     private java.awt.Button button1;
     private java.awt.Button button2;
     private javax.swing.JComboBox jComboBox1;
