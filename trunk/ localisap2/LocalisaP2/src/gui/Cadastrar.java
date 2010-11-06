@@ -131,7 +131,7 @@ public class Cadastrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        new TelaInicial(arquivo).setVisible(true);
+        new TelaInicial(arquivo,false).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button2ActionPerformed
 
@@ -145,8 +145,8 @@ public class Cadastrar extends javax.swing.JFrame {
         String email = textField3.getText();
         try {
             Usuario user = new Usuario(email, usuario, senha);
-            //arquivo.adicionaUsuario(user);
-            new Cadastrar(arquivo).setVisible(true);
+            arquivo.adicionaUsuario(user);
+            new TelaInicial(arquivo,false).setVisible(true);
             this.dispose();
         } catch (Exception e) {
             System.out.print(e.getMessage());
