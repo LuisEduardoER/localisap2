@@ -49,11 +49,10 @@ public class Automovel implements Veiculo{
 	 * @throws Exception - Erro de algum parametro errado.
 	 */
 	public Automovel(String renavam, String modelo, String marca, int potencia, int ano, Cor cor,TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel
-					 ,Filial localizacao, String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais,TipoDePotencia tipoDePotencia) throws Exception{
+					 , String dataDeAquisicao,int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais,TipoDePotencia tipoDePotencia) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
-		this.setLocalizacao(localizacao);
 		this.setPotencia(potencia);
 		this.setTipoDeFreios(tipoDeFreio);
 		this.setMarca(marca);
@@ -103,10 +102,6 @@ public class Automovel implements Veiculo{
 	@Override
 	public String getDataDeAquisicao() {
 		return dataDeAquisicao;
-	}
-	@Override
-	public Filial getLocalizacao() {
-		return localizacao;
 	}
 	@Override
 	public TipoDeFreio getTipoDeFreios() {
@@ -172,11 +167,6 @@ public class Automovel implements Veiculo{
 
 	}
 
-	@Override
-	public void setLocalizacao(Filial localizacao){
-		this.localizacao = localizacao;
-
-	}
 	@Override
 	public void setTipoDeFreios(TipoDeFreio tipoDeFreios){
 		this.tipoDeFreio = tipoDeFreios;

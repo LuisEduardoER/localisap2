@@ -49,11 +49,10 @@ public class Motocicleta implements Veiculo{
 	 * @throws Exception - Erro de algum parametro errado.
 	 */
 	public Motocicleta(String renavam, String modelo, String marca,TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel
-			 ,Filial localizacao, String dataDeAquisicao,int nivelDoTanque) throws Exception{
+			 , String dataDeAquisicao,int nivelDoTanque) throws Exception{
 		this.setAno(ano);
 		this.setCor(cor);
 		this.setDataDeAquisicao(dataDeAquisicao);
-		this.setLocalizacao(localizacao);
 		this.setMarca(marca);
 		this.setModelo(modelo);
 		this.setNivelDoTanque(nivelDoTanque);
@@ -109,10 +108,7 @@ public class Motocicleta implements Veiculo{
 	public String getDataDeAquisicao() {
 		return dataDeAquisicao;
 	}
-	@Override
-	public Filial getLocalizacao() {
-		return localizacao;
-	}
+	
 	@Override
 	public TipoDeFreio getTipoDeFreios() {
 		return tipoDeFreio;
@@ -174,11 +170,7 @@ public class Motocicleta implements Veiculo{
 		this.dataDeAquisicao = dataDeAquisicao;
 
 	}
-	@Override
-	public void setLocalizacao(Filial localizacao) {
-		this.localizacao = localizacao;
-
-	}
+	
 	@Override
 	public void setTipoDeFreios(TipoDeFreio tipoDeFreios) {
 		this.tipoDeFreio = tipoDeFreios;

@@ -26,7 +26,7 @@ public class MotocicletaTest {
 
 	@Before
 	public void inicio() throws Exception{
-		moto = new Motocicleta("renavam", "modelo", "marca", TipoDePotencia.HP, 1000, 500, 2000, Cor.PRETO, TipoDeCombustivel.GASOLINA, agencia, "27/11/2000",100);
+		moto = new Motocicleta("renavam", "modelo", "marca", TipoDePotencia.HP, 1000, 500, 2000, Cor.PRETO, TipoDeCombustivel.GASOLINA,  "27/11/2000",100);
 	}
 
 	@Test
@@ -40,7 +40,6 @@ public class MotocicletaTest {
 		Assert.assertEquals(2000, moto.getAno());
 		Assert.assertEquals(Cor.PRETO, moto.getCor());
 		Assert.assertEquals(TipoDeCombustivel.GASOLINA, moto.getTipoDeCombustivel());
-		Assert.assertEquals(agencia, moto.getLocalizacao());
 		Assert.assertEquals("27/11/2000", moto.getDataDeAquisicao());
 		Assert.assertEquals(100, moto.getNivelDoTanque());
 	}
@@ -56,7 +55,6 @@ public class MotocicletaTest {
 		moto.setAno(2005);
 		moto.setCor(Cor.BRANCO);
 		moto.setTipoDeCombustivel(TipoDeCombustivel.FLEX);
-		moto.setLocalizacao(agencia2);
 		moto.setDataDeAquisicao("10/10/2005");
 		moto.setNivelDoTanque(0);
 
@@ -69,7 +67,6 @@ public class MotocicletaTest {
 		Assert.assertEquals(2005, moto.getAno());
 		Assert.assertEquals(Cor.BRANCO, moto.getCor());
 		Assert.assertEquals(TipoDeCombustivel.FLEX, moto.getTipoDeCombustivel());
-		Assert.assertEquals(agencia2, moto.getLocalizacao());
 		Assert.assertEquals("10/10/2005", moto.getDataDeAquisicao());
 		Assert.assertEquals(0, moto.getNivelDoTanque());
 	}

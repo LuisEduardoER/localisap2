@@ -803,7 +803,7 @@ public class Start {
                 nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE, MAXIMO_NIVEL_TANQUE);
                 v = null;
                 try {
-                    v = new Automovel(renavam, modelo, marca, potencia, ano, cor, tipoDeFreio, tipoDeCombustivel, localizacao, dataDeAquisicao, nivelDoTanque, listaDeAcessorios, tipoDePotencia);
+                    v = new Automovel(renavam, modelo, marca, potencia, ano, cor, tipoDeFreio, tipoDeCombustivel, dataDeAquisicao, nivelDoTanque, listaDeAcessorios, tipoDePotencia);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     menuPrincipal();
@@ -856,7 +856,7 @@ public class Start {
                 nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE, MAXIMO_NIVEL_TANQUE);
                 v = null;
                 try {
-                    v = new Motocicleta(renavam, modelo, marca, tipoDePotencia, potencia, cilindradas, ano, cor, tipoDeCombustivel, localizacao, dataDeAquisicao, nivelDoTanque);
+                    v = new Motocicleta(renavam, modelo, marca, tipoDePotencia, potencia, cilindradas, ano, cor, tipoDeCombustivel, dataDeAquisicao, nivelDoTanque);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     menuPrincipal();

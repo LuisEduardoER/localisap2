@@ -61,11 +61,6 @@ public interface Veiculo {
 	 */
 	String getDataDeAquisicao();
 	/**
-	 * Metodo para capturar em que agencia esta o veiculo
-	 * @return - Retorna a agencia do veiculo do tipo Agencia
-	 */
-	Filial getLocalizacao();
-	/**
 	 * Metodo para capturar o tipo de freio do veiculo
 	 * @return - Retorna o tipo de freio do veiculo, do tipo enum TipoDeFreio
 	 */
@@ -134,12 +129,6 @@ public interface Veiculo {
 	 * @throw Exception - Erro de data invalida
 	 */
 	void setDataDeAquisicao(String dataDeAquisicao) throws Exception;
-	/**
-	 * Permite mudar a agencia do veiculo
-	 * @param localizacao - Recebe a nova agencia do tipo Agencia
-	 *
-	 */
-	void setLocalizacao(Filial localizacao) ;
 	/**
 	 * Permite mudar o tipo de freio do veiculo
 	 * @param tipoDeFreios - Recebe o novo tipo de freio do tipo enum TipoDeFreio
