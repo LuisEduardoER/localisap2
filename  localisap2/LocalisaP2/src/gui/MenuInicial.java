@@ -11,16 +11,18 @@
 
 package gui;
 
+import persistencia.ArmazenaDados;
+
 /**
  *
  * @author Filipe
  */
 public class MenuInicial extends javax.swing.JFrame {
-
+    public static ArmazenaDados arquivo;
     /** Creates new form MenuInicial */
-    public MenuInicial() {
+    public MenuInicial(ArmazenaDados arquivo) {
         initComponents();
-
+        this.arquivo = arquivo;
     }
 
     /** This method is called from within the constructor to
@@ -198,17 +200,17 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_button1MouseEntered
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        new CadastraAgencia().setVisible(true);
+        new CadastraAgencia(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
-        new RemoverCadastros().setVisible(true);
+        new RemoverCadastros(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button9ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-        new CadastraFuncionario().setVisible(true);
+        new CadastraFuncionario(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button3ActionPerformed
 
@@ -238,7 +240,7 @@ public class MenuInicial extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuInicial().setVisible(true);
+                new MenuInicial(arquivo).setVisible(true);
 
             }
         });

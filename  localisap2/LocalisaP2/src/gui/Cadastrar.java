@@ -8,8 +8,10 @@
  *
  * Created on 05/11/2010, 21:35:15
  */
-
 package gui;
+
+import funcionarios.Usuario;
+import persistencia.ArmazenaDados;
 
 /**
  *
@@ -17,9 +19,12 @@ package gui;
  */
 public class Cadastrar extends javax.swing.JFrame {
 
+    private static ArmazenaDados arquivo;
+
     /** Creates new form Cadastrar */
-    public Cadastrar() {
+    public Cadastrar(ArmazenaDados arquivo) {
         initComponents();
+        this.arquivo = arquivo;
     }
 
     /** This method is called from within the constructor to
@@ -44,12 +49,22 @@ public class Cadastrar extends javax.swing.JFrame {
         setResizable(false);
 
         textField1.setText("textField1");
+        textField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField1ActionPerformed(evt);
+            }
+        });
 
         textField2.setText("textField2");
 
         textField3.setText("textField3");
 
         button1.setLabel("Cadastrar");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         button2.setLabel("Voltar");
         button2.addActionListener(new java.awt.event.ActionListener() {
@@ -116,21 +131,40 @@ public class Cadastrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        new TelaInicial().setVisible(true);
+        new TelaInicial(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button2ActionPerformed
 
+    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textField1ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        String usuario = textField1.getText();
+        String senha = textField2.getText();
+        String email = textField3.getText();
+        try {
+            Usuario user = new Usuario(email, usuario, senha);
+            //arquivo.adicionaUsuario(user);
+            new Cadastrar(arquivo).setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+
+    }//GEN-LAST:event_button1ActionPerformed
+
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
-                new Cadastrar().setVisible(true);
+                new Cadastrar(arquivo).setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private java.awt.Button button2;
@@ -141,5 +175,4 @@ public class Cadastrar extends javax.swing.JFrame {
     private java.awt.TextField textField2;
     private java.awt.TextField textField3;
     // End of variables declaration//GEN-END:variables
-
 }
