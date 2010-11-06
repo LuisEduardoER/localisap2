@@ -182,8 +182,6 @@ public class Devolucao extends javax.swing.JFrame {
         try {
             Devolver dev = new Devolver(locac, nivelTanque, dataEntrega, problema);
             LabelException.setText("A multa eh: " + dev.getMultas());
-            new MenuInicial(arquivo).setVisible(true);
-            this.dispose();
         } catch (Exception e) {
             LabelException.setText(e.getMessage());
         }
