@@ -44,6 +44,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jButton1.setText("Entrar");
 
         jButton2.setText("Cadastrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -52,7 +57,7 @@ public class TelaInicial extends javax.swing.JFrame {
         label1.setText("Usuário");
 
         label2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        label2.setFont(new java.awt.Font("Times New Roman", 1, 14));
         label2.setText("lLOCALISA");
 
         label3.setText("Senha");
@@ -105,6 +110,10 @@ public class TelaInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new Cadastrar().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
     * @param args the command line arguments

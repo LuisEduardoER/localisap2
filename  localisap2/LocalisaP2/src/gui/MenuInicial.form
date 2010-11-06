@@ -22,9 +22,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="172" max="32767" attributes="0"/>
+              <Component id="label1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="button9" alignment="1" max="32767" attributes="1"/>
                   <Component id="button7" alignment="0" max="32767" attributes="1"/>
                   <Component id="button6" alignment="0" max="32767" attributes="1"/>
                   <Component id="button5" alignment="0" max="32767" attributes="1"/>
@@ -33,17 +39,9 @@
                   <Component id="button2" alignment="0" max="32767" attributes="1"/>
                   <Component id="button1" alignment="0" pref="154" max="32767" attributes="1"/>
               </Group>
-              <EmptySpace pref="720" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="735" max="32767" attributes="0"/>
+              <EmptySpace pref="557" max="32767" attributes="0"/>
               <Component id="button8" min="-2" pref="118" max="-2" attributes="1"/>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="172" max="32767" attributes="0"/>
-              <Component id="label1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,8 +65,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="button7" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="button8" min="-2" pref="23" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="button8" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="button9" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,6 +92,11 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Gerenciar Ag&#xea;ncia"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button1MouseEntered"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button1MousePressed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button5">
       <Properties>
@@ -102,6 +108,9 @@
         <Property name="label" type="java.lang.String" value="Sair"/>
         <Property name="name" type="java.lang.String" value="Sair" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button8ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button3">
       <Properties>
@@ -125,6 +134,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LOCALISA  - Locadora de Ve&#xed;culos"/>
       </Properties>
+    </Component>
+    <Component class="java.awt.Button" name="button9">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Remover Cadastros"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button9ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
