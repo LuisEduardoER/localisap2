@@ -34,7 +34,6 @@ public class PessoaFisicaTest{
 		filial1 = new Filial("51851873000149", endereco, "8333331234", "01234", gerente);
 		filial2 = new Filial("58694458000178", endereco2, "8300004321", "56789", gerente);
 		pessoa1 = new PessoaFisica();
-		//pessoa1.setAgencia(filial1);
 		pessoa1.setCpf("03468137435");
 		pessoa1.setEmail("filipe@teste");
 		pessoa1.setEndereco(endereco2);
@@ -48,7 +47,6 @@ public class PessoaFisicaTest{
 	@Test
 	public void testaMetodosGet(){
 		Assert.assertEquals("03468137435",pessoa1.getCpf());
-		//Assert.assertEquals("agencia",pessoa1.getAgencia());
 		Assert.assertEquals("filipe@teste",pessoa1.getEmail());
 		Assert.assertEquals(endereco2,pessoa1.getEndereco());
 		Assert.assertEquals("11/10/1980",pessoa1.getNascimento());
@@ -56,12 +54,13 @@ public class PessoaFisicaTest{
 		Assert.assertEquals("Filipe",pessoa1.getNome());
 		Assert.assertEquals("123456",pessoa1.getRg());
 		Assert.assertEquals("8333311111",pessoa1.getTelefone());
+                Assert.assertEquals(false, pessoa1.getEmDebito());
 
 	}
 
 	@Test
 	public void testaMetodosSet() throws Exception{
-		//pessoa1.setAgencia("agencia2");
+		
 		pessoa1.setCpf("01234567890");
 		pessoa1.setEmail("filipe@teste2");
 		pessoa1.setEndereco(endereco);
@@ -70,8 +69,8 @@ public class PessoaFisicaTest{
 		pessoa1.setNome("Filipe A");
 		pessoa1.setRg("1234567");
 		pessoa1.setTelefone("8333312222");
+                pessoa1.setEmDebito(true);
 		Assert.assertEquals("01234567890",pessoa1.getCpf());
-		//Assert.assertEquals("agencia2",pessoa1.getAgencia());
 		Assert.assertEquals("filipe@teste2",pessoa1.getEmail());
 		Assert.assertEquals(endereco,pessoa1.getEndereco());
 		Assert.assertEquals("10/10/1980",pessoa1.getNascimento());
@@ -79,5 +78,6 @@ public class PessoaFisicaTest{
 		Assert.assertEquals("Filipe A",pessoa1.getNome());
 		Assert.assertEquals("1234567",pessoa1.getRg());
 		Assert.assertEquals("8333312222",pessoa1.getTelefone());
+                Assert.assertEquals(true, pessoa1.getEmDebito());
 	}
 }

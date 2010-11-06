@@ -55,8 +55,8 @@ public class PessoaFisica extends PessoaAbstrata implements Serializable {
     public PessoaFisica() {
     }
 
-    public Boolean emDebito() {
-        return emDebito;
+    public Boolean getEmDebito() {
+        return this.emDebito;
     }
 
     /**
@@ -65,6 +65,10 @@ public class PessoaFisica extends PessoaAbstrata implements Serializable {
      */
     public String getCodigoExclusivo() {
         return codigoDaPessoaFisica;
+    }
+
+    public void setEmDebito(Boolean flag) {
+        emDebito = flag;
     }
 
     public void locacao(int numero) {

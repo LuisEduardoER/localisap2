@@ -40,23 +40,71 @@ public class PessoaJuridicaTest {
 		Assert.assertEquals("Fantasia",empresa.getNomeFantasia());
 		Assert.assertEquals("123456",empresa.getInscricaoEstadual());
 		Assert.assertEquals("8333311111",empresa.getTelefone());
+                Assert.assertEquals(false, empresa.getEmDebito());
 
 	}
 	@Test
 	public void testaMetodosSet() throws Exception{
-		empresa.setRazaoSocial("agencia2");
-		empresa.setCnpj("75416229000100");
-		empresa.setEmail("filipe@teste2");
-		empresa.setEndereco(endereco2);
-		empresa.setNomeFantasia("Filipe A");
-		empresa.setInscricaoEstadual("1234567");
-		empresa.setTelefone("8333312222");
-		Assert.assertEquals("75416229000100",empresa.getCnpj());
-		Assert.assertEquals("agencia2",empresa.getRazaoSocial());
-		Assert.assertEquals("filipe@teste2",empresa.getEmail());
-		Assert.assertEquals(endereco2,empresa.getEndereco());
-		Assert.assertEquals("Filipe A",empresa.getNomeFantasia());
-		Assert.assertEquals("1234567",empresa.getInscricaoEstadual());
-		Assert.assertEquals("8333312222",empresa.getTelefone());
+
+            try{
+                empresa.setRazaoSocial("");
+                Assert.fail("Esperava excecao de setRazaoSocial");
+            } catch (Exception ex){
+                    Assert.assertEquals("erro", "A razao social nao deve ser vazio", ex.getMessage());
+            }
+            empresa.setRazaoSocial("agencia2");
+
+            try{
+                empresa.setCnpj("75416229000");
+                Assert.fail("Esperava excecao de setCnpj");
+            } catch (Exception ex){
+                    Assert.assertEquals("erro", "Um cnpj valido deve ter 14 numeros", ex.getMessage());
+            }
+
+            empresa.setCnpj("75416229000100");
+
+            try{
+                empresa.setEmail("milito.teste");
+                Assert.fail("Esperava excecao de setEmail");
+            } catch (Exception ex){
+                    Assert.assertEquals("erro", "O email deve conter @ e ser maior que 3", ex.getMessage());
+            }
+            empresa.setEmail("filipe@teste2");
+            empresa.setEndereco(endereco2);
+
+            try{
+                empresa.setNomeFantasia("");
+                Assert.fail("Esperava excecao de setNomeFantasia");
+            } catch (Exception ex){
+                    Assert.assertEquals("erro", "O nome Fantasia nao deve ser vazio", ex.getMessage());
+            }
+            empresa.setNomeFantasia("Filipe A");
+
+            try{
+                empresa.setInscricaoEstadual("");
+                Assert.fail("Esperava excecao de setInscricaoEstadual");
+            } catch (Exception ex){
+                    Assert.assertEquals("erro", "A inscricao estadual nao deve ser vazio", ex.getMessage());
+            }
+            empresa.setInscricaoEstadual("1234567");
+
+            try {
+                    empresa.setTelefone("123");
+                    Assert.fail("Excecao de setTelefone esperada.");
+                } catch (Exception ex){
+                    Assert.assertEquals("erro", "Um telefone valido deve ter o DD + o numero", ex.getMessage());
+                }
+            empresa.setTelefone("8333312222");
+            
+            empresa.setEmDebito(true);
+            
+            Assert.assertEquals("75416229000100",empresa.getCnpj());
+            Assert.assertEquals("agencia2",empresa.getRazaoSocial());
+            Assert.assertEquals("filipe@teste2",empresa.getEmail());
+            Assert.assertEquals(endereco2,empresa.getEndereco());
+            Assert.assertEquals("Filipe A",empresa.getNomeFantasia());
+            Assert.assertEquals("1234567",empresa.getInscricaoEstadual());
+            Assert.assertEquals("8333312222",empresa.getTelefone());
+            Assert.assertEquals(true, empresa.getEmDebito());
 	}
 }
