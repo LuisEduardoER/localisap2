@@ -2,6 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package locacao;
 
 import clientes.PessoaFisica;
@@ -12,9 +13,9 @@ import verificacoes.Validacao;
 
 /**
  *
- * @author Filipe
+ * @author filipe
  */
-public class Devolucao {
+public class Devolver {
 
     private double multaTanque = 0;
     private double multaAtraso = 0;
@@ -27,15 +28,16 @@ public class Devolucao {
     private Problemas problema;
     private Object cliente;
 
-    public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataEntrega, String dataDevolucao, Problemas problema) throws Exception {
+    public Devolver(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problemas problema) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();
         this.nivelDoTanqueFinal = nivelDoTanqueFinal;
         setDataDevolucao(dataDevolucao);
-        setDataEntrega(dataEntrega);
+        setDataEntrega(loc.getDataDevolucao());
         locacao = loc;
         this.problema = problema;
         cliente = locacao.getCliente();
         setCliente(cliente);
+
     }
 
     public void efetuaDevolucao() {
@@ -122,3 +124,4 @@ public class Devolucao {
         return resultadoDias;
     }
 }
+
