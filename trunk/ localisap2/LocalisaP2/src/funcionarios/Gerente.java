@@ -35,7 +35,7 @@ public class Gerente extends PessoaAbstrata implements Serializable{
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
 	 */
-	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,Filial agencia,String telefone,String email) throws Exception{
+	public Gerente(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,String telefone,String email) throws Exception{
 		setAgencia(agencia);
 		setCpf(cpf);
 		setEmail(email);
