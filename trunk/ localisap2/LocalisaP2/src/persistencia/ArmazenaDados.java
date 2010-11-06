@@ -9,7 +9,7 @@ import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import funcionarios.Gerente;
 import funcionarios.Locador;
-import funcionarios.Pessoa;
+import funcionarios.Usuario;
 import java.util.ArrayList;
 import java.util.Collection;
 import planos.PlanoAutomovel;
@@ -20,7 +20,7 @@ import veiculos.Veiculo;
  *
  * @author filipe
  */
-public abstract class ArmazenaDados {
+public class ArmazenaDados {
     private Collection<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
     private Collection<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
     private Collection<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
@@ -28,7 +28,14 @@ public abstract class ArmazenaDados {
     private Collection<Gerente> listaDeGerentes = new ArrayList<Gerente>();
     private Collection<PessoaFisica> listaDeClientesPessoaFisica = new ArrayList<PessoaFisica>();
     private Collection<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
+    private Usuario user;
 
+    public void adicionaUsuario(Usuario user){
+        this.user = user;
+    }
+    public Usuario getUsuario(){
+        return user;
+    }
     public void adicionaVeiculos(Veiculo v){
         listaDeVeiculos.add(v);
     }

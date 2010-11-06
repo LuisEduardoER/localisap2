@@ -13,16 +13,18 @@ package gui;
 
 import clientes.Endereco;
 import clientes.Endereco.UnidadeFederativa;
+import persistencia.ArmazenaDados;
 
 /**
  *
  * @author Filipe
  */
 public class CadastraAgencia extends javax.swing.JFrame {
-
+    static ArmazenaDados arquivo;
     /** Creates new form CadastraAgencia */
-    public CadastraAgencia() {
+    public CadastraAgencia(ArmazenaDados arquivo) {
         initComponents();
+        this.arquivo = arquivo;
     }
 
     /** This method is called from within the constructor to
@@ -250,7 +252,7 @@ public class CadastraAgencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        new MenuInicial().setVisible(true);
+        new MenuInicial(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button2ActionPerformed
 
@@ -294,14 +296,14 @@ public class CadastraAgencia extends javax.swing.JFrame {
                 
         if (!pontoDeReferencia.isEmpty()) {
             try {
-                Endereco endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
+              //  Endereco endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, pontoDeReferencia);
             } catch (Exception e) {
                 labelException.setText(e.getMessage());
 
             }
         } else {
             try {
-                Endereco endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
+              //  Endereco endereco = new Endereco(estado, cidade, bairro, rua, numero, cep);
             } catch (Exception e) {
                 labelException.setText(e.getMessage());
 
@@ -335,7 +337,7 @@ public class CadastraAgencia extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastraAgencia().setVisible(true);
+                new CadastraAgencia(arquivo).setVisible(true);
             }
         });
     }

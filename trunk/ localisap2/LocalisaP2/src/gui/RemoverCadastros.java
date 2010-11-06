@@ -11,15 +11,18 @@
 
 package gui;
 
+import persistencia.ArmazenaDados;
+
 /**
  *
  * @author Filipe
  */
 public class RemoverCadastros extends javax.swing.JFrame {
-
+    public static ArmazenaDados arquivo;
     /** Creates new form RemoverCadastros */
-    public RemoverCadastros() {
+    public RemoverCadastros(ArmazenaDados arquivo) {
         initComponents();
+        this.arquivo = arquivo;
     }
 
     /** This method is called from within the constructor to
@@ -147,7 +150,7 @@ public class RemoverCadastros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        new MenuInicial().setVisible(true);
+        new MenuInicial(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button2ActionPerformed
 
@@ -157,7 +160,7 @@ public class RemoverCadastros extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RemoverCadastros().setVisible(true);
+                new RemoverCadastros(arquivo).setVisible(true);
             }
         });
     }

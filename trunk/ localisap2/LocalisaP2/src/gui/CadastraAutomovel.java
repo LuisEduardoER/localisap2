@@ -21,11 +21,12 @@ import veiculos.*;
  * @author Filipe
  */
 public class CadastraAutomovel extends javax.swing.JFrame {
-    private Object labelException;
+    static ArmazenaDados arquivo;
 
     /** Creates new form CadastraAutomovel */
-    public CadastraAutomovel() {
+    public CadastraAutomovel(ArmazenaDados arquivo) {
         initComponents();
+        this.arquivo = arquivo;
     }
 
     /** This method is called from within the constructor to
@@ -392,7 +393,7 @@ public class CadastraAutomovel extends javax.swing.JFrame {
     }//GEN-LAST:event_textField6MouseClicked
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        new MenuInicial().setVisible(true);
+        new MenuInicial(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
@@ -439,7 +440,7 @@ public class CadastraAutomovel extends javax.swing.JFrame {
             listaDeAcessorios.add(Acessorios.values()[8]);
         try {
             Veiculo v = new Automovel(renavam, modelo, marca, potencia, ano, cor, tipoDeFreio, tipoDeCombustivel, dataDeAquisicao, nivelDoTanque, listaDeAcessorios, tipoDePotencia);
-             new MenuInicial().setVisible(true);
+             new MenuInicial(arquivo).setVisible(true);
              this.dispose();
         } catch (Exception e) {
             LabelException.setText(e.getMessage());
@@ -469,7 +470,7 @@ ArrayList<Acessorios> listaDeAcessorios = pegarAcessorios();
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new CadastraAutomovel().setVisible(true);
+                new CadastraAutomovel(arquivo).setVisible(true);
             }
         });
     }

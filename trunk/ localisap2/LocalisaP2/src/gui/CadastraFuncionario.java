@@ -11,15 +11,18 @@
 
 package gui;
 
+import persistencia.ArmazenaDados;
+
 /**
  *
  * @author Filipe
  */
 public class CadastraFuncionario extends javax.swing.JFrame {
-
+    static ArmazenaDados arquivo;
     /** Creates new form CadastraFuncionario */
-    public CadastraFuncionario() {
+    public CadastraFuncionario(ArmazenaDados arquivo) {
         initComponents();
+        this.arquivo = arquivo;
     }
 
     /** This method is called from within the constructor to
@@ -139,6 +142,11 @@ public class CadastraFuncionario extends javax.swing.JFrame {
         choice1.setName("Gerente\n"); // NOI18N
 
         button1.setLabel("Cadastrar");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         button2.setLabel("Voltar");
         button2.addActionListener(new java.awt.event.ActionListener() {
@@ -312,9 +320,13 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_textField2ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        new MenuInicial().setVisible(true);
+        new MenuInicial(arquivo).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button2ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -322,7 +334,7 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastraFuncionario().setVisible(true);
+                new CadastraFuncionario(arquivo).setVisible(true);
             }
         });
     }

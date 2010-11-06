@@ -86,6 +86,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="textField1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.TextField" name="textField2">
       <Properties>
@@ -101,6 +104,9 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button2">
       <Properties>
