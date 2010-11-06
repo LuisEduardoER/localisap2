@@ -19,17 +19,21 @@ import persistencia.ArmazenaDados;
  */
 public class TelaInicial extends javax.swing.JFrame {
 
-    public static ArmazenaDados arquivo1 = new ArmazenaDados();
-      public static ArmazenaDados arquivo;
+    public static ArmazenaDados arquivo;
+
     /** Creates new form TelaInicial */
-    public TelaInicial(ArmazenaDados arquivo1) {
+    public TelaInicial(ArmazenaDados arquivo, boolean primeiraVez) {
         initComponents();
-        this.arquivo1 = arquivo1;
+        if (primeiraVez) {
+            arquivo = new ArmazenaDados();
+            this.arquivo = arquivo;
+            primeiraVez = false;
+        }
+        if (!primeiraVez) {
+            this.arquivo = arquivo;
+        }
     }
-    public TelaInicial(ArmazenaDados arquivo) {
-        initComponents();
-        this.arquivo1 = arquivo1;
-    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -137,14 +141,19 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (arquivo.getUsuario().getLogin().equals(jTextField1.getText())) {
-            if (arquivo.getUsuario().getSenha().equals(jTextField2.getText())) {
-                new MenuInicial(arquivo).setVisible(true);
-                this.dispose();
-                new Cadastrar(arquivo).setVisible(true);
-                this.dispose();
+        try {
+            System.out.println(arquivo.getUsuario().getLogin());
+
+            if (arquivo.getUsuario().getLogin().equals(jTextField1.getText())) {
+                System.out.println(arquivo.getUsuario().getLogin());
+                System.out.println((jTextField1.getText()));
+                if (arquivo.getUsuario().getSenha().equals(jTextField2.getText())) {
+                    new MenuInicial(arquivo).setVisible(true);
+                    this.dispose();
+                }
             }
-        } else {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -156,7 +165,7 @@ public class TelaInicial extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new TelaInicial(arquivo).setVisible(true);
+                new TelaInicial(arquivo, true).setVisible(true);
             }
         });
     }
