@@ -535,7 +535,7 @@ public class Start {
         }
         if (tipo == 1) {
             try {
-                listaDeGerentes.add(new Gerente(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+                listaDeGerentes.add(new Gerente(cpf, nome, rg, nascimento, naturalidade, endereco, telefone, email));
                 prs.atualizarGerentes(listaDeGerentes);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -543,7 +543,7 @@ public class Start {
             }
         } else {
             try {
-                listaDeLocadores.add(new Locador(cpf, nome, rg, nascimento, naturalidade, endereco, ag, telefone, email));
+                listaDeLocadores.add(new Locador(cpf, nome, rg, nascimento, naturalidade, endereco, telefone, email));
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 menuPrincipal();
