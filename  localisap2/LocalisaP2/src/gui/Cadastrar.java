@@ -50,16 +50,11 @@ public class Cadastrar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
 
-        textField1.setText("textField1");
         textField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textField1ActionPerformed(evt);
             }
         });
-
-        textField2.setText("textField2");
-
-        textField3.setText("textField3");
 
         button1.setLabel("Cadastrar");
         button1.addActionListener(new java.awt.event.ActionListener() {

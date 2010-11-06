@@ -46,6 +46,8 @@ public class CadastraPlanoMoto extends javax.swing.JFrame {
         textField3 = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
 
         label1.setFont(new java.awt.Font("Verdana", 0, 18));
         label1.setText("Cadastra Plano de Motos");
