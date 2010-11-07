@@ -5,9 +5,15 @@
 package funcionarios;
 
 /**
- *
- * @author Filipe
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+*
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class Usuario {
 
     private String login;
@@ -17,9 +23,9 @@ public class Usuario {
     /**
      * Controi um usuario do sistema
      *
-     * @param String email - Recebe o email do usuario
-     * @param String login - Recebe o login do usuario
-     * @param String senha - Recebe a senha do usuario
+     * @param email - Recebe o email do usuario
+     * @param login - Recebe o login do usuario
+     * @param senha - Recebe a senha do usuario
      * @throws Exception login - O login deve ter mais de 4 digitos
      * @throws Exception senha - A senha deve ter mais de 4 digitos.
      * @throws Exception email - Erro de email invalido , ou seja com tamanho menor que 3 e sem a presenca de @.
@@ -33,7 +39,7 @@ public class Usuario {
 
     /**
      * Consulta login do usuario
-     * @return String login
+     * @return login - Retorna o login do usuario.
      */
     public String getLogin() {
         return login;
@@ -41,7 +47,7 @@ public class Usuario {
 
     /**
      * Metodo que permite mudar o login
-     * @param String login - O login do usuario.
+     * @param login - O login do usuario.
      * @throws Exception - O login deve ter mais de 4 digitos
      */
     public void setLogin(String login) throws Exception {
@@ -55,7 +61,7 @@ public class Usuario {
 
     /**
      * Captura a senha
-     * @return String senha - Retorna a Senha
+     * @return senha - Retorna a Senha
      */
     public String getSenha() {
         return senha;
@@ -63,7 +69,7 @@ public class Usuario {
 
     /**
      * Metodo que permite mudar a senha
-     * @param String senha - A senha do usuario
+     * @param senha - A senha do usuario
      * @throws Exception -A senha deve ter mais de 4 digitos.
      */
     public void setSenha(String senha) throws Exception {

@@ -48,13 +48,10 @@ public class Gerente extends PessoaAbstrata implements Serializable{
 	}
 	public Gerente(){
 	}
-       /**
-         * Metodo que captura o codigo exclusivo.
-         * @return - O codigo exclusivo
+        /**
+         * Metodo que retorna a agencia do gerente
+         * @return - Retorna a agencia do gerente
          */
-        public String getCodigoExclusivo(){
-            return codigoDoGerente;
-        }
 	public Filial getAgencia() {
 		return agencia;
 	}

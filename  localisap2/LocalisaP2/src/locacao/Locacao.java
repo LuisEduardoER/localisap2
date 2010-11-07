@@ -16,9 +16,15 @@ import veiculos.Veiculo;
 import verificacoes.Validacao;
 
 /**
- *
- * @author Filipe
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+*
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class Locacao {
 
     private int codigo;
@@ -52,19 +58,32 @@ public class Locacao {
         setCodigo();
 
     }
-
+    /**
+     * Metodo que gera o codigo de locacao.
+     */
     public void setCodigo() {
         Random numero = new Random();
-        int numeroAleatorio = (int) (numero.nextDouble() * 1000);
+        int numeroAleatorio = (int) (numero.nextDouble() * 100000);
         codigo = numeroAleatorio;
     }
+    /**
+     * Metodo que permite saber o codigo de locacap
+     * @return - em int o codigo de locacao
+     */
     public int getCodigo(){
         return codigo;
     }
+    /**
+     * Metodo que permite pegar o cliente.
+     * @return - O cliente
+     */
     public Object getCliente() {
         return cliente;
     }
-
+    /**
+     * Metodo que verifica se o cliente pode locar e efetua a locacao
+     * @throws Exception - Erro de cliente com divida ou com mais locacoes que o permitido
+     */
     public void efetuaLocacao() throws Exception {
         if (cliente instanceof PessoaFisica) {
             PessoaFisica cliente1 = (PessoaFisica) cliente;
@@ -88,7 +107,11 @@ public class Locacao {
         }
         agencia2.aumentaLocacoes();
     }
-
+    /**
+     * Metodo que permite mudar a data que o carro foi entregue ao cliente.
+     * @param dataEntrega - data de entrega (XX-XX-XXXX)
+     * @throws Exception - Erro de data invalida.
+     */
     public void setDataEntrega(String dataEntrega) throws Exception {
         Validacao testaData = new Validacao();
         if (!(testaData.validaData(dataEntrega))) {
@@ -96,7 +119,11 @@ public class Locacao {
         }
         this.dataEntrega = dataEntrega;
     }
-
+    /**
+     * Metodo que permite mudar a data de indicacao da devolucao
+     * @param dataDevolucao - Data de devolucao (XX-XX-XXXX)
+     * @throws Exception - Erro de data invalida.
+     */
     public void setDataDevolucao(String dataDevolucao) throws Exception {
         Validacao testaData = new Validacao();
         if (!(testaData.validaData(dataDevolucao))) {
@@ -105,7 +132,10 @@ public class Locacao {
         this.dataDevolucao = dataDevolucao;
 
     }
-
+    /**
+     * Metodo que permite mudar o cliente da devolucao
+     * @param cliente - Recebe o cliente
+     */
     private void setCliente(Object cliente) {
         if (cliente instanceof PessoaFisica) {
             PessoaFisica cliente1 = (PessoaFisica) cliente;
@@ -116,28 +146,46 @@ public class Locacao {
             this.cliente = cliente1;
         }
     }
-
+    /**
+     * Metodo que permite mudar o veiculo
+     * @param veiculo - Recebe o veiculo
+     */
     private void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
         nivelDoTanqueInicial = veiculo.getNivelDoTanque();
     }
-
+    /**
+     * Metodo que permite mudar o plano
+     * @param plano - Recebe o plano
+     */
     private void setPlano(Plano planoDaLocacao) {
         this.planoDaLocacao = planoDaLocacao;
     }
-
+    /**
+     * Retorna o plano da locacao
+     * @return - o plano da locacao
+     */
     public Plano getPlano() {
         return planoDaLocacao;
     }
-
+    /**
+     * Retorna a data da locacao
+     * @return - a data que o carro foi entregue ao cliente
+     */
     public String getDataEntrega() {
         return this.dataEntrega;
     }
-
+    /**
+     * Retorna a data que o carro ira ser devolvido
+     * @return - A data que o carro ira ser devolvido
+     */
     public String getDataDevolucao() {
         return this.dataDevolucao;
     }
-
+    /**
+     * Retorna o preco da locacao
+     * @return - o preco da locacao
+     */
     public Double getPrecoLocacao() {
         if (tipoSeguro == 0 || tipoSeguro == 1) {
             Double preco = diferencaData(dataEntrega, dataDevolucao) * tipoDoSeguro.getPrecoDoSeguro();
@@ -145,7 +193,12 @@ public class Locacao {
         }
         return diferencaData(dataEntrega, dataDevolucao) * planoDaLocacao.getPreco();
     }
-
+    /**
+     * Metodo que calcula a diferenca entre duas datas
+     * @param dataEntrega - Recebe a data que o carro foi entregue ao cliente.
+     * @param dataDevolucao - Recebe a data da devolucao.
+     * @return - Os dias de diferenca.
+     */
     public long diferencaData(String dataEntrega, String dataDevolucao) {
         dataEntrega = dataEntrega.replace("/", " ");
         dataEntrega = dataEntrega.replace(".", " ");
@@ -165,7 +218,10 @@ public class Locacao {
         long resultadoDias = diferencaMilisegundos / 86400000;
         return resultadoDias;
     }
-
+    /**
+     * Retorna o nivel inicial do tanque de gasolina do veiculo locado
+     * @return - o nivel inicial do tanque de gasolina do veiculo locado
+     */
     public int getNivelInicialTanque() {
         return nivelDoTanqueInicial;
     }

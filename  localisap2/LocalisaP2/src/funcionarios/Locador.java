@@ -6,7 +6,6 @@ package funcionarios;
 import clientes.Endereco;
 import agencias.Filial;
 import java.io.Serializable;
-import verificacoes.Validacao;
 
 /**
 *
@@ -55,14 +54,6 @@ public class Locador extends PessoaAbstrata implements Serializable{
 
 	public Locador(){
 	}
-        /**
-         * Metodo que captura o codigo exclusivo.
-         * @return - O codigo exclusivo
-         */
-        public String getCodigoExclusivo(){
-            return codigoDoLocador;
-        }
-
 
 	/**
 	 * Captura a agencia
