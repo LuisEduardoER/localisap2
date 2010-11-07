@@ -299,6 +299,7 @@ public class EfetuaLocacao extends javax.swing.JFrame {
                 }
             }
             Locacao locacao1 = new Locacao(veiculo, cliente1, plano1, dataDeLocacao, dataDevolucao, tipoSeguro);
+            locacao1.efetuaLocacao();
             arquivo.adicionaLocacao(locacao1);
             label8.setText("Locacao efetuada com sucesso.");
             LabelException.setText("Seu codigo eh: "+locacao1.getCodigo());
