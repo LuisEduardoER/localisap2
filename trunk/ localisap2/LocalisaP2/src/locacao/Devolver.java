@@ -12,9 +12,15 @@ import java.util.GregorianCalendar;
 import verificacoes.Validacao;
 
 /**
- *
- * @author filipe
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+*
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class Devolver {
 
     private double multaTanque = 0;
@@ -39,7 +45,9 @@ public class Devolver {
         setCliente(cliente);
 
     }
-
+    /**
+     * Metodo que verifica se o cliente tem dividas e efetua a devolucao.
+     */
     public void efetuaDevolucao() {
         if (getMultas() != 0) {
             if (cliente instanceof PessoaFisica) {
@@ -59,6 +67,10 @@ public class Devolver {
             }
         }
     }
+    /**
+     * Metodo que retorna o valor da multa.
+     * @return - Em double o valor da multa.
+     */
      public double getMultas() {
         if (nivelDoTanqueFinal != nivelDoTanqueInicial) {
             int dif = nivelDoTanqueFinal - nivelDoTanqueInicial;
@@ -74,7 +86,10 @@ public class Devolver {
         }
         return multaAtraso + multaProblema + multaTanque;
     }
-
+    /**
+     * Metodo que permite mudar o cliente da devolucao
+     * @param cliente - Recebe o cliente
+     */
     public void setCliente(Object cliente) {
         if (cliente instanceof PessoaFisica) {
             PessoaFisica cliente1 = (PessoaFisica) cliente;
@@ -86,7 +101,11 @@ public class Devolver {
             this.cliente = cliente1;
         }
     }
-
+    /**
+     * Metodo que permite mudar a data que o carro foi entregue ao cliente.
+     * @param dataEntrega - data de entrega (XX-XX-XXXX)
+     * @throws Exception - Erro de data invalida.
+     */
     public void setDataEntrega(String dataEntrega) throws Exception {
         Validacao testaData = new Validacao();
         if (!(testaData.validaData(dataEntrega))) {
@@ -94,7 +113,11 @@ public class Devolver {
         }
         this.dataEntrega = dataEntrega;
     }
-
+    /**
+     * Metodo que permite mudar a data de indicacao da devolucao
+     * @param dataDevolucao - Data de devolucao (XX-XX-XXXX)
+     * @throws Exception - Erro de data invalida.
+     */
     public void setDataDevolucao(String dataDevolucao) throws Exception {
         Validacao testaData = new Validacao();
         if (!(testaData.validaData(dataDevolucao))) {
@@ -103,7 +126,12 @@ public class Devolver {
         this.dataDevolucao = dataDevolucao;
 
     }
-
+    /**
+     * Metodo que calcula a diferenca entre duas datas
+     * @param dataEntrega - Recebe a data que o carro foi entregue ao cliente.
+     * @param dataDevolucao - Recebe a data da devolucao.
+     * @return - Os dias de diferenca.
+     */
     public long diferencaData(String dataEntrega, String dataDevolucao) {
         dataEntrega = dataEntrega.replace("/", " ");
         dataEntrega = dataEntrega.replace(".", " ");

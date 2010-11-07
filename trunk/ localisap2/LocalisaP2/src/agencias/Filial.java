@@ -161,6 +161,9 @@ public class Filial implements Serializable{
                 return true;
             }
         }
+        /**
+         * Metodo que aumenta o numero de locacoes da agencia.
+         */
         public void aumentaLocacoes(){
             numeroDeLocacoes++;
         }

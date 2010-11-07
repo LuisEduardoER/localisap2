@@ -8,9 +8,15 @@ import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 
 /**
- *
- * @author Filipe
- */
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+*
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public class PagarDebito {
 
     private double dividas;
@@ -18,7 +24,10 @@ public class PagarDebito {
     public PagarDebito(Object cliente) {
         this.cliente = cliente;
     }
-
+    /**
+     * Metodo que retorna quanto um cliente esta devendo
+     * @return - O valor da divida
+     */
     public double getQuantoEstaDevendo() {
         if (cliente instanceof PessoaFisica) {
             PessoaFisica cliente1 = (PessoaFisica) cliente;
@@ -32,7 +41,9 @@ public class PagarDebito {
         }
         return dividas;
     }
-
+    /**
+     * Metodo que quita a divida do cliente.
+     */
     public void saldarDividas() {
         if (cliente instanceof PessoaFisica) {
             PessoaFisica cliente1 = (PessoaFisica) cliente;
