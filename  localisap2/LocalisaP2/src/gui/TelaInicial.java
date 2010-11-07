@@ -143,13 +143,17 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (arquivo.getUsuario().getLogin().equals(jTextField1.getText())) {
-            if (arquivo.getUsuario().getSenha().equals(jTextField2.getText())) {
-                new MenuInicial(arquivo).setVisible(true);
-                this.dispose();
+        try {
+            if (arquivo.getUsuario().getLogin().equals(jTextField1.getText())) {
+                if (arquivo.getUsuario().getSenha().equals(jTextField2.getText())) {
+                    new MenuInicial(arquivo).setVisible(true);
+                    this.dispose();
+                }
             }
+            LabelException.setText("Senha ou usuario invalido.");
+        } catch (Exception e) {
+            LabelException.setText(e.getMessage());
         }
-        LabelException.setText("Senha ou usuario invalido.");
 
 
     }//GEN-LAST:event_jButton1ActionPerformed

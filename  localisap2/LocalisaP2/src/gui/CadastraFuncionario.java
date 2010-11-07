@@ -474,7 +474,10 @@ public class CadastraFuncionario extends javax.swing.JFrame {
                 LabelException.setText(e.getMessage());
             }
         }
-        if (jComboBox1.getSelectedItem().equals("Gerente")){
+
+
+        String opcao = (String)jComboBox1.getSelectedItem();
+        if (opcao.equals("Gerente")){
             try {
             Gerente pessoa = new Gerente(cpf,nome,rg,nascimento,naturalidade,endereco,telefone,email);
             arquivo.adicionaGerente(pessoa);
