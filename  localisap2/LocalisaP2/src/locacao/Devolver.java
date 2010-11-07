@@ -52,7 +52,7 @@ public class Devolver {
         if (getMultas() != 0) {
             if (cliente instanceof PessoaFisica) {
                 PessoaFisica cliente1 = (PessoaFisica) cliente;
-                cliente1.setEmDebito(Boolean.TRUE);
+                cliente1.setEmDebito(true);
                 cliente1.setDivida(getMultas());
                 cliente1.locacao(-1);
                 this.cliente = cliente1;
@@ -60,7 +60,7 @@ public class Devolver {
             }
             if (cliente instanceof PessoaJuridica) {
                 PessoaJuridica cliente1 = (PessoaJuridica) cliente;
-                cliente1.setEmDebito(Boolean.TRUE);
+                cliente1.setEmDebito(true);
                 cliente1.setDivida(getMultas());
                 cliente1.locacao(-1);
                 this.cliente = cliente1;
