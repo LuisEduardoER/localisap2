@@ -10,8 +10,7 @@
  */
 package gui;
 
-import agencias.Filial;
-import clientes.Endereco;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import persistencia.ArmazenaDados;
 import veiculos.*;
@@ -26,6 +25,7 @@ public class CadastraAutomovel extends javax.swing.JFrame {
     /** Creates new form CadastraAutomovel */
     public CadastraAutomovel(ArmazenaDados arquivo) {
         initComponents();
+        setWindowPos();
         this.arquivo = arquivo;
     }
 
@@ -358,6 +358,13 @@ public class CadastraAutomovel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setWindowPos(){
+        Dimension dimension = this.getToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
+        this.setLocation(x,y);
+    }
 
     private void jRadioButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton9ActionPerformed
         // TODO add your handling code here:

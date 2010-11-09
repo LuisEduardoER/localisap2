@@ -14,6 +14,7 @@ package gui;
 import clientes.Endereco;
 import clientes.Endereco.UnidadeFederativa;
 import funcionarios.*;
+import java.awt.Dimension;
 import persistencia.ArmazenaDados;
 
 /**
@@ -25,6 +26,7 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     /** Creates new form CadastraFuncionario */
     public CadastraFuncionario(ArmazenaDados arquivo) {
         initComponents();
+        setWindowPos();
         this.arquivo = arquivo;
     }
 
@@ -385,6 +387,13 @@ public class CadastraFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setWindowPos(){
+        Dimension dimension = this.getToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
+        this.setLocation(x,y);
+    }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         new MenuInicial(arquivo).setVisible(true);

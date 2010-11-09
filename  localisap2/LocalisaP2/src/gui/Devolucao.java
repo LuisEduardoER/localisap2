@@ -10,6 +10,7 @@
  */
 package gui;
 
+import java.awt.Dimension;
 import java.util.Collection;
 import locacao.Devolver;
 import locacao.Locacao;
@@ -27,6 +28,7 @@ public class Devolucao extends javax.swing.JFrame {
     /** Creates new form Devolucao */
     public Devolucao(ArmazenaDados arquivo) {
         initComponents();
+        setWindowPos();
         this.arquivo = arquivo;
     }
 
@@ -162,6 +164,13 @@ public class Devolucao extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setWindowPos(){
+        Dimension dimension = this.getToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
+        this.setLocation(x,y);
+    }
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
