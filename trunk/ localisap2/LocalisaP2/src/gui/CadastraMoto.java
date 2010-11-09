@@ -11,6 +11,7 @@
 
 package gui;
 
+import java.awt.Dimension;
 import persistencia.ArmazenaDados;
 import veiculos.*;
 
@@ -25,6 +26,7 @@ public class CadastraMoto extends javax.swing.JFrame {
     public CadastraMoto(ArmazenaDados arquivo) {
         initComponents();
         this.arquivo = arquivo;
+        setWindowPos();
     }
 
     /** This method is called from within the constructor to
@@ -275,6 +277,13 @@ public class CadastraMoto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setWindowPos(){
+        Dimension dimension = this.getToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
+        this.setLocation(x,y);
+    }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         new MenuInicial(arquivo).setVisible(true);

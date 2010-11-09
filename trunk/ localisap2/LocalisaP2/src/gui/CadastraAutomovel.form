@@ -60,12 +60,12 @@
                               </Group>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="textField3" pref="133" max="32767" attributes="1"/>
-                                  <Component id="textField4" pref="133" max="32767" attributes="1"/>
-                                  <Component id="textField5" alignment="0" pref="133" max="32767" attributes="1"/>
-                                  <Component id="textField6" alignment="0" pref="133" max="32767" attributes="0"/>
-                                  <Component id="textField2" alignment="0" pref="133" max="32767" attributes="1"/>
-                                  <Component id="textField1" alignment="0" pref="133" max="32767" attributes="1"/>
+                                  <Component id="textField3" pref="228" max="32767" attributes="1"/>
+                                  <Component id="textField4" pref="228" max="32767" attributes="1"/>
+                                  <Component id="textField5" alignment="0" pref="228" max="32767" attributes="1"/>
+                                  <Component id="textField6" alignment="0" pref="228" max="32767" attributes="0"/>
+                                  <Component id="textField2" alignment="0" pref="228" max="32767" attributes="1"/>
+                                  <Component id="textField1" alignment="0" pref="228" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                       </Group>
@@ -81,7 +81,7 @@
                                               <Component id="label10" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                               <Component id="label11" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="62" max="32767" attributes="0"/>
+                                              <EmptySpace pref="157" max="32767" attributes="0"/>
                                               <Component id="label12" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -90,7 +90,7 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jComboBox3" min="-2" pref="97" max="-2" attributes="1"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jComboBox4" pref="100" max="32767" attributes="1"/>
+                                              <Component id="jComboBox4" pref="195" max="32767" attributes="1"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -103,7 +103,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jRadioButton9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="167" max="32767" attributes="0"/>
+                              <EmptySpace pref="262" max="32767" attributes="0"/>
                               <Component id="button2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button1" min="-2" pref="53" max="-2" attributes="0"/>
@@ -114,7 +114,7 @@
                                   <Component id="jRadioButton7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButton8" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="89" max="32767" attributes="0"/>
+                              <EmptySpace pref="184" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSlider1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label13" alignment="0" min="-2" max="-2" attributes="0"/>

@@ -11,6 +11,7 @@
 
 package gui;
 
+import java.awt.Dimension;
 import persistencia.ArmazenaDados;
 
 /**
@@ -22,7 +23,15 @@ public class RemoverCadastros extends javax.swing.JFrame {
     /** Creates new form RemoverCadastros */
     public RemoverCadastros(ArmazenaDados arquivo) {
         initComponents();
+        setWindowPos();
         this.arquivo = arquivo;
+    }
+
+    public void setWindowPos(){
+        Dimension dimension = this.getToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
+        this.setLocation(x,y);
     }
 
     /** This method is called from within the constructor to

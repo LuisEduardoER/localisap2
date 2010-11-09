@@ -11,6 +11,7 @@
 
 package gui;
 
+import java.awt.Dimension;
 import persistencia.ArmazenaDados;
 
 /**
@@ -22,6 +23,7 @@ public class MenuInicial extends javax.swing.JFrame {
     /** Creates new form MenuInicial */
     public MenuInicial(ArmazenaDados arquivo) {
         initComponents();
+        setWindowPos();
         this.arquivo = arquivo;
     }
 
@@ -319,6 +321,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setWindowPos(){
+        Dimension dimension = this.getToolkit().getScreenSize();
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
+        this.setLocation(x,y);
+    }
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         new EfetuaLocacao(arquivo).setVisible(true);

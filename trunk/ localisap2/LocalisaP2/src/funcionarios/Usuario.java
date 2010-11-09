@@ -52,7 +52,7 @@ public class Usuario {
      */
     public void setLogin(String login) throws Exception {
         if (login == null || login.length() < 5) {
-            throw new Exception("O login deve ter mais que 4 caracteres");
+            throw new Exception("O login deve ter mais que 4 caracteres.");
         }
 
 
@@ -74,7 +74,7 @@ public class Usuario {
      */
     public void setSenha(String senha) throws Exception {
         if (senha.length() < 5 || senha == null) {
-            throw new Exception("A senha deve ter mais de 4 caracteres");
+            throw new Exception("A senha deve ter mais de 4 caracteres.");
         }
         this.senha = senha;
     }
@@ -86,7 +86,7 @@ public class Usuario {
      */
     public void setEmail(String email) throws Exception {
         if (!email.contains("@") || email.length() == 0) {
-            throw new Exception("O email deve conter @ e ser maior que 3");
+            throw new Exception("O email deve conter @ e ter mais que 3 caracteres.");
         }
 
         this.email = email;
