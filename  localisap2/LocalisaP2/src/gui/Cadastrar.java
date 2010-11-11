@@ -12,10 +12,9 @@ package gui;
 
 import funcionarios.Usuario;
 import java.awt.Dimension;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
 import persistencia.ArmazenaDados;
 
 /**
@@ -205,6 +204,11 @@ public class Cadastrar extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try {
+                    UIManager.setLookAndFeel(new SubstanceNebulaLookAndFeel());
+                } catch (Exception e) {
+                    System.out.println("Falha ao carregar a skin!");
+                }
                 new Cadastrar(arquivo).setVisible(true);
             }
         });
