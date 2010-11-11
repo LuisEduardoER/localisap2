@@ -11,6 +11,9 @@
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
@@ -176,6 +179,9 @@ public class TelaInicial extends javax.swing.JFrame {
         int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
         int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
         this.setLocation(x,y);
+        URL url = this.getClass().getResource("/images/icon2.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
     }
 
     public static void main(String args[]) {
@@ -186,6 +192,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 } catch (Exception e) {
                     System.out.println("Falha ao carregar a skin!");
                 }
+
                 new TelaInicial(arquivo, true).setVisible(true);
             }
         });

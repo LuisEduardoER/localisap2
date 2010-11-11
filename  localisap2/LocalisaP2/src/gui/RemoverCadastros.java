@@ -12,6 +12,9 @@
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import persistencia.ArmazenaDados;
 
 /**
@@ -32,6 +35,9 @@ public class RemoverCadastros extends javax.swing.JFrame {
         int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
         int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
         this.setLocation(x,y);
+        URL url = this.getClass().getResource("/images/icon2.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
     }
 
     /** This method is called from within the constructor to

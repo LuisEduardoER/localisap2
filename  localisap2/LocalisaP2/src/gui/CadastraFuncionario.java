@@ -15,6 +15,9 @@ import clientes.Endereco;
 import clientes.Endereco.UnidadeFederativa;
 import funcionarios.*;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import persistencia.ArmazenaDados;
 
 /**
@@ -393,6 +396,9 @@ public class CadastraFuncionario extends javax.swing.JFrame {
         int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
         int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
         this.setLocation(x,y);
+        URL url = this.getClass().getResource("/images/icon2.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
     }
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
