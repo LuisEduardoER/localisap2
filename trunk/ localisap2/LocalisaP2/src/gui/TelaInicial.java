@@ -134,7 +134,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addGap(21, 21, 21))
+                .addGap(24, 24, 24))
         );
 
         pack();
