@@ -12,6 +12,9 @@
 package gui;
 
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import javax.swing.UIManager;
 import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
 import persistencia.ArmazenaDados;
@@ -62,7 +65,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menu Principal");
+        setTitle("LOCALISA - Menu Principal");
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -276,6 +279,9 @@ public class MenuInicial extends javax.swing.JFrame {
         int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
         int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
         this.setLocation(x,y);
+        URL url = this.getClass().getResource("/images/icon2.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
     }
 
 
