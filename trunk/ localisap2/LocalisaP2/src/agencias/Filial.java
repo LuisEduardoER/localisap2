@@ -5,6 +5,7 @@ import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import funcionarios.Gerente;
 import funcionarios.Locador;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import locacao.Locacao;
@@ -23,7 +24,7 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Filial {
+public class Filial implements Serializable{
 
     private String cnpj;
     Endereco endereco;
