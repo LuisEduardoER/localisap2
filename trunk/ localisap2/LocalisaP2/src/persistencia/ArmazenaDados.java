@@ -4,7 +4,6 @@
  */
 package persistencia;
 
-import agencias.Filial;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import funcionarios.Gerente;
@@ -38,7 +37,7 @@ public class ArmazenaDados {
     private Collection<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
     private Collection<Locacao> listaDeLocacoes = new ArrayList<Locacao>();
     private Usuario user;
-    private Filial agencia;
+
     /**
      * Metodo que adiciona uma locacao
      * @param loc - Locacao
@@ -46,13 +45,7 @@ public class ArmazenaDados {
     public void adicionaLocacao(Locacao loc) {
         listaDeLocacoes.add(loc);
     }
-    /**
-     * Metodo que adiciona uma agencia
-     * @param agencia -  A agencia
-     */
-    public void adicionaAgencia(Filial agencia) {
-        this.agencia = agencia;
-    }
+
     /**
      * Metodo que adiciona o usuario do sistema
      * @param user - O usuario

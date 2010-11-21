@@ -1,8 +1,5 @@
 package clientes;
 
-import funcionarios.Pessoa;
-import funcionarios.PessoaAbstrata;
-import java.io.Serializable;
 import verificacoes.Validacao;
 
 /**
@@ -15,20 +12,13 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PessoaFisica extends PessoaAbstrata implements Serializable {
+public class PessoaFisica extends Cliente {
 
     private String cpf;
     private String nome;
     private String rg;
     private String nascimento;
     private String naturalidade;
-    private Endereco endereco;
-    private String telefone;
-    private String email;
-    private String codigoDaPessoaFisica;
-    private int quantidadeLocacao;
-    private Boolean emDebito = false;
-    private double divida = 0;
 
     /**
      * Construtor que cria uma Pessoa Fisica.
@@ -50,57 +40,69 @@ public class PessoaFisica extends PessoaAbstrata implements Serializable {
         setNaturalidade(naturalidade);
         setNome(nome);
         setRg(rg);
-        setTelefone(telefone);
     }
 
     public PessoaFisica() {
     }
-    /**
-     * Metodo que retorna um boolean indiciando se o cliente tem algum debito .
-     * @return - True se o cliente tem algum debito e false caso nao.
-     */
-    public Boolean getEmDebito() {
-        return this.emDebito;
-    }
-    /**
-     * Metodo que retorna o valor da divida do cliente.
-     * @return - O valor da divida
-     */
-    public double getDivida(){
-        return divida;
-    }
-    /**
-     * Metodo que permite alterar o valor da divida
-     * @param divida - Valor da divida.
-     */
-    public void setDivida(double divida){
-        this.divida=divida;
+
+    public String getCpf() {
+        return cpf;
     }
 
-    /**
-     * Metodo que permite alterar o status de debito do cliente
-     * @param flag - True se o cliente estiver em debito , false caso contrario.
-     */
-    public void setEmDebito(Boolean flag) {
-        emDebito = flag;
+    public String getNome() {
+        return nome;
     }
-    /**
-     * Metodo que permite alterar o numero de locacoes que o cliente fez.
-     * @param numero - Se o numero for 1 aumenta a locacao se for -1 diminui.
-     */
-    public void locacao(int numero) {
-        if (numero == -1) {
-            quantidadeLocacao--;
-        }
-        if (numero == 1) {
-            quantidadeLocacao++;
-        }
+
+    public String getRg() {
+        return rg;
     }
-    /**
-     * Metodo que mostra a quantidade de locacoes que o cliente fez
-     * @return - A quantidade de locacao.
-     */
-    public int getQuantidadeDeLocacao(){
-        return quantidadeLocacao;
+
+    public String getNascimento() {
+        return nascimento;
+    }
+
+    public String getNaturalidade() {
+        return naturalidade;
+    }
+
+    public void setCpf(String cpf) throws Exception {
+        Validacao testeCpf = new Validacao();
+        if (!(testeCpf.validaCpf(cpf))) {
+            throw new Exception("CPF invalido.");
+        }
+        this.cpf = cpf;
+
+    }
+
+    public void setNome(String nome) throws Exception {
+        if (nome.length() == 0) {
+            throw new Exception("O nome nao deve ser vazio");
+        }
+        this.nome = nome;
+
+    }
+
+    public void setRg(String rg) throws Exception {
+        if (rg.length() == 0) {
+            throw new Exception("O RG nao deve ser vazio");
+        }
+        this.rg = rg;
+    }
+
+    public void setNascimento(String nascimento) throws Exception {
+        Validacao testaData = new Validacao();
+        if (!(testaData.validaData(nascimento))) {
+            throw new Exception("Data invalida");
+        }
+        this.nascimento = nascimento;
+
+    }
+
+    public void setNaturalidade(String naturalidade) throws Exception {
+        if (naturalidade.length() == 0) {
+            throw new Exception("A naturalidade nao deve ser vazia");
+        }
+        this.naturalidade = naturalidade;
+
     }
 }

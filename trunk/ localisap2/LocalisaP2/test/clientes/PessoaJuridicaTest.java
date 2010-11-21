@@ -92,7 +92,7 @@ public class PessoaJuridicaTest {
                     empresa.setTelefone("123");
                     Assert.fail("Excecao de setTelefone esperada.");
                 } catch (Exception ex){
-                    Assert.assertEquals("erro", "Um telefone valido deve ter o DD + o numero", ex.getMessage());
+                    Assert.assertEquals("erro", "Um telefone valido deve ter o DDD + o numero", ex.getMessage());
                 }
             empresa.setTelefone("8333312222");
             
