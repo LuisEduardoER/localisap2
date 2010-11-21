@@ -8,7 +8,7 @@ package veiculos;
  *
  * @author Filipe
  */
-public enum Acessorios {
+public enum Acessorio {
 
     P2("Duas Portas"),
     P4("Quatro Portas"),
@@ -21,7 +21,7 @@ public enum Acessorios {
     BC("Bancos de Couro");
     private String nomeCompleto;
 
-    private Acessorios(String nomeCompleto) {
+    private Acessorio(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
 

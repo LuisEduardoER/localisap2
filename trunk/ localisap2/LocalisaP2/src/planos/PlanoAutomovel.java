@@ -2,7 +2,7 @@ package planos;
 
 import java.util.ArrayList;
 import java.util.List;
-import veiculos.Acessorios;
+import veiculos.Acessorio;
 
 import veiculos.Automovel;
 
@@ -19,7 +19,7 @@ import veiculos.Automovel;
 public class PlanoAutomovel implements Plano{
 
     private List<Automovel> listaAuto = new ArrayList<Automovel>();
-    private List<Acessorios> listaAcessorios = new ArrayList<Acessorios>();
+    private List<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
     private double preco;
     private String nome;
 
@@ -37,7 +37,7 @@ public class PlanoAutomovel implements Plano{
      * Adiciona os acessorios que o plano contempla.
      * @param item - Recebe o acessorio a ser adicionado no tipo Acessorios.
      */
-    public void adicionaAcessorios(Acessorios item) {
+    public void adicionaAcessorios(Acessorio item) {
         listaAcessorios.add(item);
     }
 
@@ -45,7 +45,7 @@ public class PlanoAutomovel implements Plano{
      * Adiciona uma lista de acessorios que o plano contempla.
      * @param acessorios - Recebe uma lista de acessorios a serem adicionados
      */
-    public void adicionaListaAcessorios(List<Acessorios> acessorios) {
+    public void adicionaListaAcessorios(List<Acessorio> acessorios) {
         this.listaAcessorios = acessorios;
     }
 
@@ -57,7 +57,7 @@ public class PlanoAutomovel implements Plano{
     public void adicionaCarro(Automovel carro) throws Exception {
         int tamanho = listaAcessorios.size();
         int acertos = 0;
-        for (Acessorios item : carro.getOpcionais()) {
+        for (Acessorio item : carro.getOpcionais()) {
             if (listaAcessorios.contains(item)) {
                 acertos++;
             }

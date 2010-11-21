@@ -7,7 +7,7 @@ package locacao;
 import clientes.Endereco;
 import clientes.PessoaFisica;
 import java.util.ArrayList;
-import veiculos.Acessorios;
+import veiculos.Acessorio;
 import veiculos.Automovel;
 import veiculos.Cor;
 import veiculos.TipoDeCombustivel;
@@ -30,10 +30,10 @@ public class DevolverTest {
     PessoaFisica pessoa1;
     Endereco endereco;
     PlanoAutomovel planoCarroA;
-    Devolver devolucao;
+    Devolucao devolucao;
     @Before
     public void inicio() throws Exception {
-        ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
+        ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
         pessoa1 = new PessoaFisica();
         pessoa1.setCpf("03468137435");
         pessoa1.setEmail("filipe@teste");
@@ -46,7 +46,7 @@ public class DevolverTest {
         planoCarroA = new PlanoAutomovel("PlanoA", 55);
         veicu = new Automovel("123", "Corsa", "Chevrolet", 90, 2009, Cor.PRETO, TipoDeFreio.TAMBOR, TipoDeCombustivel.FLEX, "23/10/2009", 80, acessoriosOpcionais, TipoDePotencia.HP);
         loc = new Locacao(veicu, pessoa1, planoCarroA, "22/09/2010", "30/09/2010", 10);
-        devolucao = new Devolver(loc,100,"01/10/2010",Problemas.AMASSADOS_GRAVES);
+        devolucao = new Devolucao(loc,100,"01/10/2010",Problemas.AMASSADOS_GRAVES);
     }
 
 
