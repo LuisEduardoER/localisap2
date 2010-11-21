@@ -10,7 +10,7 @@ package veiculos;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-import veiculos.Acessorios;
+import veiculos.Acessorio;
 import java.util.ArrayList;
 import agencias.Filial;
 import verificacoes.Validacao;
@@ -29,7 +29,7 @@ public class Automovel implements Veiculo {
     private Filial localizacao;
     private String dataDeAquisicao;
     private int nivelDoTanque;
-    private ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
+    private ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
     private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
     private String codigoDoCarro;
 
@@ -50,7 +50,7 @@ public class Automovel implements Veiculo {
      * @param tipoDePotencia - O tipo de pontencia (hp ou cc)
      * @throws Exception - Erro de algum parametro errado.
      */
-    public Automovel(String renavam, String modelo, String marca, int potencia, int ano, Cor cor, TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel, String dataDeAquisicao, int nivelDoTanque, ArrayList<Acessorios> acessoriosOpcionais, TipoDePotencia tipoDePotencia) throws Exception {
+    public Automovel(String renavam, String modelo, String marca, int potencia, int ano, Cor cor, TipoDeFreio tipoDeFreio, TipoDeCombustivel tipoDeCombustivel, String dataDeAquisicao, int nivelDoTanque, ArrayList<Acessorio> acessoriosOpcionais, TipoDePotencia tipoDePotencia) throws Exception {
         this.setAno(ano);
         this.setCor(cor);
         this.setDataDeAquisicao(dataDeAquisicao);
@@ -59,7 +59,7 @@ public class Automovel implements Veiculo {
         this.setMarca(marca);
         this.setModelo(modelo);
         this.setNivelDoTanque(nivelDoTanque);
-        for (Acessorios acessorio : acessoriosOpcionais) {
+        for (Acessorio acessorio : acessoriosOpcionais) {
             this.addOpcional(acessorio);
         }
         this.setRenavam(renavam);
@@ -129,7 +129,7 @@ public class Automovel implements Veiculo {
      * Capturar em forma de ArrayList os opcionais do automovel
      * @return - Em ArrayList os opcionais do automovel
      */
-    public ArrayList<Acessorios> getOpcionais() {
+    public ArrayList<Acessorio> getOpcionais() {
         return acessoriosOpcionais;
     }
 
@@ -200,7 +200,7 @@ public class Automovel implements Veiculo {
      * Adiciona uma acessorio opcional ao automovel.
      * @param acessorio - Uma constante do enum que representa um acessorio ao automovel.
      */
-    public void addOpcional(Acessorios acessorio) {
+    public void addOpcional(Acessorio acessorio) {
         this.acessoriosOpcionais.add(acessorio);
 
     }

@@ -8,7 +8,7 @@ import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
-import veiculos.Acessorios;
+import veiculos.Acessorio;
 
 import veiculos.Automovel;
 import veiculos.Cor;
@@ -34,7 +34,7 @@ public class PlanoTest {
 	PlanoMoto planoMotoA, planoMotoB;
 	Automovel carro;
 	Motocicleta moto;
-	ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
+	ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
 	Filial centro, agencia;
 
 

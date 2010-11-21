@@ -21,7 +21,7 @@ import funcionarios.Gerente;
 import funcionarios.Locador;
 import funcionarios.Pessoa;
 import persistencia.Persistencia;
-import veiculos.Acessorios;
+import veiculos.Acessorio;
 import veiculos.Cor;
 import veiculos.TipoDeCombustivel;
 import veiculos.TipoDeFreio;
@@ -654,7 +654,7 @@ public class Start {
     private static void registrarPlanoCarro() {
         String nomeDoPlano = readStringOption("Nome do plano:");
         double preco = readDoubleOptionNoLimit("Preco: ", 0);
-        List<Acessorios> acessoriosDoPlano = pegarAcessorios();
+        List<Acessorio> acessoriosDoPlano = pegarAcessorios();
         PlanoAutomovel plano = new PlanoAutomovel(nomeDoPlano, preco);
         plano.adicionaListaAcessorios(acessoriosDoPlano);
         listaDePlanosCarros.add(plano);
@@ -707,19 +707,19 @@ public class Start {
         return true;
     }
 
-    private static ArrayList<Acessorios> pegarAcessorios() {
+    private static ArrayList<Acessorio> pegarAcessorios() {
         int opcao = 0;
-        ArrayList<Acessorios> lista = new ArrayList<Acessorios>();
+        ArrayList<Acessorio> lista = new ArrayList<Acessorio>();
         System.out.println("Adicionar Acessorios: ");
-        for (int i = 0; i < Acessorios.values().length; i++) {
-            System.out.println(i + 1 + " - " + Acessorios.values()[i].getNomeCompleto());
+        for (int i = 0; i < Acessorio.values().length; i++) {
+            System.out.println(i + 1 + " - " + Acessorio.values()[i].getNomeCompleto());
         }
-        System.out.println(Acessorios.values().length + 1 + " - Nao desejo mais adicionar acessorios");
-        while (!(opcao == Acessorios.values().length)) {
-            opcao = readIntegerOption("Acessorio a ser adicionado: ", OPCAO_MINIMA_MENUD, Acessorios.values().length + 1) - 1;
+        System.out.println(Acessorio.values().length + 1 + " - Nao desejo mais adicionar acessorios");
+        while (!(opcao == Acessorio.values().length)) {
+            opcao = readIntegerOption("Acessorio a ser adicionado: ", OPCAO_MINIMA_MENUD, Acessorio.values().length + 1) - 1;
             if (opcao <= 8) {
-                lista.add(Acessorios.values()[opcao]);
-                System.out.println(Acessorios.values()[opcao].getNomeCompleto() + " adicionado(a) com sucesso!");
+                lista.add(Acessorio.values()[opcao]);
+                System.out.println(Acessorio.values()[opcao].getNomeCompleto() + " adicionado(a) com sucesso!");
             }
         }
         return lista;
@@ -799,7 +799,7 @@ public class Start {
                 agencia = readIntegerOption(">", OPCAO_MINIMA_MENUD, listaDeAgencias.size()) - 1;
                 localizacao = listaDeAgencias.get(agencia);
                 dataDeAquisicao = readStringOption("Data de aquisicao do veiculo (Formato XX/XX/XXXX): ");
-                ArrayList<Acessorios> listaDeAcessorios = pegarAcessorios();
+                ArrayList<Acessorio> listaDeAcessorios = pegarAcessorios();
                 nivelDoTanque = readIntegerOption("Nivel do tanque(0-100): ", MINIMO_NIVEL_TANQUE, MAXIMO_NIVEL_TANQUE);
                 v = null;
                 try {

@@ -21,7 +21,7 @@ import verificacoes.Validacao;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class Devolver {
+public class Devolucao {
 
     private double multaTanque = 0;
     private double multaAtraso = 0;
@@ -34,7 +34,7 @@ public class Devolver {
     private Problemas problema;
     private Object cliente;
 
-    public Devolver(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problemas problema) throws Exception {
+    public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problemas problema) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();
         this.nivelDoTanqueFinal = nivelDoTanqueFinal;
         setDataDevolucao(dataDevolucao);

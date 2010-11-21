@@ -28,7 +28,7 @@ public class AutomovelTest {
 	Filial centro;
 	Filial interior;
 	Endereco endereco, endereco2;
-	ArrayList<Acessorios> acessoriosOpcionais = new ArrayList<Acessorios>();
+	ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
 
 	@Before
 	public void inicio() throws Exception{
