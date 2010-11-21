@@ -113,15 +113,15 @@
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButton2" pref="140" max="32767" attributes="1"/>
-                                          <Component id="jButton3" alignment="0" pref="140" max="32767" attributes="1"/>
-                                          <Component id="cadastrar" alignment="0" pref="140" max="32767" attributes="1"/>
+                                          <Component id="editarCliente" pref="140" max="32767" attributes="1"/>
+                                          <Component id="apagarCliente" alignment="0" pref="140" max="32767" attributes="1"/>
+                                          <Component id="cadastrarCliente" alignment="0" pref="140" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButton4" pref="140" max="32767" attributes="1"/>
-                                          <Component id="jButton5" pref="140" max="32767" attributes="1"/>
-                                          <Component id="jButton6" pref="140" max="32767" attributes="1"/>
+                                          <Component id="verificarDebito" pref="140" max="32767" attributes="1"/>
+                                          <Component id="realizarPagamento" pref="140" max="32767" attributes="1"/>
+                                          <Component id="realizarLocacao" pref="140" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -148,18 +148,18 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="cadastrar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cadastrarCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editarCliente" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="apagarCliente" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jButton4" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="verificarDebito" min="-2" pref="23" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="realizarLocacao" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="realizarPagamento" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -195,39 +195,42 @@
                 <Property name="text" type="java.lang.String" value="Lista de Clientes:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="cadastrar">
+            <Component class="javax.swing.JButton" name="cadastrarCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar Cliente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarClienteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="editarCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar Cliente"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarClienteActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="apagarCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apagar Cliente"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="verificarDebito">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Verificar Debito"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="realizarPagamento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Realizar Pgmto"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="realizarLocacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Realizar Loca&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -319,7 +322,7 @@
                                           <Component id="rua" alignment="0" pref="182" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="limparCampos" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
@@ -387,7 +390,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton7" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="limparCampos" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton1" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -591,7 +594,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton7">
+                    <Component class="javax.swing.JButton" name="limparCampos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
@@ -655,7 +658,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                      <Component id="limparCampos1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="60" max="32767" attributes="0"/>
                                       <Component id="jButton8" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
@@ -729,7 +732,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton9" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="limparCampos1" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton8" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -859,7 +862,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton9">
+                    <Component class="javax.swing.JButton" name="limparCampos1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
@@ -957,8 +960,8 @@
                           <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jButton10" alignment="0" max="32767" attributes="1"/>
-                              <Component id="jButton11" alignment="0" max="32767" attributes="1"/>
+                              <Component id="editarFuncionario" alignment="0" max="32767" attributes="1"/>
+                              <Component id="apagarFuncionario" alignment="0" max="32767" attributes="1"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -976,9 +979,9 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                              <Component id="editarFuncionario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                              <Component id="apagarFuncionario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jPanel10" max="32767" attributes="0"/>
                           </Group>
@@ -1017,13 +1020,13 @@
                 <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton10">
+            <Component class="javax.swing.JButton" name="editarFuncionario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar Funcionario"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton11">
+            <Component class="javax.swing.JButton" name="apagarFuncionario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apagar Funcionario"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -1098,7 +1101,7 @@
                                           <Component id="telefone2" min="-2" pref="75" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jButton12" alignment="0" pref="103" max="32767" attributes="0"/>
+                                              <Component id="cadastrarFuncionario" alignment="0" pref="103" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
@@ -1111,7 +1114,7 @@
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="limparCampos3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="171" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1185,8 +1188,8 @@
                           </Group>
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton13" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                              <Component id="jButton12" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="limparCampos3" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="cadastrarFuncionario" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1378,15 +1381,15 @@
                     <Property name="text" type="java.lang.String" value="CEP:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton12">
+                <Component class="javax.swing.JButton" name="cadastrarFuncionario">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cadastrar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarFuncionarioActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton13">
+                <Component class="javax.swing.JButton" name="limparCampos3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                   </Properties>
@@ -1433,11 +1436,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButton19" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="cadastrar2" alignment="0" pref="135" max="32767" attributes="1"/>
+                                  <Component id="apagarVeiculo" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="cadastrarVeiculo" alignment="0" pref="135" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton18" min="-2" pref="107" max="-2" attributes="1"/>
+                              <Component id="editarVeiculo" min="-2" pref="107" max="-2" attributes="1"/>
                           </Group>
                           <Component id="jTabbedPane4" pref="315" max="32767" attributes="0"/>
                           <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
@@ -1458,15 +1461,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cadastrar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cadastrarVeiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editarVeiculo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton19" min="-2" max="-2" attributes="0"/>
+                              <Component id="apagarVeiculo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTabbedPane4" pref="327" max="32767" attributes="0"/>
+                              <Component id="jTabbedPane4" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane3" pref="390" max="32767" attributes="1"/>
+                          <Component id="jScrollPane3" pref="391" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1501,21 +1504,21 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="cadastrar2">
+            <Component class="javax.swing.JButton" name="cadastrarVeiculo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar Veiculo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrar2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarVeiculoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton18">
+            <Component class="javax.swing.JButton" name="editarVeiculo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar Veiculo"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton19">
+            <Component class="javax.swing.JButton" name="apagarVeiculo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apagar Veiculo"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -1540,20 +1543,20 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="limparCamposMoto" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel73" min="-2" pref="60" max="-2" attributes="0"/>
                                       <EmptySpace min="25" pref="25" max="25" attributes="0"/>
-                                      <Component id="nome5" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="renavamMoto" min="-2" pref="84" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel84" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="rg6" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="anoMoto" min="-2" pref="70" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="cidade5" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="dataAquisicaoMoto" min="-2" pref="84" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel81" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="4" pref="4" max="4" attributes="0"/>
@@ -1569,23 +1572,23 @@
                                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="40" pref="40" max="40" attributes="0"/>
-                                                  <Component id="naturalidade6" min="-2" pref="84" max="-2" attributes="0"/>
+                                                  <Component id="potenciaMoto" min="-2" pref="84" max="-2" attributes="0"/>
                                                   <EmptySpace min="4" pref="4" max="4" attributes="0"/>
                                                   <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="9" pref="9" max="9" attributes="0"/>
                                                   <Component id="jComboBox7" min="-2" pref="70" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                                  <Component id="cpf6" min="-2" pref="84" max="-2" attributes="0"/>
-                                                  <EmptySpace min="4" pref="4" max="4" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="modeloMoto" min="-2" pref="84" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
                                                   <Component id="estado5" min="-2" pref="70" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="nascimento6" min="-2" pref="84" max="-2" attributes="0"/>
+                                              <Component id="marcaMoto" min="-2" pref="84" max="-2" attributes="0"/>
                                               <EmptySpace min="4" pref="4" max="4" attributes="0"/>
                                               <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="16" pref="16" max="16" attributes="0"/>
@@ -1602,15 +1605,15 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jComboBox9" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="cidade10" min="-2" pref="84" max="-2" attributes="0"/>
+                                              <Component id="cilindradasMoto" min="-2" pref="84" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jButton23" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel83" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="jSpinner2" min="-2" pref="40" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Component id="cadastrarMoto" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1632,23 +1635,22 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="1" pref="1" max="1" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="nome5" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="renavamMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                           <Component id="jLabel84" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="rg6" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="anoMoto" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="2" pref="2" max="2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="4" pref="4" max="4" attributes="0"/>
-                                              <Component id="cpf6" min="-2" pref="17" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="5" pref="5" max="5" attributes="0"/>
-                                              <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel78" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="modeloMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <Component id="estado5" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
                                       </Group>
@@ -1662,7 +1664,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="nascimento6" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="marcaMoto" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="1" pref="1" max="1" attributes="0"/>
                                               <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
@@ -1683,7 +1685,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="4" pref="4" max="4" attributes="0"/>
-                                      <Component id="naturalidade6" min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="potenciaMoto" min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="5" pref="5" max="5" attributes="0"/>
@@ -1701,7 +1703,7 @@
                                       <EmptySpace min="3" pref="3" max="3" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cidade5" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="dataAquisicaoMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jComboBox8" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1715,7 +1717,7 @@
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jLabel83" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cidade10" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="cilindradasMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1725,8 +1727,8 @@
                               </Group>
                               <EmptySpace pref="73" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton24" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                                  <Component id="jButton23" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="limparCamposMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="cadastrarMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1734,15 +1736,15 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="jButton23">
+                    <Component class="javax.swing.JButton" name="cadastrarMoto">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cadastrar"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton23ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarMotoActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton24">
+                    <Component class="javax.swing.JButton" name="limparCamposMoto">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
@@ -1772,7 +1774,7 @@
                         <Property name="text" type="java.lang.String" value="Data Aquisi&#xe7;&#xe3;o:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="rg6">
+                    <Component class="javax.swing.JTextField" name="anoMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -1819,21 +1821,21 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="nome5">
+                    <Component class="javax.swing.JTextField" name="renavamMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="cpf6">
+                    <Component class="javax.swing.JFormattedTextField" name="dataAquisicaoMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="nascimento6">
+                    <Component class="javax.swing.JFormattedTextField" name="marcaMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -1863,7 +1865,7 @@
                         <Property name="text" type="java.lang.String" value="Cor:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="naturalidade6">
+                    <Component class="javax.swing.JTextField" name="potenciaMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -1886,7 +1888,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="cidade5">
+                    <Component class="javax.swing.JTextField" name="modeloMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -1943,7 +1945,7 @@
                         <Property name="text" type="java.lang.String" value="Cilindradas:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="cidade10">
+                    <Component class="javax.swing.JTextField" name="cilindradasMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -1968,18 +1970,18 @@
                               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                               <Component id="jLabel60" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace min="25" pref="25" max="25" attributes="0"/>
-                              <Component id="nome4" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="renavamCarro" min="-2" pref="84" max="-2" attributes="0"/>
                               <EmptySpace min="4" pref="4" max="4" attributes="0"/>
                               <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="14" pref="14" max="14" attributes="0"/>
-                              <Component id="rg3" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="anoCarro" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                               <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                              <Component id="cidade4" min="-2" pref="84" max="-2" attributes="0"/>
-                              <EmptySpace min="4" pref="4" max="4" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="dataAquisicaoCarro" min="-2" pref="84" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="4" pref="4" max="4" attributes="0"/>
                               <Component id="jComboBox5" min="-2" max="-2" attributes="0"/>
@@ -2002,25 +2004,25 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="40" pref="40" max="40" attributes="0"/>
-                                          <Component id="naturalidade3" min="-2" pref="84" max="-2" attributes="0"/>
-                                          <EmptySpace min="4" pref="4" max="4" attributes="0"/>
+                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="potenciaCarro" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="9" pref="9" max="9" attributes="0"/>
                                           <Component id="jComboBox4" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="cpf3" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="modeloCarro" min="-2" pref="84" max="-2" attributes="0"/>
                                           <EmptySpace min="4" pref="4" max="4" attributes="0"/>
                                           <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
                                           <Component id="estado4" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="nascimento3" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <EmptySpace min="4" pref="4" max="4" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="marcaCarro" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="16" pref="16" max="16" attributes="0"/>
                                       <Component id="jComboBox2" min="-2" pref="70" max="-2" attributes="0"/>
@@ -2031,12 +2033,21 @@
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButton22" min="-2" max="-2" attributes="0"/>
+                                      <Component id="limparCamposCarro" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="98" max="32767" attributes="0"/>
                                       <Component id="jButton21" min="-2" pref="87" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="23" attributes="0"/>
+                                      <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="9" pref="9" max="9" attributes="0"/>
+                                      <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+                                      <Component id="jSpinner1" min="-2" pref="40" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2052,13 +2063,6 @@
                                           </Group>
                                           <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
                                           <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="19" pref="19" max="19" attributes="0"/>
-                                      <Component id="jRadioButton8" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="31" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="100" pref="100" max="100" attributes="0"/>
                                               <Component id="jRadioButton9" min="-2" max="-2" attributes="0"/>
@@ -2069,16 +2073,9 @@
                                               <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="89" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="23" pref="23" max="23" attributes="0"/>
-                                      <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="9" pref="9" max="9" attributes="0"/>
-                                      <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                                      <Component id="jSpinner1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="19" pref="19" max="19" attributes="0"/>
+                                      <Component id="jRadioButton8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="11" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2095,13 +2092,13 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="1" pref="1" max="1" attributes="0"/>
-                                      <Component id="nome4" min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="renavamCarro" min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="2" pref="2" max="2" attributes="0"/>
                                       <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="rg3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="anoCarro" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -2109,7 +2106,7 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="4" pref="4" max="4" attributes="0"/>
-                                              <Component id="cpf3" min="-2" pref="17" max="-2" attributes="0"/>
+                                              <Component id="modeloCarro" min="-2" pref="17" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="5" pref="5" max="5" attributes="0"/>
@@ -2127,10 +2124,12 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="nascimento3" min="-2" pref="17" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="1" pref="1" max="1" attributes="0"/>
-                                              <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="marcaCarro" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -2147,12 +2146,11 @@
                                       <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="4" pref="4" max="4" attributes="0"/>
-                                      <Component id="naturalidade3" min="-2" pref="17" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
                                       <EmptySpace min="5" pref="5" max="5" attributes="0"/>
-                                      <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="potenciaCarro" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -2163,12 +2161,11 @@
                                       <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="2" pref="2" max="2" attributes="0"/>
-                                      <Component id="cidade4" min="-2" pref="17" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
                                       <EmptySpace min="3" pref="3" max="3" attributes="0"/>
-                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataAquisicaoCarro" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Component id="jComboBox5" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -2231,7 +2228,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton22" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="limparCamposCarro" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton21" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2240,28 +2237,28 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="nome4">
+                    <Component class="javax.swing.JTextField" name="renavamCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="rg3">
+                    <Component class="javax.swing.JTextField" name="anoCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="naturalidade3">
+                    <Component class="javax.swing.JTextField" name="potenciaCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="cidade4">
+                    <Component class="javax.swing.JTextField" name="marcaCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -2293,7 +2290,7 @@
                         <Property name="text" type="java.lang.String" value="Data Aquisi&#xe7;&#xe3;o:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="nascimento3">
+                    <Component class="javax.swing.JFormattedTextField" name="dataAquisicaoCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -2345,7 +2342,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="cpf3">
+                    <Component class="javax.swing.JFormattedTextField" name="modeloCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -2360,7 +2357,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton21ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton22">
+                    <Component class="javax.swing.JButton" name="limparCamposCarro">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
@@ -2551,7 +2548,7 @@
                                   <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                       <Component id="jButton14" alignment="0" pref="144" max="32767" attributes="1"/>
-                                      <Component id="jButton15" alignment="0" pref="144" max="32767" attributes="1"/>
+                                      <Component id="apagarLocacao" alignment="0" pref="144" max="32767" attributes="1"/>
                                       <Component id="cadastrar1" alignment="0" pref="144" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
@@ -2580,7 +2577,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButton14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton15" min="-2" max="-2" attributes="0"/>
+                              <Component id="apagarLocacao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jPanel11" max="32767" attributes="0"/>
                           </Group>
@@ -2633,7 +2630,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton15">
+            <Component class="javax.swing.JButton" name="apagarLocacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apagar Loca&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -2664,18 +2661,18 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="nome3" alignment="0" pref="162" max="32767" attributes="1"/>
-                                      <Component id="cpf2" alignment="0" pref="162" max="32767" attributes="1"/>
-                                      <Component id="nascimento2" alignment="0" pref="162" max="32767" attributes="1"/>
+                                      <Component id="clienteLocacao" alignment="0" pref="162" max="32767" attributes="1"/>
+                                      <Component id="renavamLocacao" alignment="0" pref="162" max="32767" attributes="1"/>
+                                      <Component id="dataDevolucaoLocacao" alignment="0" pref="162" max="32767" attributes="1"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                          <Component id="jButton16" pref="81" max="32767" attributes="0"/>
+                                          <Component id="locar" pref="81" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jButton17" min="-2" max="-2" attributes="0"/>
+                                  <Component id="limparCamposLocacao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="185" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2694,16 +2691,16 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="nome3" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="clienteLocacao" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cpf2" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="renavamLocacao" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nascimento2" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="dataDevolucaoLocacao" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -2713,8 +2710,8 @@
                           </Group>
                           <EmptySpace pref="152" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton17" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                              <Component id="jButton16" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="limparCamposLocacao" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="locar" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -2722,7 +2719,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="nome3">
+                <Component class="javax.swing.JTextField" name="clienteLocacao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="10" style="0"/>
@@ -2739,7 +2736,7 @@
                     <Property name="text" type="java.lang.String" value="Renavam:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="nascimento2">
+                <Component class="javax.swing.JFormattedTextField" name="dataDevolucaoLocacao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="10" style="0"/>
@@ -2751,22 +2748,22 @@
                     <Property name="text" type="java.lang.String" value="Data Devo:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="cpf2">
+                <Component class="javax.swing.JFormattedTextField" name="renavamLocacao">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="10" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton16">
+                <Component class="javax.swing.JButton" name="locar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Locar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="locarActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton17">
+                <Component class="javax.swing.JButton" name="limparCamposLocacao">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                   </Properties>
@@ -2816,9 +2813,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel113" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton30" alignment="0" max="32767" attributes="1"/>
-                              <Component id="jButton31" alignment="0" max="32767" attributes="1"/>
-                              <Component id="cadastrar4" alignment="0" min="-2" max="-2" attributes="1"/>
+                              <Component id="editarPlanoDeLocacao" alignment="0" max="32767" attributes="1"/>
+                              <Component id="apagarPlanoDeLocacao" alignment="0" max="32767" attributes="1"/>
+                              <Component id="cadastrarPlanoDeLocacao" alignment="0" min="-2" max="-2" attributes="1"/>
                           </Group>
                           <Component id="jTabbedPane6" alignment="0" min="-2" pref="288" max="-2" attributes="0"/>
                       </Group>
@@ -2837,11 +2834,11 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="cadastrar4" min="-2" max="-2" attributes="0"/>
+                              <Component id="cadastrarPlanoDeLocacao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton30" min="-2" max="-2" attributes="0"/>
+                              <Component id="editarPlanoDeLocacao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton31" min="-2" max="-2" attributes="0"/>
+                              <Component id="apagarPlanoDeLocacao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTabbedPane6" min="-2" pref="287" max="-2" attributes="0"/>
                           </Group>
@@ -2875,12 +2872,12 @@
                 <Property name="text" type="java.lang.String" value="Lista de Planos:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="cadastrar4">
+            <Component class="javax.swing.JButton" name="cadastrarPlanoDeLocacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar Plano de Loca&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrar4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarPlanoDeLocacaoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel113">
@@ -2888,13 +2885,13 @@
                 <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton30">
+            <Component class="javax.swing.JButton" name="editarPlanoDeLocacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar Plano de Loca&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton31">
+            <Component class="javax.swing.JButton" name="apagarPlanoDeLocacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apagar Plano de Loca&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -2939,13 +2936,13 @@
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                              <Component id="cpf5" alignment="0" max="32767" attributes="1"/>
-                                                              <Component id="nome8" alignment="0" pref="110" max="32767" attributes="1"/>
+                                                              <Component id="precoPlanoCarro" alignment="0" max="32767" attributes="1"/>
+                                                              <Component id="nomePlanoCarro" alignment="0" pref="110" max="32767" attributes="1"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                              <Component id="jButton33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="limparCamposPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       </Group>
@@ -2984,12 +2981,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel114" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nome8" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="nomePlanoCarro" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel115" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cpf5" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="precoPlanoCarro" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -3019,7 +3016,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton33" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="limparCamposPlanoCarro" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton32" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="26" max="32767" attributes="0"/>
@@ -3028,7 +3025,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="nome8">
+                    <Component class="javax.swing.JTextField" name="nomePlanoCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -3045,7 +3042,7 @@
                         <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="cpf5">
+                    <Component class="javax.swing.JFormattedTextField" name="precoPlanoCarro">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -3060,7 +3057,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton32ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton33">
+                    <Component class="javax.swing.JButton" name="limparCamposPlanoCarro">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
@@ -3133,7 +3130,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButton35" min="-2" max="-2" attributes="0"/>
+                                      <Component id="limparCamposPlanoMoto" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="jButton34" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
@@ -3141,7 +3138,7 @@
                                       <Group type="102" alignment="0" attributes="1">
                                           <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cpf8" max="32767" attributes="1"/>
+                                          <Component id="cilindradasPlanoMoto" max="32767" attributes="1"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -3150,8 +3147,8 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="cpf7" max="32767" attributes="1"/>
-                                              <Component id="nome9" alignment="0" pref="110" max="32767" attributes="1"/>
+                                              <Component id="precoPlanoMoto" max="32767" attributes="1"/>
+                                              <Component id="nomePlanoMoto" alignment="0" pref="110" max="32767" attributes="1"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -3166,21 +3163,21 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel116" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nome9" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="nomePlanoMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel117" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cpf7" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="precoPlanoMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cpf8" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="cilindradasPlanoMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton35" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="limparCamposPlanoMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton34" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -3197,7 +3194,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton34ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton35">
+                    <Component class="javax.swing.JButton" name="limparCamposPlanoMoto">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
@@ -3207,7 +3204,7 @@
                         <Property name="text" type="java.lang.String" value="Nome:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="nome9">
+                    <Component class="javax.swing.JTextField" name="nomePlanoMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -3219,7 +3216,7 @@
                         <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="cpf7">
+                    <Component class="javax.swing.JFormattedTextField" name="precoPlanoMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>
@@ -3231,7 +3228,7 @@
                         <Property name="text" type="java.lang.String" value="Cilindrada M&#xe1;xima:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="cpf8">
+                    <Component class="javax.swing.JFormattedTextField" name="cilindradasPlanoMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="10" style="0"/>

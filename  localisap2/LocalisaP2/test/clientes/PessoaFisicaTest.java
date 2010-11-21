@@ -31,8 +31,8 @@ public class PessoaFisicaTest{
 
 	@Before
 	public void inicio() throws Exception{
-		filial1 = new Filial("51851873000149", endereco, "8333331234", "01234", gerente);
-		filial2 = new Filial("58694458000178", endereco2, "8300004321", "56789", gerente);
+		filial1 = new Filial();
+		filial2 = new Filial();
 		pessoa1 = new PessoaFisica();
 		pessoa1.setCpf("03468137435");
 		pessoa1.setEmail("filipe@teste");

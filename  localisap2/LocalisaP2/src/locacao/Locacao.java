@@ -105,7 +105,7 @@ public class Locacao {
             }
             cliente1.locacao(1);
         }
-        agencia2.aumentaLocacoes();
+
     }
     /**
      * Metodo que permite mudar a data que o carro foi entregue ao cliente.

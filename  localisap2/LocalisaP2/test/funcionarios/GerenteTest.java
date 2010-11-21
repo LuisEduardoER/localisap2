@@ -26,8 +26,8 @@ public class GerenteTest {
 
     @Before
     public void inicio() throws Exception {
-        filial1 = new Filial("51851873000149", endereco, "8333331234", "01234", gerente);
-        filial2 = new Filial("58694458000178", endereco, "8300004321", "56789", gerente);
+        filial1 = new Filial();
+        filial2 = new Filial();
         gerente = new Gerente();
         gerente.setAgencia(filial1);
         gerente.setCpf("03468137435");

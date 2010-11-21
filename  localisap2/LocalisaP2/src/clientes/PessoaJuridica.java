@@ -1,6 +1,5 @@
 package clientes;
 
-import java.io.Serializable;
 import verificacoes.Validacao;
 
 /**
@@ -13,19 +12,13 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PessoaJuridica implements Serializable {
+public class PessoaJuridica extends Cliente {
 
     private String cnpj;
     private String razaoSocial;
     private String nomeFantasia;
     private String inscricaoEstadual;
-    private Endereco endereco;
-    private String telefone;
-    private String email;
-    private String codigoDaPessoaJuridica;
-    private int quantidadeLocacao;
-    private Boolean emDebito = false;
-    private double divida=0;
+
 
     /**
      * Construtor que cria uma Pessoa Juridca.
@@ -50,14 +43,7 @@ public class PessoaJuridica implements Serializable {
 
     public PessoaJuridica() {
     }
-    /**
-     * Metodo que retorna um boolean indiciando se o cliente tem algum debito .
-     * @return - True se o cliente tem algum debito e false caso nao.
-     */
-    public Boolean getEmDebito(){
-        return emDebito;
-    }
-
+ 
     /**
      * Metodo para capturar o CPNJ de uma pessoa juridica
      * @return - Em String o CPNJ
@@ -90,36 +76,7 @@ public class PessoaJuridica implements Serializable {
         return inscricaoEstadual;
     }
 
-    /**
-     * Metodo para capturar o endereco de uma pessoa juridica
-     * @return - Em String o endereco
-     */
-    public Endereco getEndereco() {
-        return endereco;
-    }
 
-    /**
-     * Metodo para capturar o telefone de uma pessoa juridica
-     * @return - Em String o telefone
-     */
-    public String getTelefone() {
-        return telefone;
-    }
-
-    /**
-     * Metodo para capturar o email de uma pessoa juridica
-     * @return - Em String o email
-     */
-    public String getEmail() {
-        return email;
-    }
-    /**
-     * Metodo que permite alterar o status de debito do cliente
-     * @param flag - True se o cliente estiver em debito , false caso contrario.
-     */
-    public void setEmDebito(Boolean flag) {
-        emDebito = flag;
-    }
     /**
      * Permite mudar o CPNJ
      * @param CPNJ - Recebe como String o CPNJ
@@ -168,71 +125,5 @@ public class PessoaJuridica implements Serializable {
         }
         this.inscricaoEstadual = inscricaoEstadual;
 
-    }
-
-    /**
-     * Permite mudar o endereco
-     * @param endereco - Recebe como String o endereco
-     */
-    public void setEndereco(Endereco endereco) throws Exception {
-        this.endereco = endereco;
-
-    }
-
-    /**
-     * Permite mudar o telefone
-     * @param telefone - Recebe como String o telefone
-     */
-    public void setTelefone(String telefone) throws Exception {
-        if (telefone.length() != 10) {
-            throw new Exception("Um telefone valido deve ter o DD + o numero");
-        }
-        this.telefone = telefone;
-
-    }
-
-    /**
-     * Permite mudar o email
-     * @param nome - Recebe como String o email
-     */
-    public void setEmail(String email) throws Exception {
-        if (!email.contains("@") || email.length() == 0) {
-            throw new Exception("O email deve conter @ e ser maior que 3");
-        }
-
-        this.email = email;
-    }
-    /**
-     * Metodo que permite alterar o numero de locacoes que o cliente fez.
-     * @param numero - Se o numero for 1 aumenta a locacao se for -1 diminui.
-     */
-    public void locacao(int numero) {
-        if (numero == -1) {
-            quantidadeLocacao--;
-        }
-        if (numero == 1) {
-            quantidadeLocacao++;
-        }
-    }
-    /**
-     * Metodo que mostra a quantidade de locacoes que o cliente fez
-     * @return - A quantidade de locacao.
-     */
-    public int getQuantidadeDeLocacao(){
-        return quantidadeLocacao;
-    }
-    /**
-     * Metodo que retorna o valor da divida do cliente.
-     * @return - O valor da divida
-     */
-    public double getDivida(){
-        return divida;
-    }
-    /**
-     * Metodo que permite alterar o valor da divida
-     * @param divida - Valor da divida.
-     */
-    public void setDivida(double divida){
-        this.divida=divida;
     }
 }
