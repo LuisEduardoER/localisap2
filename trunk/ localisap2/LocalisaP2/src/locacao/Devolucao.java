@@ -31,10 +31,10 @@ public class Devolucao {
     private int precoMulta;
     private String dataEntrega, dataDevolucao;
     private Locacao locacao;
-    private Problemas problema;
+    private Problema problema;
     private Object cliente;
 
-    public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problemas problema) throws Exception {
+    public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problema problema) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();
         this.nivelDoTanqueFinal = nivelDoTanqueFinal;
         setDataDevolucao(dataDevolucao);
