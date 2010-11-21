@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  *
  * @author filipe
  */
-public class DevolverTest {
+public class DevolucaoTest {
 
     Locacao loc;
     Veiculo veicu;
