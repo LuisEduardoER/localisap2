@@ -1,6 +1,7 @@
 package planos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import veiculos.Acessorio;
 
@@ -17,8 +18,8 @@ import veiculos.Automovel;
  *
  */
 public class PlanoAutomovel implements Plano{
-
-    private List<Automovel> listaAuto = new ArrayList<Automovel>();
+    private Collection<String> listaMarca = new ArrayList<String>();
+    private Collection<Automovel> listaAuto = new ArrayList<Automovel>();
     private List<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
     private double preco;
     private String nome;
@@ -122,7 +123,10 @@ public class PlanoAutomovel implements Plano{
      * Captura a lista de automoveis do plano
      * @return - Em List a lista
      */
-    public List<Automovel> getListaAutomovel() {
+    public Collection<Automovel> getListaAutomovel() {
         return this.listaAuto;
+    }
+    public void adicionaModelo(String modelo){
+
     }
 }

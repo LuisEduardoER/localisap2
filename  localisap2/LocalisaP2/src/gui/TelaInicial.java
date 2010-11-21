@@ -24,7 +24,6 @@ import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
-import persistencia.ArmazenaDados;
 
 /**
  *
@@ -34,8 +33,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private static FileInputStream arquivoInfosRead;
     private static ObjectInputStream objInfosRead;
-    private static FileOutputStream arquivoInfosWrite;
-    private static ObjectOutputStream objInfosWrite;
     public static Filial dadosAgencia;
 
     /** Creates new form TelaInicial */
@@ -218,16 +215,5 @@ public class TelaInicial extends javax.swing.JFrame {
         }
         return new Filial();
     }
-    public void atualizarFilial(Filial dadosAgencia){
-        try {
-            arquivoInfosWrite = new FileOutputStream("./infosAgencia.dat");
-            objInfosWrite = new ObjectOutputStream(arquivoInfosWrite);
-            objInfosWrite.writeObject(dadosAgencia);
-            objInfosWrite.flush();
-            objInfosWrite.close();
-            arquivoInfosWrite.close();
-        } catch (Exception ex) {
-            System.out.println("Nao foi possivel atualizar os dados das agencias.");
-        }
-   }
+
 }

@@ -18,6 +18,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -31,10 +33,10 @@ import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
  * @author Filipe
  */
 public class MenuInicial extends javax.swing.JFrame {
-
+    private static FileOutputStream arquivoInfosWrite;
+    private static ObjectOutputStream objInfosWrite;
     Timer timer;
-
-    public static Filial dadosAgencia;
+    private static Filial dadosAgencia;
     /** Creates new form MenuInicial */
     public MenuInicial(Filial dadosAgencia) {
         initComponents();
