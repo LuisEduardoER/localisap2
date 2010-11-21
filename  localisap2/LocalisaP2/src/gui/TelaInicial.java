@@ -10,12 +10,16 @@
  */
 package gui;
 
+import agencias.Filial;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Image;
-import java.awt.SplashScreen;
 import java.awt.Toolkit;
-import java.awt.geom.Rectangle2D;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -28,21 +32,18 @@ import persistencia.ArmazenaDados;
  */
 public class TelaInicial extends javax.swing.JFrame {
 
-    public static ArmazenaDados arquivo;
+    private static FileInputStream arquivoInfosRead;
+    private static ObjectInputStream objInfosRead;
+    private static FileOutputStream arquivoInfosWrite;
+    private static ObjectOutputStream objInfosWrite;
+    public static Filial dadosAgencia;
 
     /** Creates new form TelaInicial */
-    public TelaInicial(ArmazenaDados arquivo, boolean primeiraVez) {
-
+    public TelaInicial() {
+        dadosAgencia = carregaFilial();
         initComponents();
         setWindowPos();
-        if (primeiraVez) {
-            arquivo = new ArmazenaDados();
-            this.arquivo = arquivo;
-            primeiraVez = false;
-        }
-        if (!primeiraVez) {
-            this.arquivo = arquivo;
-        }
+
     }
 
     /** This method is called from within the constructor to
@@ -130,7 +131,7 @@ public class TelaInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void limparCampos(){
+    private void limparCampos() {
         campoSenha.setText("");
         campoUsuario.setText("");
     }
@@ -138,14 +139,14 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             if (campoUsuario.getText().equals("admin") && campoSenha.getText().equals("localisa")) {
-                    new MenuInicial(arquivo).setVisible(true);
-                    this.dispose();
-            }else{
-                JOptionPane.showMessageDialog(rootPane,"Login incorreto! Tente novamente.");
+                new MenuInicial(dadosAgencia).setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Login incorreto! Tente novamente.");
                 limparCampos();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane,"Login incorreto! Tente novamente.");
+            JOptionPane.showMessageDialog(rootPane, "Login incorreto! Tente novamente.");
             limparCampos();
         }
 
@@ -155,38 +156,34 @@ public class TelaInicial extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
-    public void setWindowPos(){
+    public void setWindowPos() {
         Dimension dimension = this.getToolkit().getScreenSize();
-        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth()) / 2;
         int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
-        this.setLocation(x,y);
+        this.setLocation(x, y);
         URL url = this.getClass().getResource("/images/icon2.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
     }
 
-    private static void splashDelay()
-    {
-            try
-            {
-                Thread.sleep(5000);
-            }
-            catch (InterruptedException ex)
-            {
-            }
+    private static void splashDelay() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+        }
     }
 
     public static void main(String args[]) {
         splashDelay();
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 try {
                     UIManager.setLookAndFeel(new SubstanceNebulaLookAndFeel());
                 } catch (Exception e) {
                     System.out.println("Falha ao carregar a skin!");
                 }
-                new TelaInicial(arquivo, true).setVisible(true);
+                new TelaInicial().setVisible(true);
             }
         });
     }
@@ -198,4 +195,39 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    public Filial carregaFilial() {
+        Filial dadosAgencia;
+        try {
+            arquivoInfosRead = new FileInputStream("./infosAgencia.dat");
+        } catch (FileNotFoundException ex) {
+            return new Filial();
+        }
+        try {
+            objInfosRead = new ObjectInputStream(arquivoInfosRead);
+            try {
+                dadosAgencia = (Filial) objInfosRead.readObject();
+                objInfosRead.close();
+                arquivoInfosRead.close();
+                return dadosAgencia;
+            } catch (Exception ex) {
+                System.out.println("Nao foi possivel carregar a agencia gravada!");
+                return new Filial();
+            }
+        } catch (IOException ex) {
+        }
+        return new Filial();
+    }
+    public void atualizarFilial(Filial dadosAgencia){
+        try {
+            arquivoInfosWrite = new FileOutputStream("./infosAgencia.dat");
+            objInfosWrite = new ObjectOutputStream(arquivoInfosWrite);
+            objInfosWrite.writeObject(dadosAgencia);
+            objInfosWrite.flush();
+            objInfosWrite.close();
+            arquivoInfosWrite.close();
+        } catch (Exception ex) {
+            System.out.println("Nao foi possivel atualizar os dados das agencias.");
+        }
+   }
 }
