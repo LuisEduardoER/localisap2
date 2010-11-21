@@ -14,7 +14,7 @@ package locacao;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public enum Problemas {
+public enum Problema {
     NENHUM(0),
     ARRANHÕES(80),
     AMASSADOS_LEVES(180),
@@ -23,7 +23,7 @@ public enum Problemas {
     PERDA_TOTAL(5000);
     private double preco;
 
-    private Problemas(double preco) {
+    private Problema(double preco) {
         this.preco = preco;
     }
     /**
