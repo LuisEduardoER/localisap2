@@ -16,10 +16,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -33,7 +31,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private static FileInputStream arquivoInfosRead;
     private static ObjectInputStream objInfosRead;
-    public static Filial dadosAgencia;
+    private static Filial dadosAgencia;
 
     /** Creates new form TelaInicial */
     public TelaInicial() {
@@ -208,7 +206,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 arquivoInfosRead.close();
                 return dadosAgencia;
             } catch (Exception ex) {
-                System.out.println("Nao foi possivel carregar a agencia gravada!");
+                System.out.println(ex.getMessage());
                 return new Filial();
             }
         } catch (IOException ex) {

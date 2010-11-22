@@ -1,5 +1,6 @@
 package clientes;
 
+import java.io.Serializable;
 import verificacoes.Validacao;
 
 /**
@@ -12,7 +13,7 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PessoaFisica extends Cliente {
+public class PessoaFisica extends Cliente{
 
     private String cpf;
     private String nome;
