@@ -12,7 +12,9 @@
 package gui;
 
 import agencias.Filial;
+import clientes.Endereco;
 import clientes.Endereco.UnidadeFederativa;
+import clientes.PessoaFisica;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -37,6 +39,8 @@ public class MenuInicial extends javax.swing.JFrame {
     private static ObjectOutputStream objInfosWrite;
     Timer timer;
     private static Filial dadosAgencia;
+    private Object[] opcoes = {"Sim","Nao"};
+    
     /** Creates new form MenuInicial */
     public MenuInicial(Filial dadosAgencia) {
         initComponents();
@@ -44,6 +48,16 @@ public class MenuInicial extends javax.swing.JFrame {
         setTimer();
         setarMascaras();
         this.dadosAgencia = dadosAgencia;
+        if(dadosAgencia.getPessoaFisica().size() > 0)
+            atualizarListaDeClientes();
+    }
+
+    public void atualizarListaDeClientes(){
+        int i = 0;
+        String[] lista = new String[dadosAgencia.getPessoaFisica().size()];
+        for(PessoaFisica p : dadosAgencia.getPessoaFisica())
+            lista[i++] = p.getNome();
+        jList1.setListData(lista);
     }
 
     /** This method is called from within the constructor to
@@ -303,12 +317,11 @@ public class MenuInicial extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Localisa tm18.png"))); // NOI18N
 
         jPanel1.setPreferredSize(new java.awt.Dimension(104, 124));
 
-        jList1.setEnabled(false);
         jScrollPane1.setViewportView(jList1);
 
         jLabel2.setText("Lista de Clientes:");
@@ -330,6 +343,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
         apagarCliente.setText("Apagar Cliente");
         apagarCliente.setEnabled(false);
+        apagarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarClienteActionPerformed(evt);
+            }
+        });
 
         verificarDebito.setText("Verificar Debito");
         verificarDebito.setEnabled(false);
@@ -1030,13 +1048,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel77.setText("Data Aquisição:");
 
-        anoMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        anoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel78.setText("Estado:");
 
         estado5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
-        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         dataAquisicaoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -1046,13 +1064,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel79.setText("Cor:");
 
-        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel80.setText("Freio:");
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABS", "DISCO", "TAMBOR" }));
 
-        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel81.setText("Tipo de Pot.:");
 
@@ -1068,7 +1086,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel139.setText("Cilindradas:");
 
-        cilindradasMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cilindradasMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1202,9 +1220,8 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel79)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCamposMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1213,13 +1230,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("Moto", jPanel13);
 
-        renavamCarro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        renavamCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        anoCarro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        anoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        potenciaCarro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        potenciaCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        marcaCarro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        marcaCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel60.setText("Renavam:");
 
@@ -1993,11 +2010,11 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(205, 205, 205))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(205, 205, 205))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2020,7 +2037,8 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            String nomeC = nome.getText();
+        PessoaFisica cliente = null;
+        String nomeC = nome.getText();
             String cpfC = cpf.getText();
             String rgC = rg.getText();
             String nascimentoC = nascimento.getText();
@@ -2040,6 +2058,18 @@ public class MenuInicial extends javax.swing.JFrame {
                 emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5)
 
                 JOptionPane.showMessageDialog(rootPane,"Voce deve preencher todos os dados!");
+            else{
+                try{
+                    Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
+                    cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
+                    dadosAgencia.adicionaPessoaFisica(cliente);
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(rootPane,e.getMessage());
+                }
+                atualizarFilial(dadosAgencia);
+                JOptionPane.showMessageDialog(rootPane,"Cliente cadastrado com sucesso!");
+                atualizarListaDeClientes();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -2093,6 +2123,15 @@ public class MenuInicial extends javax.swing.JFrame {
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editarClienteActionPerformed
+
+    private void apagarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarClienteActionPerformed
+        int n = JOptionPane.showOptionDialog(rootPane,"Confirmar exclusão de cliente?", "Confirmarção", JOptionPane.YES_NO_OPTION,0,null,opcoes,opcoes[1]);
+        if (n == 0){
+            dadosAgencia.removePessoaFisica(jList1.getSelectedIndex());
+            atualizarFilial(dadosAgencia);
+            atualizarListaDeClientes();
+        }
+    }//GEN-LAST:event_apagarClienteActionPerformed
 
     private void setarMascaras(){
         try{

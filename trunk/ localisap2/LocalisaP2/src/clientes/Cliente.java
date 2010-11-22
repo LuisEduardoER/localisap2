@@ -4,6 +4,8 @@
  */
 package clientes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
@@ -14,11 +16,11 @@ package clientes;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public abstract class Cliente {
+public abstract class Cliente implements Serializable{
 
     private int quantidadeLocacao;
     private double divida = 0;
-    private Boolean emDebito = false;
+    private boolean emDebito = false;
     private Endereco endereco;
     private String telefone;
     private String email;
@@ -42,7 +44,7 @@ public abstract class Cliente {
     }
 
     public void setTelefone(String telefone) throws Exception {
-        if (telefone.length() != 10) {
+        if (telefone.length() < 10) {
             throw new Exception("Um telefone valido deve ter o DDD + o numero");
         }
         this.telefone = telefone;
@@ -61,7 +63,7 @@ public abstract class Cliente {
      * Metodo que permite alterar o status de debito do cliente
      * @param flag - True se o cliente estiver em debito , false caso contrario.
      */
-    public void setEmDebito(Boolean flag) {
+    public void setEmDebito(boolean flag) {
         emDebito = flag;
     }
 

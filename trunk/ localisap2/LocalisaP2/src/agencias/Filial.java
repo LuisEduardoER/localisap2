@@ -328,6 +328,14 @@ public class Filial implements Serializable{
     }
 
     /**
+     * Metodo que remove uma pessoa fisica
+     * @param pf - a pessoa fisica a ser removida
+     */
+    public void removePessoaFisica(int index) {
+        listaDeClientesPessoaFisica.remove(listaDeClientesPessoaFisica.toArray()[index]);
+    }
+
+    /**
      * Metodo que remove uma pessoa juridica
      * @param pj - a pessoa juridica a ser removida
      */
