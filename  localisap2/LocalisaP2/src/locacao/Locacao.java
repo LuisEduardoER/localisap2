@@ -4,7 +4,7 @@
  */
 package locacao;
 
-import agencias.Filial;
+import clientes.Cliente;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import java.util.Calendar;
@@ -16,20 +16,19 @@ import veiculos.Veiculo;
 import verificacoes.Validacao;
 
 /**
-*
-* @author Filipe Alencar   -twitter.com/filipealencar_
-* @author Felipe Jose      -twitter.com/felipejosefc
-* @author Emilio Farias    -twitter.com/militofarias
-*
-* http://code.google.com/p/localisap2/
-* Universidade Federal de Campina Grande - Computacao
-*
-*/
+ *
+ * @author Filipe Alencar   -twitter.com/filipealencar_
+ * @author Felipe Jose      -twitter.com/felipejosefc
+ * @author Emilio Farias    -twitter.com/militofarias
+ *
+ * http://code.google.com/p/localisap2/
+ * Universidade Federal de Campina Grande - Computacao
+ *
+ */
 public class Locacao {
 
     private int codigo;
-    static Filial agencia2;
-    Object cliente;
+    private Cliente cliente;
     private Veiculo veiculo;
     private int nivelDoTanqueInicial;
     private Plano planoDaLocacao;
@@ -37,7 +36,7 @@ public class Locacao {
     private Seguro tipoDoSeguro;
     private int tipoSeguro;
 
-    public Locacao(Veiculo veiculo, Object cliente, Plano planoDaLocacao, String dataEntrega, String dataDevolucao, int tipoSeguro) throws Exception {
+    public Locacao(Veiculo veiculo, Cliente cliente, Plano planoDaLocacao, String dataEntrega, String dataDevolucao, int tipoSeguro) throws Exception {
         setVeiculo(veiculo);
         if (!(cliente instanceof PessoaFisica) && (!(cliente instanceof PessoaJuridica))) {
             throw new Exception("Eh preciso receber um objeto que seja cliente");
@@ -58,6 +57,7 @@ public class Locacao {
         setCodigo();
 
     }
+
     /**
      * Metodo que gera o codigo de locacao.
      */
@@ -66,47 +66,49 @@ public class Locacao {
         int numeroAleatorio = (int) (numero.nextDouble() * 100000);
         codigo = numeroAleatorio;
     }
+
     /**
      * Metodo que permite saber o codigo de locacap
      * @return - em int o codigo de locacao
      */
-    public int getCodigo(){
+    public int getCodigo() {
         return codigo;
     }
+
     /**
      * Metodo que permite pegar o cliente.
      * @return - O cliente
      */
-    public Object getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
+
     /**
      * Metodo que verifica se o cliente pode locar e efetua a locacao
      * @throws Exception - Erro de cliente com divida ou com mais locacoes que o permitido
      */
     public void efetuaLocacao() throws Exception {
         if (cliente instanceof PessoaFisica) {
-            PessoaFisica cliente1 = (PessoaFisica) cliente;
-            if (cliente1.getQuantidadeDeLocacao() > 3) {
+            if (cliente.getQuantidadeDeLocacao() > 3) {
                 throw new Exception("O cliente ja locou mais que tres veiculos");
             }
-            if (cliente1.getEmDebito()) {
+            if (cliente.getEmDebito()) {
                 throw new Exception("O cliente está devendo , favor pagar as contas primeiro");
             }
-            cliente1.locacao(1);
+            cliente.locacao(1);
         }
         if (cliente instanceof PessoaJuridica) {
-            PessoaJuridica cliente1 = (PessoaJuridica) cliente;
-            if (cliente1.getQuantidadeDeLocacao() > 10) {
+            if (cliente.getQuantidadeDeLocacao() > 10) {
                 throw new Exception("O cliente ja locou mais que tres veiculos");
             }
-            if (cliente1.getEmDebito()) {
+            if (cliente.getEmDebito()) {
                 throw new Exception("O cliente está devendo , favor pagar as contas primeiro");
             }
-            cliente1.locacao(1);
+            cliente.locacao(1);
         }
 
     }
+
     /**
      * Metodo que permite mudar a data que o carro foi entregue ao cliente.
      * @param dataEntrega - data de entrega (XX-XX-XXXX)
@@ -119,6 +121,7 @@ public class Locacao {
         }
         this.dataEntrega = dataEntrega;
     }
+
     /**
      * Metodo que permite mudar a data de indicacao da devolucao
      * @param dataDevolucao - Data de devolucao (XX-XX-XXXX)
@@ -132,20 +135,15 @@ public class Locacao {
         this.dataDevolucao = dataDevolucao;
 
     }
+
     /**
      * Metodo que permite mudar o cliente da devolucao
      * @param cliente - Recebe o cliente
      */
-    private void setCliente(Object cliente) {
-        if (cliente instanceof PessoaFisica) {
-            PessoaFisica cliente1 = (PessoaFisica) cliente;
-            this.cliente = cliente1;
-        }
-        if (cliente instanceof PessoaJuridica) {
-            PessoaJuridica cliente1 = (PessoaJuridica) cliente;
-            this.cliente = cliente1;
-        }
+    private void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
+
     /**
      * Metodo que permite mudar o veiculo
      * @param veiculo - Recebe o veiculo
@@ -154,6 +152,7 @@ public class Locacao {
         this.veiculo = veiculo;
         nivelDoTanqueInicial = veiculo.getNivelDoTanque();
     }
+
     /**
      * Metodo que permite mudar o plano
      * @param plano - Recebe o plano
@@ -161,6 +160,7 @@ public class Locacao {
     private void setPlano(Plano planoDaLocacao) {
         this.planoDaLocacao = planoDaLocacao;
     }
+
     /**
      * Retorna o plano da locacao
      * @return - o plano da locacao
@@ -168,6 +168,7 @@ public class Locacao {
     public Plano getPlano() {
         return planoDaLocacao;
     }
+
     /**
      * Retorna a data da locacao
      * @return - a data que o carro foi entregue ao cliente
@@ -175,6 +176,7 @@ public class Locacao {
     public String getDataEntrega() {
         return this.dataEntrega;
     }
+
     /**
      * Retorna a data que o carro ira ser devolvido
      * @return - A data que o carro ira ser devolvido
@@ -182,6 +184,7 @@ public class Locacao {
     public String getDataDevolucao() {
         return this.dataDevolucao;
     }
+
     /**
      * Retorna o preco da locacao
      * @return - o preco da locacao
@@ -193,6 +196,7 @@ public class Locacao {
         }
         return diferencaData(dataEntrega, dataDevolucao) * planoDaLocacao.getPreco();
     }
+
     /**
      * Metodo que calcula a diferenca entre duas datas
      * @param dataEntrega - Recebe a data que o carro foi entregue ao cliente.
@@ -218,6 +222,7 @@ public class Locacao {
         long resultadoDias = diferencaMilisegundos / 86400000;
         return resultadoDias;
     }
+
     /**
      * Retorna o nivel inicial do tanque de gasolina do veiculo locado
      * @return - o nivel inicial do tanque de gasolina do veiculo locado

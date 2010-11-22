@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package locacao;
 
+import clientes.Cliente;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import java.util.Calendar;
@@ -12,15 +12,15 @@ import java.util.GregorianCalendar;
 import verificacoes.Validacao;
 
 /**
-*
-* @author Filipe Alencar   -twitter.com/filipealencar_
-* @author Felipe Jose      -twitter.com/felipejosefc
-* @author Emilio Farias    -twitter.com/militofarias
-*
-* http://code.google.com/p/localisap2/
-* Universidade Federal de Campina Grande - Computacao
-*
-*/
+ *
+ * @author Filipe Alencar   -twitter.com/filipealencar_
+ * @author Felipe Jose      -twitter.com/felipejosefc
+ * @author Emilio Farias    -twitter.com/militofarias
+ *
+ * http://code.google.com/p/localisap2/
+ * Universidade Federal de Campina Grande - Computacao
+ *
+ */
 public class Devolucao {
 
     private double multaTanque = 0;
@@ -32,7 +32,7 @@ public class Devolucao {
     private String dataEntrega, dataDevolucao;
     private Locacao locacao;
     private Problema problema;
-    private Object cliente;
+    private Cliente cliente;
 
     public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problema problema) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();
@@ -45,33 +45,23 @@ public class Devolucao {
         setCliente(cliente);
 
     }
+
     /**
      * Metodo que verifica se o cliente tem dividas e efetua a devolucao.
      */
     public void efetuaDevolucao() {
         if (getMultas() != 0) {
-            if (cliente instanceof PessoaFisica) {
-                PessoaFisica cliente1 = (PessoaFisica) cliente;
-                cliente1.setEmDebito(true);
-                cliente1.setDivida(getMultas());
-                cliente1.locacao(-1);
-                this.cliente = cliente1;
-
-            }
-            if (cliente instanceof PessoaJuridica) {
-                PessoaJuridica cliente1 = (PessoaJuridica) cliente;
-                cliente1.setEmDebito(true);
-                cliente1.setDivida(getMultas());
-                cliente1.locacao(-1);
-                this.cliente = cliente1;
-            }
+            cliente.setEmDebito(true);
+            cliente.setDivida(getMultas());
+            cliente.locacao(-1);
         }
     }
+
     /**
      * Metodo que retorna o valor da multa.
      * @return - Em double o valor da multa.
      */
-     public double getMultas() {
+    public double getMultas() {
         if (nivelDoTanqueFinal != nivelDoTanqueInicial) {
             int dif = nivelDoTanqueFinal - nivelDoTanqueInicial;
             double multa = (dif / 100) * 50 * 2.6;
@@ -86,21 +76,16 @@ public class Devolucao {
         }
         return multaAtraso + multaProblema + multaTanque;
     }
+
     /**
      * Metodo que permite mudar o cliente da devolucao
      * @param cliente - Recebe o cliente
      */
-    public void setCliente(Object cliente) {
-        if (cliente instanceof PessoaFisica) {
-            PessoaFisica cliente1 = (PessoaFisica) cliente;
-            this.cliente = cliente1;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
 
-        }
-        if (cliente instanceof PessoaJuridica) {
-            PessoaJuridica cliente1 = (PessoaJuridica) cliente;
-            this.cliente = cliente1;
-        }
     }
+
     /**
      * Metodo que permite mudar a data que o carro foi entregue ao cliente.
      * @param dataEntrega - data de entrega (XX-XX-XXXX)
@@ -113,6 +98,7 @@ public class Devolucao {
         }
         this.dataEntrega = dataEntrega;
     }
+
     /**
      * Metodo que permite mudar a data de indicacao da devolucao
      * @param dataDevolucao - Data de devolucao (XX-XX-XXXX)
@@ -126,6 +112,7 @@ public class Devolucao {
         this.dataDevolucao = dataDevolucao;
 
     }
+
     /**
      * Metodo que calcula a diferenca entre duas datas
      * @param dataEntrega - Recebe a data que o carro foi entregue ao cliente.
@@ -152,4 +139,3 @@ public class Devolucao {
         return resultadoDias;
     }
 }
-
