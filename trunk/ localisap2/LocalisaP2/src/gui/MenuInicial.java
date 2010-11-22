@@ -57,7 +57,7 @@ public class MenuInicial extends javax.swing.JFrame {
         String[] lista = new String[dadosAgencia.getPessoaFisica().size()];
         for(PessoaFisica p : dadosAgencia.getPessoaFisica())
             lista[i++] = p.getNome();
-        jList1.setListData(lista);
+        jListaClientes.setListData(lista);
     }
 
     /** This method is called from within the constructor to
@@ -73,7 +73,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jListaClientes = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
         cadastrarCliente = new javax.swing.JButton();
         editarCliente = new javax.swing.JButton();
@@ -317,12 +317,12 @@ public class MenuInicial extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Localisa tm18.png"))); // NOI18N
 
         jPanel1.setPreferredSize(new java.awt.Dimension(104, 124));
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jListaClientes);
 
         jLabel2.setText("Lista de Clientes:");
 
@@ -2127,7 +2127,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private void apagarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarClienteActionPerformed
         int n = JOptionPane.showOptionDialog(rootPane,"Confirmar exclusão de cliente?", "Confirmarção", JOptionPane.YES_NO_OPTION,0,null,opcoes,opcoes[1]);
         if (n == 0){
-            dadosAgencia.removePessoaFisica(jList1.getSelectedIndex());
+            dadosAgencia.removePessoaFisica(jListaClientes.getSelectedIndex());
             atualizarFilial(dadosAgencia);
             atualizarListaDeClientes();
         }
@@ -2186,7 +2186,7 @@ public class MenuInicial extends javax.swing.JFrame {
     }
 
     public void procedimentoDeBotoes(){
-        if(jList1.getSelectedValue() == null){
+        if(jListaClientes.getSelectedValue() == null){
             editarCliente.setEnabled(false);
             apagarCliente.setEnabled(false);
             verificarDebito.setEnabled(false);
@@ -2378,11 +2378,11 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList1;
     private javax.swing.JList jList2;
     private javax.swing.JList jList3;
     private javax.swing.JList jList4;
     private javax.swing.JList jList5;
+    private javax.swing.JList jListaClientes;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
