@@ -8,13 +8,16 @@
  *
  * Created on 05/11/2010, 21:40:08
  */
-
 package gui;
 
 import agencias.Filial;
 import clientes.Endereco;
 import clientes.Endereco.UnidadeFederativa;
 import clientes.PessoaFisica;
+import funcionarios.Locador;
+import funcionarios.Pessoa;
+import funcionarios.Seguranca;
+import funcionarios.Zelador;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -35,12 +38,13 @@ import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
  * @author Filipe
  */
 public class MenuInicial extends javax.swing.JFrame {
+
     private static FileOutputStream arquivoInfosWrite;
     private static ObjectOutputStream objInfosWrite;
     Timer timer;
     private static Filial dadosAgencia;
-    private Object[] opcoes = {"Sim","Nao"};
-    
+    private Object[] opcoes = {"Sim", "Nao"};
+
     /** Creates new form MenuInicial */
     public MenuInicial(Filial dadosAgencia) {
         initComponents();
@@ -48,16 +52,30 @@ public class MenuInicial extends javax.swing.JFrame {
         setTimer();
         setarMascaras();
         this.dadosAgencia = dadosAgencia;
-        if(dadosAgencia.getPessoaFisica().size() > 0)
+        if (dadosAgencia.getPessoaFisica().size() > 0) {
             atualizarListaDeClientes();
+        }
+        if (dadosAgencia.getFuncionario().size() > 0) {
+            atualizarListaDeFuncionarios();
+        }
     }
 
-    public void atualizarListaDeClientes(){
+    public void atualizarListaDeClientes() {
         int i = 0;
         String[] lista = new String[dadosAgencia.getPessoaFisica().size()];
-        for(PessoaFisica p : dadosAgencia.getPessoaFisica())
+        for (PessoaFisica p : dadosAgencia.getPessoaFisica()) {
             lista[i++] = p.getNome();
+        }
         jListaClientes.setListData(lista);
+    }
+
+    public void atualizarListaDeFuncionarios() {
+        int i = 0;
+        String[] lista = new String[dadosAgencia.getFuncionario().size()];
+        for (Pessoa p : dadosAgencia.getFuncionario()) {
+            lista[i++] = p.getNome();
+        }
+        jListaFuncionario.setListData(lista);
     }
 
     /** This method is called from within the constructor to
@@ -142,7 +160,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
+        jListaFuncionario = new javax.swing.JList();
         jLabel30 = new javax.swing.JLabel();
         editarFuncionario = new javax.swing.JButton();
         apagarFuncionario = new javax.swing.JButton();
@@ -175,7 +193,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         cadastrarFuncionario = new javax.swing.JButton();
         limparCampos3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboTipoFuncionario = new javax.swing.JComboBox();
         jLabel44 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
@@ -272,6 +290,8 @@ public class MenuInicial extends javax.swing.JFrame {
         limparCamposLocacao = new javax.swing.JButton();
         jLabel53 = new javax.swing.JLabel();
         jComboBox10 = new javax.swing.JComboBox();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel54 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -770,8 +790,8 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel25.setText("Lista de Funcionarios:");
 
-        jList2.setEnabled(false);
-        jScrollPane2.setViewportView(jList2);
+        jListaFuncionario.setEnabled(false);
+        jScrollPane2.setViewportView(jListaFuncionario);
 
         jLabel30.setText("Opções:");
 
@@ -780,16 +800,21 @@ public class MenuInicial extends javax.swing.JFrame {
 
         apagarFuncionario.setText("Apagar Funcionario");
         apagarFuncionario.setEnabled(false);
+        apagarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarFuncionarioActionPerformed(evt);
+            }
+        });
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        nome2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        nome2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        rg1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rg1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        naturalidade1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        naturalidade1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        cidade2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        cidade2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel31.setText("Nome:");
 
@@ -803,15 +828,15 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel36.setText("Bairro:");
 
-        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel37.setText("Rua:");
 
-        rua2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rua2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel38.setText("Nº:");
 
-        numero2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        numero2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         nascimento1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -821,7 +846,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         estado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
-        email2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        email2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel41.setText("E-mail:");
 
@@ -843,8 +868,13 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         limparCampos3.setText("Limpar Campos");
+        limparCampos3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCampos3ActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Locador", "Zelador", "Segurança" }));
+        jComboTipoFuncionario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Locador", "Zelador", "Segurança" }));
 
         jLabel44.setText("Cargo:");
 
@@ -904,7 +934,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                         .addComponent(jLabel43)
                                         .addGap(2, 2, 2)
                                         .addComponent(cep2, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(limparCampos3)
@@ -961,7 +991,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1614,6 +1644,10 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel54.setText("Plano");
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -1628,25 +1662,26 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(jLabel59))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(clienteLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(renavamLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                            .addComponent(clienteLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(renavamLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
                         .addGap(59, 59, 59))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel54)
+                        .addGap(45, 45, 45)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(locar, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(limparCamposLocacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43))
+                .addGap(18, 18, 18)
+                .addComponent(limparCamposLocacao)
+                .addGap(28, 28, 28)
+                .addComponent(locar, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .addGap(82, 82, 82))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1667,11 +1702,15 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel53)
                     .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel54)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCamposLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(locar, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79))
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1689,9 +1728,9 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel50)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                .addComponent(apagarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                .addComponent(cadastrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+                                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                .addComponent(apagarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                .addComponent(cadastrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                         .addGap(168, 168, 168))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2033,42 +2072,40 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarClienteActionPerformed
-
     }//GEN-LAST:event_cadastrarClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PessoaFisica cliente = null;
         String nomeC = nome.getText();
-            String cpfC = cpf.getText();
-            String rgC = rg.getText();
-            String nascimentoC = nascimento.getText();
-            UnidadeFederativa estadoC = UnidadeFederativa.valueOf((String) estado.getSelectedItem());
-            String naturalidadeC = naturalidade.getText();
-            String cidadeC = cidade.getText();
-            String bairroC = bairro.getText();
-            String ruaC = rua.getText();
-            String numeroC = numero.getText();
-            String emailC = email.getText();
-            String telefoneC = telefone.getText();
-            String cepC = cep.getText();
+        String cpfC = cpf.getText();
+        String rgC = rg.getText();
+        String nascimentoC = nascimento.getText();
+        UnidadeFederativa estadoC = UnidadeFederativa.valueOf((String) estado.getSelectedItem());
+        String naturalidadeC = naturalidade.getText();
+        String cidadeC = cidade.getText();
+        String bairroC = bairro.getText();
+        String ruaC = rua.getText();
+        String numeroC = numero.getText();
+        String emailC = email.getText();
+        String telefoneC = telefone.getText();
+        String cepC = cep.getText();
 
-            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("") ||
-                nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("") ||
-                cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("") ||
-                emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5)
-
-                JOptionPane.showMessageDialog(rootPane,"Voce deve preencher todos os dados!");
-            else{
-                try{
-                    Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
-                    cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
-                    dadosAgencia.adicionaPessoaFisica(cliente);
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(rootPane,e.getMessage());
-                }
-                atualizarFilial(dadosAgencia);
-                JOptionPane.showMessageDialog(rootPane,"Cliente cadastrado com sucesso!");
-                atualizarListaDeClientes();
+        if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
+                || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
+                || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
+                || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
+            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+        } else {
+            try {
+                Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
+                cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
+                dadosAgencia.adicionaPessoaFisica(cliente);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+            atualizarFilial(dadosAgencia);
+            JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+            atualizarListaDeClientes();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2077,9 +2114,47 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void cadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cadastrarFuncionarioActionPerformed
+        String nomeF = nome2.getText();
+        String cpfF = cpf1.getText();
+        String rgF = rg1.getText();
+        UnidadeFederativa estadoF = UnidadeFederativa.valueOf((String) estado2.getSelectedItem());
+        String nascimentoF = nascimento1.getText();
+        String naturalidadeF = naturalidade1.getText();
+        String cidadeF = cidade2.getText();
+        String bairroF = bairro4.getText();
+        String numeroF = numero2.getText();
+        String ruaF = rua2.getText();
+        String emailF = email2.getText();
+        String telefoneF = telefone2.getText();
+        String cepF = cep2.getText();
+        System.out.println(telefoneF);
+        Pessoa funcionario;
+        if (nomeF.equals("") || cpfF.replace(" ", "").length() < 5 || rgF.equals("")
+                || nascimentoF.replace(" ", "").length() < 5 || estadoF == null || naturalidadeF.equals("")
+                || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
+            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+        } else {
+            try {
+                Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
+                if (jComboTipoFuncionario.getSelectedIndex() == 0) {
+                    funcionario = new Locador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+                }
+                if (jComboTipoFuncionario.getSelectedIndex() == 1) {
+                    funcionario = new Zelador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+                } else {
+                    funcionario = new Seguranca(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+                }
+                dadosAgencia.adicionaFuncionario(funcionario);
+                atualizarFilial(dadosAgencia);
+                JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+                atualizarListaDeFuncionarios();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
 
+    }//GEN-LAST:event_cadastrarFuncionarioActionPerformed
+}
     private void cadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarVeiculoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarVeiculoActionPerformed
@@ -2125,16 +2200,40 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_editarClienteActionPerformed
 
     private void apagarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarClienteActionPerformed
-        int n = JOptionPane.showOptionDialog(rootPane,"Confirmar exclusão de cliente?", "Confirmarção", JOptionPane.YES_NO_OPTION,0,null,opcoes,opcoes[1]);
-        if (n == 0){
+        int n = JOptionPane.showOptionDialog(rootPane, "Confirmar exclusão de cliente?", "Confirmarção", JOptionPane.YES_NO_OPTION, 0, null, opcoes, opcoes[1]);
+        if (n == 0) {
             dadosAgencia.removePessoaFisica(jListaClientes.getSelectedIndex());
             atualizarFilial(dadosAgencia);
             atualizarListaDeClientes();
         }
     }//GEN-LAST:event_apagarClienteActionPerformed
 
-    private void setarMascaras(){
-        try{
+    private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
+        int z = JOptionPane.showOptionDialog(rootPane, "Confirmar exclusão de funcionario?", "Confirmarção", JOptionPane.YES_NO_OPTION, 0, null, opcoes, opcoes[1]);
+        if (z == 0) {
+            dadosAgencia.removeFuncionario(jListaFuncionario.getSelectedIndex());
+            atualizarFilial(dadosAgencia);
+            atualizarListaDeFuncionarios();
+        }
+    }//GEN-LAST:event_apagarFuncionarioActionPerformed
+
+    private void limparCampos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCampos3ActionPerformed
+        nome2.setText("");
+        cpf1.setText("");
+        rg1.setText("");
+        nascimento1.setText("");
+        naturalidade1.setText("");
+        cidade2.setText("");
+        bairro4.setText("");
+        numero2.setText("");
+        rua2.setText("");
+        email2.setText("");
+        telefone2.setText("");
+        cep2.setText("");
+    }//GEN-LAST:event_limparCampos3ActionPerformed
+
+    private void setarMascaras() {
+        try {
             MaskFormatter mascaracpf = new MaskFormatter("###.###.###-##");
             MaskFormatter mascaradata = new MaskFormatter("##/##/####");
             MaskFormatter mascaratelefone = new MaskFormatter("(##)####-####");
@@ -2158,11 +2257,17 @@ public class MenuInicial extends javax.swing.JFrame {
             cep.setFormatterFactory(cepformatter);
             cep1.setFormatterFactory(cepformatter);
             cnpj.setFormatterFactory(cnpjformatter);
-        }catch(Exception e){
+            //campos funcionario
+            cpf1.setFormatterFactory(cpfformatter);
+            nascimento1.setFormatterFactory(dataformatter);
+            telefone2.setFormatterFactory(telefoneformatter);
+            cep2.setFormatterFactory(cepformatter);
+
+        } catch (Exception e) {
         }
     }
 
-    public void atualizarFilial(Filial dadosAgencia){
+    public void atualizarFilial(Filial dadosAgencia) {
         try {
             arquivoInfosWrite = new FileOutputStream("./infosAgencia.dat");
             objInfosWrite = new ObjectOutputStream(arquivoInfosWrite);
@@ -2173,51 +2278,59 @@ public class MenuInicial extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Nao foi possivel atualizar os dados das agencias.");
         }
-   }
+    }
 
-    public void setWindowPos(){
+    public void setWindowPos() {
         Dimension dimension = this.getToolkit().getScreenSize();
-        int x = (int) (dimension.getWidth() - this.getSize().getWidth() ) / 2;
+        int x = (int) (dimension.getWidth() - this.getSize().getWidth()) / 2;
         int y = (int) (dimension.getHeight() - this.getSize().getHeight()) / 2;
-        this.setLocation(x,y);
+        this.setLocation(x, y);
         URL url = this.getClass().getResource("/images/icon2.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
     }
 
-    public void procedimentoDeBotoes(){
-        if(jListaClientes.getSelectedValue() == null){
+    public void procedimentoDeBotoes() {
+        if (jListaClientes.getSelectedValue() == null) {
             editarCliente.setEnabled(false);
             apagarCliente.setEnabled(false);
             verificarDebito.setEnabled(false);
             realizarPagamento.setEnabled(false);
             realizarLocacao.setEnabled(false);
-        }else{
+        } else {
             editarCliente.setEnabled(true);
             apagarCliente.setEnabled(true);
             verificarDebito.setEnabled(true);
             realizarPagamento.setEnabled(true);
             realizarLocacao.setEnabled(true);
         }
+        if (jListaFuncionario.getSelectedValue() == null) {
+            editarFuncionario.setEnabled(false);
+            apagarFuncionario.setEnabled(false);
+        } else {
+            editarFuncionario.setEnabled(true);
+            apagarFuncionario.setEnabled(true);
+        }
 
     }
 
-    public void setTimer(){
+    public void setTimer() {
         ActionListener action = new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
                 procedimentoDeBotoes();
             }
         };
         this.timer = new Timer(500, action);
-        this.timer.start();   
+        this.timer.start();
     }
 
-
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 try {
                     UIManager.setLookAndFeel(new SubstanceNebulaLookAndFeel());
@@ -2229,7 +2342,6 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoCarro;
     private javax.swing.JTextField anoMoto;
@@ -2292,6 +2404,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox jComboBox8;
     private javax.swing.JComboBox jComboBox9;
+    private javax.swing.JComboBox jComboTipoFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2348,6 +2461,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -2378,11 +2492,11 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList2;
     private javax.swing.JList jList3;
     private javax.swing.JList jList4;
     private javax.swing.JList jList5;
     private javax.swing.JList jListaClientes;
+    private javax.swing.JList jListaFuncionario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -2474,5 +2588,4 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField telefone2;
     private javax.swing.JButton verificarDebito;
     // End of variables declaration//GEN-END:variables
-
 }

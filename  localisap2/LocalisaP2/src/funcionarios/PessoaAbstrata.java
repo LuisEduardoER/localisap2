@@ -113,7 +113,7 @@ public abstract class PessoaAbstrata implements Pessoa,Serializable{
 
 	@Override
 	public void setTelefone(String telefone)throws Exception {
-		if(telefone.length()!= 10)
+		if(telefone.length()< 10)
 			throw new Exception("Um telefone valido deve ter o DDD + o numero");
 		this.telefone = telefone;
 

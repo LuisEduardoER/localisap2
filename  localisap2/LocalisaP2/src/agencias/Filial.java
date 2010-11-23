@@ -5,6 +5,7 @@ import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
 import funcionarios.Gerente;
 import funcionarios.Locador;
+import funcionarios.Pessoa;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,8 +36,7 @@ public class Filial implements Serializable{
     private Collection<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
     private Collection<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
     private Collection<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
-    private Collection<Locador> listaDeLocadores = new ArrayList<Locador>();
-    private Collection<Gerente> listaDeGerentes = new ArrayList<Gerente>();
+    private Collection<Pessoa> listaDeFuncionarios = new ArrayList<Pessoa>();
     private Collection<PessoaFisica> listaDeClientesPessoaFisica = new ArrayList<PessoaFisica>();
     private Collection<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
     private Collection<Locacao> listaDeLocacoes = new ArrayList<Locacao>();
@@ -176,19 +176,11 @@ public class Filial implements Serializable{
     }
 
     /**
-     * Metodo que adiciona um locador
-     * @param l - O  locador
+     * Metodo que adiciona um Funcionario
+     * @param l - O  Funcionario
      */
-    public void adicionaLocador(Locador l) {
-        listaDeLocadores.add(l);
-    }
-
-    /**
-     * Metodo que adiciona o gerente
-     * @param g - O gerente
-     */
-    public void adicionaGerente(Gerente g) {
-        listaDeGerentes.add(g);
+    public void adicionaFuncionario(Pessoa l) {
+        listaDeFuncionarios.add(l);
     }
 
     /**
@@ -232,11 +224,11 @@ public class Filial implements Serializable{
     }
 
     /**
-     * Metodo que retorna uma collection com os locadores
-     * @return - Collection com os locadores
+     * Metodo que retorna uma collection com os Funcionarioes
+     * @return - Collection com os Funcionarioes
      */
-    public Collection<Locador> getLocador() {
-        return listaDeLocadores;
+    public Collection<Pessoa> getFuncionario() {
+        return listaDeFuncionarios;
     }
 
     /**
@@ -245,14 +237,6 @@ public class Filial implements Serializable{
      */
     public Collection<Locacao> getLocacao() {
         return listaDeLocacoes;
-    }
-
-    /**
-     * Metodo que retorna uma collection com os gerentes
-     * @return - Collection com os gerentes
-     */
-    public Collection<Gerente> getGerente() {
-        return listaDeGerentes;
     }
 
     /**
@@ -304,19 +288,14 @@ public class Filial implements Serializable{
     }
 
     /**
-     * Metodo que remove um locador
-     * @param l - O locador a ser removida
+     * Metodo que remove um Funcionario
+     * @param l - O Funcionario a ser removida
      */
-    public void removeLocador(Locador l) {
-        listaDeLocadores.remove(l);
+    public void removeFuncionario(Pessoa l) {
+        listaDeFuncionarios.remove(l);
     }
-
-    /**
-     * Metodo que remove um gerente
-     * @param g - O gerente a ser removido
-     */
-    public void removeGerente(Gerente g) {
-        listaDeGerentes.remove(g);
+    public void removeFuncionario(int index) {
+        listaDeFuncionarios.remove(listaDeFuncionarios.toArray()[index]);
     }
 
     /**
