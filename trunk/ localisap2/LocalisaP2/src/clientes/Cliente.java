@@ -44,6 +44,7 @@ public abstract class Cliente implements Serializable{
     }
 
     public void setTelefone(String telefone) throws Exception {
+        telefone = telefone.replace(".","");
         if (telefone.length() < 10) {
             throw new Exception("Um telefone valido deve ter o DDD + o numero");
         }
