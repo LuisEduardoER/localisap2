@@ -113,6 +113,22 @@ public class Devolucao {
 
     }
 
+     /**
+     * Retorna a data da locacao
+     * @return - a data que o carro foi entregue ao cliente
+     */
+    public String getDataEntrega() {
+        return this.dataEntrega;
+    }
+
+    /**
+     * Retorna a data que o carro ira ser devolvido
+     * @return - A data que o carro ira ser devolvido
+     */
+    public String getDataDevolucao() {
+        return this.dataDevolucao;
+    }
+
     /**
      * Metodo que calcula a diferenca entre duas datas
      * @param dataEntrega - Recebe a data que o carro foi entregue ao cliente.
