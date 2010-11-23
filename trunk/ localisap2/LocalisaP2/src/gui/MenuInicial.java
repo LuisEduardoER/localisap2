@@ -11,9 +11,11 @@
 package gui;
 
 import agencias.Filial;
+import clientes.Cliente;
 import clientes.Endereco;
 import clientes.Endereco.UnidadeFederativa;
 import clientes.PessoaFisica;
+import clientes.PessoaJuridica;
 import funcionarios.Locador;
 import funcionarios.Pessoa;
 import funcionarios.Seguranca;
@@ -60,7 +62,18 @@ public class MenuInicial extends javax.swing.JFrame {
         }
     }
 
+
+    public Cliente getClienteSelecionado(){
+        if (dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()] instanceof PessoaFisica) {
+            return (PessoaFisica) dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
+        }else{
+            return (PessoaJuridica) dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
+        }
+
+    }
+
     public void atualizarListaDeClientes() {
+
         int i = 0;
         String[] lista = new String[dadosAgencia.getPessoaFisica().size()];
         for (PessoaFisica p : dadosAgencia.getPessoaFisica()) {
@@ -195,6 +208,7 @@ public class MenuInicial extends javax.swing.JFrame {
         limparCampos3 = new javax.swing.JButton();
         jComboTipoFuncionario = new javax.swing.JComboBox();
         jLabel44 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -371,66 +385,110 @@ public class MenuInicial extends javax.swing.JFrame {
 
         verificarDebito.setText("Verificar Debito");
         verificarDebito.setEnabled(false);
+        verificarDebito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verificarDebitoActionPerformed(evt);
+            }
+        });
 
         realizarPagamento.setText("Realizar Pgmto");
         realizarPagamento.setEnabled(false);
+        realizarPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                realizarPagamentoActionPerformed(evt);
+            }
+        });
 
         realizarLocacao.setText("Realizar Locação");
         realizarLocacao.setEnabled(false);
+        realizarLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                realizarLocacaoActionPerformed(evt);
+            }
+        });
+
+        jTabbedPane2.setEnabled(false);
 
         nome.setFont(new java.awt.Font("Tahoma", 0, 10));
+        nome.setEnabled(false);
 
         rg.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rg.setEnabled(false);
 
         naturalidade.setFont(new java.awt.Font("Tahoma", 0, 10));
+        naturalidade.setEnabled(false);
 
         cidade.setFont(new java.awt.Font("Tahoma", 0, 10));
+        cidade.setEnabled(false);
 
         jLabel4.setText("Nome:");
+        jLabel4.setEnabled(false);
 
         jLabel5.setText("CPF:");
+        jLabel5.setEnabled(false);
 
         jLabel6.setText("RG:");
+        jLabel6.setEnabled(false);
 
         jLabel7.setText("Naturalidade:");
+        jLabel7.setEnabled(false);
 
         jLabel8.setText("Cidade:");
+        jLabel8.setEnabled(false);
 
         jLabel9.setText("Bairro:");
+        jLabel9.setEnabled(false);
 
         bairro.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro.setEnabled(false);
 
         jLabel10.setText("Rua:");
+        jLabel10.setEnabled(false);
 
         rua.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rua.setEnabled(false);
 
         jLabel11.setText("Nº:");
+        jLabel11.setEnabled(false);
 
         numero.setFont(new java.awt.Font("Tahoma", 0, 10));
+        numero.setEnabled(false);
 
+        nascimento.setEnabled(false);
         nascimento.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel12.setText("Data Nasc:");
+        jLabel12.setEnabled(false);
 
         jLabel13.setText("Estado:");
+        jLabel13.setEnabled(false);
 
         estado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        estado.setEnabled(false);
 
         email.setFont(new java.awt.Font("Tahoma", 0, 10));
+        email.setEnabled(false);
 
         jLabel14.setText("E-mail:");
+        jLabel14.setEnabled(false);
 
         jLabel15.setText("Telefone:");
+        jLabel15.setEnabled(false);
 
+        cpf.setEnabled(false);
         cpf.setFont(new java.awt.Font("Tahoma", 0, 10));
 
+        telefone.setEnabled(false);
         telefone.setFont(new java.awt.Font("Tahoma", 0, 10));
 
+        cep.setEnabled(false);
         cep.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel16.setText("CEP:");
+        jLabel16.setEnabled(false);
 
         jButton1.setText("Cadastrar");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -438,6 +496,12 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         limparCampos.setText("Limpar Campos");
+        limparCampos.setEnabled(false);
+        limparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCamposActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -560,44 +624,64 @@ public class MenuInicial extends javax.swing.JFrame {
         jTabbedPane2.addTab("Pessoa Física", jPanel8);
 
         nome1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        nome1.setEnabled(false);
 
         cidade1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        cidade1.setEnabled(false);
 
         jLabel17.setText("Nome:");
+        jLabel17.setEnabled(false);
 
         jLabel18.setText("CNPJ:");
+        jLabel18.setEnabled(false);
 
         jLabel21.setText("Cidade:");
+        jLabel21.setEnabled(false);
 
         jLabel22.setText("Bairro:");
+        jLabel22.setEnabled(false);
 
         bairro1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro1.setEnabled(false);
 
         jLabel23.setText("Rua:");
+        jLabel23.setEnabled(false);
 
         rua1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rua1.setEnabled(false);
 
         jLabel24.setText("Nº:");
+        jLabel24.setEnabled(false);
 
         numero1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        numero1.setEnabled(false);
 
         jLabel26.setText("Estado:");
+        jLabel26.setEnabled(false);
 
         email1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        email1.setEnabled(false);
 
         jLabel27.setText("E-mail:");
+        jLabel27.setEnabled(false);
 
         jLabel28.setText("Telefone:");
+        jLabel28.setEnabled(false);
 
+        cnpj.setEnabled(false);
         cnpj.setFont(new java.awt.Font("Tahoma", 0, 10));
 
+        telefone1.setEnabled(false);
         telefone1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
+        cep1.setEnabled(false);
         cep1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel29.setText("CEP:");
+        jLabel29.setEnabled(false);
 
         jButton8.setText("Cadastrar");
+        jButton8.setEnabled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -605,16 +689,22 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         limparCampos1.setText("Limpar Campos");
+        limparCampos1.setEnabled(false);
 
         jLabel19.setText("Rz.Social: ");
+        jLabel19.setEnabled(false);
 
         bairro2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro2.setEnabled(false);
 
         jLabel20.setText("Ins. Estadual: ");
+        jLabel20.setEnabled(false);
 
         bairro3.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro3.setEnabled(false);
 
         estado1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        estado1.setEnabled(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -808,13 +898,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        nome2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nome2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        rg1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        rg1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        naturalidade1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        naturalidade1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        cidade2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cidade2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel31.setText("Nome:");
 
@@ -828,15 +918,15 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel36.setText("Bairro:");
 
-        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel37.setText("Rua:");
 
-        rua2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        rua2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel38.setText("Nº:");
 
-        numero2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        numero2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         nascimento1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -846,7 +936,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         estado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
-        email2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        email2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel41.setText("E-mail:");
 
@@ -885,60 +975,62 @@ public class MenuInicial extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel36)
+                        .addComponent(jLabel35)
+                        .addComponent(jLabel37)
+                        .addComponent(jLabel32)
+                        .addComponent(jLabel31)
+                        .addComponent(jLabel41)
+                        .addComponent(jLabel42)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel44))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addComponent(bairro4, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numero2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel36)
-                                .addComponent(jLabel35)
-                                .addComponent(jLabel37)
-                                .addComponent(jLabel32)
-                                .addComponent(jLabel31)
-                                .addComponent(jLabel41)
-                                .addComponent(jLabel42)
-                                .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel44))
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(nascimento1)
+                            .addComponent(cpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                .addComponent(bairro4, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel38)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(numero2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(email2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(nascimento1)
-                                    .addComponent(cpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel33)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rg1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel40)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(estado2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(naturalidade1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                            .addComponent(nome2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                            .addComponent(cidade2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                            .addComponent(rua2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                .addComponent(rg1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(telefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel40)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cadastrarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel43)
-                                        .addGap(2, 2, 2)
-                                        .addComponent(cep2, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))))
-                            .addComponent(jComboTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23))
+                                .addComponent(estado2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(naturalidade1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(nome2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(cidade2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(rua2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(telefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel43)
+                        .addGap(2, 2, 2)
+                        .addComponent(cep2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                    .addComponent(jComboTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(cadastrarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(limparCampos3)
-                        .addContainerGap(171, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -993,12 +1085,14 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCampos3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(12, Short.MAX_VALUE))
         );
+
+        jButton2.setText("Cadastrar Funcionario");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1013,10 +1107,11 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(editarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(apagarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(31, 31, 31))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(editarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                        .addComponent(apagarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1028,10 +1123,12 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editarFuncionario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(apagarFuncionario)
-                        .addGap(42, 42, 42)
+                        .addGap(23, 23, 23)
                         .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))
                 .addContainerGap())
@@ -2072,11 +2169,12 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarClienteActionPerformed
+        ativarCadastro();
     }//GEN-LAST:event_cadastrarClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PessoaFisica cliente = null;
-        String nomeC = nome.getText();
+       PessoaFisica cliente = null;
+       String nomeC = nome.getText();
         String cpfC = cpf.getText();
         String rgC = rg.getText();
         String nascimentoC = nascimento.getText();
@@ -2090,22 +2188,57 @@ public class MenuInicial extends javax.swing.JFrame {
         String telefoneC = telefone.getText();
         String cepC = cep.getText();
 
-        if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
-                || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
-                || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
-                || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
-            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
-        } else {
-            try {
-                Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
-                cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
-                dadosAgencia.adicionaPessoaFisica(cliente);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+
+        if (jButton1.getText().equals("Cadastrar"))
+        {
+            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("") ||
+                nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("") ||
+                cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("") ||
+                emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5)
+
+                JOptionPane.showMessageDialog(rootPane,"Voce deve preencher todos os dados!");
+            else{
+                try{
+                    Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
+                    cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
+                    dadosAgencia.adicionaPessoaFisica(cliente);
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(rootPane,e.getMessage());
+                }
+                atualizarFilial(dadosAgencia);
+                JOptionPane.showMessageDialog(rootPane,"Cliente cadastrado com sucesso!");
+                atualizarListaDeClientes();
             }
-            atualizarFilial(dadosAgencia);
-            JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
-            atualizarListaDeClientes();
+
+        }else{
+            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("") ||
+                nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("") ||
+                cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("") ||
+                emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5)
+
+                JOptionPane.showMessageDialog(rootPane,"Voce deve preencher todos os dados!");
+            else{
+                try{
+                    PessoaFisica clienteS = (PessoaFisica) getClienteSelecionado();
+                    Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
+                    clienteS.setCpf(cpfC);
+                    clienteS.setEmail(emailC);
+                    clienteS.setNascimento(nascimentoC);
+                    clienteS.setNaturalidade(naturalidadeC);
+                    clienteS.setNome(nomeC);
+                    clienteS.setRg(rgC);
+                    clienteS.setTelefone(telefoneC);
+                    clienteS.setEndereco(end);
+                    atualizarFilial(dadosAgencia);
+                    atualizarListaDeClientes();
+                    JOptionPane.showMessageDialog(rootPane,"A edicao foi completada com sucesso!");
+                    limparCampos.setText("Limpar Campos");
+                    limparCampos.doClick();
+                    desativarCadastro();
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(rootPane,e.getMessage());
+                }
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2196,7 +2329,25 @@ public class MenuInicial extends javax.swing.JFrame {
 }//GEN-LAST:event_jComboBox10ActionPerformed
 
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
-        // TODO add your handling code here:
+        Cliente cliente = getClienteSelecionado();
+        if (cliente instanceof PessoaFisica){
+            PessoaFisica clienteP = (PessoaFisica) cliente;
+            nome.setText(clienteP.getNome());
+            cpf.setText(clienteP.getCpf());
+            rg.setText(clienteP.getRg());
+            nascimento.setText(clienteP.getNascimento());
+            naturalidade.setText(clienteP.getNaturalidade());
+            cidade.setText(clienteP.getEndereco().getCidade());
+            bairro.setText(clienteP.getEndereco().getBairro());
+            numero.setText(Integer.toString(clienteP.getEndereco().getNumero()));
+            rua.setText(clienteP.getEndereco().getRua());
+            email.setText(clienteP.getEmail());
+            telefone.setText(clienteP.getTelefone());
+            cep.setText(clienteP.getEndereco().getCep());
+        }
+        jButton1.setText("Atualizar");
+        limparCampos.setText("Cancelar");
+        ativarCadastro();
     }//GEN-LAST:event_editarClienteActionPerformed
 
     private void apagarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarClienteActionPerformed
@@ -2207,6 +2358,50 @@ public class MenuInicial extends javax.swing.JFrame {
             atualizarListaDeClientes();
         }
     }//GEN-LAST:event_apagarClienteActionPerformed
+
+
+    private void verificarDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarDebitoActionPerformed
+        PessoaFisica pessoa = (PessoaFisica)dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
+        if(pessoa.getEmDebito())
+            JOptionPane.showMessageDialog(rootPane,"O debito do cliente "+pessoa.getNome()+" eh de R$"+pessoa.getDivida());
+        else
+            JOptionPane.showMessageDialog(rootPane, "O cliente "+pessoa.getNome()+" nao esta em debito!");
+    }//GEN-LAST:event_verificarDebitoActionPerformed
+
+    private void realizarLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarLocacaoActionPerformed
+        PessoaFisica cliente = (PessoaFisica) getClienteSelecionado();
+        clienteLocacao.setText(cliente.getNome());
+        jTabbedPane1.setSelectedComponent(jPanel5);
+    }//GEN-LAST:event_realizarLocacaoActionPerformed
+
+    private void realizarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPagamentoActionPerformed
+        PessoaFisica pessoa = (PessoaFisica)dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
+        pessoa.setDivida(0);
+         JOptionPane.showMessageDialog(rootPane, "A divida do cliente "+pessoa.getNome()+" foi quitada com sucesso!");
+    }//GEN-LAST:event_realizarPagamentoActionPerformed
+
+    private void limparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposActionPerformed
+        if(limparCampos.getText().equals("Limpar Campos")){
+            nome.setText("");
+            cpf.setText("");
+            rg.setText("");
+            nascimento.setText("");
+            naturalidade.setText("");
+            cidade.setText("");
+            bairro.setText("");
+            numero.setText("");
+            rua.setText("");
+            email.setText("");
+            telefone.setText("");
+            cep.setText("");
+        }else{
+            limparCampos.setText("Limpar Campos");
+            jButton1.setText("Cadastrar");
+            limparCampos.doClick();
+            desativarCadastro();
+            JOptionPane.showMessageDialog(rootPane, "A operacao de edicao foi cancelada.");
+        }
+    }//GEN-LAST:event_limparCamposActionPerformed
 
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         int z = JOptionPane.showOptionDialog(rootPane, "Confirmar exclusão de funcionario?", "Confirmarção", JOptionPane.YES_NO_OPTION, 0, null, opcoes, opcoes[1]);
@@ -2342,6 +2537,126 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
     }
+    private void ativarCadastro(){
+        jTabbedPane2.setEnabled(true);
+        jPanel9.setEnabled(true);
+        jPanel8.setEnabled(true);
+        jLabel4.setEnabled(true);
+        jLabel5.setEnabled(true);
+        jLabel6.setEnabled(true);
+        jLabel7.setEnabled(true);
+        jLabel8.setEnabled(true);
+        jLabel9.setEnabled(true);
+        jLabel10.setEnabled(true);
+        jLabel11.setEnabled(true);
+        jLabel12.setEnabled(true);
+        jLabel13.setEnabled(true);
+        jLabel14.setEnabled(true);
+        jLabel15.setEnabled(true);
+        jLabel16.setEnabled(true);
+        jLabel17.setEnabled(true);
+        jLabel18.setEnabled(true);
+        jLabel19.setEnabled(true);
+        jLabel20.setEnabled(true);
+        jLabel21.setEnabled(true);
+        jLabel22.setEnabled(true);
+        jLabel23.setEnabled(true);
+        jLabel24.setEnabled(true);
+        jLabel26.setEnabled(true);
+        jLabel27.setEnabled(true);
+        jLabel28.setEnabled(true);
+        jLabel29.setEnabled(true);
+        nome.setEnabled(true);
+        cpf.setEnabled(true);
+        rg.setEnabled(true);
+        nascimento.setEnabled(true);
+        naturalidade.setEnabled(true);
+        cidade.setEnabled(true);
+        bairro.setEnabled(true);
+        numero.setEnabled(true);
+        rua.setEnabled(true);
+        email.setEnabled(true);
+        telefone.setEnabled(true);
+        cep.setEnabled(true);
+        estado.setEnabled(true);
+        nome1.setEnabled(true);
+        cnpj.setEnabled(true);
+        bairro2.setEnabled(true);
+        estado1.setEnabled(true);
+        bairro3.setEnabled(true);
+        cidade1.setEnabled(true);
+        bairro1.setEnabled(true);
+        numero1.setEnabled(true);
+        rua1.setEnabled(true);
+        email1.setEnabled(true);
+        telefone1.setEnabled(true);
+        cep1.setEnabled(true);
+        limparCampos1.setEnabled(true);
+        jButton8.setEnabled(true);
+        limparCampos.setEnabled(true);
+        jButton1.setEnabled(true);
+    }
+
+    private void desativarCadastro(){
+        jTabbedPane2.setEnabled(false);
+        jPanel9.setEnabled(false);
+        jPanel8.setEnabled(false);
+        jLabel4.setEnabled(false);
+        jLabel5.setEnabled(false);
+        jLabel6.setEnabled(false);
+        jLabel7.setEnabled(false);
+        jLabel8.setEnabled(false);
+        jLabel9.setEnabled(false);
+        jLabel10.setEnabled(false);
+        jLabel11.setEnabled(false);
+        jLabel12.setEnabled(false);
+        jLabel13.setEnabled(false);
+        jLabel14.setEnabled(false);
+        jLabel15.setEnabled(false);
+        jLabel16.setEnabled(false);
+        jLabel17.setEnabled(false);
+        jLabel18.setEnabled(false);
+        jLabel19.setEnabled(false);
+        jLabel20.setEnabled(false);
+        jLabel21.setEnabled(false);
+        jLabel22.setEnabled(false);
+        jLabel23.setEnabled(false);
+        jLabel24.setEnabled(false);
+        jLabel26.setEnabled(false);
+        jLabel27.setEnabled(false);
+        jLabel28.setEnabled(false);
+        jLabel29.setEnabled(false);
+        nome.setEnabled(false);
+        cpf.setEnabled(false);
+        rg.setEnabled(false);
+        nascimento.setEnabled(false);
+        naturalidade.setEnabled(false);
+        cidade.setEnabled(false);
+        bairro.setEnabled(false);
+        numero.setEnabled(false);
+        rua.setEnabled(false);
+        email.setEnabled(false);
+        telefone.setEnabled(false);
+        cep.setEnabled(false);
+        estado.setEnabled(false);
+        nome1.setEnabled(false);
+        cnpj.setEnabled(false);
+        bairro2.setEnabled(false);
+        estado1.setEnabled(false);
+        bairro3.setEnabled(false);
+        cidade1.setEnabled(false);
+        bairro1.setEnabled(false);
+        numero1.setEnabled(false);
+        rua1.setEnabled(false);
+        email1.setEnabled(false);
+        telefone1.setEnabled(false);
+        cep1.setEnabled(false);
+        limparCampos1.setEnabled(false);
+        jButton8.setEnabled(false);
+        limparCampos.setEnabled(false);
+        jButton1.setEnabled(false);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoCarro;
     private javax.swing.JTextField anoMoto;
@@ -2390,6 +2705,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JComboBox estado5;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton34;
