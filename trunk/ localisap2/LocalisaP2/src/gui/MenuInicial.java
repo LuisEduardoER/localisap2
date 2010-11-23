@@ -856,7 +856,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -873,8 +873,8 @@ public class MenuInicial extends javax.swing.JFrame {
                                 .addComponent(realizarPagamento)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane2.getAccessibleContext().setAccessibleName("tab 1");
@@ -904,60 +904,88 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel10.setEnabled(false);
 
         nome2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nome2.setEnabled(false);
 
         rg1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rg1.setEnabled(false);
 
         naturalidade1.setFont(new java.awt.Font("Tahoma", 0, 10));
+        naturalidade1.setEnabled(false);
 
         cidade2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        cidade2.setEnabled(false);
 
         jLabel31.setText("Nome:");
+        jLabel31.setEnabled(false);
 
         jLabel32.setText("CPF:");
+        jLabel32.setEnabled(false);
 
         jLabel33.setText("RG:");
+        jLabel33.setEnabled(false);
 
         jLabel34.setText("Naturalidade:");
+        jLabel34.setEnabled(false);
 
         jLabel35.setText("Cidade:");
+        jLabel35.setEnabled(false);
 
         jLabel36.setText("Bairro:");
+        jLabel36.setEnabled(false);
 
-        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro4.setEnabled(false);
 
         jLabel37.setText("Rua:");
+        jLabel37.setEnabled(false);
 
         rua2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rua2.setEnabled(false);
 
         jLabel38.setText("Nº:");
+        jLabel38.setEnabled(false);
 
         numero2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        numero2.setEnabled(false);
 
+        nascimento1.setEnabled(false);
         nascimento1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel39.setText("Data Nasc:");
+        jLabel39.setEnabled(false);
 
         jLabel40.setText("Estado:");
+        jLabel40.setEnabled(false);
 
         estado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        estado2.setEnabled(false);
 
         email2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        email2.setEnabled(false);
 
         jLabel41.setText("E-mail:");
+        jLabel41.setEnabled(false);
 
         jLabel42.setText("Telefone:");
+        jLabel42.setEnabled(false);
 
+        cpf1.setEnabled(false);
         cpf1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
+        telefone2.setEnabled(false);
         telefone2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
+        cep2.setEnabled(false);
         cep2.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel43.setText("CEP:");
+        jLabel43.setEnabled(false);
 
         cadastrarFuncionario.setText("Cadastrar");
+        cadastrarFuncionario.setEnabled(false);
         cadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarFuncionarioActionPerformed(evt);
@@ -965,6 +993,7 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         limparCampos3.setText("Limpar Campos");
+        limparCampos3.setEnabled(false);
         limparCampos3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 limparCampos3ActionPerformed(evt);
@@ -972,8 +1001,10 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         jComboTipoFuncionario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Locador", "Zelador", "Segurança" }));
+        jComboTipoFuncionario.setEnabled(false);
 
         jLabel44.setText("Cargo:");
+        jLabel44.setEnabled(false);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1193,7 +1224,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         estado5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
-        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         dataAquisicaoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -1203,13 +1234,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel79.setText("Cor:");
 
-        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel80.setText("Freio:");
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABS", "DISCO", "TAMBOR" }));
 
-        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel81.setText("Tipo de Pot.:");
 
@@ -2294,6 +2325,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     atualizarFilial(dadosAgencia);
                     JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
                     atualizarListaDeFuncionarios();
+                    limparCampos3.doClick();
                     desativarCadastroFuncionarios();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, e.getMessage());
@@ -2472,7 +2504,7 @@ public class MenuInicial extends javax.swing.JFrame {
         } else {
             limparCampos3.setText("Limpar Campos");
             cadastrarFuncionario.setText("Cadastrar");
-            limparCampos.doClick();
+            limparCampos3.doClick();
             desativarCadastroFuncionarios();
             JOptionPane.showMessageDialog(rootPane, "A operacao de edicao foi cancelada.");
         }
