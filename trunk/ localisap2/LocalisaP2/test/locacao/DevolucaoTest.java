@@ -4,6 +4,7 @@
  */
 package locacao;
 
+import org.junit.Assert;
 import clientes.Endereco;
 import clientes.PessoaFisica;
 import java.util.ArrayList;
@@ -21,8 +22,15 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author filipe
+ * @author Filipe Alencar   -twitter.com/filipealencar_
+ * @author Felipe Jose      -twitter.com/felipejosefc
+ * @author Emilio Farias    -twitter.com/militofarias
+ *
+ * http://code.google.com/p/localisap2/
+ * Universidade Federal de Campina Grande - Computacao
+ *
  */
+
 public class DevolucaoTest {
 
     Locacao loc;
@@ -60,4 +68,27 @@ public class DevolucaoTest {
     public void testDiferencaData() {
         assertEquals(8, devolucao.diferencaData("22/09/2010", "30/09/2010"));
     }
+
+    @Test
+    public void testMetodosSet() throws Exception {
+        try {
+            devolucao.setDataEntrega("11/13/2010");
+            Assert.fail("Esperava excecao de testaData");
+       } catch(Exception ex) {
+            Assert.assertEquals("erro", "Data invalida", ex.getMessage());
+       }
+       devolucao.setDataEntrega("12/12/2010");
+
+       try {
+            devolucao.setDataDevolucao("11/13/2010");
+            Assert.fail("Esperava excecao de testaData");
+       } catch(Exception ex) {
+            Assert.assertEquals("erro", "Data invalida", ex.getMessage());
+       }
+       devolucao.setDataDevolucao("22/12/2010");
+
+       Assert.assertEquals("22/12/2010", devolucao.getDataDevolucao());
+       Assert.assertEquals("12/12/2010", devolucao.getDataEntrega());
+    }
+
 }

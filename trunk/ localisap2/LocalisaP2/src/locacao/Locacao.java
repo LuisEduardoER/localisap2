@@ -99,7 +99,7 @@ public class Locacao {
         }
         if (cliente instanceof PessoaJuridica) {
             if (cliente.getQuantidadeDeLocacao() > 10) {
-                throw new Exception("O cliente ja locou mais que tres veiculos");
+                throw new Exception("O cliente ja locou mais que dez veiculos");
             }
             if (cliente.getEmDebito()) {
                 throw new Exception("O cliente está devendo , favor pagar as contas primeiro");
