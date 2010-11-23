@@ -1101,6 +1101,9 @@
                 <Property name="text" type="java.lang.String" value="Editar Funcionario"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarFuncionarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="apagarFuncionario">
               <Properties>
@@ -1499,6 +1502,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar Funcionario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
