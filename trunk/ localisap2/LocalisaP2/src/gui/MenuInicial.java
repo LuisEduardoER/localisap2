@@ -62,14 +62,17 @@ public class MenuInicial extends javax.swing.JFrame {
         }
     }
 
-
-    public Cliente getClienteSelecionado(){
+    public Cliente getClienteSelecionado() {
         if (dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()] instanceof PessoaFisica) {
             return (PessoaFisica) dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
-        }else{
+        } else {
             return (PessoaJuridica) dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
         }
 
+    }
+
+    public Pessoa getFuncionarioSelecionado() {
+        return (Pessoa) (dadosAgencia.getFuncionario().toArray()[jListaFuncionario.getSelectedIndex()]);
     }
 
     public void atualizarListaDeClientes() {
@@ -886,6 +889,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
         editarFuncionario.setText("Editar Funcionario");
         editarFuncionario.setEnabled(false);
+        editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarFuncionarioActionPerformed(evt);
+            }
+        });
 
         apagarFuncionario.setText("Apagar Funcionario");
         apagarFuncionario.setEnabled(false);
@@ -897,7 +905,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        nome2.setFont(new java.awt.Font("Tahoma", 0, 10));
+        nome2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         rg1.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -917,7 +925,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel36.setText("Bairro:");
 
-        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10));
+        bairro4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel37.setText("Rua:");
 
@@ -1092,6 +1100,11 @@ public class MenuInicial extends javax.swing.JFrame {
         );
 
         jButton2.setText("Cadastrar Funcionario");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1180,7 +1193,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         estado5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
-        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         dataAquisicaoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -1190,13 +1203,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel79.setText("Cor:");
 
-        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel80.setText("Freio:");
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABS", "DISCO", "TAMBOR" }));
 
-        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel81.setText("Tipo de Pot.:");
 
@@ -2173,7 +2186,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        PessoaFisica cliente = null;
-       String nomeC = nome.getText();
+        String nomeC = nome.getText();
         String cpfC = cpf.getText();
         String rgC = rg.getText();
         String nascimentoC = nascimento.getText();
@@ -2188,38 +2201,35 @@ public class MenuInicial extends javax.swing.JFrame {
         String cepC = cep.getText();
 
 
-        if (jButton1.getText().equals("Cadastrar"))
-        {
-            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("") ||
-                nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("") ||
-                cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("") ||
-                emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5)
-
-                JOptionPane.showMessageDialog(rootPane,"Voce deve preencher todos os dados!");
-            else{
-                try{
+        if (jButton1.getText().equals("Cadastrar")) {
+            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
+                    || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
+                    || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
+                    || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+            } else {
+                try {
                     Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
                     cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
                     dadosAgencia.adicionaPessoaFisica(cliente);
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(rootPane,e.getMessage());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }
                 atualizarFilial(dadosAgencia);
-                JOptionPane.showMessageDialog(rootPane,"Cliente cadastrado com sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
                 atualizarListaDeClientes();
                 limparCampos.doClick();
                 desativarCadastro();
             }
 
-        }else{
-            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("") ||
-                nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("") ||
-                cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("") ||
-                emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5)
-
-                JOptionPane.showMessageDialog(rootPane,"Voce deve preencher todos os dados!");
-            else{
-                try{
+        } else {
+            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
+                    || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
+                    || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
+                    || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+            } else {
+                try {
                     PessoaFisica clienteS = (PessoaFisica) getClienteSelecionado();
                     Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
                     clienteS.setCpf(cpfC);
@@ -2232,12 +2242,12 @@ public class MenuInicial extends javax.swing.JFrame {
                     clienteS.setEndereco(end);
                     atualizarFilial(dadosAgencia);
                     atualizarListaDeClientes();
-                    JOptionPane.showMessageDialog(rootPane,"A edicao foi completada com sucesso!");
+                    JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
                     limparCampos.setText("Limpar Campos");
                     limparCampos.doClick();
                     desativarCadastro();
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(rootPane,e.getMessage());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }
             }
         }
@@ -2263,32 +2273,63 @@ public class MenuInicial extends javax.swing.JFrame {
         String cepF = cep2.getText();
         System.out.println(telefoneF);
         Pessoa funcionario;
-        if (nomeF.equals("") || cpfF.replace(" ", "").length() < 5 || rgF.equals("")
-                || nascimentoF.replace(" ", "").length() < 5 || estadoF == null || naturalidadeF.equals("")
-                || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
-                || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
-        } else {
-            try {
-                Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
-                if (jComboTipoFuncionario.getSelectedIndex() == 0) {
-                    funcionario = new Locador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+        if (cadastrarFuncionario.getText().equals("Cadastrar")) {
+            if (nomeF.equals("") || cpfF.replace(" ", "").length() < 5 || rgF.equals("")
+                    || nascimentoF.replace(" ", "").length() < 5 || estadoF == null || naturalidadeF.equals("")
+                    || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                    || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+            } else {
+                try {
+                    Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
+                    if (jComboTipoFuncionario.getSelectedIndex() == 0) {
+                        funcionario = new Locador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+                    }
+                    if (jComboTipoFuncionario.getSelectedIndex() == 1) {
+                        funcionario = new Zelador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+                    } else {
+                        funcionario = new Seguranca(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
+                    }
+                    dadosAgencia.adicionaFuncionario(funcionario);
+                    atualizarFilial(dadosAgencia);
+                    JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+                    atualizarListaDeFuncionarios();
+                    desativarCadastroFuncionarios();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }
-                if (jComboTipoFuncionario.getSelectedIndex() == 1) {
-                    funcionario = new Zelador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
-                } else {
-                    funcionario = new Seguranca(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
-                }
-                dadosAgencia.adicionaFuncionario(funcionario);
-                atualizarFilial(dadosAgencia);
-                JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
-                atualizarListaDeFuncionarios();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
-
+        } else {
+            if (nomeF.equals("") || cpfF.replace(" ", "").length() < 5 || rgF.equals("")
+                    || nascimentoF.replace(" ", "").length() < 5 || estadoF == null || naturalidadeF.equals("")
+                    || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                    || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+            } else {
+                try {
+                    Pessoa funcionarioS = getFuncionarioSelecionado();
+                    Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
+                    funcionarioS.setCpf(cpfF);
+                    funcionarioS.setEmail(emailF);
+                    funcionarioS.setNascimento(nascimentoF);
+                    funcionarioS.setNaturalidade(naturalidadeF);
+                    funcionarioS.setNome(nomeF);
+                    funcionarioS.setRg(rgF);
+                    funcionarioS.setTelefone(telefoneF);
+                    funcionarioS.setEndereco(end);
+                    atualizarFilial(dadosAgencia);
+                    atualizarListaDeFuncionarios();
+                    JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
+                    limparCampos3.setText("Limpar Campos");
+                    limparCampos3.doClick();
+                    desativarCadastroFuncionarios();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                }
+            }
+        }
     }//GEN-LAST:event_cadastrarFuncionarioActionPerformed
-}
+
     private void cadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarVeiculoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarVeiculoActionPerformed
@@ -2331,7 +2372,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
         Cliente cliente = getClienteSelecionado();
-        if (cliente instanceof PessoaFisica){
+        if (cliente instanceof PessoaFisica) {
             PessoaFisica clienteP = (PessoaFisica) cliente;
             nome.setText(clienteP.getNome());
             cpf.setText(clienteP.getCpf());
@@ -2360,13 +2401,13 @@ public class MenuInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_apagarClienteActionPerformed
 
-
     private void verificarDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarDebitoActionPerformed
-        PessoaFisica pessoa = (PessoaFisica)dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
-        if(pessoa.getEmDebito())
-            JOptionPane.showMessageDialog(rootPane,"O debito do cliente "+pessoa.getNome()+" eh de R$"+pessoa.getDivida());
-        else
-            JOptionPane.showMessageDialog(rootPane, "O cliente "+pessoa.getNome()+" nao esta em debito!");
+        PessoaFisica pessoa = (PessoaFisica) dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
+        if (pessoa.getEmDebito()) {
+            JOptionPane.showMessageDialog(rootPane, "O debito do cliente " + pessoa.getNome() + " eh de R$" + pessoa.getDivida());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "O cliente " + pessoa.getNome() + " nao esta em debito!");
+        }
     }//GEN-LAST:event_verificarDebitoActionPerformed
 
     private void realizarLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarLocacaoActionPerformed
@@ -2376,13 +2417,13 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_realizarLocacaoActionPerformed
 
     private void realizarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPagamentoActionPerformed
-        PessoaFisica pessoa = (PessoaFisica)dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
+        PessoaFisica pessoa = (PessoaFisica) dadosAgencia.getPessoaFisica().toArray()[jListaClientes.getSelectedIndex()];
         pessoa.setDivida(0);
-         JOptionPane.showMessageDialog(rootPane, "A divida do cliente "+pessoa.getNome()+" foi quitada com sucesso!");
+        JOptionPane.showMessageDialog(rootPane, "A divida do cliente " + pessoa.getNome() + " foi quitada com sucesso!");
     }//GEN-LAST:event_realizarPagamentoActionPerformed
 
     private void limparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposActionPerformed
-        if(limparCampos.getText().equals("Limpar Campos")){
+        if (limparCampos.getText().equals("Limpar Campos")) {
             nome.setText("");
             cpf.setText("");
             rg.setText("");
@@ -2395,7 +2436,7 @@ public class MenuInicial extends javax.swing.JFrame {
             email.setText("");
             telefone.setText("");
             cep.setText("");
-        }else{
+        } else {
             limparCampos.setText("Limpar Campos");
             jButton1.setText("Cadastrar");
             limparCampos.doClick();
@@ -2414,19 +2455,52 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
     private void limparCampos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCampos3ActionPerformed
-        nome2.setText("");
-        cpf1.setText("");
-        rg1.setText("");
-        nascimento1.setText("");
-        naturalidade1.setText("");
-        cidade2.setText("");
-        bairro4.setText("");
-        numero2.setText("");
-        rua2.setText("");
-        email2.setText("");
-        telefone2.setText("");
-        cep2.setText("");
+       if (limparCampos3.getText().equals("Limpar Campos")) {
+            nome2.setText("");
+            cpf1.setText("");
+            rg1.setText("");
+            nascimento1.setText("");
+            naturalidade1.setText("");
+            cidade2.setText("");
+            bairro4.setText("");
+            numero2.setText("");
+            rua2.setText("");
+            email2.setText("");
+            telefone2.setText("");
+            cep2.setText("");
+            desativarCadastroFuncionarios();
+        } else {
+            limparCampos3.setText("Limpar Campos");
+            cadastrarFuncionario.setText("Cadastrar");
+            limparCampos.doClick();
+            desativarCadastroFuncionarios();
+            JOptionPane.showMessageDialog(rootPane, "A operacao de edicao foi cancelada.");
+        }
     }//GEN-LAST:event_limparCampos3ActionPerformed
+
+    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
+        Pessoa funcionario = getFuncionarioSelecionado();
+        nome2.setText(funcionario.getNome());
+        cpf1.setText(funcionario.getCpf());
+        rg1.setText(funcionario.getRg());
+        nascimento1.setText(funcionario.getNascimento());
+        naturalidade1.setText(funcionario.getNaturalidade());
+        cidade2.setText(funcionario.getEndereco().getCidade());
+        bairro4.setText(funcionario.getEndereco().getBairro());
+        numero2.setText(Integer.toString(funcionario.getEndereco().getNumero()));
+        rua2.setText(funcionario.getEndereco().getRua());
+        email2.setText(funcionario.getEmail());
+        telefone2.setText(funcionario.getTelefone());
+        cep2.setText(funcionario.getEndereco().getCep());
+        cadastrarFuncionario.setText("Atualizar");
+        limparCampos3.setText("Cancelar");
+        ativarCadastroFuncionarios();
+    }//GEN-LAST:event_editarFuncionarioActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ativarCadastroFuncionarios();
+        jComboTipoFuncionario.setEnabled(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void setarMascaras() {
         try {
@@ -2538,7 +2612,41 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
     }
-    private void ativarCadastro(){
+
+    private void ativarCadastroFuncionarios() {
+        jLabel31.setEnabled(true);
+        jLabel32.setEnabled(true);
+        jLabel33.setEnabled(true);
+        jLabel34.setEnabled(true);
+        jLabel35.setEnabled(true);
+        jLabel36.setEnabled(true);
+        jLabel37.setEnabled(true);
+        jLabel38.setEnabled(true);
+        jLabel39.setEnabled(true);
+        jLabel40.setEnabled(true);
+        jLabel41.setEnabled(true);
+        jLabel42.setEnabled(true);
+        jLabel43.setEnabled(true);
+        jLabel44.setEnabled(true);
+        nome2.setEnabled(true);
+        cpf1.setEnabled(true);
+        rg1.setEnabled(true);
+        nascimento1.setEnabled(true);
+        naturalidade1.setEnabled(true);
+        cidade2.setEnabled(true);
+        bairro4.setEnabled(true);
+        numero2.setEnabled(true);
+        rua2.setEnabled(true);
+        email2.setEnabled(true);
+        telefone2.setEnabled(true);
+        cep2.setEnabled(true);
+        jComboTipoFuncionario.setEnabled(false);
+        jPanel10.setEnabled(true);
+        cadastrarFuncionario.setEnabled(true);
+        limparCampos3.setEnabled(true);
+    }
+
+    private void ativarCadastro() {
         jTabbedPane2.setEnabled(true);
         jPanel9.setEnabled(true);
         jPanel8.setEnabled(true);
@@ -2598,7 +2706,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jButton1.setEnabled(true);
     }
 
-    private void desativarCadastro(){
+    private void desativarCadastro() {
         jTabbedPane2.setEnabled(false);
         jPanel9.setEnabled(false);
         jPanel8.setEnabled(false);
@@ -2657,7 +2765,39 @@ public class MenuInicial extends javax.swing.JFrame {
         limparCampos.setEnabled(false);
         jButton1.setEnabled(false);
     }
-    
+
+    private void desativarCadastroFuncionarios() {
+        jLabel31.setEnabled(false);
+        jLabel32.setEnabled(false);
+        jLabel33.setEnabled(false);
+        jLabel34.setEnabled(false);
+        jLabel35.setEnabled(false);
+        jLabel36.setEnabled(false);
+        jLabel37.setEnabled(false);
+        jLabel38.setEnabled(false);
+        jLabel39.setEnabled(false);
+        jLabel40.setEnabled(false);
+        jLabel41.setEnabled(false);
+        jLabel42.setEnabled(false);
+        jLabel43.setEnabled(false);
+        jLabel44.setEnabled(false);
+        nome2.setEnabled(false);
+        cpf1.setEnabled(false);
+        rg1.setEnabled(false);
+        nascimento1.setEnabled(false);
+        naturalidade1.setEnabled(false);
+        cidade2.setEnabled(false);
+        bairro4.setEnabled(false);
+        numero2.setEnabled(false);
+        rua2.setEnabled(false);
+        email2.setEnabled(false);
+        telefone2.setEnabled(false);
+        cep2.setEnabled(false);
+        jComboTipoFuncionario.setEnabled(false);
+        jPanel10.setEnabled(false);
+        cadastrarFuncionario.setEnabled(false);
+        limparCampos3.setEnabled(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoCarro;
     private javax.swing.JTextField anoMoto;
