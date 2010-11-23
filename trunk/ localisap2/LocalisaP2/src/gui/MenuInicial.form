@@ -1620,7 +1620,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="jList3">
+                <Component class="javax.swing.JList" name="jListaVeiculos">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
@@ -1674,11 +1674,11 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel82" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jComboBox9" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTipoCombustivelMoto" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jComboBox6" min="-2" pref="97" max="-2" attributes="0"/>
+                                              <Component id="jTipoCorMoto" min="-2" pref="97" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1718,14 +1718,14 @@
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="jLabel83" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jSpinner2" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <Component id="jSpinnerCombustivelMoto" min="-2" pref="40" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
                                                       <Component id="marcaMoto" min="-2" pref="84" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="jLabel81" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jComboBox8" pref="46" max="32767" attributes="0"/>
+                                                      <Component id="jTipoPotenciaMoto" pref="46" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
                                                       <Component id="potenciaMoto" min="-2" pref="84" max="-2" attributes="0"/>
@@ -1739,7 +1739,7 @@
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jComboBox7" min="-2" pref="70" max="-2" attributes="0"/>
+                                                      <Component id="jTipoFreioMoto" min="-2" pref="70" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="renavamMoto" min="-2" pref="84" max="-2" attributes="0"/>
@@ -1792,14 +1792,14 @@
                                   <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="modeloMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox7" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="jTipoFreioMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="marcaMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox8" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="jTipoPotenciaMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1813,7 +1813,7 @@
                                   <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="dataAquisicaoMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jLabel83" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerCombustivelMoto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1824,13 +1824,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel82" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox9" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="jTipoCombustivelMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel79" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox6" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="jTipoCorMoto" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1857,6 +1857,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar Campos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparCamposMotoActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel73">
                       <Properties>
@@ -1951,7 +1954,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox6">
+                    <Component class="javax.swing.JComboBox" name="jTipoCorMoto">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="10">
@@ -1986,7 +1989,7 @@
                         <Property name="text" type="java.lang.String" value="Freio:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox7">
+                    <Component class="javax.swing.JComboBox" name="jTipoFreioMoto">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="3">
@@ -2009,7 +2012,7 @@
                         <Property name="text" type="java.lang.String" value="Tipo de Pot.:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox8">
+                    <Component class="javax.swing.JComboBox" name="jTipoPotenciaMoto">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="2">
@@ -2024,7 +2027,7 @@
                         <Property name="text" type="java.lang.String" value="Combustivel:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox9">
+                    <Component class="javax.swing.JComboBox" name="jTipoCombustivelMoto">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
@@ -2042,7 +2045,7 @@
                         <Property name="text" type="java.lang.String" value="Niv. Combus"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSpinner" name="jSpinner2">
+                    <Component class="javax.swing.JSpinner" name="jSpinnerCombustivelMoto">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel84">
                       <Properties>

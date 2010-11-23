@@ -34,6 +34,12 @@ import javax.swing.UIManager;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel;
+import veiculos.Cor;
+import veiculos.Motocicleta;
+import veiculos.TipoDeCombustivel;
+import veiculos.TipoDeFreio;
+import veiculos.TipoDePotencia;
+import veiculos.Veiculo;
 
 /**
  *
@@ -59,6 +65,9 @@ public class MenuInicial extends javax.swing.JFrame {
         }
         if (dadosAgencia.getFuncionario().size() > 0) {
             atualizarListaDeFuncionarios();
+        }
+        if (dadosAgencia.getVeiculos().size() > 0){
+            atualizarListaDeVeiculos();
         }
     }
 
@@ -93,7 +102,14 @@ public class MenuInicial extends javax.swing.JFrame {
         }
         jListaFuncionario.setListData(lista);
     }
-
+    public void atualizarListaDeVeiculos() {
+        int i = 0;
+        String[] lista = new String[dadosAgencia.getVeiculos().size()];
+        for (Veiculo v : dadosAgencia.getVeiculos()) {
+            lista[i++] = v.getMarca()+" - "+v.getModelo();
+        }
+        jListaVeiculos.setListData(lista);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -216,7 +232,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList();
+        jListaVeiculos = new javax.swing.JList();
         cadastrarVeiculo = new javax.swing.JButton();
         editarVeiculo = new javax.swing.JButton();
         apagarVeiculo = new javax.swing.JButton();
@@ -235,18 +251,18 @@ public class MenuInicial extends javax.swing.JFrame {
         renavamMoto = new javax.swing.JTextField();
         dataAquisicaoMoto = new javax.swing.JFormattedTextField();
         marcaMoto = new javax.swing.JFormattedTextField();
-        jComboBox6 = new javax.swing.JComboBox();
+        jTipoCorMoto = new javax.swing.JComboBox();
         jLabel79 = new javax.swing.JLabel();
         potenciaMoto = new javax.swing.JTextField();
         jLabel80 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
+        jTipoFreioMoto = new javax.swing.JComboBox();
         modeloMoto = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox();
+        jTipoPotenciaMoto = new javax.swing.JComboBox();
         jLabel82 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox();
+        jTipoCombustivelMoto = new javax.swing.JComboBox();
         jLabel83 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        jSpinnerCombustivelMoto = new javax.swing.JSpinner();
         jLabel84 = new javax.swing.JLabel();
         jLabel139 = new javax.swing.JLabel();
         cilindradasMoto = new javax.swing.JTextField();
@@ -1188,8 +1204,8 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel46.setText("Opções:");
 
-        jList3.setEnabled(false);
-        jScrollPane3.setViewportView(jList3);
+        jListaVeiculos.setEnabled(false);
+        jScrollPane3.setViewportView(jListaVeiculos);
 
         cadastrarVeiculo.setText("Cadastrar Veiculo");
         cadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -1212,6 +1228,11 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         limparCamposMoto.setText("Limpar Campos");
+        limparCamposMoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCamposMotoActionPerformed(evt);
+            }
+        });
 
         jLabel73.setText("Renavam:");
 
@@ -1223,37 +1244,37 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel77.setText("Data Aquisição:");
 
-        anoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        anoMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel78.setText("Estado:");
 
         estado5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
-        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         dataAquisicaoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         marcaMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VERMELHO", "AMARELO", "AZUL", "VERDE", "CINZA", "PRATA", "PRETO", "DOURADO", "VINHO", "BRANCO" }));
+        jTipoCorMoto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VERMELHO", "AMARELO", "AZUL", "VERDE", "CINZA", "PRATA", "PRETO", "DOURADO", "VINHO", "BRANCO" }));
 
         jLabel79.setText("Cor:");
 
-        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        potenciaMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel80.setText("Freio:");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABS", "DISCO", "TAMBOR" }));
+        jTipoFreioMoto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABS", "DISCO", "TAMBOR" }));
 
-        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        modeloMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel81.setText("Tipo de Pot.:");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HP", "CV" }));
+        jTipoPotenciaMoto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HP", "CV" }));
 
         jLabel82.setText("Combustivel:");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALCOOL", "GASOLINA", "GAS", "DIESEL", "FLEX" }));
+        jTipoCombustivelMoto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALCOOL", "GASOLINA", "GAS", "DIESEL", "FLEX" }));
 
         jLabel83.setText("Niv. Combus");
 
@@ -1261,7 +1282,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel139.setText("Cilindradas:");
 
-        cilindradasMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        cilindradasMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1275,11 +1296,11 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addComponent(jLabel82)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTipoCombustivelMoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel79)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTipoCorMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1308,13 +1329,13 @@ public class MenuInicial extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel83)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jSpinnerCombustivelMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                         .addComponent(marcaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel81)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox8, 0, 46, Short.MAX_VALUE))
+                                        .addComponent(jTipoPotenciaMoto, 0, 46, Short.MAX_VALUE))
                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                         .addComponent(potenciaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1326,7 +1347,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel80)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTipoFreioMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                         .addComponent(renavamMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1363,13 +1384,13 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel74)
                     .addComponent(modeloMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel80)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTipoFreioMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(marcaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel75)
                     .addComponent(jLabel81)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTipoPotenciaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(potenciaMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1381,7 +1402,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel77)
                     .addComponent(dataAquisicaoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinnerCombustivelMoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cilindradasMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1390,12 +1411,12 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel82)
-                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTipoCombustivelMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel79)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTipoCorMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCamposMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2417,7 +2438,37 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void cadastrarMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMotoActionPerformed
-        // TODO add your handling code here:
+        String renavam = renavamMoto.getText();
+        String modelo = modeloMoto.getText();
+        String marca = marcaMoto.getText();
+        String potencia = potenciaMoto.getText();
+        String data = dataAquisicaoMoto.getText();
+        String cilindradas = cilindradasMoto.getText();
+        String ano = anoMoto.getText();
+        UnidadeFederativa estadoMoto = UnidadeFederativa.valueOf((String) estado5.getSelectedItem());
+        TipoDeCombustivel combustivelMoto = TipoDeCombustivel.valueOf((String) jTipoCombustivelMoto.getSelectedItem());
+        TipoDeFreio freioMoto = TipoDeFreio.valueOf((String) jTipoFreioMoto.getSelectedItem());
+        TipoDePotencia tipoPotenciaMoto = TipoDePotencia.valueOf((String) jTipoPotenciaMoto.getSelectedItem());
+        Cor corMoto = Cor.valueOf((String) jTipoCorMoto.getSelectedItem());
+        int nivelTanque = (Integer) jSpinnerCombustivelMoto.getValue();
+        if (renavam.equals("") || modelo.equals("") || estadoMoto == null || marca.equals("")
+                || potencia.equals("") || data.equals("") || cilindradas.equals("") || ano.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+        }
+        try {
+            int potencia1 = Integer.parseInt(potencia);
+            int cilindradas1 = Integer.parseInt(cilindradas);
+            int ano1 = Integer.parseInt(ano);
+            Motocicleta moto = new Motocicleta(renavam, modelo, marca, tipoPotenciaMoto, potencia1, cilindradas1, ano1, corMoto, combustivelMoto, data, nivelTanque);
+            dadosAgencia.adicionaVeiculos(moto);
+            atualizarFilial(dadosAgencia);
+            atualizarListaDeVeiculos();
+            JOptionPane.showMessageDialog(rootPane, "Moto cadastrada com sucesso!");
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(rootPane, "Digitar apenas numeros nos campos de potencia, cilindradas e ano");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
     }//GEN-LAST:event_cadastrarMotoActionPerformed
 
     private void cadastrarPlanoDeLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoDeLocacaoActionPerformed
@@ -2579,6 +2630,16 @@ public class MenuInicial extends javax.swing.JFrame {
         ativarCadastroFuncionarios();
         jComboTipoFuncionario.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void limparCamposMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposMotoActionPerformed
+        renavamMoto.setText("");
+        modeloMoto.setText("");
+        marcaMoto.setText("");
+        potenciaMoto.setText("");
+        dataAquisicaoMoto.setText("");
+        cilindradasMoto.setText("");
+        anoMoto.setText("");
+    }//GEN-LAST:event_limparCamposMotoActionPerformed
 
     private void setarMascaras() {
         try {
@@ -2935,10 +2996,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JComboBox jComboTipoFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3032,11 +3089,11 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList3;
     private javax.swing.JList jList4;
     private javax.swing.JList jList5;
     private javax.swing.JList jListaClientes;
     private javax.swing.JList jListaFuncionario;
+    private javax.swing.JList jListaVeiculos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -3079,11 +3136,15 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinnerCombustivelMoto;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JComboBox jTipoCombustivelMoto;
+    private javax.swing.JComboBox jTipoCorMoto;
+    private javax.swing.JComboBox jTipoFreioMoto;
+    private javax.swing.JComboBox jTipoPotenciaMoto;
     private javax.swing.JButton limparCampos;
     private javax.swing.JButton limparCampos1;
     private javax.swing.JButton limparCampos3;
