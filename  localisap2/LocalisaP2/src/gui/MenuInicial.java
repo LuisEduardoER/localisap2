@@ -880,7 +880,6 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel25.setText("Lista de Funcionarios:");
 
-        jListaFuncionario.setEnabled(false);
         jScrollPane2.setViewportView(jListaFuncionario);
 
         jLabel30.setText("Opções:");
@@ -1110,7 +1109,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(editarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                         .addComponent(apagarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
@@ -2208,6 +2207,8 @@ public class MenuInicial extends javax.swing.JFrame {
                 atualizarFilial(dadosAgencia);
                 JOptionPane.showMessageDialog(rootPane,"Cliente cadastrado com sucesso!");
                 atualizarListaDeClientes();
+                limparCampos.doClick();
+                desativarCadastro();
             }
 
         }else{
