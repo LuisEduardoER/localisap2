@@ -41,6 +41,7 @@ public class PessoaFisica extends Cliente{
         setNaturalidade(naturalidade);
         setNome(nome);
         setRg(rg);
+        setTelefone(telefone);
     }
 
     public PessoaFisica() {
