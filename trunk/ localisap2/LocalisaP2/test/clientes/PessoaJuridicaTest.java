@@ -26,9 +26,9 @@ public class PessoaJuridicaTest {
 		empresa.setCnpj("30851837000105");
 		empresa.setEmail("filipe@teste");
 		empresa.setEndereco(endereco);
-		empresa.setNomeFantasia("Fantasia");
 		empresa.setInscricaoEstadual("123456");
 		empresa.setTelefone("8333311111");
+                empresa.setQuantidadeLocacao(1);
 	}
 
 	@Test
@@ -37,10 +37,10 @@ public class PessoaJuridicaTest {
 		Assert.assertEquals("LocaLisa",empresa.getRazaoSocial());
 		Assert.assertEquals("filipe@teste",empresa.getEmail());
 		Assert.assertEquals(endereco,empresa.getEndereco());
-		Assert.assertEquals("Fantasia",empresa.getNomeFantasia());
 		Assert.assertEquals("123456",empresa.getInscricaoEstadual());
 		Assert.assertEquals("8333311111",empresa.getTelefone());
                 Assert.assertEquals(false, empresa.getEmDebito());
+                Assert.assertEquals(1, empresa.getQuantidadeDeLocacao());
 
 	}
 	@Test
@@ -72,15 +72,7 @@ public class PessoaJuridicaTest {
             empresa.setEmail("filipe@teste2");
             empresa.setEndereco(endereco2);
 
-            try{
-                empresa.setNomeFantasia("");
-                Assert.fail("Esperava excecao de setNomeFantasia");
-            } catch (Exception ex){
-                    Assert.assertEquals("erro", "O nome Fantasia nao deve ser vazio", ex.getMessage());
-            }
-            empresa.setNomeFantasia("Filipe A");
-
-            try{
+           try{
                 empresa.setInscricaoEstadual("");
                 Assert.fail("Esperava excecao de setInscricaoEstadual");
             } catch (Exception ex){
@@ -94,15 +86,16 @@ public class PessoaJuridicaTest {
                 } catch (Exception ex){
                     Assert.assertEquals("erro", "Um telefone valido deve ter o DDD + o numero", ex.getMessage());
                 }
-            empresa.setTelefone("8333312222");
-            
+            empresa.setTelefone("8333312222");            
             empresa.setEmDebito(true);
+            empresa.setQuantidadeLocacao(1);
+            empresa.setQuantidadeLocacao(1);
+            empresa.setDivida(50);
             
             Assert.assertEquals("75416229000100",empresa.getCnpj());
             Assert.assertEquals("agencia2",empresa.getRazaoSocial());
             Assert.assertEquals("filipe@teste2",empresa.getEmail());
             Assert.assertEquals(endereco2,empresa.getEndereco());
-            Assert.assertEquals("Filipe A",empresa.getNomeFantasia());
             Assert.assertEquals("1234567",empresa.getInscricaoEstadual());
             Assert.assertEquals("8333312222",empresa.getTelefone());
             Assert.assertEquals(true, empresa.getEmDebito());
