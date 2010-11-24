@@ -12,9 +12,10 @@ package veiculos;
  */
 import java.util.ArrayList;
 import agencias.Filial;
+import java.io.Serializable;
 import verificacoes.Validacao;
 
-public class Automovel implements Veiculo {
+public class Automovel implements Veiculo,Serializable{
 
     private String renavam;
     private String modelo;
@@ -193,6 +194,14 @@ public class Automovel implements Veiculo {
     @Override
     public void setTipoDeFreios(TipoDeFreio tipoDeFreios) {
         this.tipoDeFreio = tipoDeFreios;
+    }
+
+    /**
+     * Seta a lista de opcionais do veiculo.
+     * @param listaOpcionais - A lista de opcionais.
+     */
+    public void setOpcionais(ArrayList<Acessorio> listaOpcionais){
+        this.acessoriosOpcionais = listaOpcionais;
     }
 
     /**

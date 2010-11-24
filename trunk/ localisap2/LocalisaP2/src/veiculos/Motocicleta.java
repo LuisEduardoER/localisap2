@@ -12,11 +12,11 @@ package veiculos;
  */
 
 import java.util.ArrayList;
-import veiculos.*;
 import agencias.Filial;
+import java.io.Serializable;
 import verificacoes.Validacao;
 
-public class Motocicleta implements Veiculo{
+public class Motocicleta implements Veiculo,Serializable{
 	private String renavam;
 	private String modelo;
 	private String marca;
