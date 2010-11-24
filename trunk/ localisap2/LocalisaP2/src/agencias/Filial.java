@@ -26,7 +26,7 @@ import verificacoes.Validacao;
  *
  */
 public class Filial implements Serializable{
-
+    private Gerente gerente;
     private String cnpj;
     Endereco endereco;
     private String telefone;
@@ -59,10 +59,13 @@ public class Filial implements Serializable{
             this.setEndereco(endereco);
             this.setInscEstadual(inscEstadual);
             this.setTelefone(telefone);
+            this.gerente = new Gerente();
         } catch (Exception e) {
         }
     }
-
+    public Gerente getGerente(){
+        return gerente;
+    }
     /**
      * Metodo para capturar o CPNJ de uma agencia
      * @return - Em String o CPNJ
