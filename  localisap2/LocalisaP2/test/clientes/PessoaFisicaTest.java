@@ -42,6 +42,7 @@ public class PessoaFisicaTest{
 		pessoa1.setNome("Filipe");
 		pessoa1.setRg("123456");
 		pessoa1.setTelefone("8333311111");
+                pessoa1.setQuantidadeLocacao(1);
 	}
 
 	@Test
@@ -55,6 +56,7 @@ public class PessoaFisicaTest{
 		Assert.assertEquals("123456",pessoa1.getRg());
 		Assert.assertEquals("8333311111",pessoa1.getTelefone());
                 Assert.assertEquals(false, pessoa1.getEmDebito());
+                Assert.assertEquals(1, pessoa1.getQuantidadeDeLocacao());
 
 	}
 
@@ -70,6 +72,10 @@ public class PessoaFisicaTest{
 		pessoa1.setRg("1234567");
 		pessoa1.setTelefone("8333312222");
                 pessoa1.setEmDebito(true);
+                pessoa1.setQuantidadeLocacao(1);
+                pessoa1.setQuantidadeLocacao(1);
+                pessoa1.setDivida(50);
+
 		Assert.assertEquals("01234567890",pessoa1.getCpf());
 		Assert.assertEquals("filipe@teste2",pessoa1.getEmail());
 		Assert.assertEquals(endereco,pessoa1.getEndereco());
@@ -79,5 +85,7 @@ public class PessoaFisicaTest{
 		Assert.assertEquals("1234567",pessoa1.getRg());
 		Assert.assertEquals("8333312222",pessoa1.getTelefone());
                 Assert.assertEquals(true, pessoa1.getEmDebito());
+                Assert.assertEquals(3, pessoa1.getQuantidadeDeLocacao());
+                Assert.assertEquals(50, pessoa1.getDivida(), 0.001);
 	}
 }
