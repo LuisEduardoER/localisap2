@@ -60,6 +60,10 @@ public class Filial implements Serializable{
         } catch (Exception e) {
         }
     }
+    public void aumentaLocacao(){
+        numeroDeLocacoes++;
+    }
+
     public Gerente getGerente(){
         return gerente;
     }
