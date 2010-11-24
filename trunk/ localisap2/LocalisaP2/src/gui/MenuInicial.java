@@ -3252,7 +3252,7 @@ public class MenuInicial extends javax.swing.JFrame {
             nascimento1.setFormatterFactory(dataformatter);
             telefone2.setFormatterFactory(telefoneformatter);
             cep2.setFormatterFactory(cepformatter);
-
+            dataDevolucaoLocacao.setFormatterFactory(dataformatter);
         } catch (Exception e) {
         }
     }
