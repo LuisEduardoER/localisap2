@@ -1,7 +1,5 @@
 package veiculos;
 
-import agencias.Filial;
-
 /**
  *
  * @author Felipe Jose      -twitter.com/felipejosefc

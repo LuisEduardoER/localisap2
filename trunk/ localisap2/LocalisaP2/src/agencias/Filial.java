@@ -1,10 +1,8 @@
 package agencias;
 
+import clientes.Cliente;
 import clientes.Endereco;
-import clientes.PessoaFisica;
-import clientes.PessoaJuridica;
 import funcionarios.Gerente;
-import funcionarios.Locador;
 import funcionarios.Pessoa;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,8 +35,7 @@ public class Filial implements Serializable{
     private Collection<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
     private Collection<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
     private Collection<Pessoa> listaDeFuncionarios = new ArrayList<Pessoa>();
-    private Collection<PessoaFisica> listaDeClientesPessoaFisica = new ArrayList<PessoaFisica>();
-    private Collection<PessoaJuridica> listaDeClientesPessoaJuridica = new ArrayList<PessoaJuridica>();
+    private Collection<Cliente> listaDeClientes = new ArrayList<Cliente>();
     private Collection<Locacao> listaDeLocacoes = new ArrayList<Locacao>();
 
     /**
@@ -158,7 +155,7 @@ public class Filial implements Serializable{
      * Metodo que adiciona veiculos
      * @param v - O veiculo
      */
-    public void adicionaVeiculos(Veiculo v) {
+    public void adicionaVeiculo(Veiculo v) {
         listaDeVeiculos.add(v);
     }
 
@@ -187,19 +184,11 @@ public class Filial implements Serializable{
     }
 
     /**
-     * Metodo que adiciona a pessoa fisica
-     * @param pf - A pessoa fisica
+     * Metodo que adiciona um cliente
+     * @param c - O cliente
      */
-    public void adicionaPessoaFisica(PessoaFisica pf) {
-        listaDeClientesPessoaFisica.add(pf);
-    }
-
-    /**
-     * Metodo que adiciona a Pessoa Juridica
-     * @param pj - A pessoa Juridica
-     */
-    public void adicionaPessoaJuridica(PessoaJuridica pj) {
-        listaDeClientesPessoaJuridica.add(pj);
+    public void adicionaCliente(Cliente c) {
+        listaDeClientes.add(c);
     }
 
     /**
@@ -243,19 +232,11 @@ public class Filial implements Serializable{
     }
 
     /**
-     * Metodo que retorna uma collection com as pessoas fisicas
+     * Metodo que retorna uma collection com os clientes
      * @return - Collection com as pessoas fisicas
      */
-    public Collection<PessoaFisica> getPessoaFisica() {
-        return listaDeClientesPessoaFisica;
-    }
-
-    /**
-     * Metodo que retorna uma collection com as Pessoas  juridicas
-     * @return - Collection com as pessoas juridicas
-     */
-    public Collection<PessoaJuridica> getPessoaJuridica() {
-        return listaDeClientesPessoaJuridica;
+    public Collection<Cliente> getClientes() {
+        return listaDeClientes;
     }
 
     /**
@@ -305,23 +286,16 @@ public class Filial implements Serializable{
      * Metodo que remove uma pessoa fisica
      * @param pf - a pessoa fisica a ser removida
      */
-    public void removePessoaFisica(PessoaFisica pf) {
-        listaDeClientesPessoaFisica.remove(pf);
+    public void removeCliente(Cliente c) {
+        listaDeClientes.remove(c);
     }
 
     /**
      * Metodo que remove uma pessoa fisica
      * @param pf - a pessoa fisica a ser removida
      */
-    public void removePessoaFisica(int index) {
-        listaDeClientesPessoaFisica.remove(listaDeClientesPessoaFisica.toArray()[index]);
+    public void removeCliente(int index) {
+        listaDeClientes.remove(listaDeClientes.toArray()[index]);
     }
 
-    /**
-     * Metodo que remove uma pessoa juridica
-     * @param pj - a pessoa juridica a ser removida
-     */
-    public void removePessoaJuridica(PessoaJuridica pj) {
-        listaDeClientesPessoaJuridica.remove(pj);
-    }
 }

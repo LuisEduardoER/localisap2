@@ -24,6 +24,7 @@ public abstract class Cliente implements Serializable{
     private Endereco endereco;
     private String telefone;
     private String email;
+    private String nome;
 
 
     public Endereco getEndereco() {
@@ -36,6 +37,18 @@ public abstract class Cliente implements Serializable{
 
     public String getEmail() {
         return email;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) throws Exception {
+        if (nome.length() == 0) {
+            throw new Exception("O nome nao deve ser vazio");
+        }
+        this.nome = nome;
+
     }
 
     public void setEndereco(Endereco endereco) throws Exception {
