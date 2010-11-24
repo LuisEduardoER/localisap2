@@ -1,5 +1,7 @@
 package veiculos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -11,7 +13,7 @@ package veiculos;
  *
  */
 
-public interface Veiculo {
+public interface Veiculo extends Serializable{
 
 	/**
 	 * Metodo para capturar o RENAVAM

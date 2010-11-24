@@ -1782,58 +1782,6 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel78">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Estado:"/>
-                        <Property name="enabled" type="boolean" value="false"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="80" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="estado5">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="27">
-                            <StringItem index="0" value="AC"/>
-                            <StringItem index="1" value="AL"/>
-                            <StringItem index="2" value="AP"/>
-                            <StringItem index="3" value="AM"/>
-                            <StringItem index="4" value="BA"/>
-                            <StringItem index="5" value="CE"/>
-                            <StringItem index="6" value="DF"/>
-                            <StringItem index="7" value="ES"/>
-                            <StringItem index="8" value="GO"/>
-                            <StringItem index="9" value="MA"/>
-                            <StringItem index="10" value="MT"/>
-                            <StringItem index="11" value="MS"/>
-                            <StringItem index="12" value="MG"/>
-                            <StringItem index="13" value="PA"/>
-                            <StringItem index="14" value="PB"/>
-                            <StringItem index="15" value="PR"/>
-                            <StringItem index="16" value="PE"/>
-                            <StringItem index="17" value="PI"/>
-                            <StringItem index="18" value="RJ"/>
-                            <StringItem index="19" value="RN"/>
-                            <StringItem index="20" value="RS"/>
-                            <StringItem index="21" value="RO"/>
-                            <StringItem index="22" value="RR"/>
-                            <StringItem index="23" value="SC"/>
-                            <StringItem index="24" value="SP"/>
-                            <StringItem index="25" value="SE"/>
-                            <StringItem index="26" value="TO"/>
-                          </StringArray>
-                        </Property>
-                        <Property name="enabled" type="boolean" value="false"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="250" y="80" width="50" height="17"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="renavamMoto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2026,7 +1974,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="110" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="180" y="90" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2036,7 +1984,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="248" y="105" width="50" height="-1"/>
+                          <AbsoluteConstraints x="250" y="90" width="50" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2272,7 +2220,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="183" y="63" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="180" y="40" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2289,7 +2237,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="240" y="60" width="70" height="17"/>
+                          <AbsoluteConstraints x="230" y="40" width="70" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2402,7 +2350,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="260" y="120" width="50" height="17"/>
+                          <AbsoluteConstraints x="250" y="90" width="50" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2413,7 +2361,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="183" y="120" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="180" y="90" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2424,7 +2372,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="183" y="93" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="180" y="60" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2440,59 +2388,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="260" y="90" width="51" height="17"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel69">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Estado:"/>
-                        <Property name="enabled" type="boolean" value="false"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="183" y="36" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="estadoCarro">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="27">
-                            <StringItem index="0" value="AC"/>
-                            <StringItem index="1" value="AL"/>
-                            <StringItem index="2" value="AP"/>
-                            <StringItem index="3" value="AM"/>
-                            <StringItem index="4" value="BA"/>
-                            <StringItem index="5" value="CE"/>
-                            <StringItem index="6" value="DF"/>
-                            <StringItem index="7" value="ES"/>
-                            <StringItem index="8" value="GO"/>
-                            <StringItem index="9" value="MA"/>
-                            <StringItem index="10" value="MT"/>
-                            <StringItem index="11" value="MS"/>
-                            <StringItem index="12" value="MG"/>
-                            <StringItem index="13" value="PA"/>
-                            <StringItem index="14" value="PB"/>
-                            <StringItem index="15" value="PR"/>
-                            <StringItem index="16" value="PE"/>
-                            <StringItem index="17" value="PI"/>
-                            <StringItem index="18" value="RJ"/>
-                            <StringItem index="19" value="RN"/>
-                            <StringItem index="20" value="RS"/>
-                            <StringItem index="21" value="RO"/>
-                            <StringItem index="22" value="RR"/>
-                            <StringItem index="23" value="SC"/>
-                            <StringItem index="24" value="SP"/>
-                            <StringItem index="25" value="SE"/>
-                            <StringItem index="26" value="TO"/>
-                          </StringArray>
-                        </Property>
-                        <Property name="enabled" type="boolean" value="false"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="230" y="35" width="-1" height="17"/>
+                          <AbsoluteConstraints x="250" y="60" width="51" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>

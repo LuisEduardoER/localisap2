@@ -103,6 +103,7 @@ public class MenuInicial extends javax.swing.JFrame {
         ruaAgencia.setText(dadosAgencia.getEndereco().getRua());
         telefoneAgencia.setText(dadosAgencia.getTelefone());
         cepAgencia.setText(dadosAgencia.getEndereco().getCep());
+        estadoAgencia.setSelectedItem(dadosAgencia.getEndereco().getEstado().toString());
 
         nomeGerente.setText(dadosAgencia.getGerente().getNome());
         cpfGerente.setText(dadosAgencia.getGerente().getCpf());
@@ -116,7 +117,7 @@ public class MenuInicial extends javax.swing.JFrame {
         ruaGerente.setText(dadosAgencia.getGerente().getEndereco().getRua());
         telefoneGerente.setText(dadosAgencia.getGerente().getTelefone());
         cepGerente.setText(dadosAgencia.getGerente().getEndereco().getCep());
-
+        estadoGerente.setSelectedItem(dadosAgencia.getGerente().getEndereco().getEstado().toString());
     }
 
     public Pessoa getFuncionarioSelecionado() {
@@ -291,8 +292,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel76 = new javax.swing.JLabel();
         jLabel77 = new javax.swing.JLabel();
         anoMoto = new javax.swing.JTextField();
-        jLabel78 = new javax.swing.JLabel();
-        estado5 = new javax.swing.JComboBox();
         renavamMoto = new javax.swing.JTextField();
         dataAquisicaoMoto = new javax.swing.JFormattedTextField();
         marcaMoto = new javax.swing.JFormattedTextField();
@@ -341,8 +340,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel72 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
         tipoPotenciaCarro = new javax.swing.JComboBox();
-        jLabel69 = new javax.swing.JLabel();
-        estadoCarro = new javax.swing.JComboBox();
         combustivelCarro = new javax.swing.JComboBox();
         jLabel66 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
@@ -1034,7 +1031,7 @@ public class MenuInicial extends javax.swing.JFrame {
         nome2.setFont(new java.awt.Font("Tahoma", 0, 10));
         nome2.setEnabled(false);
 
-        rg1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        rg1.setFont(new java.awt.Font("Tahoma", 0, 10));
         rg1.setEnabled(false);
 
         naturalidade1.setFont(new java.awt.Font("Tahoma", 0, 10));
@@ -1383,14 +1380,6 @@ public class MenuInicial extends javax.swing.JFrame {
         anoMoto.setEnabled(false);
         jPanel13.add(anoMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 11, 70, 17));
 
-        jLabel78.setText("Estado:");
-        jLabel78.setEnabled(false);
-        jPanel13.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
-
-        estado5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        estado5.setEnabled(false);
-        jPanel13.add(estado5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 17));
-
         renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
         renavamMoto.setEnabled(false);
         jPanel13.add(renavamMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 12, 84, 17));
@@ -1445,10 +1434,10 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel83.setText("Niv. Combus");
         jLabel83.setEnabled(false);
-        jPanel13.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
+        jPanel13.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         jSpinnerCombustivelMoto.setEnabled(false);
-        jPanel13.add(jSpinnerCombustivelMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 105, 50, -1));
+        jPanel13.add(jSpinnerCombustivelMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 50, -1));
 
         jLabel84.setText("Ano:");
         jLabel84.setEnabled(false);
@@ -1535,11 +1524,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel67.setText("Freio:");
         jLabel67.setEnabled(false);
-        jPanel12.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 63, -1, -1));
+        jPanel12.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
 
         freioCarro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABS", "DISCO", "TAMBOR" }));
         freioCarro.setEnabled(false);
-        jPanel12.add(freioCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 70, 17));
+        jPanel12.add(freioCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 70, 17));
 
         jLabel71.setText("Acessórios:");
         jLabel71.setEnabled(false);
@@ -1584,27 +1573,19 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel12.add(bancoDeCouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
 
         nivelCombustivelCarro.setEnabled(false);
-        jPanel12.add(nivelCombustivelCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 50, 17));
+        jPanel12.add(nivelCombustivelCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 50, 17));
 
         jLabel72.setText("Niv. Combus");
         jLabel72.setEnabled(false);
-        jPanel12.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 120, -1, -1));
+        jPanel12.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         jLabel70.setText("Tipo de Pot.:");
         jLabel70.setEnabled(false);
-        jPanel12.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 93, -1, -1));
+        jPanel12.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
         tipoPotenciaCarro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HP", "CV" }));
         tipoPotenciaCarro.setEnabled(false);
-        jPanel12.add(tipoPotenciaCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 51, 17));
-
-        jLabel69.setText("Estado:");
-        jLabel69.setEnabled(false);
-        jPanel12.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 36, -1, -1));
-
-        estadoCarro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        estadoCarro.setEnabled(false);
-        jPanel12.add(estadoCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 35, -1, 17));
+        jPanel12.add(tipoPotenciaCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 51, 17));
 
         combustivelCarro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALCOOL", "GASOLINA", "GAS", "DIESEL", "FLEX" }));
         combustivelCarro.setEnabled(false);
@@ -2723,7 +2704,7 @@ public class MenuInicial extends javax.swing.JFrame {
         String potenciaC = potenciaCarro.getText();
         String dataAquisicaoC = dataAquisicaoCarro.getText();
         String anoC = anoCarro.getText();
-        UnidadeFederativa estadoC = UnidadeFederativa.valueOf((String) estadoCarro.getSelectedItem());
+
         TipoDeFreio freioC = TipoDeFreio.valueOf((String) freioCarro.getSelectedItem());
         TipoDePotencia tipoPotenciaC = TipoDePotencia.valueOf((String) tipoPotenciaCarro.getSelectedItem());
         int nivelCombustivelC = ((Integer)nivelCombustivelCarro.getValue()).intValue();
@@ -2797,13 +2778,13 @@ public class MenuInicial extends javax.swing.JFrame {
         String data = dataAquisicaoMoto.getText();
         String cilindradas = cilindradasMoto.getText();
         String ano = anoMoto.getText();
-        UnidadeFederativa estadoMoto = UnidadeFederativa.valueOf((String) estado5.getSelectedItem());
+
         TipoDeCombustivel combustivelMoto = TipoDeCombustivel.valueOf((String) jTipoCombustivelMoto.getSelectedItem());
         TipoDeFreio freioMoto = TipoDeFreio.valueOf((String) jTipoFreioMoto.getSelectedItem());
         TipoDePotencia tipoPotenciaMoto = TipoDePotencia.valueOf((String) jTipoPotenciaMoto.getSelectedItem());
         Cor corMoto = Cor.valueOf((String) jTipoCorMoto.getSelectedItem());
         int nivelTanque = ((Integer)jSpinnerCombustivelMoto.getValue()).intValue();
-        if (renavam.equals("") || modelo.equals("") || estadoMoto == null || marca.equals("")
+        if (renavam.equals("") || modelo.equals("") ||  marca.equals("")
                 || potencia.equals("") || data.equals("") || cilindradas.equals("") || ano.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
         }else{
@@ -3016,9 +2997,11 @@ public class MenuInicial extends javax.swing.JFrame {
         email2.setText(funcionario.getEmail());
         telefone2.setText(funcionario.getTelefone());
         cep2.setText(funcionario.getEndereco().getCep());
+        estado2.setSelectedItem(funcionario.getEndereco().getEstado().toString());
         cadastrarFuncionario.setText("Atualizar");
         limparCampos3.setText("Cancelar");
         ativarCadastroFuncionarios();
+
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -3088,6 +3071,10 @@ public class MenuInicial extends javax.swing.JFrame {
                 bancoDeCouro.setSelected(true);
             if (listaAcessorios.contains(Acessorio.AB))
                 airBag.setSelected(true);
+            corCarro.setSelectedItem(auto.getCor().toString());
+            freioCarro.setSelectedItem(auto.getTipoDeFreios().toString());
+            tipoPotenciaCarro.setSelectedItem(auto.getTipoDePotencia().toString());
+            combustivelCarro.setSelectedItem(auto.getTipoDeCombustivel().toString());
             jTabbedPane4.setSelectedComponent(jPanel12);
             nivelCombustivelCarro.setValue(auto.getNivelDoTanque());
             renavamCarro.setText(auto.getRenavam());
@@ -3109,6 +3096,10 @@ public class MenuInicial extends javax.swing.JFrame {
             potenciaMoto.setText("" + moto.getPotencia());
             dataAquisicaoMoto.setText(moto.getDataDeAquisicao());
             cilindradasMoto.setText("" + moto.getCilindradas());
+            jTipoCorMoto.setSelectedItem(moto.getCor().toString());
+            jTipoFreioMoto.setSelectedItem(moto.getTipoDeFreios().toString());
+            jTipoPotenciaMoto.setSelectedItem(moto.getTipoDePotencia().toString());
+            jTipoCombustivelMoto.setSelectedItem(moto.getTipoDeCombustivel().toString());
             anoMoto.setText("" + moto.getAno());
             cadastrarMoto.setText("Atualizar");
             limparCamposMoto.setText("Cancelar");
@@ -3327,6 +3318,7 @@ public class MenuInicial extends javax.swing.JFrame {
     }
 
     private void ativarCadastroFuncionarios() {
+        estado2.setEnabled(true);
         jLabel31.setEnabled(true);
         jLabel32.setEnabled(true);
         jLabel33.setEnabled(true);
@@ -3365,7 +3357,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel13.setEnabled(true);
         jLabel83.setEnabled(true);
         jLabel79.setEnabled(true);
-        jLabel78.setEnabled(true);
+
         jLabel80.setEnabled(true);
         jLabel73.setEnabled(true);
         jLabel76.setEnabled(true);
@@ -3387,7 +3379,7 @@ public class MenuInicial extends javax.swing.JFrame {
         anoMoto.setEnabled(true);
         jTipoCorMoto.setEnabled(true);
         jTipoPotenciaMoto.setEnabled(true);
-        estado5.setEnabled(true);
+
         jSpinnerCombustivelMoto.setEnabled(true);
         cadastrarMoto.setEnabled(true);
         cadastrarCarro.setEnabled(true);
@@ -3395,7 +3387,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel70.setEnabled(true);
         jLabel66.setEnabled(true);
         jLabel62.setEnabled(true);
-        jLabel69.setEnabled(true);
+
         jLabel64.setEnabled(true);
         jLabel65.setEnabled(true);
         jLabel72.setEnabled(true);
@@ -3415,7 +3407,7 @@ public class MenuInicial extends javax.swing.JFrame {
         renavamCarro.setEnabled(true);
         anoCarro.setEnabled(true);
         freioCarro.setEnabled(true);
-        estadoCarro.setEnabled(true);
+
         arCondicionado.setEnabled(true);
         cadastrarCarro.setEnabled(true);
         gps.setEnabled(true);
@@ -3589,7 +3581,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel13.setEnabled(false);
         jLabel83.setEnabled(false);
         jLabel79.setEnabled(false);
-        jLabel78.setEnabled(false);
+   
         jLabel80.setEnabled(false);
         jLabel73.setEnabled(false);
         jLabel76.setEnabled(false);
@@ -3611,7 +3603,7 @@ public class MenuInicial extends javax.swing.JFrame {
         anoMoto.setEnabled(false);
         jTipoCorMoto.setEnabled(false);
         jTipoPotenciaMoto.setEnabled(false);
-        estado5.setEnabled(false);
+
         jSpinnerCombustivelMoto.setEnabled(false);
         cadastrarMoto.setEnabled(false);
         cadastrarCarro.setEnabled(false);
@@ -3619,7 +3611,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel70.setEnabled(false);
         jLabel66.setEnabled(false);
         jLabel62.setEnabled(false);
-        jLabel69.setEnabled(false);
+
         jLabel64.setEnabled(false);
         jLabel65.setEnabled(false);
         jLabel72.setEnabled(false);
@@ -3639,7 +3631,7 @@ public class MenuInicial extends javax.swing.JFrame {
         renavamCarro.setEnabled(false);
         anoCarro.setEnabled(false);
         freioCarro.setEnabled(false);
-        estadoCarro.setEnabled(false);
+    
         arCondicionado.setEnabled(false);
         cadastrarCarro.setEnabled(false);
         gps.setEnabled(false);
@@ -3711,9 +3703,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JComboBox estado;
     private javax.swing.JComboBox estado1;
     private javax.swing.JComboBox estado2;
-    private javax.swing.JComboBox estado5;
     private javax.swing.JComboBox estadoAgencia;
-    private javax.swing.JComboBox estadoCarro;
     private javax.swing.JComboBox estadoGerente;
     private javax.swing.JComboBox freioCarro;
     private javax.swing.JRadioButton gps;
@@ -3811,7 +3801,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
@@ -3821,7 +3810,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
