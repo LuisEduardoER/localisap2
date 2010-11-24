@@ -254,7 +254,9 @@ public class Filial implements Serializable{
     public void removeVeiculos(Veiculo v) {
         listaDeVeiculos.remove(v);
     }
-
+    public void removeVeiculos(int index) {
+        listaDeVeiculos.remove(listaDeVeiculos.toArray()[index]);
+    }
     /**
      * Metodo que remove um plano de automovel
      * @param p - o plano a ser removido

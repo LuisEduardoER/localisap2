@@ -53,7 +53,7 @@ public class Devolucao {
         if (getMultas() != 0) {
             cliente.setEmDebito(true);
             cliente.setDivida(getMultas());
-            cliente.locacao(-1);
+            cliente.setQuantidadeLocacao(-1);
         }
     }
 

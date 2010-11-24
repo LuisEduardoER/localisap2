@@ -93,7 +93,7 @@ public abstract class Cliente implements Serializable{
      * Metodo que permite alterar o numero de locacoes que o cliente fez.
      * @param numero - Se o numero for 1 aumenta a locacao se for -1 diminui.
      */
-    public void locacao(int numero) {
+    public void setQuantidadeLocacao(int numero) {
         if (numero == -1) {
             quantidadeLocacao--;
         }
