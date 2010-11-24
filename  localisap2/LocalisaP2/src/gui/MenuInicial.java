@@ -2726,7 +2726,7 @@ public class MenuInicial extends javax.swing.JFrame {
         UnidadeFederativa estadoC = UnidadeFederativa.valueOf((String) estadoCarro.getSelectedItem());
         TipoDeFreio freioC = TipoDeFreio.valueOf((String) freioCarro.getSelectedItem());
         TipoDePotencia tipoPotenciaC = TipoDePotencia.valueOf((String) tipoPotenciaCarro.getSelectedItem());
-        int nivelCombustivelC = nivelCombustivelCarro.getComponentCount();
+        int nivelCombustivelC = ((Integer)nivelCombustivelCarro.getValue()).intValue();
         Cor corC = Cor.valueOf((String) corCarro.getSelectedItem());
         TipoDeCombustivel combustivelC = TipoDeCombustivel.valueOf((String) combustivelCarro.getSelectedItem());
         if (quatroPortas.isSelected()) {
@@ -2802,7 +2802,7 @@ public class MenuInicial extends javax.swing.JFrame {
         TipoDeFreio freioMoto = TipoDeFreio.valueOf((String) jTipoFreioMoto.getSelectedItem());
         TipoDePotencia tipoPotenciaMoto = TipoDePotencia.valueOf((String) jTipoPotenciaMoto.getSelectedItem());
         Cor corMoto = Cor.valueOf((String) jTipoCorMoto.getSelectedItem());
-        int nivelTanque = jSpinnerCombustivelMoto.getComponentCount();
+        int nivelTanque = ((Integer)jSpinnerCombustivelMoto.getValue()).intValue();
         if (renavam.equals("") || modelo.equals("") || estadoMoto == null || marca.equals("")
                 || potencia.equals("") || data.equals("") || cilindradas.equals("") || ano.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
@@ -3035,6 +3035,7 @@ public class MenuInicial extends javax.swing.JFrame {
             dataAquisicaoMoto.setText("");
             cilindradasMoto.setText("");
             anoMoto.setText("");
+            jSpinnerCombustivelMoto.setValue(0);
         } else {
             limparCamposMoto.setText("Limpar Campos");
             cadastrarMoto.setText("Cadastrar");
