@@ -16,7 +16,6 @@ import verificacoes.Validacao;
 public class PessoaFisica extends Cliente{
 
     private String cpf;
-    private String nome;
     private String rg;
     private String nascimento;
     private String naturalidade;
@@ -51,10 +50,6 @@ public class PessoaFisica extends Cliente{
         return cpf;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public String getRg() {
         return rg;
     }
@@ -73,14 +68,6 @@ public class PessoaFisica extends Cliente{
             throw new Exception("CPF invalido.");
         }
         this.cpf = cpf;
-
-    }
-
-    public void setNome(String nome) throws Exception {
-        if (nome.length() == 0) {
-            throw new Exception("O nome nao deve ser vazio");
-        }
-        this.nome = nome;
 
     }
 

@@ -128,7 +128,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void limparCampos() {
         campoSenha.setText("");
-        campoUsuario.setText("");
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -169,7 +168,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        splashDelay();
+      //  splashDelay();
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {

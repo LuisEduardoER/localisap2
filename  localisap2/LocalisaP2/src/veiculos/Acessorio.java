@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package veiculos;
 
 /**
@@ -10,8 +6,7 @@ package veiculos;
  */
 public enum Acessorio {
 
-    P2("Duas Portas"),
-    P4("Quatro Portas"),
+    QP("Quatro Portas"),
     AC("Ar Condicionado"),
     GPS("GPS - Global Positioning System"),
     DH("Direcao Hidraulica"),

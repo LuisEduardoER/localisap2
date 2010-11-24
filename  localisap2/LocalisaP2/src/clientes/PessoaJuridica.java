@@ -17,7 +17,6 @@ public class PessoaJuridica extends Cliente{
 
     private String cnpj;
     private String razaoSocial;
-    private String nomeFantasia;
     private String inscricaoEstadual;
 
 
@@ -36,7 +35,7 @@ public class PessoaJuridica extends Cliente{
         setEmail(email);
         setEndereco(endereco);
         setInscricaoEstadual(inscricaoEstadual);
-        setNomeFantasia(nomeFantasia);
+        setNome(nomeFantasia);
         setRazaoSocial(razaoSocial);
         setTelefone(telefone);
         setCnpj(cnpj);
@@ -61,13 +60,6 @@ public class PessoaJuridica extends Cliente{
         return razaoSocial;
     }
 
-    /**
-     * Metodo para capturar o nome fantasia de uma pessoa juridica
-     * @return - Em String o nome fantasia
-     */
-    public String getNomeFantasia() {
-        return nomeFantasia;
-    }
 
     /**
      * Metodo para capturar a inscricao estadual de uma pessoa juridica
@@ -101,18 +93,6 @@ public class PessoaJuridica extends Cliente{
             throw new Exception("A razao social nao deve ser vazio");
         }
         this.razaoSocial = razaoSocial;
-
-    }
-
-    /**
-     * Permite mudar o nome fantasia
-     * @param nomeFantasia - Recebe como String o nome fantasia
-     */
-    public void setNomeFantasia(String nomeFantasia) throws Exception {
-        if (nomeFantasia.length() == 0) {
-            throw new Exception("O nome Fantasia nao deve ser vazio");
-        }
-        this.nomeFantasia = nomeFantasia;
 
     }
 
