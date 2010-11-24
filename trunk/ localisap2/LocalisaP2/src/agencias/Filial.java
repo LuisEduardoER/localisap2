@@ -24,6 +24,7 @@ import verificacoes.Validacao;
  *
  */
 public class Filial implements Serializable{
+    private static final long serialVersionUID = -9117119100411516121L;
     private Gerente gerente;
     private String cnpj;
     Endereco endereco;

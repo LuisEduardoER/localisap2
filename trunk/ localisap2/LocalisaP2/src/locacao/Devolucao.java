@@ -5,8 +5,6 @@
 package locacao;
 
 import clientes.Cliente;
-import clientes.PessoaFisica;
-import clientes.PessoaJuridica;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import verificacoes.Validacao;
