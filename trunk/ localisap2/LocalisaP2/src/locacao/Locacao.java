@@ -95,7 +95,7 @@ public class Locacao {
             if (cliente.getEmDebito()) {
                 throw new Exception("O cliente está devendo , favor pagar as contas primeiro");
             }
-            cliente.locacao(1);
+            cliente.setQuantidadeLocacao(1);
         }
         if (cliente instanceof PessoaJuridica) {
             if (cliente.getQuantidadeDeLocacao() > 10) {
@@ -104,7 +104,7 @@ public class Locacao {
             if (cliente.getEmDebito()) {
                 throw new Exception("O cliente está devendo , favor pagar as contas primeiro");
             }
-            cliente.locacao(1);
+            cliente.setQuantidadeLocacao(1);
         }
 
     }

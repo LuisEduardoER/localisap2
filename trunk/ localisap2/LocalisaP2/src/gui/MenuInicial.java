@@ -70,7 +70,7 @@ public class MenuInicial extends javax.swing.JFrame {
         if (dadosAgencia.getFuncionario().size() > 0) {
             atualizarListaDeFuncionarios();
         }
-        if (dadosAgencia.getVeiculos().size() > 0){
+        if (dadosAgencia.getVeiculos().size() > 0) {
             atualizarListaDeVeiculos();
         }
     }
@@ -80,6 +80,15 @@ public class MenuInicial extends javax.swing.JFrame {
             return (PessoaFisica) dadosAgencia.getClientes().toArray()[jListaClientes.getSelectedIndex()];
         } else {
             return (PessoaJuridica) dadosAgencia.getClientes().toArray()[jListaClientes.getSelectedIndex()];
+        }
+
+    }
+
+    public Veiculo getVeiculoSelecionado() {
+        if (dadosAgencia.getVeiculos().toArray()[jListaVeiculos.getSelectedIndex()] instanceof Automovel) {
+            return (Automovel) dadosAgencia.getVeiculos().toArray()[jListaVeiculos.getSelectedIndex()];
+        } else {
+            return (Motocicleta) dadosAgencia.getVeiculos().toArray()[jListaVeiculos.getSelectedIndex()];
         }
 
     }
@@ -110,7 +119,6 @@ public class MenuInicial extends javax.swing.JFrame {
 
     }
 
-
     public Pessoa getFuncionarioSelecionado() {
         return (Pessoa) (dadosAgencia.getFuncionario().toArray()[jListaFuncionario.getSelectedIndex()]);
     }
@@ -120,10 +128,11 @@ public class MenuInicial extends javax.swing.JFrame {
         int i = 0;
         String[] lista = new String[dadosAgencia.getClientes().size()];
         for (Cliente p : dadosAgencia.getClientes()) {
-            if (p instanceof PessoaFisica)
-                lista[i++] = p.getNome()+" (F)";
-            else
-                lista[i++] = p.getNome()+" (J)";
+            if (p instanceof PessoaFisica) {
+                lista[i++] = p.getNome() + " (F)";
+            } else {
+                lista[i++] = p.getNome() + " (J)";
+            }
         }
         jListaClientes.setListData(lista);
     }
@@ -136,14 +145,16 @@ public class MenuInicial extends javax.swing.JFrame {
         }
         jListaFuncionario.setListData(lista);
     }
+
     public void atualizarListaDeVeiculos() {
         int i = 0;
         String[] lista = new String[dadosAgencia.getVeiculos().size()];
         for (Veiculo v : dadosAgencia.getVeiculos()) {
-            lista[i++] = v.getMarca()+" - "+v.getModelo();
+            lista[i++] = v.getMarca() + " - " + v.getModelo();
         }
         jListaVeiculos.setListData(lista);
     }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -457,7 +468,7 @@ public class MenuInicial extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Localisa tm18.png"))); // NOI18N
 
         jPanel1.setPreferredSize(new java.awt.Dimension(104, 124));
@@ -1262,16 +1273,13 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel25))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel30)
-                            .addContainerGap(298, Short.MAX_VALUE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(editarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                                .addComponent(apagarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
-                            .addContainerGap()))
+                            .addComponent(editarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                            .addComponent(apagarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26))))
@@ -1660,19 +1668,19 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Automoveis", jPanel3);
 
-        jLabel55.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel55.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel55.setText("Seguro Total:");
 
-        jLabel56.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel56.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel56.setText("em cima da taxa de locação.");
 
-        jLabel57.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel57.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel57.setText("Seguro Parcial:");
 
-        jLabel58.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel58.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel58.setText("Cobre todos os danos e é cobrado 50% de taxa em cima da locação.");
 
-        jLabel85.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel85.setFont(new java.awt.Font("Tahoma", 0, 12));
         jLabel85.setText("Cobre  arranhões, amassados leves, acessórios danificados e é cobrado 25%");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1782,25 +1790,24 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(jLabel59))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(clienteLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                            .addComponent(renavamLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                            .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                            .addComponent(clienteLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                            .addComponent(renavamLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                            .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
                         .addGap(59, 59, 59))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel53)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel54)
+                            .addComponent(jLabel53))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel54)
-                        .addGap(45, 45, 45)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(117, 117, 117))))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(limparCamposLocacao)
                 .addGap(54, 54, 54)
-                .addComponent(locar, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                .addComponent(locar, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                 .addGap(34, 34, 34))
         );
         jPanel11Layout.setVerticalGroup(
@@ -1819,10 +1826,10 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel59))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53)
                     .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel54)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1849,10 +1856,10 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(apagarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                            .addComponent(apagarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                            .addComponent(cadastrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))))
+                            .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                            .addComponent(cadastrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -2586,11 +2593,11 @@ public class MenuInicial extends javax.swing.JFrame {
         String cepF = cep1.getText();
         if (jButton8.getText().equals("Cadastrar")) {
             if (nomeF.equals("") || cnpjF.replace(" ", "").length() < 5 || rzSocialF.equals("")
-                    || inscEstadualF.replace(" ", "").equals("") || estadoF == null ||
-                    cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                    || inscEstadualF.replace(" ", "").equals("") || estadoF == null
+                    || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
                     || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
                 JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
-             } else {
+            } else {
                 try {
                     Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
                     cliente = new PessoaJuridica(cnpjF, rzSocialF, nomeF, inscEstadualF, end, telefoneF, emailF);
@@ -2606,8 +2613,8 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         } else {
             if (nomeF.equals("") || cnpjF.replace(" ", "").length() < 5 || rzSocialF.equals("")
-                    || inscEstadualF.replace(" ", "").length() < 5 || estadoF == null ||
-                    cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                    || inscEstadualF.replace(" ", "").length() < 5 || estadoF == null
+                    || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
                     || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
                 JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
             } else {
@@ -2621,7 +2628,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     pessoaS.setEmail(emailF);
                     pessoaS.setTelefone(telefoneF);
                     pessoaS.setCnpj(cnpjF);
-                    
+
                     atualizarFilial(dadosAgencia);
                     atualizarListaDeClientes();
                     JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
@@ -2721,34 +2728,42 @@ public class MenuInicial extends javax.swing.JFrame {
         String dataAquisicaoC = dataAquisicaoCarro.getText();
         String anoC = anoCarro.getText();
         UnidadeFederativa estadoC = UnidadeFederativa.valueOf((String) estadoCarro.getSelectedItem());
-        TipoDeFreio freioC = TipoDeFreio.valueOf((String)freioCarro.getSelectedItem());
-        TipoDePotencia tipoPotenciaC = TipoDePotencia.valueOf((String)tipoPotenciaCarro.getSelectedItem());
+        TipoDeFreio freioC = TipoDeFreio.valueOf((String) freioCarro.getSelectedItem());
+        TipoDePotencia tipoPotenciaC = TipoDePotencia.valueOf((String) tipoPotenciaCarro.getSelectedItem());
         int nivelCombustivelC = nivelCombustivelCarro.getComponentCount();
         Cor corC = Cor.valueOf((String) corCarro.getSelectedItem());
         TipoDeCombustivel combustivelC = TipoDeCombustivel.valueOf((String) combustivelCarro.getSelectedItem());
-        if(quatroPortas.isSelected())
+        if (quatroPortas.isSelected()) {
             listaAcessorios.add(Acessorio.QP);
-        if(arCondicionado.isSelected())
+        }
+        if (arCondicionado.isSelected()) {
             listaAcessorios.add(Acessorio.AC);
-        if(vidroEletrico.isSelected())
+        }
+        if (vidroEletrico.isSelected()) {
             listaAcessorios.add(Acessorio.VE);
-        if(travaEletrica.isSelected())
+        }
+        if (travaEletrica.isSelected()) {
             listaAcessorios.add(Acessorio.TE);
-        if(gps.isSelected())
+        }
+        if (gps.isSelected()) {
             listaAcessorios.add(Acessorio.GPS);
-        if(direcaoHidraulica.isSelected())
+        }
+        if (direcaoHidraulica.isSelected()) {
             listaAcessorios.add(Acessorio.DH);
-        if(bancoDeCouro.isSelected())
+        }
+        if (bancoDeCouro.isSelected()) {
             listaAcessorios.add(Acessorio.BC);
-        if(airBag.isSelected())
+        }
+        if (airBag.isSelected()) {
             listaAcessorios.add(Acessorio.AB);
-        try{
+        }
+        try {
             dadosAgencia.adicionaVeiculo(new Automovel(renavanC, modeloC, marcaC, Integer.parseInt(potenciaC), Integer.parseInt(anoC), corC, freioC, combustivelC, dataAquisicaoC, nivelCombustivelC, listaAcessorios, tipoPotenciaC));
             atualizarFilial(dadosAgencia);
             atualizarListaDeVeiculos();
             JOptionPane.showMessageDialog(rootPane, "Carro cadastrado com sucesso!");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane,e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
 
     }//GEN-LAST:event_cadastrarCarroActionPerformed
@@ -2766,7 +2781,7 @@ public class MenuInicial extends javax.swing.JFrame {
         TipoDeFreio freioMoto = TipoDeFreio.valueOf((String) jTipoFreioMoto.getSelectedItem());
         TipoDePotencia tipoPotenciaMoto = TipoDePotencia.valueOf((String) jTipoPotenciaMoto.getSelectedItem());
         Cor corMoto = Cor.valueOf((String) jTipoCorMoto.getSelectedItem());
-        int nivelTanque = (Integer) jSpinnerCombustivelMoto.getValue();
+        int nivelTanque = jSpinnerCombustivelMoto.getComponentCount();
         if (renavam.equals("") || modelo.equals("") || estadoMoto == null || marca.equals("")
                 || potencia.equals("") || data.equals("") || cilindradas.equals("") || ano.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
@@ -2780,7 +2795,7 @@ public class MenuInicial extends javax.swing.JFrame {
             atualizarFilial(dadosAgencia);
             atualizarListaDeVeiculos();
             JOptionPane.showMessageDialog(rootPane, "Moto cadastrada com sucesso!");
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Digitar apenas numeros nos campos de potencia, cilindradas e ano.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
@@ -2834,7 +2849,7 @@ public class MenuInicial extends javax.swing.JFrame {
             cep.setText(clienteP.getEndereco().getCep());
             jButton1.setText("Atualizar");
             limparCampos.setText("Cancelar");
-        }else{
+        } else {
             PessoaJuridica clienteP = (PessoaJuridica) cliente;
             jTabbedPane2.setSelectedComponent(jPanel9);
             nome1.setText(clienteP.getNome());
@@ -2965,13 +2980,21 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void limparCamposMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposMotoActionPerformed
-        renavamMoto.setText("");
-        modeloMoto.setText("");
-        marcaMoto.setText("");
-        potenciaMoto.setText("");
-        dataAquisicaoMoto.setText("");
-        cilindradasMoto.setText("");
-        anoMoto.setText("");
+       if (limparCamposMoto.getText().equals("Limpar Campos")) {
+            renavamMoto.setText("");
+            modeloMoto.setText("");
+            marcaMoto.setText("");
+            potenciaMoto.setText("");
+            dataAquisicaoMoto.setText("");
+            cilindradasMoto.setText("");
+            anoMoto.setText("");
+        } else {
+            limparCamposMoto.setText("Limpar Campos");
+            cadastrarMoto.setText("Cadastrar");
+            limparCamposMoto.doClick();
+            desativarCadastroVeiculo();
+            JOptionPane.showMessageDialog(rootPane, "A operacao de edicao foi cancelada.");
+        }
     }//GEN-LAST:event_limparCamposMotoActionPerformed
 
     private void limparCampos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCampos1ActionPerformed
@@ -2997,35 +3020,70 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_limparCampos1ActionPerformed
 
     private void editarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarVeiculoActionPerformed
-        // TODO add your handling code here:
+        Veiculo veiculo = getVeiculoSelecionado();
+        if (veiculo instanceof Automovel) {
+            Automovel auto = (Automovel) veiculo;
+            jTabbedPane4.setSelectedComponent(jPanel12);
+            renavamCarro.setText(auto.getRenavam());
+            modeloCarro.setText(auto.getModelo());
+            marcaCarro.setText(auto.getMarca());
+            potenciaCarro.setText("" + auto.getPotencia());
+            dataAquisicaoCarro.setText(auto.getDataDeAquisicao());
+            anoCarro.setText("" + auto.getAno());
+            cadastrarCarro.setText("Atualizar");
+            limparCamposCarro.setText("Cancelar");
+        } else {
+            Motocicleta moto = (Motocicleta) veiculo;
+            jTabbedPane4.setSelectedComponent(jPanel13);
+            renavamMoto.setText(moto.getRenavam());
+            modeloMoto.setText(moto.getModelo());
+            marcaMoto.setText(moto.getMarca());
+            potenciaMoto.setText("" + moto.getPotencia());
+            dataAquisicaoMoto.setText(moto.getDataDeAquisicao());
+            cilindradasMoto.setText("" + moto.getCilindradas());
+            anoMoto.setText("" + moto.getAno());
+            cadastrarMoto.setText("Atualizar");
+            limparCamposMoto.setText("Cancelar");
+        }
+        ativarCadastroVeiculo();        // TODO add your handling code here:
     }//GEN-LAST:event_editarVeiculoActionPerformed
 
     private void estado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estado1ActionPerformed
-
     }//GEN-LAST:event_estado1ActionPerformed
 
     private void limparCamposCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposCarroActionPerformed
-        renavamCarro.setText("");
-        modeloCarro.setText("");
-        marcaCarro.setText("");
-        potenciaCarro.setText("");
-        dataAquisicaoCarro.setText("");
-        anoCarro.setText("");
-        nivelCombustivelCarro.setValue(0);
-
-        quatroPortas.setSelected(false);
-        arCondicionado.setSelected(false);
-        vidroEletrico.setSelected(false);
-        travaEletrica.setSelected(false);
-        gps.setSelected(false);
-        direcaoHidraulica.setSelected(false);
-        bancoDeCouro.setSelected(false);
-        airBag.setSelected(false);
-
+        if (limparCamposCarro.getText().equals("Limpar Campos")) {
+            renavamCarro.setText("");
+            modeloCarro.setText("");
+            marcaCarro.setText("");
+            potenciaCarro.setText("");
+            dataAquisicaoCarro.setText("");
+            anoCarro.setText("");
+            nivelCombustivelCarro.setValue(0);
+            quatroPortas.setSelected(false);
+            arCondicionado.setSelected(false);
+            vidroEletrico.setSelected(false);
+            travaEletrica.setSelected(false);
+            gps.setSelected(false);
+            direcaoHidraulica.setSelected(false);
+            bancoDeCouro.setSelected(false);
+            airBag.setSelected(false);
+        } else {
+            limparCamposCarro.setText("Limpar Campos");
+            cadastrarCarro.setText("Cadastrar");
+            limparCamposCarro.doClick();
+            desativarCadastroVeiculo();
+            JOptionPane.showMessageDialog(rootPane, "A operacao de edicao foi cancelada.");
+        }
     }//GEN-LAST:event_limparCamposCarroActionPerformed
 
     private void apagarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarVeiculoActionPerformed
-        // TODO add your handling code here:
+        int n = JOptionPane.showOptionDialog(rootPane, "Confirmar exclusão de veiculo?", "Confirmação", JOptionPane.YES_NO_OPTION, 0, null, opcoes, opcoes[1]);
+        if (n == 0) {
+            dadosAgencia.removeVeiculos(jListaVeiculos.getSelectedIndex());
+            atualizarFilial(dadosAgencia);
+            atualizarListaDeVeiculos();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_apagarVeiculoActionPerformed
 
     private void atualizarAgenciaGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarAgenciaGerenteActionPerformed
@@ -3053,11 +3111,11 @@ public class MenuInicial extends javax.swing.JFrame {
         String telefone2 = telefoneGerente.getText();
         String cep2 = cepGerente.getText();
 
-        try{
+        try {
             int numeroA = Integer.parseInt(numero1);
             int numeroG = Integer.parseInt(numero2);
-            Endereco enderecoAgencia = new Endereco(estado1, cidade1, bairro1, rua1,numeroA , cep1);
-            Endereco enderecoGerente = new Endereco(estado2,cidade2, bairro2, rua2,numeroG , cep2);
+            Endereco enderecoAgencia = new Endereco(estado1, cidade1, bairro1, rua1, numeroA, cep1);
+            Endereco enderecoGerente = new Endereco(estado2, cidade2, bairro2, rua2, numeroG, cep2);
             dadosAgencia.setTelefone(telefone1);
             dadosAgencia.setCnpj(cnpj);
             dadosAgencia.setInscEstadual(insEstadual);
@@ -3190,7 +3248,6 @@ public class MenuInicial extends javax.swing.JFrame {
         });
     }
 
-
     private void ativarCadastroFuncionarios() {
         jLabel31.setEnabled(true);
         jLabel32.setEnabled(true);
@@ -3222,6 +3279,76 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel10.setEnabled(true);
         cadastrarFuncionario.setEnabled(true);
         limparCampos3.setEnabled(true);
+    }
+
+    private void ativarCadastroVeiculo() {
+        jTabbedPane4.setEnabled(true);
+        jPanel12.setEnabled(true);
+        jPanel13.setEnabled(true);
+        jLabel83.setEnabled(true);
+        jLabel79.setEnabled(true);
+        jLabel78.setEnabled(true);
+        jLabel80.setEnabled(true);
+        jLabel73.setEnabled(true);
+        jLabel76.setEnabled(true);
+        jLabel75.setEnabled(true);
+        jLabel84.setEnabled(true);
+        jLabel74.setEnabled(true);
+        jLabel77.setEnabled(true);
+        jLabel81.setEnabled(true);
+        jLabel139.setEnabled(true);
+        jLabel82.setEnabled(true);
+        marcaMoto.setEnabled(true);
+        renavamMoto.setEnabled(true);
+        potenciaMoto.setEnabled(true);
+        modeloMoto.setEnabled(true);
+        cilindradasMoto.setEnabled(true);
+        dataAquisicaoMoto.setEnabled(true);
+        jTipoFreioMoto.setEnabled(true);
+        jTipoCombustivelMoto.setEnabled(true);
+        anoMoto.setEnabled(true);
+        jTipoCorMoto.setEnabled(true);
+        jTipoPotenciaMoto.setEnabled(true);
+        estado5.setEnabled(true);
+        jSpinnerCombustivelMoto.setEnabled(true);
+        cadastrarMoto.setEnabled(true);
+        cadastrarCarro.setEnabled(true);
+        jLabel68.setEnabled(true);
+        jLabel70.setEnabled(true);
+        jLabel66.setEnabled(true);
+        jLabel62.setEnabled(true);
+        jLabel69.setEnabled(true);
+        jLabel64.setEnabled(true);
+        jLabel65.setEnabled(true);
+        jLabel72.setEnabled(true);
+        jLabel67.setEnabled(true);
+        jLabel60.setEnabled(true);
+        jLabel71.setEnabled(true);
+        jLabel61.setEnabled(true);
+        jLabel63.setEnabled(true);
+        modeloCarro.setEnabled(true);
+        corCarro.setEnabled(true);
+        marcaCarro.setEnabled(true);
+        dataAquisicaoCarro.setEnabled(true);
+        combustivelCarro.setEnabled(true);
+        potenciaCarro.setEnabled(true);
+        tipoPotenciaCarro.setEnabled(true);
+        nivelCombustivelCarro.setEnabled(true);
+        renavamCarro.setEnabled(true);
+        anoCarro.setEnabled(true);
+        freioCarro.setEnabled(true);
+        estadoCarro.setEnabled(true);
+        arCondicionado.setEnabled(true);
+        cadastrarCarro.setEnabled(true);
+        gps.setEnabled(true);
+        airBag.setEnabled(true);
+        jLabel71.setEnabled(true);
+        bancoDeCouro.setEnabled(true);
+        quatroPortas.setEnabled(true);
+        travaEletrica.setEnabled(true);
+        limparCamposCarro.setEnabled(true);
+        vidroEletrico.setEnabled(true);
+        direcaoHidraulica.setEnabled(true);
     }
 
     private void ativarCadastro() {
@@ -3375,6 +3502,76 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel10.setEnabled(false);
         cadastrarFuncionario.setEnabled(false);
         limparCampos3.setEnabled(false);
+    }
+
+    private void desativarCadastroVeiculo() {
+        jTabbedPane4.setEnabled(false);
+        jPanel12.setEnabled(false);
+        jPanel13.setEnabled(false);
+        jLabel83.setEnabled(false);
+        jLabel79.setEnabled(false);
+        jLabel78.setEnabled(false);
+        jLabel80.setEnabled(false);
+        jLabel73.setEnabled(false);
+        jLabel76.setEnabled(false);
+        jLabel75.setEnabled(false);
+        jLabel84.setEnabled(false);
+        jLabel74.setEnabled(false);
+        jLabel77.setEnabled(false);
+        jLabel81.setEnabled(false);
+        jLabel139.setEnabled(false);
+        jLabel82.setEnabled(false);
+        marcaMoto.setEnabled(false);
+        renavamMoto.setEnabled(false);
+        potenciaMoto.setEnabled(false);
+        modeloMoto.setEnabled(false);
+        cilindradasMoto.setEnabled(false);
+        dataAquisicaoMoto.setEnabled(false);
+        jTipoFreioMoto.setEnabled(false);
+        jTipoCombustivelMoto.setEnabled(false);
+        anoMoto.setEnabled(false);
+        jTipoCorMoto.setEnabled(false);
+        jTipoPotenciaMoto.setEnabled(false);
+        estado5.setEnabled(false);
+        jSpinnerCombustivelMoto.setEnabled(false);
+        cadastrarMoto.setEnabled(false);
+        cadastrarCarro.setEnabled(false);
+        jLabel68.setEnabled(false);
+        jLabel70.setEnabled(false);
+        jLabel66.setEnabled(false);
+        jLabel62.setEnabled(false);
+        jLabel69.setEnabled(false);
+        jLabel64.setEnabled(false);
+        jLabel65.setEnabled(false);
+        jLabel72.setEnabled(false);
+        jLabel67.setEnabled(false);
+        jLabel60.setEnabled(false);
+        jLabel71.setEnabled(false);
+        jLabel61.setEnabled(false);
+        jLabel63.setEnabled(false);
+        modeloCarro.setEnabled(false);
+        corCarro.setEnabled(false);
+        marcaCarro.setEnabled(false);
+        dataAquisicaoCarro.setEnabled(false);
+        combustivelCarro.setEnabled(false);
+        potenciaCarro.setEnabled(false);
+        tipoPotenciaCarro.setEnabled(false);
+        nivelCombustivelCarro.setEnabled(false);
+        renavamCarro.setEnabled(false);
+        anoCarro.setEnabled(false);
+        freioCarro.setEnabled(false);
+        estadoCarro.setEnabled(false);
+        arCondicionado.setEnabled(false);
+        cadastrarCarro.setEnabled(false);
+        gps.setEnabled(false);
+        airBag.setEnabled(false);
+        jLabel71.setEnabled(false);
+        bancoDeCouro.setEnabled(false);
+        quatroPortas.setEnabled(false);
+        travaEletrica.setEnabled(false);
+        limparCamposCarro.setEnabled(false);
+        vidroEletrico.setEnabled(false);
+        direcaoHidraulica.setEnabled(false);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton airBag;
