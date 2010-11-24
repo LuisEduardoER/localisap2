@@ -38,7 +38,7 @@ public class LocacaoTest {
     PessoaFisica pessoa1;
     Endereco endereco;
     PlanoAutomovel planoCarroA;
-    Devolucao devolucao;
+
     @Before
     public void inicio() throws Exception {
         ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();

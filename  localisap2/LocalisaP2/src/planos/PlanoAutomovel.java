@@ -126,6 +126,7 @@ public class PlanoAutomovel implements Plano{
     public Collection<Automovel> getListaAutomovel() {
         return this.listaAuto;
     }
+
     public void adicionaModelo(String modelo)throws Exception{
         if (modelo==null || modelo.length()<=0)
             throw new Exception("Voce deve digitar algo no modelo");
@@ -134,6 +135,7 @@ public class PlanoAutomovel implements Plano{
         }
         listaMarca.add(modelo);
     }
+    
     public Collection<String> getListaModelos(){
         return listaMarca;
     }
