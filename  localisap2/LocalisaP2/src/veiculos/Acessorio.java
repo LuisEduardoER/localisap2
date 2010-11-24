@@ -1,10 +1,12 @@
 package veiculos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Filipe
  */
-public enum Acessorio {
+public enum Acessorio implements Serializable {
 
     QP("Quatro Portas"),
     AC("Ar Condicionado"),

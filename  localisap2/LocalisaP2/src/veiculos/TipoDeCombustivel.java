@@ -4,10 +4,12 @@
  */
 package veiculos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Filipe
  */
-public enum TipoDeCombustivel {
+public enum TipoDeCombustivel implements Serializable {
     ALCOOL, GASOLINA, GAS, DIESEL, FLEX;
 }

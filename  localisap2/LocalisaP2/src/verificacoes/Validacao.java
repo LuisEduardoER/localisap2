@@ -5,6 +5,7 @@
 
 package verificacoes;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
@@ -18,7 +19,7 @@ import java.util.GregorianCalendar;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Validacao {
+public class Validacao implements Serializable {
 
     private static int DIA_INICIAL = 1;
     private static int MES_INICIAL = 0;
