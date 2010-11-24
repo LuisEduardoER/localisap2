@@ -2716,7 +2716,7 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarFuncionarioActionPerformed
 
     private void cadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarVeiculoActionPerformed
-        // TODO add your handling code here:
+        ativarCadastroVeiculo();
     }//GEN-LAST:event_cadastrarVeiculoActionPerformed
 
     private void cadastrarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCarroActionPerformed
@@ -2801,7 +2801,7 @@ public class MenuInicial extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
     }//GEN-LAST:event_cadastrarMotoActionPerformed
-
+    
     private void cadastrarPlanoDeLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoDeLocacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarPlanoDeLocacaoActionPerformed
@@ -3346,6 +3346,7 @@ public class MenuInicial extends javax.swing.JFrame {
         bancoDeCouro.setEnabled(true);
         quatroPortas.setEnabled(true);
         travaEletrica.setEnabled(true);
+        limparCamposMoto.setEnabled(true);
         limparCamposCarro.setEnabled(true);
         vidroEletrico.setEnabled(true);
         direcaoHidraulica.setEnabled(true);
