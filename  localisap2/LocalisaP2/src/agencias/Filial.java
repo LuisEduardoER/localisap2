@@ -1,3 +1,4 @@
+
 package agencias;
 
 import clientes.Cliente;
@@ -14,6 +15,9 @@ import veiculos.Veiculo;
 import verificacoes.Validacao;
 
 /**
+ * Classe Filial
+ * Gerencia dados necessarios para o funcionamento da Agencia
+ *
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -61,10 +65,17 @@ public class Filial implements Serializable{
         } catch (Exception e) {
         }
     }
+    /**
+     * Incrementa numeroDeLocacoes
+     */
     public void aumentaLocacao(){
         numeroDeLocacoes++;
     }
 
+    /**
+     * Capturar o Gerente de uma agencia
+     * @return Gerente
+     */
     public Gerente getGerente(){
         return gerente;
     }
@@ -102,7 +113,7 @@ public class Filial implements Serializable{
 
     /**
      * Permite mudar o CPNJ
-     * @param CPNJ - Recebe como String o CPNJ
+     * @param cnpj - Recebe como String o CPNJ
      * @throws Exception - Erro de cpf invalido
      */
     public void setCnpj(String cnpj) throws Exception {
@@ -127,6 +138,7 @@ public class Filial implements Serializable{
     /**
      * Permite mudar a inscricao estadual
      * @param inscricaoEstadual - Recebe como String a inscricao estadual
+     * @throws Exception
      */
     public void setInscEstadual(String inscricaoEstadual) throws Exception {
         if (inscricaoEstadual.length() == 0) {
@@ -139,6 +151,7 @@ public class Filial implements Serializable{
     /**
      * Permite mudar o telefone
      * @param telefone - Recebe como String o telefone
+     * @throws Exception
      */
     public void setTelefone(String telefone) throws Exception {
         if (telefone.length() != 10) {
@@ -207,6 +220,7 @@ public class Filial implements Serializable{
     /**
      * Metodo que retorna o plano do automovel
      *
+     * @return listaDePlanosCarros do tipo Collection<PlanoAutomovel>
      */
     public Collection<PlanoAutomovel> getPlanoAutomovel() {
         return listaDePlanosCarros;
@@ -259,6 +273,10 @@ public class Filial implements Serializable{
     public void removeVeiculos(Veiculo v) {
         listaDeVeiculos.remove(v);
     }
+    /**
+     * Retira um veiculo da lista de veiculos da Agencia
+     * @param index
+     */
     public void removeVeiculos(int index) {
         listaDeVeiculos.remove(listaDeVeiculos.toArray()[index]);
     }
@@ -285,13 +303,17 @@ public class Filial implements Serializable{
     public void removeFuncionario(Pessoa l) {
         listaDeFuncionarios.remove(l);
     }
+    /**
+     * Metodo que remove um Funcionario
+     * @param index - Indice do funcionario a ser removido
+     */
     public void removeFuncionario(int index) {
         listaDeFuncionarios.remove(listaDeFuncionarios.toArray()[index]);
     }
 
     /**
      * Metodo que remove uma pessoa fisica
-     * @param pf - a pessoa fisica a ser removida
+     * @param c a pessoa fisica a ser removida
      */
     public void removeCliente(Cliente c) {
         listaDeClientes.remove(c);
@@ -299,7 +321,7 @@ public class Filial implements Serializable{
 
     /**
      * Metodo que remove uma pessoa fisica
-     * @param pf - a pessoa fisica a ser removida
+     * @param index - Indice da pessoa fisica a ser removida
      */
     public void removeCliente(int index) {
         listaDeClientes.remove(listaDeClientes.toArray()[index]);
