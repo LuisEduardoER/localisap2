@@ -7,6 +7,8 @@ package clientes;
 import java.io.Serializable;
 
 /**
+ *Classe abstrata Cliente
+ * Gerencia dados comuns a PessoaFisica e PessoaJuridica
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -27,22 +29,43 @@ public abstract class Cliente implements Serializable{
     private String nome;
 
 
+    /**
+     * Captura o Endereco
+     * @return endereco
+     */
     public Endereco getEndereco() {
         return endereco;
     }
 
+    /**
+     * Captura o Telefone
+     * @return telefone
+     */
     public String getTelefone() {
         return telefone;
     }
 
+    /**
+     * Captura o E-mail
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
 
+     /**
+     * Captura o Nome do cliente
+     * @return email
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Permite mudar o nome
+     * @param nome
+     * @throws Exception
+     */
     public void setNome(String nome) throws Exception {
         if (nome.length() == 0) {
             throw new Exception("O nome nao deve ser vazio");
@@ -51,11 +74,21 @@ public abstract class Cliente implements Serializable{
 
     }
 
+    /**
+     *  Permite mudar o Endereco
+     * @param endereco
+     * @throws Exception
+     */
     public void setEndereco(Endereco endereco) throws Exception {
         this.endereco = endereco;
 
     }
 
+    /**
+     * Permite mudar o Telefone
+     * @param telefone
+     * @throws Exception
+     */
     public void setTelefone(String telefone) throws Exception {
         telefone = telefone.replace(".","");
         if (telefone.length() < 10) {
@@ -65,6 +98,11 @@ public abstract class Cliente implements Serializable{
 
     }
 
+    /**
+     * Permite mudar o Telefone
+     * @param email
+     * @throws Exception
+     */
     public void setEmail(String email) throws Exception {
         if (!email.contains("@") || email.length() == 0) {
             throw new Exception("O email deve conter @ e ser maior que 3");

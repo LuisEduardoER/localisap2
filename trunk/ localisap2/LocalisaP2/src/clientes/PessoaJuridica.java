@@ -21,7 +21,7 @@ public class PessoaJuridica extends Cliente{
 
 
     /**
-     * Construtor que cria uma Pessoa Juridca.
+     * Construtor que cria uma Pessoa Juridica.
      * @param cnpj - Recebe como String o cnpj
      * @param razaoSocial - Recebe como String a razao social
      * @param nomeFantasia - Recebe como String o nome Fantasia
@@ -41,6 +41,9 @@ public class PessoaJuridica extends Cliente{
         setCnpj(cnpj);
     }
 
+    /**
+     * Construtor que cria uma pessoa juridica sem dados
+     */
     public PessoaJuridica() {
     }
  
@@ -72,7 +75,7 @@ public class PessoaJuridica extends Cliente{
 
     /**
      * Permite mudar o CPNJ
-     * @param CPNJ - Recebe como String o CPNJ
+     * @param cnpj - Recebe como String o CPNJ
      * @throws Exception - Erro de cpf invalido
      */
     public void setCnpj(String cnpj) throws Exception {
@@ -87,6 +90,7 @@ public class PessoaJuridica extends Cliente{
     /**
      * Permite mudar a razao social
      * @param razaoSocial - Recebe como String a razao social
+     * @throws Exception
      */
     public void setRazaoSocial(String razaoSocial) throws Exception {
         if (razaoSocial.length() == 0) {
@@ -99,6 +103,7 @@ public class PessoaJuridica extends Cliente{
     /**
      * Permite mudar a inscricao estadual
      * @param inscricaoEstadual - Recebe como String a inscricao estadual
+     * @throws Exception
      */
     public void setInscricaoEstadual(String inscricaoEstadual) throws Exception {
         if (inscricaoEstadual.length() == 0) {

@@ -4,6 +4,10 @@ import java.io.Serializable;
 import verificacoes.Validacao;
 
 /**
+ *Classe PessoaFisica
+ * herda da Classe abstrata Cliente
+ * Gerencia dados inerentes ao cliente pessoa física
+ *
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -43,25 +47,49 @@ public class PessoaFisica extends Cliente{
         setTelefone(telefone);
     }
 
+    /**
+     * Construtor que cria uma Pessoa Fisica sem dados
+     */
     public PessoaFisica() {
     }
 
+    /**
+     * Captura o Cpf
+     * @return cpf
+     */
     public String getCpf() {
         return cpf;
     }
 
+    /**
+     * Captura o RG
+     * @return rg
+     */
     public String getRg() {
         return rg;
     }
 
+    /**
+     * Captura a data de Nascimento
+     * @return nascimento
+     */
     public String getNascimento() {
         return nascimento;
     }
 
+    /**
+     * Captura a cidade de origem
+     * @return naturalidade
+     */
     public String getNaturalidade() {
         return naturalidade;
     }
 
+    /**
+     * Edita o cpf
+     * @param cpf
+     * @throws Exception
+     */
     public void setCpf(String cpf) throws Exception {
         Validacao testeCpf = new Validacao();
         if (!(testeCpf.validaCpf(cpf))) {
@@ -71,6 +99,11 @@ public class PessoaFisica extends Cliente{
 
     }
 
+    /**
+     * Edita o rg
+     * @param rg
+     * @throws Exception
+     */
     public void setRg(String rg) throws Exception {
         if (rg.length() == 0) {
             throw new Exception("O RG nao deve ser vazio");
@@ -78,6 +111,11 @@ public class PessoaFisica extends Cliente{
         this.rg = rg;
     }
 
+    /**
+     * Edita a data de nascimento
+     * @param nascimento
+     * @throws Exception
+     */
     public void setNascimento(String nascimento) throws Exception {
         Validacao testaData = new Validacao();
         if (!(testaData.validaData(nascimento))) {
@@ -87,6 +125,11 @@ public class PessoaFisica extends Cliente{
 
     }
 
+    /**
+     * Edita a cidade de origem
+     * @param naturalidade
+     * @throws Exception
+     */
     public void setNaturalidade(String naturalidade) throws Exception {
         if (naturalidade.length() == 0) {
             throw new Exception("A naturalidade nao deve ser vazia");
