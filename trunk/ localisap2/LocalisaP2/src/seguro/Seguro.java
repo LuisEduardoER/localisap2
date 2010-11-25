@@ -6,6 +6,8 @@ package seguro;
 import planos.*;
 
 /**
+ * Classe Seguro
+ * Gerencia informacoes referentes ao seguro do veiculo
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
