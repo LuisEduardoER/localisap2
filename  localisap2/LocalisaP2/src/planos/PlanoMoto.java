@@ -8,6 +8,9 @@ import veiculos.Motocicleta;
 import veiculos.Veiculo;
 
 /**
+ * Classe PlanoMoto
+ * implementa Interface Plano
+ * gerencia dados referentes a planos de motocicletas
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -28,19 +31,24 @@ public class PlanoMoto implements Plano,Serializable {
 
     /**
      * Construtor de um plano de moto.
-     * @param preco - Recebe o preco em double diario da locacao
      *  @param nome - Recebe o nome em String do plano
+     *  @param preco - Recebe o preco em double diario da locacao
+     *  
      */
     public PlanoMoto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
+    /**
+     * Adiciona motos ao plano
+     * @param moto
+     */
     public void adicionaMotos(Collection<Veiculo> moto){
         listaMoto = moto;
     }
     /**
      * Metodo que adiciona as cilindradas maxima do plano
-     * @param cilindradas- Recebe como inteiro as cilindradas.
+     * @param cilindradas
      */
     public void adicionaCilindradas(int cilindradas) {
         this.cilindradas = cilindradas;
@@ -60,7 +68,7 @@ public class PlanoMoto implements Plano,Serializable {
 
     /**
      * Remove a moto do plano
-     * @param carro - A motoo a ser removida.
+     * @param moto
      * @throws Exception - Erro se o carro nao existe no cadastro do plano.
      */
     public void removeMoto(Motocicleta moto) throws Exception {
@@ -115,6 +123,11 @@ public class PlanoMoto implements Plano,Serializable {
         return this.listaMoto;
     }
 
+    /**
+     * Adiciona um modelo ao plano
+     * @param modelo
+     * @throws Exception
+     */
     public void adicionaModelo(String modelo) throws Exception {
         if (modelo == null || modelo.length() <= 0) {
             throw new Exception("Voce deve digitar algo no modelo");
@@ -125,6 +138,10 @@ public class PlanoMoto implements Plano,Serializable {
         listaMarca.add(modelo);
     }
 
+    /**
+     * Captura lista de modelos
+     * @return
+     */
     public Collection<String> getListaModelos() {
         return listaMarca;
     }
