@@ -10,7 +10,10 @@ import veiculos.Automovel;
 import veiculos.Veiculo;
 
 /**
- *
+ * Classe PlanoAutomovel
+ * implementa Interface Plano
+ * gerencia dados referentes a planos de automoveis
+ * 
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
  * @author Emilio Farias    -twitter.com/militofarias
@@ -131,6 +134,11 @@ public class PlanoAutomovel implements Plano, Serializable{
         return this.listaAuto;
     }
 
+    /**
+     * Adiciona modelo de automovel ao plano
+     * @param modelo
+     * @throws Exception
+     */
     public void adicionaModelo(String modelo)throws Exception{
         if (modelo==null || modelo.length()<=0)
             throw new Exception("Voce deve digitar algo no modelo");
@@ -140,9 +148,17 @@ public class PlanoAutomovel implements Plano, Serializable{
         listaMarca.add(modelo);
     }
     
+    /**
+     * Captura a lista de modelos do plano
+     * @return listaMarca
+     */
     public Collection<String> getListaModelos(){
         return listaMarca;
     }
+    /**
+     * Adiciona uma lista de veiculos ao plano
+     * @param v
+     */
     public void adicionaListaVeiculos(Collection<Veiculo> v){
         listaAuto = v;
     }
