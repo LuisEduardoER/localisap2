@@ -162,6 +162,10 @@ public class PlanoAutomovel implements Plano, Serializable{
     public void adicionaListaVeiculos(Collection<Veiculo> v){
         listaAuto = v;
     }
+    /**
+     * captura acessorios do plano
+     * @return listaAcessorios
+     */
     public List<Acessorio> getAcessorios(){
         return listaAcessorios;
     }
