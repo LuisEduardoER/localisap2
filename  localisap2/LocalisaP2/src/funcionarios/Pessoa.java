@@ -6,6 +6,8 @@ package funcionarios;
 import clientes.Endereco;
 
 /**
+* Interface Pessoa
+* Dados inerentes a pessoas
 *
 * @author Filipe Alencar   -twitter.com/filipealencar_
 * @author Felipe Jose      -twitter.com/felipejosefc
