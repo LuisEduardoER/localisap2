@@ -7,6 +7,7 @@ package locacao;
 import clientes.Cliente;
 import clientes.PessoaFisica;
 import clientes.PessoaJuridica;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Random;
@@ -25,7 +26,7 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Locacao {
+public class Locacao implements Serializable{
 
     private int codigo;
     private Cliente cliente;
@@ -35,6 +36,7 @@ public class Locacao {
     private String dataEntrega, dataDevolucao;
     private Seguro tipoDoSeguro;
     private int tipoSeguro;
+    private static final long serialVersionUID = 1L;
 
     public Locacao(Veiculo veiculo, Cliente cliente, Plano planoDaLocacao, String dataEntrega, String dataDevolucao, int tipoSeguro) throws Exception {
         setVeiculo(veiculo);

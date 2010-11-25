@@ -4,13 +4,11 @@
  */
 package veiculos;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Filipe
  */
-public enum Cor implements Serializable {
+public enum Cor {
     VERMELHO,
     AMARELO,
     AZUL,

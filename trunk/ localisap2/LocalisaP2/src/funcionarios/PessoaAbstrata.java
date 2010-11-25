@@ -30,6 +30,7 @@ public abstract class PessoaAbstrata implements Pessoa,Serializable{
 	private Endereco endereco;
 	private String telefone;
 	private String email;
+        private static final long serialVersionUID = 1L;
 
 
 	@Override

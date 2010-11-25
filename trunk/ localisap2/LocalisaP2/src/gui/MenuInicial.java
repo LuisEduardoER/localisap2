@@ -221,13 +221,13 @@ public class MenuInicial extends javax.swing.JFrame {
         String[] listaM = new String[dadosAgencia.getVeiculos().size()];
         for (Veiculo v : dadosAgencia.getVeiculos()) {
             if (v instanceof Automovel) {
-                lista[i++] = v.getMarca() + " - " + v.getModelo() + " (C)";
-                listaA[i++] = v.getMarca() + " - " + v.getModelo() + " (C)";
+                lista[i] = v.getMarca() + " - " + v.getModelo() + " (C)";
+                listaA[i] = v.getMarca() + " - " + v.getModelo() + " (C)";
             } else {
-                lista[i++] = v.getMarca() + " - " + v.getModelo() + " (M)";
-                listaM[i++] = v.getMarca() + " - " + v.getModelo() + " (M)";
+                lista[i] = v.getMarca() + " - " + v.getModelo() + " (M)";
+                listaM[i] = v.getMarca() + " - " + v.getModelo() + " (M)";
             }
-
+            i++;
         }
         jListaVeiculos.setListData(lista);
         listaMotoMarcaPlano.setListData(listaM);

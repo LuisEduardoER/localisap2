@@ -7,7 +7,6 @@ package funcionarios;
 
 import agencias.Filial;
 import clientes.Endereco;
-import clientes.Endereco;
 
 /**
 * Classe Zelador

@@ -20,7 +20,7 @@ import java.io.Serializable;
 * Universidade Federal de Campina Grande - Computacao
 *
 */
-public class Locador extends PessoaAbstrata implements Serializable{
+public class Locador extends PessoaAbstrata{
 	private String cpf;
 	private String nome;
 	private String rg;
