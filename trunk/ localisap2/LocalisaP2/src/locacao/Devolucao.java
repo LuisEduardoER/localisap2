@@ -10,6 +10,8 @@ import java.util.GregorianCalendar;
 import verificacoes.Validacao;
 
 /**
+ * Classe Devolucao
+ * Lida com transacoes de devolucao de automovel
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -32,6 +34,15 @@ public class Devolucao{
     private Problema problema;
     private Cliente cliente;
 
+    /**
+     * Construtor de Devolucao
+     *
+     * @param loc
+     * @param nivelDoTanqueFinal
+     * @param dataDevolucao
+     * @param problema
+     * @throws Exception
+     */
     public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problema problema) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();
         this.nivelDoTanqueFinal = nivelDoTanqueFinal;

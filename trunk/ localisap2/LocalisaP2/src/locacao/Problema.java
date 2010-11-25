@@ -1,11 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package locacao;
 
 /**
-*
+* Classe Prolbema
+* Classe do tipo ENUM para listar as possiveis problemas citados na devolucao do veiculo
+ *
 * @author Filipe Alencar   -twitter.com/filipealencar_
 * @author Felipe Jose      -twitter.com/felipejosefc
 * @author Emilio Farias    -twitter.com/militofarias

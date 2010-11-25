@@ -17,7 +17,9 @@ import veiculos.Veiculo;
 import verificacoes.Validacao;
 
 /**
- *
+ * Classe Locacao
+ * Lida com transacoes referentes a locacao
+ * 
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
  * @author Emilio Farias    -twitter.com/militofarias
@@ -38,6 +40,17 @@ public class Locacao implements Serializable{
     private int tipoSeguro;
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Construtor de Locacao
+     *
+     * @param veiculo
+     * @param cliente
+     * @param planoDaLocacao
+     * @param dataEntrega
+     * @param dataDevolucao
+     * @param tipoSeguro
+     * @throws Exception
+     */
     public Locacao(Veiculo veiculo, Cliente cliente, Plano planoDaLocacao, String dataEntrega, String dataDevolucao, int tipoSeguro) throws Exception {
         setVeiculo(veiculo);
         if (!(cliente instanceof PessoaFisica) && (!(cliente instanceof PessoaJuridica))) {
