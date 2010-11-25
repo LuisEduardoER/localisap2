@@ -13,7 +13,7 @@ import java.io.Serializable;
  *
  */
 
-public interface Veiculo extends Serializable{
+public interface Veiculo{
 
 	/**
 	 * Metodo para capturar o RENAVAM

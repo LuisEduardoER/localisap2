@@ -32,6 +32,7 @@ public class Motocicleta implements Veiculo,Serializable{
 	private TipoDeFreio tipoDeFreio;
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
         private String codigoDaMoto;
+        private static final long serialVersionUID = 1L;
 	/**
 	 *
 	 * @param renavam - O renavam do veiculo

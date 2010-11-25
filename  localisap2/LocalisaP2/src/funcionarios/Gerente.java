@@ -20,7 +20,7 @@ import java.io.Serializable;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Gerente extends PessoaAbstrata implements Serializable {
+public class Gerente extends PessoaAbstrata{
 
     private Filial agencia;
     private String codigoDoGerente;

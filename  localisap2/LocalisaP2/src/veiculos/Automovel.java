@@ -32,6 +32,7 @@ public class Automovel implements Veiculo,Serializable{
     private ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
     private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
     private String codigoDoCarro;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Construtor de um automovel

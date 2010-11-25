@@ -4,12 +4,10 @@
  */
 package veiculos;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Filipe
  */
-public enum TipoDeFreio implements Serializable{
+public enum TipoDeFreio{
     TAMBOR, DISCO, ABS;
 }

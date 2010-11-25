@@ -5,8 +5,6 @@
 package locacao;
 
 import clientes.Cliente;
-import clientes.PessoaFisica;
-import clientes.PessoaJuridica;
 
 /**
  *

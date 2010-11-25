@@ -19,7 +19,7 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Devolucao {
+public class Devolucao{
 
     private double multaTanque = 0;
     private double multaAtraso = 0;

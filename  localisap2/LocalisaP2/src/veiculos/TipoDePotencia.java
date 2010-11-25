@@ -4,12 +4,10 @@
  */
 package veiculos;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Filipe
  */
-public enum TipoDePotencia implements Serializable{
+public enum TipoDePotencia{
     HP, CV;
 }

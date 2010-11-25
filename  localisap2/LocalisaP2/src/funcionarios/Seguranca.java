@@ -6,7 +6,6 @@
 package funcionarios;
 
 import clientes.Endereco;
-import clientes.Endereco;
 
  /**
  * Classe Seguranca

@@ -1,5 +1,6 @@
 package planos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,12 +19,13 @@ import veiculos.Veiculo;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PlanoAutomovel implements Plano{
+public class PlanoAutomovel implements Plano, Serializable{
     private Collection<String> listaMarca = new ArrayList<String>();
     private Collection<Veiculo> listaAuto = new ArrayList<Veiculo>();
     private List<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
     private double preco;
     private String nome;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Construtor de um plano de automovel.
