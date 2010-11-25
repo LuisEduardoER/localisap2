@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import locacao.Locacao;
+import planos.Plano;
 import planos.PlanoAutomovel;
 import planos.PlanoMoto;
 import veiculos.Veiculo;
@@ -37,7 +38,7 @@ public class Filial implements Serializable{
     private int numeroDeLocacoes = 0;
     private int numeroDeClientes;
     private Collection<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
-    private Collection<PlanoAutomovel> listaDePlanosCarros = new ArrayList<PlanoAutomovel>();
+    private Collection<Plano> listaDePlanos = new ArrayList<Plano>();
     private Collection<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
     private Collection<Pessoa> listaDeFuncionarios = new ArrayList<Pessoa>();
     private Collection<Cliente> listaDeClientes = new ArrayList<Cliente>();
@@ -181,8 +182,8 @@ public class Filial implements Serializable{
      * Metodo que adiciona um plano de automovel
      * @param p - O plano do automovel
      */
-    public void adicionaPlanoAutomovel(PlanoAutomovel p) {
-        listaDePlanosCarros.add(p);
+    public void adicionaPlano(Plano p) {
+        listaDePlanos.add(p);
     }
 
     /**
@@ -222,8 +223,8 @@ public class Filial implements Serializable{
      *
      * @return listaDePlanosCarros do tipo Collection<PlanoAutomovel>
      */
-    public Collection<PlanoAutomovel> getPlanoAutomovel() {
-        return listaDePlanosCarros;
+    public Collection<Plano> getPlano() {
+        return listaDePlanos;
     }
 
     /**
@@ -284,10 +285,12 @@ public class Filial implements Serializable{
      * Metodo que remove um plano de automovel
      * @param p - o plano a ser removido
      */
-    public void removePlanoAutomovel(PlanoAutomovel p) {
-        listaDePlanosCarros.remove(p);
+    public void removePlano(Plano p) {
+        listaDePlanos.remove(p);
     }
-
+    public void removePlano(int index) {
+        listaDePlanos.remove(listaDePlanos.toArray()[index]);
+    }
     /**
      * Metodo que remove um plano de moto
      * @param p - o plano a ser removido

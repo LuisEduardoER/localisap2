@@ -145,4 +145,7 @@ public class PlanoMoto implements Plano,Serializable {
     public Collection<String> getListaModelos() {
         return listaMarca;
     }
+    public  double getCilindradas(){
+        return cilindradas;
+    }
 }
