@@ -3,6 +3,8 @@ package clientes;
 import java.io.Serializable;
 
 /**
+ * Classe Endereco
+*Classe que administra dados de enderecos
 *
 * @author Filipe Alencar   -twitter.com/filipealencar_
 * @author Felipe Jose      -twitter.com/felipejosefc
@@ -15,7 +17,11 @@ import java.io.Serializable;
 
 public class Endereco implements Serializable{
 
-	public enum UnidadeFederativa{
+    /**
+     * Enum para estados brasileiros
+     * Sigla e nome por extenso
+     */
+    public enum UnidadeFederativa{
 		PB("Paraiba"),PR("Parana"),SP("Sao Paulo"),
 		RJ("Rio de Janeiro"),AC("Acre"),AL("Alagoas"),
 		AP("Amapa"),AM("Amazonas"),BA("Bahia"),
@@ -33,7 +39,11 @@ public class Endereco implements Serializable{
 			this.nomePorExtenso = nomePorExtenso;
 		}
 
-	    public String getNomePorExtenso(){
+            /**
+             * Captura o nome do estado por extenso
+             * @return nomePorExtenso
+             */
+            public String getNomePorExtenso(){
 	    	return this.nomePorExtenso;
 	    }
 	}
@@ -175,7 +185,8 @@ public class Endereco implements Serializable{
 	 * Permite mudar a cidade
 	 * @param cidade - Recebe a cidade do tipo String
 	 *
-	 * @throw Exception - Informacao NULL ou String de tamanho 0.
+         * @throws Exception
+         * @throw Exception - Informacao NULL ou String de tamanho 0.
 	 */
 	public void setCidade(String cidade) throws Exception{
 		if(cidade.isEmpty() || cidade == null)
@@ -186,7 +197,8 @@ public class Endereco implements Serializable{
 	 * Permite mudar o bairro
 	 * @param bairro - Recebe o bairro do tipo String
 	 *
-	 * @throw Exception - Informacao NULL ou String de tamanho 0.
+         * @throws Exception
+         * @throw Exception - Informacao NULL ou String de tamanho 0.
 	 */
 	public void setBairro(String bairro) throws Exception{
 		if(bairro.isEmpty() || bairro == null)
@@ -197,7 +209,8 @@ public class Endereco implements Serializable{
 	 * Permite mudar o logradouro
 	 * @param rua - Recebe o logradouro do tipo String
 	 *
-	 * @throw Exception - Informacao NULL ou String de tamanho 0.
+         * @throws Exception
+         * @throw Exception - Informacao NULL ou String de tamanho 0.
 	 */
 	public void setRua(String rua) throws Exception{
 		if(rua.isEmpty() || rua == null)
@@ -208,7 +221,8 @@ public class Endereco implements Serializable{
 	 * Permite mudar o numero da residencia
 	 * @param numero - Recebe o numero do tipo int
 	 *
-	 * @throw Exception - Informacao NULL ou String de tamanho 0.
+         * @throws Exception
+         * @throw Exception - Informacao NULL ou String de tamanho 0.
 	 */
 	public void setNumero(int numero) throws Exception{
 		if(numero<=0)
@@ -219,7 +233,8 @@ public class Endereco implements Serializable{
 	 * Permite mudar o CEP da residencia
 	 * @param cep - Recebe o cep do tipo String
 	 *
-	 * @throw Exception - Informacao NULL ou String de tamanho 0.
+         * @throws Exception
+         * @throw Exception - Informacao NULL ou String de tamanho 0.
 	 */
 	public void setCep(String cep) throws Exception{
 		if(cep.isEmpty() || cep == null || !validarCep(cep))
@@ -230,7 +245,8 @@ public class Endereco implements Serializable{
 	 * Permite mudar o ponto de referencia
 	 * @param pontoDeReferencia - Recebe a informacao do tipo String
 	 *
-	 * @throw Exception - Informacao NULL ou String de tamanho 0.
+         * @throws Exception
+         * @throw Exception - Informacao NULL ou String de tamanho 0.
 	 */
 	public void setPontoDeReferencia(String pontoDeReferencia) throws Exception{
 		if(pontoDeReferencia.isEmpty() || pontoDeReferencia == null)
