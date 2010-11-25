@@ -7,6 +7,8 @@ package locacao;
 import clientes.Cliente;
 
 /**
+ * Classe PagarDebito
+ * Quitar dividas do Cliente
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -21,6 +23,10 @@ public class PagarDebito {
     private double dividas;
     private Cliente cliente;
 
+    /**
+     * Construtor de PagarDebito
+     * @param cliente
+     */
     public PagarDebito(Cliente cliente) {
         this.cliente = cliente;
     }
