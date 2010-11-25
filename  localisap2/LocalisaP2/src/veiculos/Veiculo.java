@@ -3,6 +3,8 @@ package veiculos;
 import java.io.Serializable;
 
 /**
+ * Interface Veiculo
+ * Dados inerentes a Veiculos
  *
  * @author Felipe Jose      -twitter.com/felipejosefc
  * @author Filipe Alencar   -twitter.com/filipealencar_
@@ -86,28 +88,28 @@ public interface Veiculo{
 	 * Permite mudar o RENAVAM do veiculo
 	 * @param renavam - Recebe o novo RENAVAM do tipo String
 	 *
-	 * @throw Exception - Erro se o tamanho do renavam for zero
+         * @throws Exception - Erro se o tamanho do renavam for zero
 	 */
 	void setRenavam(String renavam) throws Exception;
 	/**
 	 * Permite mudar o modelo do veiculo
 	 * @param modelo - Recebe o novo modelo do tipo String
 	 *
-	 * @throw Exception - Erro se o tamanho do modelo for zero
+         * @throws Exception - Erro se o tamanho do modelo for zero
 	 */
 	void setModelo(String modelo) throws Exception;
 	/**
 	 * Permite mudar a marca do veiculo
 	 * @param marca - Recebe a nova marca do tipo String
 	 *
-	 * @throw Exception - Erro se o tamanho da marca for zero.
+         * @throws Exception - Erro se o tamanho da marca for zero.
 	 */
 	void setMarca(String marca) throws Exception;
 	/**
 	 * Permite mudar o ano do veiculo
 	 * @param ano - Recebe o novo ano do tipo int
 	 *
-	 * @throw Exception - Erro se o ano for menor que 1950.
+         * @throws Exception - Erro se o ano for menor que 1950.
 	 */
 	void setAno(int ano) throws Exception;
 	/**
@@ -126,7 +128,7 @@ public interface Veiculo{
 	 * Permite mudar a data de aquisicao do veiculo
 	 * @param dataDeAquisicao - Recebe a nova data de aquisicao do tipo String
 	 *
-	 * @throw Exception - Erro de data invalida
+         * @throws Exception - Erro de data invalida
 	 */
 	void setDataDeAquisicao(String dataDeAquisicao) throws Exception;
 	/**
@@ -139,7 +141,7 @@ public interface Veiculo{
 	 * Permite mudar o nivel do tanque do veiculo
 	 * @param nivel - Recebe o novo nivel do tanque do tipo int
 	 *
-	 * @throw Exception - Erro se o nivel do tanque for menor que zero ou maior que 100.
+         * @throws Exception - Erro se o nivel do tanque for menor que zero ou maior que 100.
 	 */
 	void setNivelDoTanque(int nivel) throws Exception;
 }

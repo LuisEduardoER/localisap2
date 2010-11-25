@@ -1,7 +1,16 @@
 package veiculos;
 
+
+import java.util.ArrayList;
+import agencias.Filial;
+import java.io.Serializable;
+import verificacoes.Validacao;
+
 /**
- *
+ * Classe Automovel
+ * Implementa a Interface Veiculo
+ * Gerencia dados relativos a automoveis
+ * 
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
  * @author Emilio Farias    -twitter.com/militofarias
@@ -10,11 +19,6 @@ package veiculos;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-import java.util.ArrayList;
-import agencias.Filial;
-import java.io.Serializable;
-import verificacoes.Validacao;
-
 public class Automovel implements Veiculo,Serializable{
 
     private String renavam;
@@ -26,16 +30,15 @@ public class Automovel implements Veiculo,Serializable{
     private int ano;
     private Cor cor;
     private TipoDeCombustivel tipoDeCombustivel;
-    private Filial localizacao;
     private String dataDeAquisicao;
     private int nivelDoTanque;
     private ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
-    private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
     private String codigoDoCarro;
     private static final long serialVersionUID = 1L;
 
     /**
      * Construtor de um automovel
+     *
      * @param renavam - O renavam do veiculo
      * @param modelo - O modelo do veiculo
      * @param marca - A marca do veiculo
@@ -44,7 +47,6 @@ public class Automovel implements Veiculo,Serializable{
      * @param cor - A cor do veiculo
      * @param tipoDeFreio - O tipo de freio do veiculo
      * @param tipoDeCombustivel - O tipo de combustivel do veiculo
-     * @param localizacao - A Filial que o veiculo estah.
      * @param dataDeAquisicao - A data que o veiculo foi adquirido
      * @param nivelDoTanque - O nivel do tanque que o veiculo estah.
      * @param acessoriosOpcionais - O acessorios opcionais que o veiculo tem

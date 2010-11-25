@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
- * Classe criada para verificar a validade de datas.
+ * Classe criada para verificar a validade de datas, CPF e CNPJ.
  *
  * @author Felipe Jose      -twitter.com/felipejosefc
  * @author Filipe Alencar   -twitter.com/filipealencar_
