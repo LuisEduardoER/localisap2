@@ -502,7 +502,6 @@ public class MenuInicial extends javax.swing.JFrame {
         cepGerente = new javax.swing.JFormattedTextField();
         jLabel110 = new javax.swing.JLabel();
         atualizarAgenciaGerente = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jListaPlanos = new javax.swing.JList();
@@ -528,9 +527,6 @@ public class MenuInicial extends javax.swing.JFrame {
         travaEletricaPlanoCarro = new javax.swing.JRadioButton();
         airBagPlanoCarro = new javax.swing.JRadioButton();
         bancosCouraPlanoCarro = new javax.swing.JRadioButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        listaAutomovelMarcaPlano = new javax.swing.JList();
-        jLabel95 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         cadastrarPlanoMoto = new javax.swing.JButton();
         limparCamposPlanoMoto = new javax.swing.JButton();
@@ -540,9 +536,7 @@ public class MenuInicial extends javax.swing.JFrame {
         precoPlanoMoto = new javax.swing.JFormattedTextField();
         jLabel48 = new javax.swing.JLabel();
         cilindradasPlanoMoto = new javax.swing.JFormattedTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        listaMotoMarcaPlano = new javax.swing.JList();
-        jLabel52 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenu();
@@ -2316,19 +2310,6 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agência", jPanel14);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Configurações", jPanel7);
-
         jListaPlanos.setEnabled(false);
         jScrollPane5.setViewportView(jListaPlanos);
 
@@ -2370,7 +2351,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         arCondicionadoPlanoCarro.setText("Ar Condicionado");
 
-        jLabel47.setText("Acessórios:");
+        jLabel47.setText("Acessórios cobertos pelo plano:");
 
         GPSPlanoCarro.setText("GPS");
 
@@ -2383,10 +2364,6 @@ public class MenuInicial extends javax.swing.JFrame {
         airBagPlanoCarro.setText("Air Bag");
 
         bancosCouraPlanoCarro.setText("Bancos de Couro");
-
-        jScrollPane7.setViewportView(listaAutomovelMarcaPlano);
-
-        jLabel95.setText("Veiculos/Marca:");
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -2405,53 +2382,47 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(nomePlanoCarro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
                         .addGap(306, 306, 306))
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GPSPlanoCarro)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(quatroPortasPlanoCarro)
-                                    .addComponent(arCondicionadoPlanoCarro)
-                                    .addComponent(airBagPlanoCarro))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(direcaoHidraulicaPlanoCarro)
-                                    .addComponent(vidroEletricoPlanoCarro)
-                                    .addGroup(jPanel17Layout.createSequentialGroup()
-                                        .addComponent(travaEletricaPlanoCarro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(bancosCouraPlanoCarro)))
-                            .addComponent(jLabel47))
-                        .addGap(27, 27, 27))
+                        .addComponent(jLabel47)
+                        .addGap(247, 247, 247))))
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(limparCamposPlanoCarro)
+                .addGap(62, 62, 62)
+                .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addGap(177, 177, 177))
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(GPSPlanoCarro)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addGap(158, 158, 158)
-                                .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                            .addComponent(limparCamposPlanoCarro))
-                        .addGap(199, 199, 199))))
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jLabel95)
-                .addContainerGap(196, Short.MAX_VALUE))
+                            .addComponent(quatroPortasPlanoCarro)
+                            .addComponent(arCondicionadoPlanoCarro)
+                            .addComponent(airBagPlanoCarro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(direcaoHidraulicaPlanoCarro)
+                            .addComponent(vidroEletricoPlanoCarro)
+                            .addComponent(travaEletricaPlanoCarro)
+                            .addComponent(bancosCouraPlanoCarro))))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jLabel95)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel114)
+                    .addComponent(nomePlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel115)
+                    .addComponent(precoPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel47)
+                .addGap(14, 14, 14)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel114)
-                            .addComponent(nomePlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel115)
-                            .addComponent(precoPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel47)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(travaEletricaPlanoCarro)
                             .addComponent(airBagPlanoCarro))
@@ -2460,8 +2431,6 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(arCondicionadoPlanoCarro))
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(direcaoHidraulicaPlanoCarro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(vidroEletricoPlanoCarro)))
@@ -2470,10 +2439,10 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(GPSPlanoCarro)
                     .addComponent(bancosCouraPlanoCarro))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCamposPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jTabbedPane6.addTab("Automóvel", jPanel17);
@@ -2489,74 +2458,65 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel116.setText("Nome:");
 
-        nomePlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        nomePlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
-        jLabel117.setText("Preço:");
+        jLabel117.setText("Preço (R$):");
 
         precoPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        jLabel48.setText("Cilindrada Máxima:");
+        jLabel48.setText("Cilindrada Máxima coberta pelo plano:");
 
         cilindradasPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
-
-        jScrollPane6.setViewportView(listaMotoMarcaPlano);
-
-        jLabel52.setText("Veiculos/Marca:");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
-                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel117)
-                                .addComponent(jLabel116))
-                            .addGap(63, 63, 63)
-                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nomePlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                .addComponent(precoPlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
-                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel48)
-                                .addComponent(jLabel52))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(jLabel48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(jLabel117)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(precoPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addComponent(limparCamposPlanoMoto)
-                        .addGap(47, 47, 47)
-                        .addComponent(cadastrarPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(cadastrarPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel116)
+                        .addGap(28, 28, 28)
+                        .addComponent(nomePlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel116)
                     .addComponent(nomePlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel48)
+                    .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel117)
                     .addComponent(precoPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel48)
-                    .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel52))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCamposPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(87, 87, 87))
         );
 
         jTabbedPane6.addTab("Moto", jPanel18);
@@ -2603,6 +2563,19 @@ public class MenuInicial extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Planos de Locação", jPanel6);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 602, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Configurações", jPanel7);
 
         jMenu1.setText("Sobre");
         jMenuBar1.add(jMenu1);
@@ -4085,7 +4058,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -4132,7 +4104,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
-    private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
@@ -4166,8 +4137,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinnerCombustivelMoto;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -4186,8 +4155,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton limparCamposMoto;
     private javax.swing.JButton limparCamposPlanoCarro;
     private javax.swing.JButton limparCamposPlanoMoto;
-    private javax.swing.JList listaAutomovelMarcaPlano;
-    private javax.swing.JList listaMotoMarcaPlano;
     private javax.swing.JButton locar;
     private javax.swing.JRadioButton locarCarro;
     private javax.swing.JRadioButton locarMoto;
