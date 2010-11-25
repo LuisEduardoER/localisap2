@@ -10,8 +10,16 @@ import java.io.Serializable;
 
 
 /**
+ *Classe abstrata PessoaAbstrata
+ * Comportamentos de pessoas
  *
- * @author Filipe
+ * @author Filipe Alencar   -twitter.com/filipealencar_
+ * @author Felipe Jose      -twitter.com/felipejosefc
+ * @author Emilio Farias    -twitter.com/militofarias
+ *
+ * http://code.google.com/p/localisap2/
+ * Universidade Federal de Campina Grande - Computacao
+ *
  */
 public abstract class PessoaAbstrata implements Pessoa,Serializable{
         private String cpf;

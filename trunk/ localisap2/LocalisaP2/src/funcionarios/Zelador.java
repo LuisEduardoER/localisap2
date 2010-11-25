@@ -10,6 +10,9 @@ import clientes.Endereco;
 import clientes.Endereco;
 
 /**
+* Classe Zelador
+* Herda da Classe abstrata PessoaAbstrata
+* Administra dados referentes ao funcionario Zelador
 *
 * @author Filipe Alencar   -twitter.com/filipealencar_
 * @author Felipe Jose      -twitter.com/felipejosefc
@@ -39,7 +42,6 @@ public class Zelador extends PessoaAbstrata{
 	 * @param nascimento -  Recebe como String a data de nascimento
 	 * @param naturalidade - Recebe como String a naturalidade
 	 * @param endereco - Recebe como Endereco o endereco
-	 * @param agencia - Recebe como Agencia a Filial
 	 * @param telefone -  Recebe como String o telefone
 	 * @param email - Recebe como String o email
 	 * @throws Exception - Erros de parametros invalidos
@@ -55,7 +57,10 @@ public class Zelador extends PessoaAbstrata{
 		setTelefone(telefone);
 	}
 
-	public Zelador(){
+        /**
+         * Construtor que cria um Zelador sem dados
+         */
+        public Zelador(){
 	}
 }
 

@@ -5,7 +5,9 @@
 package funcionarios;
 
 /**
-*
+* Classe Usuario
+* Responsavel pelo login no sistema
+ *
 * @author Filipe Alencar   -twitter.com/filipealencar_
 * @author Felipe Jose      -twitter.com/felipejosefc
 * @author Emilio Farias    -twitter.com/militofarias
@@ -26,9 +28,7 @@ public class Usuario {
      * @param email - Recebe o email do usuario
      * @param login - Recebe o login do usuario
      * @param senha - Recebe a senha do usuario
-     * @throws Exception login - O login deve ter mais de 4 digitos
-     * @throws Exception senha - A senha deve ter mais de 4 digitos.
-     * @throws Exception email - Erro de email invalido , ou seja com tamanho menor que 3 e sem a presenca de @.
+     * @throws Exception 
      *
      */
     public Usuario(String email, String login, String senha) throws Exception {

@@ -8,7 +8,10 @@ import agencias.Filial;
 import java.io.Serializable;
 
 /**
-*
+*Classe Locador
+ * Herda da classe abstrata PessoaAbstrata
+ * Gerencia dados referentes ao funcionario locador
+ *
 * @author Filipe Alencar   -twitter.com/filipealencar_
 * @author Felipe Jose      -twitter.com/felipejosefc
 * @author Emilio Farias    -twitter.com/militofarias
@@ -52,7 +55,10 @@ public class Locador extends PessoaAbstrata implements Serializable{
 		setTelefone(telefone);
 	}
 
-	public Locador(){
+        /**
+         * Construtor que cria um locador sem dados
+         */
+        public Locador(){
 	}
 
 	/**

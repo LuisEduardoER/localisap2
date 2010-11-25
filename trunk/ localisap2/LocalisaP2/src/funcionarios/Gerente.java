@@ -8,6 +8,9 @@ import agencias.Filial;
 import java.io.Serializable;
 
 /**
+ *Classe Gerente
+ * Herda da classe abstrata PessoaAbstrata
+ * Gerencia dados referentes ao funcionario gerente
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -47,6 +50,10 @@ public class Gerente extends PessoaAbstrata implements Serializable {
         setTelefone(telefone);
     }
 
+    /**
+     * Construtor que cria um gerente com dados default     *
+     * @throws Exception
+     */
     public Gerente() throws Exception {
         Endereco endereco = new Endereco(Endereco.UnidadeFederativa.PB, "Campina Grande", "Nacoes", "Essa daqui", 100, "58100000", "Aqui perto");
         setCpf("587.672.837-30");
