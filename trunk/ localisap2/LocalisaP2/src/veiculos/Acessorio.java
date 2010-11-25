@@ -1,9 +1,18 @@
 package veiculos;
 
 /**
- *
- * @author Filipe
- */
+* Classe Acessorio
+* Classe do tipo ENUM para listar todos os possiveis acessorios
+*
+*
+* @author Filipe Alencar   -twitter.com/filipealencar_
+* @author Felipe Jose      -twitter.com/felipejosefc
+* @author Emilio Farias    -twitter.com/militofarias
+*
+* http://code.google.com/p/localisap2/
+* Universidade Federal de Campina Grande - Computacao
+*
+*/
 public enum Acessorio {
 
     QP("Quatro Portas"),
@@ -20,6 +29,10 @@ public enum Acessorio {
         this.nomeCompleto = nomeCompleto;
     }
 
+    /**
+     * Captura o Nome completo do acessorio
+     * @return nomeCompleto
+     */
     public String getNomeCompleto() {
         return nomeCompleto;
     }

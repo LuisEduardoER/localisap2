@@ -1,6 +1,16 @@
 package veiculos;
 
+
+
+import java.util.ArrayList;
+import agencias.Filial;
+import java.io.Serializable;
+import verificacoes.Validacao;
+
 /**
+ * Classe Motocicleta
+ * Implementa Interface Veiculo
+ * Gerencia dados relativos a motocicletas
  *
  * @author Felipe Jose      -twitter.com/felipejosefc
  * @author Filipe Alencar   -twitter.com/filipealencar_
@@ -10,11 +20,6 @@ package veiculos;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-
-import java.util.ArrayList;
-import agencias.Filial;
-import java.io.Serializable;
-import verificacoes.Validacao;
 
 public class Motocicleta implements Veiculo,Serializable{
 	private String renavam;
@@ -33,8 +38,11 @@ public class Motocicleta implements Veiculo,Serializable{
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
         private String codigoDaMoto;
         private static final long serialVersionUID = 1L;
+
+
 	/**
-	 *
+	 * Construtor de Motocicleta
+         *
 	 * @param renavam - O renavam do veiculo
 	 * @param modelo - O modelo do veiculo
 	 * @param marca - A marca do veiculo
@@ -44,7 +52,6 @@ public class Motocicleta implements Veiculo,Serializable{
 	 * @param ano - O ano do veiculo
 	 * @param cor - A cor do veiculo
 	 * @param tipoDeCombustivel
-	 * @param localizacao - A Filial que o veiculo estah.
 	 * @param dataDeAquisicao - A data que o veiculo foi adquirido
 	 * @param nivelDoTanque  - O nivel do tanque que o veiculo estah.
 	 * @throws Exception - Erro de algum parametro errado.
