@@ -2,9 +2,9 @@ package planos;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import veiculos.Motocicleta;
+import veiculos.Veiculo;
 
 /**
  *
@@ -19,7 +19,7 @@ import veiculos.Motocicleta;
 public class PlanoMoto implements Plano {
 
     private Collection<String> listaMarca = new ArrayList<String>();
-    private List<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
+    private Collection<Veiculo> listaMoto = new ArrayList<Veiculo>();
     private int cilindradas;
     private double preco;
     private String nome;
@@ -33,7 +33,9 @@ public class PlanoMoto implements Plano {
         this.nome = nome;
         this.preco = preco;
     }
-
+    public void adicionaMotos(Collection<Veiculo> moto){
+        listaMoto = moto;
+    }
     /**
      * Metodo que adiciona as cilindradas maxima do plano
      * @param cilindradas- Recebe como inteiro as cilindradas.
@@ -107,7 +109,7 @@ public class PlanoMoto implements Plano {
      * Captura a lista de Motos do plano
      * @return - Em List a lista de motos
      */
-    public List<Motocicleta> getListaMoto() {
+    public Collection<Veiculo> getListaMoto() {
         return this.listaMoto;
     }
 

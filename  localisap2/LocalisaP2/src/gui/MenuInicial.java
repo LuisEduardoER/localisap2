@@ -29,6 +29,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -78,6 +81,7 @@ public class MenuInicial extends javax.swing.JFrame {
         if (dadosAgencia.getVeiculos().size() > 0) {
             atualizarListaDeVeiculos();
         }
+
     }
 
     public Cliente getClienteSelecionado() {
@@ -129,15 +133,46 @@ public class MenuInicial extends javax.swing.JFrame {
         return (Pessoa) (dadosAgencia.getFuncionario().toArray()[jListaFuncionario.getSelectedIndex()]);
     }
 
+    public Collection<Veiculo> getVeiculoSelecionadoPlanoCarro() {
+        Collection<Veiculo> veic = new ArrayList<Veiculo>();
+        Collection<Veiculo> listaAux = new ArrayList<Veiculo>();
+        for (Veiculo v : dadosAgencia.getVeiculos()) {
+            if (v instanceof Automovel) {
+                listaAux.add(v);
+            }
+        }
+        for (Integer i : listaAutomovelMarcaPlano.getSelectedIndices()) {
+            veic.add((Veiculo) listaAux.toArray()[i]);
+        }
+        return veic;
+
+    }
+
+    public Collection<Veiculo> getVeiculoSelecionadoPlanoMoto() {
+        Collection<Veiculo> veic = new ArrayList<Veiculo>();
+        Collection<Veiculo> listaAux = new ArrayList<Veiculo>();
+        for (Veiculo v : dadosAgencia.getVeiculos()) {
+            if (v instanceof Motocicleta) {
+                listaAux.add(v);
+            }
+        }
+        for (Integer i : listaMotoMarcaPlano.getSelectedIndices()) {
+            veic.add((Veiculo) listaAux.toArray()[i]);
+        }
+        return veic;
+
+    }
+
     public void atualizarListaDeClientes() {
 
         int i = 0;
         String[] lista = new String[dadosAgencia.getClientes().size()];
         for (Cliente p : dadosAgencia.getClientes()) {
-            if (p instanceof PessoaFisica) 
+            if (p instanceof PessoaFisica) {
                 lista[i++] = p.getNome() + " (F)";
-            else
+            } else {
                 lista[i++] = p.getNome() + " (J)";
+            }
         }
         jListaClientes.setListData(lista);
     }
@@ -146,26 +181,57 @@ public class MenuInicial extends javax.swing.JFrame {
         int i = 0;
         String[] lista = new String[dadosAgencia.getFuncionario().size()];
         for (Pessoa p : dadosAgencia.getFuncionario()) {
-            if(p instanceof Locador)
-                lista[i++] = p.getNome()+ " (L)";
-            else if(p instanceof Seguranca)
-                lista[i++] = p.getNome()+ " (S)";
-            else
-                lista[i++] = p.getNome()+ " (Z)";
+            if (p instanceof Locador) {
+                lista[i++] = p.getNome() + " (L)";
+            } else if (p instanceof Seguranca) {
+                lista[i++] = p.getNome() + " (S)";
+            } else {
+                lista[i++] = p.getNome() + " (Z)";
+            }
         }
         jListaFuncionario.setListData(lista);
+    }
+
+    public static <String> String[] concatenaArrayString(String[] primeiro, String[] segundo) {
+        String[] resultado = Arrays.copyOf(primeiro, primeiro.length + segundo.length);
+        System.arraycopy(segundo, 0, resultado, primeiro.length, segundo.length);
+        return resultado;
+    }
+
+    public void atualizarListaDePlanos() {
+        int i = 0;
+        String[] listaA = new String[dadosAgencia.getPlanoAutomovel().size()];
+        String[] listaM = new String[dadosAgencia.getPlanoMoto().size()];
+        for (PlanoAutomovel v : dadosAgencia.getPlanoAutomovel()) {
+            listaA[i++] = v.getNome() + " - " + v.getPreco() + " (C)";
+        }
+        for (PlanoMoto v : dadosAgencia.getPlanoMoto()) {
+            listaM[i++] = v.getNome() + " - " + v.getPreco() + " (M)";
+        }
+
+        jListaPlanos.setListData(concatenaArrayString(listaA, listaM));
+        listaMotoMarcaPlano.setListData(listaA);
+        listaAutomovelMarcaPlano.setListData(listaA);
     }
 
     public void atualizarListaDeVeiculos() {
         int i = 0;
         String[] lista = new String[dadosAgencia.getVeiculos().size()];
+        String[] listaA = new String[dadosAgencia.getVeiculos().size()];
+        String[] listaM = new String[dadosAgencia.getVeiculos().size()];
         for (Veiculo v : dadosAgencia.getVeiculos()) {
-            if (v instanceof Automovel)
-                lista[i++] = v.getMarca() + " - " + v.getModelo()+ " (C)";
-            else
-                lista[i++] = v.getMarca() + " - " + v.getModelo()+ " (M)";
+            if (v instanceof Automovel) {
+                lista[i++] = v.getMarca() + " - " + v.getModelo() + " (C)";
+                listaA[i++] = v.getMarca() + " - " + v.getModelo() + " (C)";
+            } else {
+                lista[i++] = v.getMarca() + " - " + v.getModelo() + " (M)";
+                listaM[i++] = v.getMarca() + " - " + v.getModelo() + " (M)";
+            }
+
         }
         jListaVeiculos.setListData(lista);
+        listaMotoMarcaPlano.setListData(listaM);
+        listaAutomovelMarcaPlano.setListData(listaA);
     }
 
     /** This method is called from within the constructor to
@@ -387,41 +453,6 @@ public class MenuInicial extends javax.swing.JFrame {
         locarCarro = new javax.swing.JRadioButton();
         locarMoto = new javax.swing.JRadioButton();
         cadastrar2 = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList();
-        jLabel112 = new javax.swing.JLabel();
-        cadastrarPlanoDeLocacao = new javax.swing.JButton();
-        jLabel113 = new javax.swing.JLabel();
-        editarPlanoDeLocacao = new javax.swing.JButton();
-        apagarPlanoDeLocacao = new javax.swing.JButton();
-        jTabbedPane6 = new javax.swing.JTabbedPane();
-        jPanel17 = new javax.swing.JPanel();
-        nomePlanoCarro = new javax.swing.JTextField();
-        jLabel114 = new javax.swing.JLabel();
-        jLabel115 = new javax.swing.JLabel();
-        precoPlanoCarro = new javax.swing.JFormattedTextField();
-        jButton32 = new javax.swing.JButton();
-        limparCamposPlanoCarro = new javax.swing.JButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jLabel47 = new javax.swing.JLabel();
-        jRadioButton13 = new javax.swing.JRadioButton();
-        jRadioButton14 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
-        jRadioButton17 = new javax.swing.JRadioButton();
-        jRadioButton18 = new javax.swing.JRadioButton();
-        jPanel18 = new javax.swing.JPanel();
-        jButton34 = new javax.swing.JButton();
-        limparCamposPlanoMoto = new javax.swing.JButton();
-        jLabel116 = new javax.swing.JLabel();
-        nomePlanoMoto = new javax.swing.JTextField();
-        jLabel117 = new javax.swing.JLabel();
-        precoPlanoMoto = new javax.swing.JFormattedTextField();
-        jLabel48 = new javax.swing.JLabel();
-        cilindradasPlanoMoto = new javax.swing.JFormattedTextField();
         jPanel14 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel86 = new javax.swing.JLabel();
@@ -472,9 +503,49 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel110 = new javax.swing.JLabel();
         atualizarAgenciaGerente = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jListaPlanos = new javax.swing.JList();
+        jLabel112 = new javax.swing.JLabel();
+        cadastrarPlanoDeLocacao = new javax.swing.JButton();
+        jLabel113 = new javax.swing.JLabel();
+        editarPlanoDeLocacao = new javax.swing.JButton();
+        apagarPlanoDeLocacao = new javax.swing.JButton();
+        jTabbedPane6 = new javax.swing.JTabbedPane();
+        jPanel17 = new javax.swing.JPanel();
+        nomePlanoCarro = new javax.swing.JTextField();
+        jLabel114 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        precoPlanoCarro = new javax.swing.JFormattedTextField();
+        cadastrarPlanoCarro = new javax.swing.JButton();
+        limparCamposPlanoCarro = new javax.swing.JButton();
+        quatroPortasPlanoCarro = new javax.swing.JRadioButton();
+        arCondicionadoPlanoCarro = new javax.swing.JRadioButton();
+        jLabel47 = new javax.swing.JLabel();
+        GPSPlanoCarro = new javax.swing.JRadioButton();
+        direcaoHidraulicaPlanoCarro = new javax.swing.JRadioButton();
+        vidroEletricoPlanoCarro = new javax.swing.JRadioButton();
+        travaEletricaPlanoCarro = new javax.swing.JRadioButton();
+        airBagPlanoCarro = new javax.swing.JRadioButton();
+        bancosCouraPlanoCarro = new javax.swing.JRadioButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        listaAutomovelMarcaPlano = new javax.swing.JList();
+        jLabel95 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        cadastrarPlanoMoto = new javax.swing.JButton();
+        limparCamposPlanoMoto = new javax.swing.JButton();
+        jLabel116 = new javax.swing.JLabel();
+        nomePlanoMoto = new javax.swing.JTextField();
+        jLabel117 = new javax.swing.JLabel();
+        precoPlanoMoto = new javax.swing.JFormattedTextField();
+        jLabel48 = new javax.swing.JLabel();
+        cilindradasPlanoMoto = new javax.swing.JFormattedTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        listaMotoMarcaPlano = new javax.swing.JList();
+        jLabel52 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOCALISA - Menu Principal");
@@ -1746,7 +1817,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10));
         clienteLocacao.setEnabled(false);
 
         jLabel51.setText("Cliente:");
@@ -1806,34 +1877,33 @@ public class MenuInicial extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel51)
-                            .addGap(53, 53, 53)
-                            .addComponent(clienteLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel59)
-                                .addComponent(jLabel53))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(boxSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel69)
-                                .addComponent(jLabel54))
-                            .addGap(53, 53, 53)
-                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(boxPlanos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(boxVeiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel11Layout.createSequentialGroup()
-                                    .addComponent(locarCarro)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(locarMoto)))))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel51)
+                                .addGap(53, 53, 53)
+                                .addComponent(clienteLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel59)
+                                    .addComponent(jLabel53))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dataDevolucaoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(boxSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel69)
+                                    .addComponent(jLabel54))
+                                .addGap(53, 53, 53)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(boxPlanos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(boxVeiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(locarCarro)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(locarMoto))))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(limparCamposLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1941,264 +2011,6 @@ public class MenuInicial extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Locações", jPanel5);
-
-        jList5.setEnabled(false);
-        jScrollPane5.setViewportView(jList5);
-
-        jLabel112.setText("Lista de Planos:");
-
-        cadastrarPlanoDeLocacao.setText("Cadastrar Plano de Locação");
-        cadastrarPlanoDeLocacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarPlanoDeLocacaoActionPerformed(evt);
-            }
-        });
-
-        jLabel113.setText("Opções:");
-
-        editarPlanoDeLocacao.setText("Editar Plano de Locação");
-        editarPlanoDeLocacao.setEnabled(false);
-
-        apagarPlanoDeLocacao.setText("Apagar Plano de Locação");
-        apagarPlanoDeLocacao.setEnabled(false);
-
-        nomePlanoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
-
-        jLabel114.setText("Nome:");
-
-        jLabel115.setText("Preço:");
-
-        precoPlanoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
-
-        jButton32.setText("Cadastrar");
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
-            }
-        });
-
-        limparCamposPlanoCarro.setText("Limpar Campos");
-
-        jRadioButton10.setText("Duas Portas");
-
-        jRadioButton11.setText("Quatro Portas");
-
-        jRadioButton12.setText("Ar Condicionado");
-
-        jLabel47.setText("Acessórios:");
-
-        jRadioButton13.setText("GPS");
-
-        jRadioButton14.setText("Dir. Hidraulica");
-
-        jRadioButton15.setText("Vidro Eletrico");
-
-        jRadioButton16.setText("Trava Eletrico");
-
-        jRadioButton17.setText("Air Bag");
-
-        jRadioButton18.setText("Bancos de Couro");
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel115)
-                            .addComponent(jLabel114))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(precoPlanoCarro, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomePlanoCarro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
-                        .addGap(306, 306, 306))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton13)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton11)
-                                    .addComponent(jRadioButton12)
-                                    .addComponent(jRadioButton10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton14)
-                                    .addComponent(jRadioButton15)
-                                    .addGroup(jPanel17Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton16)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton17))
-                                    .addComponent(jRadioButton18)))
-                            .addComponent(jLabel47))
-                        .addGap(186, 186, 186))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addGap(158, 158, 158)
-                                .addComponent(jButton32, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                            .addComponent(limparCamposPlanoCarro))
-                        .addGap(199, 199, 199))))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel114)
-                    .addComponent(nomePlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel115)
-                    .addComponent(precoPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel47)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton10)
-                            .addComponent(jRadioButton16)
-                            .addComponent(jRadioButton17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton12))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jRadioButton14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton15)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton13)
-                    .addComponent(jRadioButton18))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(limparCamposPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        jTabbedPane6.addTab("Automóvel", jPanel17);
-
-        jButton34.setText("Cadastrar");
-        jButton34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton34ActionPerformed(evt);
-            }
-        });
-
-        limparCamposPlanoMoto.setText("Limpar Campos");
-
-        jLabel116.setText("Nome:");
-
-        nomePlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
-
-        jLabel117.setText("Preço:");
-
-        precoPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
-
-        jLabel48.setText("Cilindrada Máxima:");
-
-        cilindradasPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
-                                .addComponent(jLabel48)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cilindradasPlanoMoto))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
-                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel117)
-                                    .addComponent(jLabel116))
-                                .addGap(63, 63, 63)
-                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(precoPlanoMoto)
-                                    .addComponent(nomePlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))))
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(limparCamposPlanoMoto)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel116)
-                    .addComponent(nomePlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel117)
-                    .addComponent(precoPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel48)
-                    .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(limparCamposPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
-        );
-
-        jTabbedPane6.addTab("Moto", jPanel18);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel112)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel113))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(apagarPlanoDeLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editarPlanoDeLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cadastrarPlanoDeLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                        .addComponent(jTabbedPane6, 0, 0, Short.MAX_VALUE)))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel112)
-                    .addComponent(jLabel113))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(cadastrarPlanoDeLocacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editarPlanoDeLocacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(apagarPlanoDeLocacao)
-                        .addGap(27, 27, 27)
-                        .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Planos de Locação", jPanel6);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -2517,16 +2329,291 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Configurações", jPanel7);
 
+        jListaPlanos.setEnabled(false);
+        jScrollPane5.setViewportView(jListaPlanos);
+
+        jLabel112.setText("Lista de Planos:");
+
+        cadastrarPlanoDeLocacao.setText("Cadastrar Plano de Locação");
+        cadastrarPlanoDeLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarPlanoDeLocacaoActionPerformed(evt);
+            }
+        });
+
+        jLabel113.setText("Opções:");
+
+        editarPlanoDeLocacao.setText("Editar Plano de Locação");
+        editarPlanoDeLocacao.setEnabled(false);
+
+        apagarPlanoDeLocacao.setText("Apagar Plano de Locação");
+        apagarPlanoDeLocacao.setEnabled(false);
+
+        nomePlanoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
+
+        jLabel114.setText("Nome:");
+
+        jLabel115.setText("Preço:");
+
+        precoPlanoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
+
+        cadastrarPlanoCarro.setText("Cadastrar");
+        cadastrarPlanoCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarPlanoCarroActionPerformed(evt);
+            }
+        });
+
+        limparCamposPlanoCarro.setText("Limpar Campos");
+
+        quatroPortasPlanoCarro.setText("Quatro Portas");
+
+        arCondicionadoPlanoCarro.setText("Ar Condicionado");
+
+        jLabel47.setText("Acessórios:");
+
+        GPSPlanoCarro.setText("GPS");
+
+        direcaoHidraulicaPlanoCarro.setText("Dir. Hidraulica");
+
+        vidroEletricoPlanoCarro.setText("Vidro Eletrico");
+
+        travaEletricaPlanoCarro.setText("Trava Eletrico");
+
+        airBagPlanoCarro.setText("Air Bag");
+
+        bancosCouraPlanoCarro.setText("Bancos de Couro");
+
+        jScrollPane7.setViewportView(listaAutomovelMarcaPlano);
+
+        jLabel95.setText("Veiculos/Marca:");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel115)
+                            .addComponent(jLabel114))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(precoPlanoCarro, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomePlanoCarro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
+                        .addGap(306, 306, 306))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(GPSPlanoCarro)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(quatroPortasPlanoCarro)
+                                    .addComponent(arCondicionadoPlanoCarro)
+                                    .addComponent(airBagPlanoCarro))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(direcaoHidraulicaPlanoCarro)
+                                    .addComponent(vidroEletricoPlanoCarro)
+                                    .addGroup(jPanel17Layout.createSequentialGroup()
+                                        .addComponent(travaEletricaPlanoCarro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(bancosCouraPlanoCarro)))
+                            .addComponent(jLabel47))
+                        .addGap(27, 27, 27))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGap(158, 158, 158)
+                                .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                            .addComponent(limparCamposPlanoCarro))
+                        .addGap(199, 199, 199))))
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jLabel95)
+                .addContainerGap(196, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addComponent(jLabel95)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel114)
+                            .addComponent(nomePlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel115)
+                            .addComponent(precoPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(travaEletricaPlanoCarro)
+                            .addComponent(airBagPlanoCarro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(quatroPortasPlanoCarro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(arCondicionadoPlanoCarro))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(direcaoHidraulicaPlanoCarro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(vidroEletricoPlanoCarro)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GPSPlanoCarro)
+                    .addComponent(bancosCouraPlanoCarro))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(limparCamposPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        jTabbedPane6.addTab("Automóvel", jPanel17);
+
+        cadastrarPlanoMoto.setText("Cadastrar");
+        cadastrarPlanoMoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarPlanoMotoActionPerformed(evt);
+            }
+        });
+
+        limparCamposPlanoMoto.setText("Limpar Campos");
+
+        jLabel116.setText("Nome:");
+
+        nomePlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+
+        jLabel117.setText("Preço:");
+
+        precoPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+
+        jLabel48.setText("Cilindrada Máxima:");
+
+        cilindradasPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+
+        jScrollPane6.setViewportView(listaMotoMarcaPlano);
+
+        jLabel52.setText("Veiculos/Marca:");
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
+                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel117)
+                                .addComponent(jLabel116))
+                            .addGap(63, 63, 63)
+                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nomePlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                .addComponent(precoPlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
+                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel48)
+                                .addComponent(jLabel52))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(limparCamposPlanoMoto)
+                        .addGap(47, 47, 47)
+                        .addComponent(cadastrarPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel116)
+                    .addComponent(nomePlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel117)
+                    .addComponent(precoPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48)
+                    .addComponent(cilindradasPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limparCamposPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastrarPlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jTabbedPane6.addTab("Moto", jPanel18);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel112)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTabbedPane6, 0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel113))
+                    .addComponent(apagarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cadastrarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel112)
+                    .addComponent(jLabel113))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(cadastrarPlanoDeLocacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editarPlanoDeLocacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(apagarPlanoDeLocacao)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Planos de Locação", jPanel6);
+
         jMenu1.setText("Sobre");
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Sair");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuSair.setText("Sair");
+        jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                jMenuSairMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuSair);
 
         setJMenuBar(jMenuBar1);
 
@@ -2555,9 +2642,9 @@ public class MenuInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+    private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_jMenuSairMouseClicked
 
     private void cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarClienteActionPerformed
         ativarCadastro();
@@ -2723,8 +2810,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
                     if (jComboTipoFuncionario.getSelectedIndex() == 0) {
                         funcionario = new Locador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
-                    }
-                    else if(jComboTipoFuncionario.getSelectedIndex() == 1) {
+                    } else if (jComboTipoFuncionario.getSelectedIndex() == 1) {
                         funcionario = new Zelador(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
                     } else {
                         funcionario = new Seguranca(cpfF, nomeF, rgF, nascimentoF, naturalidadeF, end, telefoneF, emailF);
@@ -2785,7 +2871,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         TipoDeFreio freioC = TipoDeFreio.valueOf((String) freioCarro.getSelectedItem());
         TipoDePotencia tipoPotenciaC = TipoDePotencia.valueOf((String) tipoPotenciaCarro.getSelectedItem());
-        int nivelCombustivelC = ((Integer)nivelCombustivelCarro.getValue()).intValue();
+        int nivelCombustivelC = ((Integer) nivelCombustivelCarro.getValue()).intValue();
         Cor corC = Cor.valueOf((String) corCarro.getSelectedItem());
         TipoDeCombustivel combustivelC = TipoDeCombustivel.valueOf((String) combustivelCarro.getSelectedItem());
         if (quatroPortas.isSelected()) {
@@ -2812,7 +2898,7 @@ public class MenuInicial extends javax.swing.JFrame {
         if (airBag.isSelected()) {
             listaAcessorios.add(Acessorio.AB);
         }
-        if (cadastrarCarro.getText().equals("Cadastrar")){
+        if (cadastrarCarro.getText().equals("Cadastrar")) {
             try {
                 dadosAgencia.adicionaVeiculo(new Automovel(renavanC, modeloC, marcaC, Integer.parseInt(potenciaC), Integer.parseInt(anoC), corC, freioC, combustivelC, dataAquisicaoC, nivelCombustivelC, listaAcessorios, tipoPotenciaC));
                 atualizarFilial(dadosAgencia);
@@ -2823,8 +2909,8 @@ public class MenuInicial extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
-        }else{
-            try{
+        } else {
+            try {
                 Automovel auto = (Automovel) getVeiculoSelecionado();
                 auto.setRenavam(renavanC);
                 auto.setModelo(modeloC);
@@ -2842,7 +2928,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 limparCamposCarro.setText("Limpar Campos");
                 limparCamposCarro.doClick();
                 desativarCadastroVeiculo();
-            }catch(Exception e){
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
         }
@@ -2861,12 +2947,12 @@ public class MenuInicial extends javax.swing.JFrame {
         TipoDeFreio freioMoto = TipoDeFreio.valueOf((String) jTipoFreioMoto.getSelectedItem());
         TipoDePotencia tipoPotenciaMoto = TipoDePotencia.valueOf((String) jTipoPotenciaMoto.getSelectedItem());
         Cor corMoto = Cor.valueOf((String) jTipoCorMoto.getSelectedItem());
-        int nivelTanque = ((Integer)jSpinnerCombustivelMoto.getValue()).intValue();
-        if (renavam.equals("") || modelo.equals("") ||  marca.equals("")
+        int nivelTanque = ((Integer) jSpinnerCombustivelMoto.getValue()).intValue();
+        if (renavam.equals("") || modelo.equals("") || marca.equals("")
                 || potencia.equals("") || data.equals("") || cilindradas.equals("") || ano.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
-        }else{
-            if (cadastrarMoto.getText().equals("Cadastrar")){
+        } else {
+            if (cadastrarMoto.getText().equals("Cadastrar")) {
                 try {
                     int potencia1 = Integer.parseInt(potencia);
                     int cilindradas1 = Integer.parseInt(cilindradas);
@@ -2883,8 +2969,8 @@ public class MenuInicial extends javax.swing.JFrame {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }
-            }else{
-                try{
+            } else {
+                try {
                     Motocicleta moto = (Motocicleta) getVeiculoSelecionado();
                     moto.setAno(Integer.parseInt(ano));
                     moto.setRenavam(renavam);
@@ -2901,46 +2987,95 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCamposMoto.setText("Limpar Campos");
                     limparCamposMoto.doClick();
                     desativarCadastroVeiculo();
-                }catch(Exception e){
-                        JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }
             }
         }
     }//GEN-LAST:event_cadastrarMotoActionPerformed
-    
+
     private void cadastrarPlanoDeLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoDeLocacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarPlanoDeLocacaoActionPerformed
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton32ActionPerformed
+    private void cadastrarPlanoCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoCarroActionPerformed
+        String nome = nomePlanoCarro.getText();
+        String preco = precoPlanoCarro.getText();
+        List<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
+        if (quatroPortasPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.QP);
+        }
+        if (arCondicionadoPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.AC);
+        }
+        if (vidroEletricoPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.VE);
+        }
+        if (travaEletricaPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.TE);
+        }
+        if (GPSPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.GPS);
+        }
+        if (direcaoHidraulicaPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.DH);
+        }
+        if (bancosCouraPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.BC);
+        }
+        if (airBagPlanoCarro.isSelected()) {
+            listaAcessorios.add(Acessorio.AB);
+        }
+        try {
+            PlanoAutomovel plano = new PlanoAutomovel(nome, Integer.parseInt(preco));
+            plano.adicionaListaAcessorios(listaAcessorios);
+            plano.adicionaListaVeiculos(getVeiculoSelecionadoPlanoCarro());
+            dadosAgencia.adicionaPlanoAutomovel(plano);
+            atualizarFilial(dadosAgencia);
+            atualizarListaDePlanos();
+            JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_cadastrarPlanoCarroActionPerformed
 
     private void bancoDeCouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bancoDeCouroActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_bancoDeCouroActionPerformed
 
-    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jButton34ActionPerformed
+    private void cadastrarPlanoMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoMotoActionPerformed
+        String nome = nomePlanoMoto.getText();
+        String preco = precoPlanoMoto.getText();
+        String cilindradas = cilindradasPlanoMoto.getText();
+        try {
+            PlanoMoto plano = new PlanoMoto(nome, Integer.parseInt(preco));
+            plano.adicionaCilindradas(Integer.parseInt(cilindradas));
+            plano.adicionaMotos(getVeiculoSelecionadoPlanoMoto());
+            dadosAgencia.adicionaPlanoMoto(plano);
+            atualizarFilial(dadosAgencia);
+            atualizarListaDePlanos();
+            JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
+        } catch (Exception e) {
+        }
+}//GEN-LAST:event_cadastrarPlanoMotoActionPerformed
 
     private void locarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locarActionPerformed
-        Cliente clienteL =  getClienteSelecionado();
+        Cliente clienteL = getClienteSelecionado();
         Plano planoL = null;
         Veiculo veiculoL = null;
-        if (locarCarro.isSelected()){
+        if (locarCarro.isSelected()) {
             planoL = (PlanoAutomovel) dadosAgencia.getPlanoAutomovel().toArray()[boxPlanos.getSelectedIndex()];
             veiculoL = (Automovel) dadosAgencia.getVeiculos().toArray()[boxVeiculos.getSelectedIndex()];
-        }else if (locarMoto.isSelected()){
+        } else if (locarMoto.isSelected()) {
             planoL = (PlanoMoto) dadosAgencia.getPlanoMoto().toArray()[boxPlanos.getSelectedIndex()];
             veiculoL = (Motocicleta) dadosAgencia.getVeiculos().toArray()[boxVeiculos.getSelectedIndex()];
         }
         String dataEntregaL = dataDevolucaoLocacao.getText();
         int seguroL = boxSeguro.getSelectedIndex();
-        try{
+        try {
             dadosAgencia.adicionaLocacao(new Locacao(veiculoL, clienteL, planoL, dataEntregaL, dataEntregaL, seguroL));
             JOptionPane.showMessageDialog(rootPane, "Locacao adicionada com sucesso!");
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
     }//GEN-LAST:event_locarActionPerformed
@@ -3147,22 +3282,30 @@ public class MenuInicial extends javax.swing.JFrame {
         if (veiculo instanceof Automovel) {
             Automovel auto = (Automovel) veiculo;
             ArrayList<Acessorio> listaAcessorios = auto.getOpcionais();
-            if (listaAcessorios.contains(Acessorio.QP))
+            if (listaAcessorios.contains(Acessorio.QP)) {
                 quatroPortas.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.AC))
+            }
+            if (listaAcessorios.contains(Acessorio.AC)) {
                 arCondicionado.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.VE))
+            }
+            if (listaAcessorios.contains(Acessorio.VE)) {
                 vidroEletrico.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.TE))
+            }
+            if (listaAcessorios.contains(Acessorio.TE)) {
                 travaEletrica.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.GPS))
+            }
+            if (listaAcessorios.contains(Acessorio.GPS)) {
                 gps.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.DH))
+            }
+            if (listaAcessorios.contains(Acessorio.DH)) {
                 direcaoHidraulica.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.BC))
+            }
+            if (listaAcessorios.contains(Acessorio.BC)) {
                 bancoDeCouro.setSelected(true);
-            if (listaAcessorios.contains(Acessorio.AB))
+            }
+            if (listaAcessorios.contains(Acessorio.AB)) {
                 airBag.setSelected(true);
+            }
             corCarro.setSelectedItem(auto.getCor().toString());
             freioCarro.setSelectedItem(auto.getTipoDeFreios().toString());
             tipoPotenciaCarro.setSelectedItem(auto.getTipoDePotencia().toString());
@@ -3293,15 +3436,17 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void boxPlanosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_boxPlanosFocusGained
         String[] lista = null;
-        int i=0;
-        if(locarCarro.isSelected()){
+        int i = 0;
+        if (locarCarro.isSelected()) {
             lista = new String[dadosAgencia.getPlanoAutomovel().size()];
-            for (PlanoAutomovel p : dadosAgencia.getPlanoAutomovel())
+            for (PlanoAutomovel p : dadosAgencia.getPlanoAutomovel()) {
                 lista[i++] = p.getNome();
-        }else if(locarMoto.isSelected()){
+            }
+        } else if (locarMoto.isSelected()) {
             lista = new String[dadosAgencia.getPlanoMoto().size()];
-            for(PlanoMoto p : dadosAgencia.getPlanoMoto())
+            for (PlanoMoto p : dadosAgencia.getPlanoMoto()) {
                 lista[i++] = p.getNome();
+            }
         }
         DefaultComboBoxModel model = new DefaultComboBoxModel(lista);
         boxPlanos.setModel(model);
@@ -3309,16 +3454,18 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void boxVeiculosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_boxVeiculosFocusGained
         String[] lista = new String[dadosAgencia.getVeiculos().size()];
-        int i=0;
-        if(locarCarro.isSelected()){
-            for (Veiculo v : dadosAgencia.getVeiculos()){
-                if (v instanceof Automovel)
+        int i = 0;
+        if (locarCarro.isSelected()) {
+            for (Veiculo v : dadosAgencia.getVeiculos()) {
+                if (v instanceof Automovel) {
                     lista[i++] = v.getMarca() + " - " + v.getModelo();
+                }
             }
-        }else if(locarMoto.isSelected()){
-            for (Veiculo v : dadosAgencia.getVeiculos()){
-                if (v instanceof Motocicleta)
+        } else if (locarMoto.isSelected()) {
+            for (Veiculo v : dadosAgencia.getVeiculos()) {
+                if (v instanceof Motocicleta) {
                     lista[i++] = v.getMarca() + " - " + v.getModelo();
+                }
             }
         }
         DefaultComboBoxModel model = new DefaultComboBoxModel(lista);
@@ -3333,7 +3480,7 @@ public class MenuInicial extends javax.swing.JFrame {
         try {
             buttonGroup1.add(locarCarro);
             buttonGroup1.add(locarMoto);
-            
+
             MaskFormatter mascaracpf = new MaskFormatter("###.###.###-##");
             MaskFormatter mascaradata = new MaskFormatter("##/##/####");
             MaskFormatter mascaratelefone = new MaskFormatter("(##)####-####");
@@ -3415,24 +3562,25 @@ public class MenuInicial extends javax.swing.JFrame {
             apagarFuncionario.setEnabled(true);
         }
 
-        if (jListaVeiculos.getSelectedValue() == null){
+        if (jListaVeiculos.getSelectedValue() == null) {
             editarVeiculo.setEnabled(false);
             apagarVeiculo.setEnabled(false);
-        }else{
+        } else {
             editarVeiculo.setEnabled(true);
             apagarVeiculo.setEnabled(true);
         }
 
-        if(!(locarCarro.isSelected()) && !(locarMoto.isSelected())){
+        if (!(locarCarro.isSelected()) && !(locarMoto.isSelected())) {
             boxPlanos.setEnabled(false);
-        }else{
+        } else {
             boxPlanos.setEnabled(true);
         }
 
-        if(boxPlanos.getSelectedItem() == null)
+        if (boxPlanos.getSelectedItem() == null) {
             boxVeiculos.setEnabled(false);
-        else
+        } else {
             boxVeiculos.setEnabled(true);
+        }
     }
 
     public void setTimer() {
@@ -3728,7 +3876,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel13.setEnabled(false);
         jLabel83.setEnabled(false);
         jLabel79.setEnabled(false);
-   
+
         jLabel80.setEnabled(false);
         jLabel73.setEnabled(false);
         jLabel76.setEnabled(false);
@@ -3778,7 +3926,7 @@ public class MenuInicial extends javax.swing.JFrame {
         renavamCarro.setEnabled(false);
         anoCarro.setEnabled(false);
         freioCarro.setEnabled(false);
-    
+
         arCondicionado.setEnabled(false);
         cadastrarCarro.setEnabled(false);
         gps.setEnabled(false);
@@ -3792,7 +3940,9 @@ public class MenuInicial extends javax.swing.JFrame {
         direcaoHidraulica.setEnabled(false);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton GPSPlanoCarro;
     private javax.swing.JRadioButton airBag;
+    private javax.swing.JRadioButton airBagPlanoCarro;
     private javax.swing.JTextField anoCarro;
     private javax.swing.JTextField anoMoto;
     private javax.swing.JButton apagarCliente;
@@ -3801,6 +3951,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton apagarPlanoDeLocacao;
     private javax.swing.JButton apagarVeiculo;
     private javax.swing.JRadioButton arCondicionado;
+    private javax.swing.JRadioButton arCondicionadoPlanoCarro;
     private javax.swing.JButton atualizarAgenciaGerente;
     private javax.swing.JTextField bairro;
     private javax.swing.JTextField bairro1;
@@ -3808,6 +3959,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JTextField bairroAgencia;
     private javax.swing.JTextField bairroGerente;
     private javax.swing.JRadioButton bancoDeCouro;
+    private javax.swing.JRadioButton bancosCouraPlanoCarro;
     private javax.swing.JComboBox boxPlanos;
     private javax.swing.JComboBox boxSeguro;
     private javax.swing.JComboBox boxVeiculos;
@@ -3817,7 +3969,9 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton cadastrarCliente;
     private javax.swing.JButton cadastrarFuncionario;
     private javax.swing.JButton cadastrarMoto;
+    private javax.swing.JButton cadastrarPlanoCarro;
     private javax.swing.JButton cadastrarPlanoDeLocacao;
+    private javax.swing.JButton cadastrarPlanoMoto;
     private javax.swing.JButton cadastrarVeiculo;
     private javax.swing.JFormattedTextField cep;
     private javax.swing.JFormattedTextField cep1;
@@ -3843,6 +3997,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField dataAquisicaoMoto;
     private javax.swing.JFormattedTextField dataDevolucaoLocacao;
     private javax.swing.JRadioButton direcaoHidraulica;
+    private javax.swing.JRadioButton direcaoHidraulicaPlanoCarro;
     private javax.swing.JButton editarCliente;
     private javax.swing.JButton editarFuncionario;
     private javax.swing.JButton editarPlanoDeLocacao;
@@ -3863,8 +4018,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox jComboTipoFuncionario;
     private javax.swing.JLabel jLabel1;
@@ -3932,6 +4085,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -3978,18 +4132,19 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JList jList4;
-    private javax.swing.JList jList5;
     private javax.swing.JList jListaClientes;
     private javax.swing.JList jListaFuncionario;
+    private javax.swing.JList jListaPlanos;
     private javax.swing.JList jListaVeiculos;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -4006,20 +4161,13 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinnerCombustivelMoto;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -4038,6 +4186,8 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton limparCamposMoto;
     private javax.swing.JButton limparCamposPlanoCarro;
     private javax.swing.JButton limparCamposPlanoMoto;
+    private javax.swing.JList listaAutomovelMarcaPlano;
+    private javax.swing.JList listaMotoMarcaPlano;
     private javax.swing.JButton locar;
     private javax.swing.JRadioButton locarCarro;
     private javax.swing.JRadioButton locarMoto;
@@ -4068,6 +4218,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField precoPlanoCarro;
     private javax.swing.JFormattedTextField precoPlanoMoto;
     private javax.swing.JRadioButton quatroPortas;
+    private javax.swing.JRadioButton quatroPortasPlanoCarro;
     private javax.swing.JButton realizarLocacao;
     private javax.swing.JButton realizarPagamento;
     private javax.swing.JTextField renavamCarro;
@@ -4088,7 +4239,9 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField telefoneGerente;
     private javax.swing.JComboBox tipoPotenciaCarro;
     private javax.swing.JRadioButton travaEletrica;
+    private javax.swing.JRadioButton travaEletricaPlanoCarro;
     private javax.swing.JButton verificarDebito;
     private javax.swing.JRadioButton vidroEletrico;
+    private javax.swing.JRadioButton vidroEletricoPlanoCarro;
     // End of variables declaration//GEN-END:variables
 }
