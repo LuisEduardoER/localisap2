@@ -3659,7 +3659,11 @@ public class MenuInicial extends javax.swing.JFrame {
         }//GEN-LAST:event_apagarPlanoDeLocacaoActionPerformed
 
         private void apagarLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarLocacaoActionPerformed
-            // TODO add your handling code here:
+            ((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex()).getVeiculo().setLocado(false);
+            atualizarListaDeVeiculos();
+            dadosAgencia.getLocacao().remove(((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex()));
+            atualizarListaDeLocacoes();
+            atualizarFilial(dadosAgencia);
         }//GEN-LAST:event_apagarLocacaoActionPerformed
         
     private void setarMascaras() {
