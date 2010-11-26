@@ -1,19 +1,19 @@
-
 package veiculos;
 
 /**
-* Classe TipoDeCombustivel
-* Classe do tipo ENUM para listar os tipos de combustiveis
-*
-*
-* @author Filipe Alencar   -twitter.com/filipealencar_
-* @author Felipe Jose      -twitter.com/felipejosefc
-* @author Emilio Farias    -twitter.com/militofarias
-*
-* http://code.google.com/p/localisap2/
-* Universidade Federal de Campina Grande - Computacao
-*
-*/
-public enum TipoDeCombustivel{
+ * Classe TipoDeCombustivel
+ * Classe do tipo ENUM para listar os tipos de combustiveis
+ *
+ *
+ * @author Filipe Alencar   -twitter.com/filipealencar_
+ * @author Felipe Jose      -twitter.com/felipejosefc
+ * @author Emilio Farias    -twitter.com/militofarias
+ *
+ * http://code.google.com/p/localisap2/
+ * Universidade Federal de Campina Grande - Computacao
+ *
+ */
+public enum TipoDeCombustivel {
+
     ALCOOL, GASOLINA, GAS, DIESEL, FLEX;
 }

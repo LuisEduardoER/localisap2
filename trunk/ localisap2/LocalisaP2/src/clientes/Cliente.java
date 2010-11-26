@@ -18,7 +18,7 @@ import java.io.Serializable;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public abstract class Cliente implements Serializable{
+public abstract class Cliente implements Serializable {
 
     private int quantidadeLocacao;
     private double divida = 0;
@@ -27,7 +27,6 @@ public abstract class Cliente implements Serializable{
     private String telefone;
     private String email;
     private String nome;
-
 
     /**
      * Captura o Endereco
@@ -53,7 +52,7 @@ public abstract class Cliente implements Serializable{
         return email;
     }
 
-     /**
+    /**
      * Captura o Nome do cliente
      * @return email
      */
@@ -90,7 +89,7 @@ public abstract class Cliente implements Serializable{
      * @throws Exception
      */
     public void setTelefone(String telefone) throws Exception {
-        telefone = telefone.replace(".","");
+        telefone = telefone.replace(".", "");
         if (telefone.length() < 10) {
             throw new Exception("Um telefone valido deve ter o DDD + o numero");
         }

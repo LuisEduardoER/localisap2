@@ -50,19 +50,6 @@ public class PlanoTest {
 		planoMotoB.adicionaCilindradas(500);
 	}
 
-	@Test
-	public void testaAdicionaRemove() throws Exception{
-		
-		planoMotoA.adicionaMoto(moto);
-		planoMotoB.adicionaMoto(moto);
-		
-		Assert.assertTrue(planoMotoA.getListaMoto().contains(moto));
-		Assert.assertTrue(planoMotoB.getListaMoto().contains(moto));
-		
-		planoMotoA.removeMoto(moto);
-		
-		Assert.assertTrue(planoMotoA.getListaMoto().isEmpty());
-	}
 
 	@Test
 	public void testaMetodos() {

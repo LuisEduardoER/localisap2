@@ -1,6 +1,5 @@
 package clientes;
 
-import java.io.Serializable;
 import verificacoes.Validacao;
 
 /**
@@ -13,12 +12,11 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PessoaJuridica extends Cliente{
+public class PessoaJuridica extends Cliente {
 
     private String cnpj;
     private String razaoSocial;
     private String inscricaoEstadual;
-
 
     /**
      * Construtor que cria uma Pessoa Juridica.
@@ -46,7 +44,7 @@ public class PessoaJuridica extends Cliente{
      */
     public PessoaJuridica() {
     }
- 
+
     /**
      * Metodo para capturar o CPNJ de uma pessoa juridica
      * @return - Em String o CPNJ
@@ -63,7 +61,6 @@ public class PessoaJuridica extends Cliente{
         return razaoSocial;
     }
 
-
     /**
      * Metodo para capturar a inscricao estadual de uma pessoa juridica
      * @return - Em String a inscricao estadual
@@ -71,7 +68,6 @@ public class PessoaJuridica extends Cliente{
     public String getInscricaoEstadual() {
         return inscricaoEstadual;
     }
-
 
     /**
      * Permite mudar o CPNJ

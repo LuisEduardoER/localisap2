@@ -2,12 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package funcionarios;
 
 import clientes.Endereco;
 
- /**
+/**
  * Classe Seguranca
  * Herda da classe abstrata PessoaAbstrata
  * Gerencia dados referentes ao funcionario seguranca
@@ -20,7 +19,8 @@ import clientes.Endereco;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Seguranca extends PessoaAbstrata{
+public class Seguranca extends PessoaAbstrata {
+
     /**
      * Construtor que cria um Seguranca
      * 
@@ -34,21 +34,20 @@ public class Seguranca extends PessoaAbstrata{
      * @param email
      * @throws Exception
      */
-    public Seguranca(String cpf,String nome,String rg,String nascimento,String naturalidade,Endereco endereco,String telefone,String email) throws Exception{
-		setCpf(cpf);
-		setEmail(email);
-		setEndereco(endereco);
-		setNascimento(nascimento);
-		setNaturalidade(naturalidade);
-		setNome(nome);
-		setRg(rg);
-		setTelefone(telefone);
-	}
+    public Seguranca(String cpf, String nome, String rg, String nascimento, String naturalidade, Endereco endereco, String telefone, String email) throws Exception {
+        setCpf(cpf);
+        setEmail(email);
+        setEndereco(endereco);
+        setNascimento(nascimento);
+        setNaturalidade(naturalidade);
+        setNome(nome);
+        setRg(rg);
+        setTelefone(telefone);
+    }
 
     /**
      * Construtor que cria um Seguranca sem dados
      */
-    public Seguranca(){
-	}
-
+    public Seguranca() {
+    }
 }

@@ -241,21 +241,6 @@ public class Filial implements Serializable{
     }
 
     /**
-     * Metodo que remove uma locacao
-     * @param loc - a locacao a ser removida
-     */
-    public void removeLocacao(Locacao loc) {
-        listaDeLocacoes.remove(loc);
-    }
-
-    /**
-     * Metodo que remove um veiculo
-     * @param v - o veiculo a ser removido
-     */
-    public void removeVeiculos(Veiculo v) {
-        listaDeVeiculos.remove(v);
-    }
-    /**
      * Retira um veiculo da lista de veiculos da Agencia
      * @param index
      */
@@ -263,37 +248,19 @@ public class Filial implements Serializable{
         listaDeVeiculos.remove(listaDeVeiculos.toArray()[index]);
     }
     /**
-     * Metodo que remove um plano de automovel
-     * @param p - o plano a ser removido
+     * Metodo que remove um Plano
+     * @param index - Indice do Plano a ser removido
      */
-    public void removePlano(Plano p) {
-        listaDePlanos.remove(p);
-    }
     public void removePlano(int index) {
         listaDePlanos.remove(listaDePlanos.toArray()[index]);
     }
 
     /**
      * Metodo que remove um Funcionario
-     * @param l - O Funcionario a ser removida
-     */
-    public void removeFuncionario(Pessoa l) {
-        listaDeFuncionarios.remove(l);
-    }
-    /**
-     * Metodo que remove um Funcionario
      * @param index - Indice do funcionario a ser removido
      */
     public void removeFuncionario(int index) {
         listaDeFuncionarios.remove(listaDeFuncionarios.toArray()[index]);
-    }
-
-    /**
-     * Metodo que remove uma pessoa fisica
-     * @param c a pessoa fisica a ser removida
-     */
-    public void removeCliente(Cliente c) {
-        listaDeClientes.remove(c);
     }
 
     /**

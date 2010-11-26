@@ -36,7 +36,7 @@ public class FilialTest {
 	@Test
 	public void testaMetodosGet(){
 		Assert.assertEquals("25.216.024/0001-03", filial1.getCnpj());
-		Assert.assertEquals("0123456789", filial1.getTelefone());
+		Assert.assertEquals("(83)3333-3333", filial1.getTelefone());
 		Assert.assertEquals("0000", filial1.getInscEstadual());
                 Assert.assertEquals("Gerente Padrao", filial1.getGerente().getNome());
 		

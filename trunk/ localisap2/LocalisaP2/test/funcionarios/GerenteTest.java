@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import clientes.Endereco;
 
-import agencias.Filial;
-
 /**
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
@@ -21,15 +19,11 @@ import agencias.Filial;
 public class GerenteTest {
 
     Gerente gerente;
-    Filial filial1, filial2;
     Endereco endereco, endereco2;
 
     @Before
     public void inicio() throws Exception {
-        filial1 = new Filial();
-        filial2 = new Filial();
         gerente = new Gerente();
-        gerente.setAgencia(filial1);
         gerente.setCpf("03468137435");
         gerente.setEmail("filipe@teste");
         gerente.setEndereco(endereco2);
@@ -43,7 +37,6 @@ public class GerenteTest {
     @Test
     public void testaMetodosGet() {
         Assert.assertEquals("03468137435", gerente.getCpf());
-        Assert.assertEquals(filial1, gerente.getAgencia());
         Assert.assertEquals("filipe@teste", gerente.getEmail());
         Assert.assertEquals(endereco, gerente.getEndereco());
         Assert.assertEquals("11/10/1980", gerente.getNascimento());
@@ -56,7 +49,7 @@ public class GerenteTest {
 
     @Test
     public void testaMetodosSet() throws Exception {
-        gerente.setAgencia(filial2);
+
         gerente.setCpf("58548316780");
         gerente.setEmail("filipe@teste2");
         gerente.setEndereco(endereco2);
@@ -66,7 +59,6 @@ public class GerenteTest {
         gerente.setRg("1234567");
         gerente.setTelefone("8333312222");
         Assert.assertEquals("58548316780", gerente.getCpf());
-        Assert.assertEquals(filial2, gerente.getAgencia());
         Assert.assertEquals("filipe@teste2", gerente.getEmail());
         Assert.assertEquals(endereco2, gerente.getEndereco());
         Assert.assertEquals("10/10/1980", gerente.getNascimento());

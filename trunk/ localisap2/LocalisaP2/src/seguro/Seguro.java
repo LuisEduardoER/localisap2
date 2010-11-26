@@ -4,7 +4,8 @@
 package seguro;
 
 import java.io.Serializable;
-import planos.*;
+import planos.Plano;
+
 
 /**
  * Classe Seguro
@@ -18,7 +19,7 @@ import planos.*;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Seguro implements Serializable{
+public class Seguro implements Serializable {
 
     private boolean seguroTotal;
     private double precoDoPlano;
@@ -39,8 +40,6 @@ public class Seguro implements Serializable{
      * @param seguroTotal - Recebe true se for seguro total e false se for seguro parcial
      * @param plano - Recebe o plano da moto
      */
-
-
     /**
      * Metodo que verifica se o seguro eh total , e retorna o preco que seguro custara.
      * @return - O preco da locacao com o seguro incluso.

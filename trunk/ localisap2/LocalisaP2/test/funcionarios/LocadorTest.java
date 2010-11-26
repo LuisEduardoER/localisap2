@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import clientes.Endereco;
 
-import agencias.Filial;
 
 
 /**
@@ -21,15 +20,13 @@ import agencias.Filial;
 */
 public class LocadorTest {
 	Locador locador;
-	Filial filial1, filial2;
 	Gerente gerente;
 	Endereco endereco, endereco2;
 	@Before
 	public void inicio() throws Exception{
-		filial1 = new Filial();
-		filial2 = new Filial();
+
 		locador = new Locador();
-		locador.setAgencia(filial1);
+
 		locador.setCpf("32456373570");
 		locador.setEmail("filipe@teste");
 		locador.setEndereco(endereco2);
@@ -43,7 +40,7 @@ public class LocadorTest {
 	@Test
 	public void testaMetodosGet(){
 		Assert.assertEquals("32456373570",locador.getCpf());
-		Assert.assertEquals(filial1,locador.getAgencia());
+
 		Assert.assertEquals("filipe@teste",locador.getEmail());
 		Assert.assertEquals(endereco2,locador.getEndereco());
 		Assert.assertEquals("11/10/1980",locador.getNascimento());
@@ -56,7 +53,7 @@ public class LocadorTest {
 
 	@Test
 	public void testaMetodosSet() throws Exception{
-		locador.setAgencia(filial2);
+
 		locador.setCpf("58548316780");
 		locador.setEmail("filipe@teste2");
 		locador.setEndereco(endereco);
@@ -66,7 +63,7 @@ public class LocadorTest {
 		locador.setRg("1234567");
 		locador.setTelefone("8333312222");
 		Assert.assertEquals("58548316780",locador.getCpf());
-		Assert.assertEquals(filial2,locador.getAgencia());
+
 		Assert.assertEquals("filipe@teste2",locador.getEmail());
 		Assert.assertEquals(endereco,locador.getEndereco());
 		Assert.assertEquals("10/10/1980",locador.getNascimento());
