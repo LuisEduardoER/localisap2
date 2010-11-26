@@ -25,7 +25,7 @@ public class PagarDebito {
 
     /**
      * Construtor de PagarDebito
-     * @param cliente
+     * @param cliente - cliente a pagar
      */
     public PagarDebito(Cliente cliente) {
         this.cliente = cliente;

@@ -3,6 +3,10 @@ package clientes;
 import verificacoes.Validacao;
 
 /**
+ * *Classe PessoaJuridica
+ * herda da Classe abstrata Cliente
+ * Gerencia dados inerentes ao cliente pessoa juridica
+ *
  *
  * @author Filipe Alencar   -twitter.com/filipealencar_
  * @author Felipe Jose      -twitter.com/felipejosefc
@@ -86,7 +90,7 @@ public class PessoaJuridica extends Cliente {
     /**
      * Permite mudar a razao social
      * @param razaoSocial - Recebe como String a razao social
-     * @throws Exception
+     * @throws Exception - Razao social vazia
      */
     public void setRazaoSocial(String razaoSocial) throws Exception {
         if (razaoSocial.length() == 0) {
@@ -99,7 +103,7 @@ public class PessoaJuridica extends Cliente {
     /**
      * Permite mudar a inscricao estadual
      * @param inscricaoEstadual - Recebe como String a inscricao estadual
-     * @throws Exception
+     * @throws Exception - Inscrico estadual vazia
      */
     public void setInscricaoEstadual(String inscricaoEstadual) throws Exception {
         if (inscricaoEstadual.length() == 0) {

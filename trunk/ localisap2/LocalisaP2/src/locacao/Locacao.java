@@ -43,13 +43,13 @@ public class Locacao implements Serializable{
     /**
      * Construtor de Locacao
      *
-     * @param veiculo
-     * @param cliente
-     * @param planoDaLocacao
-     * @param dataEntrega
-     * @param dataDevolucao
-     * @param tipoSeguro
-     * @throws Exception
+     * @param veiculo - Veiculo locado
+     * @param cliente - cliente locatario
+     * @param planoDaLocacao - plano escolhido
+     * @param dataEntrega - Data de entrega do veiculo
+     * @param dataDevolucao - data de devolucao do veiculo
+     * @param tipoSeguro - tipo de seguro escolhido
+     * @throws Exception - Erro de objeto Cliente / erros referentes aos sets
      */
     public Locacao(Veiculo veiculo, Cliente cliente, Plano planoDaLocacao, String dataEntrega, String dataDevolucao, int tipoSeguro) throws Exception {
         setVeiculo(veiculo);
@@ -90,6 +90,10 @@ public class Locacao implements Serializable{
         return codigo;
     }
 
+    /**
+     *  Captura veiculo locado
+     * @return - veiculo
+     */
     public Veiculo getVeiculo(){
         return this.veiculo;
     }

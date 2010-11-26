@@ -17,25 +17,25 @@ public interface Plano {
 
     /**
      * Edita preco do plano
-     * @param preco
+     * @param preco - preco do plano
      */
     void setPreco(double preco);
 
     /**
      * Edita nome
-     * @param nome
+     * @param nome - nome
      */
     void setNome(String nome);
 
     /**
      * Captura preco
-     * @return
+     * @return - preco
      */
     double getPreco();
 
     /**
      * Captura nome
-     * @return
+     * @return - nome
      */
     String getNome();
 }

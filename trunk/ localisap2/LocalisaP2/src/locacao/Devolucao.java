@@ -38,11 +38,11 @@ public class Devolucao{
     /**
      * Construtor de Devolucao
      *
-     * @param loc
-     * @param nivelDoTanqueFinal
-     * @param dataDevolucao
-     * @param problema
-     * @throws Exception
+     * @param loc - Locacao
+     * @param nivelDoTanqueFinal - nivel do tanque na devolucao
+     * @param dataDevolucao - data da devolucao
+     * @param problemas - problemas do veiculo na devolucao
+     * @throws Exception - Erro proveniente dos sets
      */
     public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, ArrayList<Problema> problemas) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();

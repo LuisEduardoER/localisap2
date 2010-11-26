@@ -54,7 +54,7 @@ public abstract class Cliente implements Serializable {
 
     /**
      * Captura o Nome do cliente
-     * @return email
+     * @return o nome
      */
     public String getNome() {
         return nome;
@@ -62,8 +62,8 @@ public abstract class Cliente implements Serializable {
 
     /**
      * Permite mudar o nome
-     * @param nome
-     * @throws Exception
+     * @param nome - nome do Cliente
+     * @throws Exception - erro de nome vazio
      */
     public void setNome(String nome) throws Exception {
         if (nome.length() == 0) {
@@ -76,9 +76,8 @@ public abstract class Cliente implements Serializable {
     /**
      *  Permite mudar o Endereco
      * @param endereco
-     * @throws Exception
      */
-    public void setEndereco(Endereco endereco) throws Exception {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
 
     }
@@ -86,7 +85,7 @@ public abstract class Cliente implements Serializable {
     /**
      * Permite mudar o Telefone
      * @param telefone
-     * @throws Exception
+     * @throws Exception - Telefone invalido
      */
     public void setTelefone(String telefone) throws Exception {
         telefone = telefone.replace(".", "");
@@ -100,7 +99,7 @@ public abstract class Cliente implements Serializable {
     /**
      * Permite mudar o Telefone
      * @param email
-     * @throws Exception
+     * @throws Exception - Email digitado errado
      */
     public void setEmail(String email) throws Exception {
         if (!email.contains("@") || email.length() == 0) {
