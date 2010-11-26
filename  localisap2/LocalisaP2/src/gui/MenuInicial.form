@@ -2592,7 +2592,7 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cadastrar2" min="-2" pref="135" max="-2" attributes="1"/>
+                                      <Component id="efetuarDevolucao" min="-2" pref="135" max="-2" attributes="1"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="apagarLocacao" min="-2" pref="135" max="-2" attributes="1"/>
                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -2628,7 +2628,7 @@
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="apagarLocacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cadastrar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="efetuarDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jPanel11" min="-2" pref="271" max="-2" attributes="0"/>
@@ -2673,6 +2673,9 @@
                 <Property name="text" type="java.lang.String" value="Apagar Loca&#xe7;&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="apagarLocacaoActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel11">
               <Properties>
@@ -2896,13 +2899,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="cadastrar2">
+            <Component class="javax.swing.JButton" name="efetuarDevolucao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Efetuar Devoluc&#xe3;o"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrar2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="efetuarDevolucaoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel52">

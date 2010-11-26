@@ -439,7 +439,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
         locarCarro = new javax.swing.JRadioButton();
         locarMoto = new javax.swing.JRadioButton();
-        cadastrar2 = new javax.swing.JButton();
+        efetuarDevolucao = new javax.swing.JButton();
         jLabel52 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -1783,6 +1783,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
         apagarLocacao.setText("Apagar Locação");
         apagarLocacao.setEnabled(false);
+        apagarLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarLocacaoActionPerformed(evt);
+            }
+        });
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
@@ -1920,11 +1925,11 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGap(36, 36, 36))
         );
 
-        cadastrar2.setText("Efetuar Devolucão");
-        cadastrar2.setEnabled(false);
-        cadastrar2.addActionListener(new java.awt.event.ActionListener() {
+        efetuarDevolucao.setText("Efetuar Devolucão");
+        efetuarDevolucao.setEnabled(false);
+        efetuarDevolucao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrar2ActionPerformed(evt);
+                efetuarDevolucaoActionPerformed(evt);
             }
         });
 
@@ -1949,7 +1954,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                 .addContainerGap(289, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cadastrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(efetuarDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(apagarLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)))
@@ -1976,7 +1981,7 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(apagarLocacao)
-                            .addComponent(cadastrar2))
+                            .addComponent(efetuarDevolucao))
                         .addGap(30, 30, 30)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
@@ -3092,11 +3097,14 @@ public class MenuInicial extends javax.swing.JFrame {
 
         ArrayList<Automovel> listaCarro = new ArrayList<Automovel>();
         ArrayList<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
-        for(Veiculo v : dadosAgencia.getVeiculos()){
-            if(v instanceof Automovel)
-                listaCarro.add((Automovel)v);
-            else
-                listaMoto.add((Motocicleta) v);
+        if (locarCarro.isSelected()){
+            for(Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(listaPlanoCarro.get(boxPlanos.getSelectedIndex()))){
+                    listaCarro.add((Automovel)v);
+            }
+        }else{
+            for(Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(listaPlanoMoto.get(boxPlanos.getSelectedIndex()))){
+                    listaMoto.add((Motocicleta)v);
+            }
         }
 
         if (locarCarro.isSelected()) {
@@ -3483,9 +3491,9 @@ public class MenuInicial extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_atualizarAgenciaGerenteActionPerformed
 
-    private void cadastrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar2ActionPerformed
+    private void efetuarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efetuarDevolucaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cadastrar2ActionPerformed
+    }//GEN-LAST:event_efetuarDevolucaoActionPerformed
 
     private void boxPlanosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_boxPlanosFocusGained
         String[] lista = null;
@@ -3649,6 +3657,10 @@ public class MenuInicial extends javax.swing.JFrame {
             atualizarListaDePlanos();
         }
         }//GEN-LAST:event_apagarPlanoDeLocacaoActionPerformed
+
+        private void apagarLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarLocacaoActionPerformed
+            // TODO add your handling code here:
+        }//GEN-LAST:event_apagarLocacaoActionPerformed
         
     private void setarMascaras() {
         try {
@@ -3767,6 +3779,14 @@ public class MenuInicial extends javax.swing.JFrame {
         } else {
             boxVeiculos.setEnabled(true);
         }
+
+        if(jList4.getSelectedValue() == null){
+            efetuarDevolucao.setEnabled(false);
+            apagarLocacao.setEnabled(false);
+        } else {
+           efetuarDevolucao.setEnabled(true);
+           apagarLocacao.setEnabled(true);
+            }
     }
 
     public void setTimer() {
@@ -4211,7 +4231,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JComboBox boxSeguro;
     private javax.swing.JComboBox boxVeiculos;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton cadastrar2;
     private javax.swing.JButton cadastrarCarro;
     private javax.swing.JButton cadastrarCliente;
     private javax.swing.JButton cadastrarFuncionario;
@@ -4249,6 +4268,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton editarFuncionario;
     private javax.swing.JButton editarPlanoDeLocacao;
     private javax.swing.JButton editarVeiculo;
+    private javax.swing.JButton efetuarDevolucao;
     private javax.swing.JTextField email;
     private javax.swing.JTextField email1;
     private javax.swing.JTextField email2;
