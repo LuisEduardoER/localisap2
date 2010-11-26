@@ -29,7 +29,7 @@ public class Devolucao{
     private double multaProblema = 0;
     private int nivelDoTanqueInicial;
     private int nivelDoTanqueFinal;
-    private int precoMulta;
+    private double precoMulta;
     private String dataEntrega, dataDevolucao;
     private Locacao locacao;
     private ArrayList<Problema> problemas;
@@ -54,6 +54,7 @@ public class Devolucao{
         cliente = locacao.getCliente();
         setCliente(cliente);
         this.efetuaDevolucao();
+        cliente.setDivida(precoMulta);
     }
 
     /**
@@ -71,6 +72,9 @@ public class Devolucao{
      * @return - Em double o valor da multa.
      */
     public double getMultas() {
+        multaProblema = 0;
+        multaAtraso = 0;
+        multaTanque = 0;
         if (nivelDoTanqueFinal != nivelDoTanqueInicial) {
             int dif = nivelDoTanqueFinal - nivelDoTanqueInicial;
             double multa = (dif / 100) * 50 * 2.6;
