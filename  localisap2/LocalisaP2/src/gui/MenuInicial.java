@@ -182,11 +182,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jListaFuncionario.setListData(lista);
     }
 
-    public static <String> String[] concatenaArrayString(String[] primeiro, String[] segundo) {
-        String[] resultado = Arrays.copyOf(primeiro, primeiro.length + segundo.length);
-        System.arraycopy(segundo, 0, resultado, primeiro.length, segundo.length);
-        return resultado;
-    }
+
 
     public void atualizarListaDePlanos() {
         int i = 0;
@@ -3773,6 +3769,13 @@ public class MenuInicial extends javax.swing.JFrame {
             verificarDebito.setEnabled(true);
             realizarPagamento.setEnabled(true);
             realizarLocacao.setEnabled(true);
+        }
+        if (jListaPlanos.getSelectedValue() == null) {
+            editarPlanoDeLocacao.setEnabled(false);
+            apagarPlanoDeLocacao.setEnabled(false);
+        } else {
+            editarPlanoDeLocacao.setEnabled(true);
+            apagarPlanoDeLocacao.setEnabled(true);
         }
         if (jListaFuncionario.getSelectedValue() == null) {
             editarFuncionario.setEnabled(false);
