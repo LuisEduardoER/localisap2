@@ -1808,7 +1808,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10));
         clienteLocacao.setEnabled(false);
 
         jLabel51.setText("Cliente:");
@@ -2246,9 +2246,7 @@ public class MenuInicial extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(limparCamposPlanoCarro)
-                .addGap(62, 62, 62)
-                .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(177, 177, 177))
+                .addContainerGap(196, Short.MAX_VALUE))
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2263,8 +2261,9 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(direcaoHidraulicaPlanoCarro)
                             .addComponent(vidroEletricoPlanoCarro)
                             .addComponent(travaEletricaPlanoCarro)
-                            .addComponent(bancosCouraPlanoCarro))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                            .addComponent(bancosCouraPlanoCarro)
+                            .addComponent(cadastrarPlanoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3187,7 +3186,7 @@ public class MenuInicial extends javax.swing.JFrame {
         }
         if (cadastrarPlanoCarro.getText().equals("Cadastrar")) {
             try {
-                PlanoAutomovel plano = new PlanoAutomovel(nome, Integer.parseInt(preco));
+                PlanoAutomovel plano = new PlanoAutomovel(nome, Double.parseDouble(preco));
                 plano.adicionaListaAcessorios(listaAcessorios);
                 dadosAgencia.adicionaPlano(plano);
                 atualizarFilial(dadosAgencia);
@@ -3201,7 +3200,7 @@ public class MenuInicial extends javax.swing.JFrame {
             try {
                 PlanoAutomovel pla = (PlanoAutomovel) getPlanoSelecionado();
                 pla.setNome(nome);
-                pla.setPreco(Integer.parseInt(preco));
+                pla.setPreco(Double.parseDouble(preco));
                 pla.adicionaListaAcessorios(listaAcessorios);
                 JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
                 atualizarFilial(dadosAgencia);
@@ -3225,7 +3224,7 @@ public class MenuInicial extends javax.swing.JFrame {
         String cilindradas = cilindradasPlanoMoto.getText();
         if (cadastrarPlanoMoto.getText().equals("Cadastrar")) {
             try {
-                PlanoMoto plano = new PlanoMoto(nome, Integer.parseInt(preco));
+                PlanoMoto plano = new PlanoMoto(nome, Double.parseDouble(preco));
                 plano.adicionaCilindradas(Integer.parseInt(cilindradas));
                 dadosAgencia.adicionaPlano(plano);
                 atualizarFilial(dadosAgencia);
@@ -3239,7 +3238,7 @@ public class MenuInicial extends javax.swing.JFrame {
             try {
                 PlanoMoto pla = (PlanoMoto) getPlanoSelecionado();
                 pla.setNome(nome);
-                pla.setPreco(Integer.parseInt(preco));
+                pla.setPreco(Double.parseDouble(preco));
                 pla.adicionaCilindradas(Integer.parseInt(cilindradas));
                 JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
                 limparCamposPlanoMoto.setText("Limpar Campos");

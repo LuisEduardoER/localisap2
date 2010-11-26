@@ -81,7 +81,7 @@ public class PlanoMoto implements Plano, Serializable {
      * Captura as cilindradas do plano
      * @return - As cilindradas do plano
      */
-    public double getCilindradas() {
+    public int getCilindradas() {
         return cilindradas;
     }
 }
