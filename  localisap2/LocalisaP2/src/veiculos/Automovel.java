@@ -2,7 +2,6 @@ package veiculos;
 
 
 import java.util.ArrayList;
-import agencias.Filial;
 import java.io.Serializable;
 import verificacoes.Validacao;
 
@@ -35,7 +34,8 @@ public class Automovel implements Veiculo,Serializable{
     private ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
     private String codigoDoCarro;
     private static final long serialVersionUID = 1L;
-
+    private boolean locado = false;
+    
     /**
      * Construtor de um automovel
      *
@@ -252,5 +252,13 @@ public class Automovel implements Veiculo,Serializable{
     public void setTipoDePotencia(TipoDePotencia tipoPotencia) {
         this.tipoPotencia = tipoPotencia;
 
+    }
+
+    public boolean getLocado() {
+        return locado;
+    }
+
+    public void setLocado(boolean locado) {
+        this.locado = locado;
     }
 }

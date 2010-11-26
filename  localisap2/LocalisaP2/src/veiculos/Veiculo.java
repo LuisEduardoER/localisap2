@@ -17,6 +17,18 @@ import java.io.Serializable;
 
 public interface Veiculo{
 
+        /**
+         * Metodo para retornar se o veiculo esta ou nao locado.
+         * @return - Retorna true em caso positivo e false caso contrario.
+         */
+         boolean getLocado();
+
+         /**
+          * Metodo para informar se o veiculo esta ou nao locado.
+          * @param locado
+          */
+         void setLocado(boolean locado);
+
 	/**
 	 * Metodo para capturar o RENAVAM
 	 * @return - Retorna o RENAVAM do veiculo do tipo String

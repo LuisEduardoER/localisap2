@@ -140,7 +140,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 limparCampos();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Login incorreto! Tente novamente.");
+            JOptionPane.showMessageDialog(rootPane, "Erro na inicializacao do menu inicial!");
             limparCampos();
         }
 

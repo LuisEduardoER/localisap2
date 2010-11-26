@@ -30,7 +30,6 @@ import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -131,7 +130,7 @@ public class MenuInicial extends javax.swing.JFrame {
         emailGerente.setText(dadosAgencia.getGerente().getEmail());
         cidadeGerente.setText(dadosAgencia.getGerente().getEndereco().getCidade());
         bairroGerente.setText(dadosAgencia.getGerente().getEndereco().getBairro());
-        numeroGerente.setText("" + dadosAgencia.getGerente().getEndereco().getNumero());
+        numeroGerente.setText(""+dadosAgencia.getGerente().getEndereco().getNumero());
         ruaGerente.setText(dadosAgencia.getGerente().getEndereco().getRua());
         telefoneGerente.setText(dadosAgencia.getGerente().getTelefone());
         cepGerente.setText(dadosAgencia.getGerente().getEndereco().getCep());
@@ -196,10 +195,15 @@ public class MenuInicial extends javax.swing.JFrame {
 
         for (Veiculo v : dadosAgencia.getVeiculos()) {
             if (v instanceof Automovel) {
-                lista[i] = v.getMarca() + " - " + v.getModelo() + " (C)";
+                if(v.getLocado())
+                    lista[i] = v.getMarca() + " - " + v.getModelo() + " (C) - Locado";
+                else
+                    lista[i] = v.getMarca() + " - " + v.getModelo() + " (C)";
             } else {
-                lista[i] = v.getMarca() + " - " + v.getModelo() + " (M)";
-
+                if(v.getLocado())
+                    lista[i] = v.getMarca() + " - " + v.getModelo() + " (M) - Locado";
+                else
+                    lista[i] = v.getMarca() + " - " + v.getModelo() + " (M)";
             }
             i++;
         }
@@ -232,7 +236,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         nome = new javax.swing.JTextField();
-        rg = new javax.swing.JTextField();
         naturalidade = new javax.swing.JTextField();
         cidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -245,7 +248,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         rua = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        numero = new javax.swing.JTextField();
         nascimento = new javax.swing.JFormattedTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -259,6 +261,8 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         limparCampos = new javax.swing.JButton();
+        rg = new javax.swing.JFormattedTextField();
+        numero = new javax.swing.JFormattedTextField();
         jPanel9 = new javax.swing.JPanel();
         nome1 = new javax.swing.JTextField();
         cidade1 = new javax.swing.JTextField();
@@ -343,7 +347,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
         jLabel77 = new javax.swing.JLabel();
-        anoMoto = new javax.swing.JTextField();
         renavamMoto = new javax.swing.JTextField();
         dataAquisicaoMoto = new javax.swing.JFormattedTextField();
         marcaMoto = new javax.swing.JFormattedTextField();
@@ -362,9 +365,9 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel84 = new javax.swing.JLabel();
         jLabel139 = new javax.swing.JLabel();
         cilindradasMoto = new javax.swing.JTextField();
+        anoMoto = new javax.swing.JFormattedTextField();
         jPanel12 = new javax.swing.JPanel();
         renavamCarro = new javax.swing.JTextField();
-        anoCarro = new javax.swing.JTextField();
         potenciaCarro = new javax.swing.JTextField();
         marcaCarro = new javax.swing.JTextField();
         jLabel60 = new javax.swing.JLabel();
@@ -396,6 +399,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
         corCarro = new javax.swing.JComboBox();
+        anoCarro = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -426,6 +430,7 @@ public class MenuInicial extends javax.swing.JFrame {
         locarCarro = new javax.swing.JRadioButton();
         locarMoto = new javax.swing.JRadioButton();
         cadastrar2 = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jListaPlanos = new javax.swing.JList();
@@ -509,7 +514,6 @@ public class MenuInicial extends javax.swing.JFrame {
         cepGerente = new javax.swing.JFormattedTextField();
         jLabel110 = new javax.swing.JLabel();
         atualizarAgenciaGerente = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenu();
@@ -580,9 +584,6 @@ public class MenuInicial extends javax.swing.JFrame {
         nome.setFont(new java.awt.Font("Tahoma", 0, 10));
         nome.setEnabled(false);
 
-        rg.setFont(new java.awt.Font("Tahoma", 0, 10));
-        rg.setEnabled(false);
-
         naturalidade.setFont(new java.awt.Font("Tahoma", 0, 10));
         naturalidade.setEnabled(false);
 
@@ -619,9 +620,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel11.setText("Nº:");
         jLabel11.setEnabled(false);
 
-        numero.setFont(new java.awt.Font("Tahoma", 0, 10));
-        numero.setEnabled(false);
-
         nascimento.setEnabled(false);
         nascimento.setFont(new java.awt.Font("Tahoma", 0, 10));
 
@@ -644,7 +642,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel15.setEnabled(false);
 
         cpf.setEnabled(false);
-        cpf.setFont(new java.awt.Font("Tahoma", 0, 10));
+        cpf.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         telefone.setEnabled(false);
         telefone.setFont(new java.awt.Font("Tahoma", 0, 10));
@@ -671,6 +669,10 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        rg.setEnabled(false);
+
+        numero.setEnabled(false);
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -693,22 +695,22 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addComponent(bairro, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                .addComponent(bairro, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(nascimento)
                                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rg, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))
+                                        .addComponent(rg))
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -742,8 +744,8 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -763,8 +765,8 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bairro, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rua, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -784,7 +786,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(limparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jLabel7.getAccessibleContext().setAccessibleName("jLabel7");
@@ -1010,14 +1012,14 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                                    .addComponent(apagarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                                    .addComponent(cadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                                    .addComponent(editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(apagarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(cadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(verificarDebito, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(realizarPagamento, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(realizarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                                    .addComponent(verificarDebito, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(realizarPagamento, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addComponent(realizarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))))
                         .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1047,7 +1049,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                 .addComponent(realizarLocacao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(realizarPagamento)))
-                        .addGap(31, 31, 31)
+                        .addGap(25, 25, 25)
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1333,7 +1335,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                     .addComponent(jButton2)
                                     .addGap(18, 18, 18)
                                     .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(29, Short.MAX_VALUE))
+                            .addContainerGap(46, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1438,11 +1440,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel77.setEnabled(false);
         jPanel13.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 108, -1, -1));
 
-        anoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
-        anoMoto.setEnabled(false);
-        jPanel13.add(anoMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 11, 70, 17));
-
-        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
+        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         renavamMoto.setEnabled(false);
         jPanel13.add(renavamMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 12, 84, 17));
 
@@ -1513,6 +1511,9 @@ public class MenuInicial extends javax.swing.JFrame {
         cilindradasMoto.setEnabled(false);
         jPanel13.add(cilindradasMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 132, 84, 17));
 
+        anoMoto.setEnabled(false);
+        jPanel13.add(anoMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 70, 17));
+
         jTabbedPane4.addTab("Moto", jPanel13);
 
         jPanel12.setEnabled(false);
@@ -1521,10 +1522,6 @@ public class MenuInicial extends javax.swing.JFrame {
         renavamCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
         renavamCarro.setEnabled(false);
         jPanel12.add(renavamCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 11, 84, 17));
-
-        anoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
-        anoCarro.setEnabled(false);
-        jPanel12.add(anoCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 70, 17));
 
         potenciaCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
         potenciaCarro.setEnabled(false);
@@ -1544,7 +1541,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel62.setText("Ano:");
         jLabel62.setEnabled(false);
-        jPanel12.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 13, -1, -1));
+        jPanel12.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jLabel63.setText("Potência:");
         jLabel63.setEnabled(false);
@@ -1665,6 +1662,9 @@ public class MenuInicial extends javax.swing.JFrame {
         corCarro.setEnabled(false);
         jPanel12.add(corCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 90, 17));
 
+        anoCarro.setEnabled(false);
+        jPanel12.add(anoCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 70, 17));
+
         jTabbedPane4.addTab("Automóvel", jPanel12);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1681,17 +1681,17 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel46)
-                            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
+                            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(apagarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(cadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(editarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addComponent(apagarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(editarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1749,7 +1749,7 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel85, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1784,16 +1784,17 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10));
+        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         clienteLocacao.setEnabled(false);
 
         jLabel51.setText("Cliente:");
 
-        dataDevolucaoLocacao.setFont(new java.awt.Font("Tahoma", 0, 10));
+        dataDevolucaoLocacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel59.setText("Data Devolucao:");
 
         locar.setText("Registrar Locacao");
+        locar.setEnabled(false);
         locar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 locarActionPerformed(evt);
@@ -1801,6 +1802,7 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         limparCamposLocacao.setText("Limpar Campos");
+        limparCamposLocacao.setEnabled(false);
         limparCamposLocacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 limparCamposLocacaoActionPerformed(evt);
@@ -1924,6 +1926,9 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        jLabel52.setText("-> A locação deve ser iniciada na aba de Clientes <-");
+        jLabel52.setEnabled(false);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1934,26 +1939,31 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel49)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addComponent(jLabel50)
+                                    .addContainerGap(306, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                    .addGap(37, 37, 37)
+                                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(21, 21, 21)
+                                    .addComponent(apagarLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(33, 33, 33)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel50)
-                                .addContainerGap(289, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
-                                .addComponent(apagarLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap()))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cadastrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))))
+                            .addComponent(cadastrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(112, 112, 112)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel52)
+                        .addContainerGap())))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1973,13 +1983,14 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cadastrar2)
                         .addGap(28, 28, 28)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel52)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Locações", jPanel5);
 
-        jListaPlanos.setEnabled(false);
         jScrollPane5.setViewportView(jListaPlanos);
 
         jLabel112.setText("Lista de Planos:");
@@ -2013,7 +2024,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel17.setEnabled(false);
 
-        nomePlanoCarro.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nomePlanoCarro.setFont(new java.awt.Font("Tahoma", 0, 10));
         nomePlanoCarro.setEnabled(false);
 
         jLabel114.setText("Nome:");
@@ -2176,7 +2187,7 @@ public class MenuInicial extends javax.swing.JFrame {
         precoPlanoMoto.setEnabled(false);
         precoPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        jLabel48.setText("Cilindrada Máxima coberta pelo plano:");
+        jLabel48.setText("Cilindrada coberta pelo plano:");
 
         cilindradasPlanoMoto.setEnabled(false);
         cilindradasPlanoMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
@@ -2252,7 +2263,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(apagarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cadastrarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2321,13 +2332,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel98.setText("Nome:");
 
-        nomeGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
+        nomeGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel99.setText("CPF:");
 
         cpfGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        rgGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
+        rgGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel100.setText("RG:");
 
@@ -2351,17 +2362,17 @@ public class MenuInicial extends javax.swing.JFrame {
 
         bairroGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        numeroGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
+        numeroGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel106.setText("Nº:");
 
         jLabel107.setText("Rua:");
 
-        ruaGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
+        ruaGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel108.setText("E-mail:");
 
-        emailGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
+        emailGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel109.setText("Telefone:");
 
@@ -2399,8 +2410,8 @@ public class MenuInicial extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel97)
                                 .addGap(2, 2, 2)
-                                .addComponent(cepAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                            .addComponent(estadoAgencia, javax.swing.GroupLayout.Alignment.TRAILING, 0, 208, Short.MAX_VALUE)))
+                                .addComponent(cepAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                            .addComponent(estadoAgencia, javax.swing.GroupLayout.Alignment.TRAILING, 0, 217, Short.MAX_VALUE)))
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel92)
@@ -2408,20 +2419,20 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(jLabel94))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cidadeAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                            .addComponent(cidadeAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                                .addComponent(bairroAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(bairroAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel93)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(numeroAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ruaAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)))
+                            .addComponent(ruaAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel90)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cnpjAgencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(inscEstadualAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))))
+                            .addComponent(cnpjAgencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                            .addComponent(inscEstadualAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2445,12 +2456,12 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                                    .addComponent(bairroGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                                    .addComponent(bairroGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel106)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(numeroGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(emailGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(emailGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                                 .addGroup(jPanel14Layout.createSequentialGroup()
                                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(nascimentoGerente)
@@ -2460,21 +2471,21 @@ public class MenuInicial extends javax.swing.JFrame {
                                         .addGroup(jPanel14Layout.createSequentialGroup()
                                             .addComponent(jLabel100)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(rgGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                                            .addComponent(rgGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                                         .addGroup(jPanel14Layout.createSequentialGroup()
                                             .addComponent(jLabel101)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(estadoGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(naturalidadeGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(nomeGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(cidadeGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(ruaGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(naturalidadeGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                                .addComponent(nomeGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                                .addComponent(cidadeGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                                .addComponent(ruaGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                                 .addGroup(jPanel14Layout.createSequentialGroup()
                                     .addComponent(telefoneGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel110)
                                     .addGap(2, 2, 2)
-                                    .addComponent(cepGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))
+                                    .addComponent(cepGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
                             .addContainerGap()))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                         .addComponent(atualizarAgenciaGerente)
@@ -2580,19 +2591,6 @@ public class MenuInicial extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Agência", jPanel14);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Configurações", jPanel7);
 
         jMenu1.setText("Sobre");
         jMenuBar1.add(jMenu1);
@@ -2985,7 +2983,7 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarMotoActionPerformed
 
     private void cadastrarPlanoDeLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoDeLocacaoActionPerformed
-        // TODO add your handling code here:
+        ativarCadastroPlanos();
     }//GEN-LAST:event_cadastrarPlanoDeLocacaoActionPerformed
 
     private void cadastrarPlanoCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPlanoCarroActionPerformed
@@ -3016,17 +3014,34 @@ public class MenuInicial extends javax.swing.JFrame {
         if (airBagPlanoCarro.isSelected()) {
             listaAcessorios.add(Acessorio.AB);
         }
-        try {
-            PlanoAutomovel plano = new PlanoAutomovel(nome, Integer.parseInt(preco));
-            plano.adicionaListaAcessorios(listaAcessorios);
-            dadosAgencia.adicionaPlano(plano);
-            atualizarFilial(dadosAgencia);
-            atualizarListaDePlanos();
-            JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
-        }
+        if (cadastrarPlanoCarro.getText().equals("Cadastrar")) {
+            try {
+                PlanoAutomovel plano = new PlanoAutomovel(nome, Integer.parseInt(preco));
+                plano.adicionaListaAcessorios(listaAcessorios);
+                dadosAgencia.adicionaPlano(plano);
+                atualizarFilial(dadosAgencia);
+                atualizarListaDePlanos();
+                desativarCadastroPlanos();
+                JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+        } else {
+            try {
+                PlanoAutomovel pla = (PlanoAutomovel) getPlanoSelecionado();
+                pla.setNome(nome);
+                pla.setPreco(Integer.parseInt(preco));
+                pla.adicionaListaAcessorios(listaAcessorios);
+                JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
+                atualizarFilial(dadosAgencia);
+                limparCamposPlanoCarro.setText("Limpar Campos");
+                limparCamposPlanoCarro.doClick();
+                desativarCadastroPlanos();
 
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+        }
     }//GEN-LAST:event_cadastrarPlanoCarroActionPerformed
 
     private void bancoDeCouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bancoDeCouroActionPerformed
@@ -3037,15 +3052,32 @@ public class MenuInicial extends javax.swing.JFrame {
         String nome = nomePlanoMoto.getText();
         String preco = precoPlanoMoto.getText();
         String cilindradas = cilindradasPlanoMoto.getText();
-        try {
-            PlanoMoto plano = new PlanoMoto(nome, Integer.parseInt(preco));
-            plano.adicionaCilindradas(Integer.parseInt(cilindradas));
-            dadosAgencia.adicionaPlanoMoto(plano);
-            atualizarFilial(dadosAgencia);
-            atualizarListaDePlanos();
-            JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        if (cadastrarPlanoMoto.getText().equals("Cadastrar")) {
+            try {
+                PlanoMoto plano = new PlanoMoto(nome, Integer.parseInt(preco));
+                plano.adicionaCilindradas(Integer.parseInt(cilindradas));
+                dadosAgencia.adicionaPlano(plano);
+                atualizarFilial(dadosAgencia);
+                atualizarListaDePlanos();
+                desativarCadastroPlanos();
+                JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+        } else {
+            try {
+                PlanoMoto pla = (PlanoMoto) getPlanoSelecionado();
+                pla.setNome(nome);
+                pla.setPreco(Integer.parseInt(preco));
+                pla.adicionaCilindradas(Integer.parseInt(cilindradas));
+                JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
+                limparCamposPlanoMoto.setText("Limpar Campos");
+                limparCamposPlanoMoto.doClick();
+                atualizarFilial(dadosAgencia);
+                 desativarCadastroPlanos();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
         }
 }//GEN-LAST:event_cadastrarPlanoMotoActionPerformed
 
@@ -3053,18 +3085,39 @@ public class MenuInicial extends javax.swing.JFrame {
         Cliente clienteL = getClienteSelecionado();
         Plano planoL = null;
         Veiculo veiculoL = null;
+
+        ArrayList<PlanoAutomovel> listaPlanoCarro = new ArrayList<PlanoAutomovel>();
+        ArrayList<PlanoMoto> listaPlanoMoto = new ArrayList<PlanoMoto>();
+        for(Plano p : dadosAgencia.getPlano()){
+            if(p instanceof PlanoAutomovel)
+                listaPlanoCarro.add((PlanoAutomovel)p);
+            else
+                listaPlanoMoto.add((PlanoMoto) p);
+        }
+
+        ArrayList<Automovel> listaCarro = new ArrayList<Automovel>();
+        ArrayList<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
+        for(Veiculo v : dadosAgencia.getVeiculos()){
+            if(v instanceof Automovel)
+                listaCarro.add((Automovel)v);
+            else
+                listaMoto.add((Motocicleta) v);
+        }
+
         if (locarCarro.isSelected()) {
-            planoL = (PlanoAutomovel) dadosAgencia.getPlanoAutomovel().toArray()[boxPlanos.getSelectedIndex()];
-            veiculoL = (Automovel) dadosAgencia.getVeiculos().toArray()[boxVeiculos.getSelectedIndex()];
+            planoL = (PlanoAutomovel) listaPlanoCarro.toArray()[boxPlanos.getSelectedIndex()];
+            veiculoL = (Automovel) listaCarro.toArray()[boxVeiculos.getSelectedIndex()];
         } else if (locarMoto.isSelected()) {
-            planoL = (PlanoMoto) dadosAgencia.getPlanoMoto().toArray()[boxPlanos.getSelectedIndex()];
-            veiculoL = (Motocicleta) dadosAgencia.getVeiculos().toArray()[boxVeiculos.getSelectedIndex()];
+            planoL = (PlanoMoto) listaPlanoMoto.toArray()[boxPlanos.getSelectedIndex()];
+            veiculoL = (Motocicleta) listaMoto.toArray()[boxVeiculos.getSelectedIndex()];
         }
         String dataEntregaL = dataDevolucaoLocacao.getText();
         int seguroL = boxSeguro.getSelectedIndex();
         try {
             dadosAgencia.adicionaLocacao(new Locacao(veiculoL, clienteL, planoL, dataEntregaL, dataEntregaL, seguroL));
+            veiculoL.setLocado(true);
             JOptionPane.showMessageDialog(rootPane, "Locacao adicionada com sucesso!");
+            desativarLocacao();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
@@ -3135,7 +3188,19 @@ public class MenuInicial extends javax.swing.JFrame {
         Cliente cliente = (Cliente) getClienteSelecionado();
         clienteLocacao.setText(cliente.getNome());
         jTabbedPane1.setSelectedComponent(jPanel5);
+        ativarLocacao();;
     }//GEN-LAST:event_realizarLocacaoActionPerformed
+
+    private void ativarLocacao(){
+        limparCamposLocacao.setEnabled(true);
+        locar.setEnabled(true);
+    }
+
+    private void desativarLocacao(){
+        limparCamposLocacao.setEnabled(false);
+        locar.setEnabled(false);
+        limparCamposLocacao.doClick();
+    }
 
     private void realizarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPagamentoActionPerformed
         Cliente pessoa = (Cliente) dadosAgencia.getClientes().toArray()[jListaClientes.getSelectedIndex()];
@@ -3428,42 +3493,64 @@ public class MenuInicial extends javax.swing.JFrame {
         String[] lista = null;
         int i = 0;
         if (locarCarro.isSelected()) {
-            lista = new String[dadosAgencia.getPlanoAutomovel().size()];
-            for (PlanoAutomovel p : dadosAgencia.getPlanoAutomovel()) {
-                lista[i++] = p.getNome();
-            }
+            lista = new String[dadosAgencia.getPlano().size()];
+            for (Plano p : dadosAgencia.getPlano())
+                if(p instanceof PlanoAutomovel)
+                    lista[i++] = p.getNome();
         } else if (locarMoto.isSelected()) {
-            lista = new String[dadosAgencia.getPlanoMoto().size()];
-            for (PlanoMoto p : dadosAgencia.getPlanoMoto()) {
-                lista[i++] = p.getNome();
-            }
+            lista = new String[dadosAgencia.getPlano().size()];
+            for (Plano p : dadosAgencia.getPlano())
+                if(p instanceof PlanoMoto)
+                    lista[i++] = p.getNome();
         }
         DefaultComboBoxModel model = new DefaultComboBoxModel(lista);
         boxPlanos.setModel(model);
     }//GEN-LAST:event_boxPlanosFocusGained
 
+    private ArrayList<Veiculo> atualizarListaVeiculosDisponiveisParaPlanoLocacao(Plano p){
+        ArrayList<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
+        if (p instanceof PlanoMoto)
+            for(Veiculo v : dadosAgencia.getVeiculos())
+                if(v instanceof Motocicleta){
+                    Motocicleta moto = (Motocicleta) v;
+                    if(moto.getCilindradas() == ((PlanoMoto)p).getCilindradas() && !moto.getLocado())
+                        listaDeVeiculos.add(moto);
+                }
+        return listaDeVeiculos;
+    }
+
     private void boxVeiculosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_boxVeiculosFocusGained
+        ArrayList<PlanoAutomovel> planosAutomovel= new ArrayList<PlanoAutomovel>();
+        ArrayList<PlanoMoto> planosMoto = new ArrayList<PlanoMoto>();
+        for (Plano p : dadosAgencia.getPlano()){
+            if(p instanceof PlanoAutomovel)
+                planosAutomovel.add((PlanoAutomovel)p);
+            else
+                planosMoto.add((PlanoMoto)p);
+        }
         String[] lista = new String[dadosAgencia.getVeiculos().size()];
         int i = 0;
         if (locarCarro.isSelected()) {
-            for (Veiculo v : dadosAgencia.getVeiculos()) {
-                if (v instanceof Automovel) {
-                    lista[i++] = v.getMarca() + " - " + v.getModelo();
-                }
-            }
+            Plano planoSelecionado = planosAutomovel.get(boxPlanos.getSelectedIndex());
+            for (Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(planoSelecionado))
+                lista[i++] = v.getMarca() + " - " + v.getModelo();
         } else if (locarMoto.isSelected()) {
-            for (Veiculo v : dadosAgencia.getVeiculos()) {
-                if (v instanceof Motocicleta) {
-                    lista[i++] = v.getMarca() + " - " + v.getModelo();
-                }
-            }
+            Plano planoSelecionado = planosMoto.get(boxPlanos.getSelectedIndex());
+            for (Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(planoSelecionado))
+                lista[i++] = v.getMarca() + " - " + v.getModelo();
         }
         DefaultComboBoxModel model = new DefaultComboBoxModel(lista);
         boxVeiculos.setModel(model);
     }//GEN-LAST:event_boxVeiculosFocusGained
 
     private void limparCamposLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposLocacaoActionPerformed
-        // TODO add your handling code here:
+        clienteLocacao.setText("");
+        locarCarro.setSelected(false);
+        locarMoto.setSelected(false);
+        boxPlanos.setSelectedItem(null);
+        boxVeiculos.setSelectedItem(null);
+        dataDevolucaoLocacao.setText("");
+        boxSeguro.setSelectedItem(null);
     }//GEN-LAST:event_limparCamposLocacaoActionPerformed
 
     private void limparCamposPlanoCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCamposPlanoCarroActionPerformed
@@ -3562,38 +3649,50 @@ public class MenuInicial extends javax.swing.JFrame {
             buttonGroup1.add(locarCarro);
             buttonGroup1.add(locarMoto);
 
-            MaskFormatter mascaracpf = new MaskFormatter("###.###.###-##");
-            MaskFormatter mascaradata = new MaskFormatter("##/##/####");
-            MaskFormatter mascaratelefone = new MaskFormatter("(##)####-####");
-            MaskFormatter mascaracep = new MaskFormatter("#####-###");
-            MaskFormatter mascaracnpj = new MaskFormatter("##.###.###/####-##");
-            mascaradata.setValidCharacters("0123456789");
-            mascaracpf.setValidCharacters("0123456789");
-            mascaratelefone.setValidCharacters("0123456789");
-            mascaracep.setValidCharacters("0123456789");
-            mascaracnpj.setValidCharacters("0123456789");
-            DefaultFormatterFactory cpfformatter = new DefaultFormatterFactory(mascaracpf, mascaracpf);
-            DefaultFormatterFactory dataformatter = new DefaultFormatterFactory(mascaradata, mascaradata);
-            DefaultFormatterFactory telefoneformatter = new DefaultFormatterFactory(mascaratelefone, mascaratelefone);
-            DefaultFormatterFactory cepformatter = new DefaultFormatterFactory(mascaracep, mascaracep);
-            DefaultFormatterFactory cnpjformatter = new DefaultFormatterFactory(mascaracnpj, mascaracnpj);
-            dataAquisicaoMoto.setFormatterFactory(dataformatter);
-            dataAquisicaoCarro.setFormatterFactory(dataformatter);
-            dataDevolucaoLocacao.setFormatterFactory(dataformatter);
-            cpf.setFormatterFactory(cpfformatter);
-            cnpj.setFormatterFactory(cpfformatter);
-            nascimento.setFormatterFactory(dataformatter);
-            telefone.setFormatterFactory(telefoneformatter);
-            telefone1.setFormatterFactory(telefoneformatter);
-            cep.setFormatterFactory(cepformatter);
-            cep1.setFormatterFactory(cepformatter);
-            cnpj.setFormatterFactory(cnpjformatter);
+            MaskFormatter mascaraCPF = new MaskFormatter("###.###.###-##");
+            MaskFormatter mascaraData = new MaskFormatter("##/##/####");
+            MaskFormatter mascaraTelefone = new MaskFormatter("(##)####-####");
+            MaskFormatter mascaraCep = new MaskFormatter("#####-###");
+            MaskFormatter mascaraCnpj = new MaskFormatter("##.###.###/####-##");
+            MaskFormatter mascaraAno = new MaskFormatter("####");
+            mascaraAno.setValidCharacters("0123456789");
+            mascaraData.setValidCharacters("0123456789");
+            mascaraCPF.setValidCharacters("0123456789");
+            mascaraTelefone.setValidCharacters("0123456789");
+            mascaraCep.setValidCharacters("0123456789");
+            mascaraCnpj.setValidCharacters("0123456789");
+            DefaultFormatterFactory anoFormatter = new DefaultFormatterFactory(mascaraAno, mascaraAno);
+            DefaultFormatterFactory cpfFormatter = new DefaultFormatterFactory(mascaraCPF, mascaraCPF);
+            DefaultFormatterFactory dataFormatter = new DefaultFormatterFactory(mascaraData, mascaraData);
+            DefaultFormatterFactory telefoneFormatter = new DefaultFormatterFactory(mascaraTelefone, mascaraTelefone);
+            DefaultFormatterFactory cepFormatter = new DefaultFormatterFactory(mascaraCep, mascaraCep);
+            DefaultFormatterFactory cnpjFormatter = new DefaultFormatterFactory(mascaraCnpj, mascaraCnpj);
+            anoMoto.setFormatterFactory(anoFormatter);
+            anoCarro.setFormatterFactory(anoFormatter);
+            dataAquisicaoMoto.setFormatterFactory(dataFormatter);
+            dataAquisicaoCarro.setFormatterFactory(dataFormatter);
+            dataDevolucaoLocacao.setFormatterFactory(dataFormatter);
+            cpf.setFormatterFactory(cpfFormatter);
+            cpfGerente.setFormatterFactory(cpfFormatter);
+            cnpj.setFormatterFactory(cpfFormatter);
+            nascimento.setFormatterFactory(dataFormatter);
+            nascimentoGerente.setFormatterFactory(dataFormatter);
+            telefone.setFormatterFactory(telefoneFormatter);
+            telefone1.setFormatterFactory(telefoneFormatter);
+            telefoneGerente.setFormatterFactory(telefoneFormatter);
+            cep.setFormatterFactory(cepFormatter);
+            cep1.setFormatterFactory(cepFormatter);
+            cepGerente.setFormatterFactory(cepFormatter);
+            cepAgencia.setFormatterFactory(cepFormatter);
+            cnpj.setFormatterFactory(cnpjFormatter);
+            cnpjAgencia.setFormatterFactory(cnpjFormatter);
+            telefoneAgencia.setFormatterFactory(telefoneFormatter);
             //campos funcionario
-            cpf1.setFormatterFactory(cpfformatter);
-            nascimento1.setFormatterFactory(dataformatter);
-            telefone2.setFormatterFactory(telefoneformatter);
-            cep2.setFormatterFactory(cepformatter);
-            dataDevolucaoLocacao.setFormatterFactory(dataformatter);
+            cpf1.setFormatterFactory(cpfFormatter);
+            nascimento1.setFormatterFactory(dataFormatter);
+            telefone2.setFormatterFactory(telefoneFormatter);
+            cep2.setFormatterFactory(cepFormatter);
+            dataDevolucaoLocacao.setFormatterFactory(dataFormatter);
         } catch (Exception e) {
         }
     }
@@ -3695,6 +3794,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void ativarCadastroPlanos() {
         cadastrarPlanoCarro.setEnabled(true);
+        cadastrarPlanoMoto.setEnabled(true);
         precoPlanoCarro.setEnabled(true);
         nomePlanoCarro.setEnabled(true);
         jLabel115.setEnabled(true);
@@ -4084,8 +4184,8 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JRadioButton GPSPlanoCarro;
     private javax.swing.JRadioButton airBag;
     private javax.swing.JRadioButton airBagPlanoCarro;
-    private javax.swing.JTextField anoCarro;
-    private javax.swing.JTextField anoMoto;
+    private javax.swing.JFormattedTextField anoCarro;
+    private javax.swing.JFormattedTextField anoMoto;
     private javax.swing.JButton apagarCliente;
     private javax.swing.JButton apagarFuncionario;
     private javax.swing.JButton apagarLocacao;
@@ -4226,6 +4326,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -4297,7 +4398,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -4343,7 +4443,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JTextField nomeGerente;
     private javax.swing.JTextField nomePlanoCarro;
     private javax.swing.JTextField nomePlanoMoto;
-    private javax.swing.JTextField numero;
+    private javax.swing.JFormattedTextField numero;
     private javax.swing.JTextField numero1;
     private javax.swing.JTextField numero2;
     private javax.swing.JTextField numeroAgencia;
@@ -4358,7 +4458,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JButton realizarPagamento;
     private javax.swing.JTextField renavamCarro;
     private javax.swing.JTextField renavamMoto;
-    private javax.swing.JTextField rg;
+    private javax.swing.JFormattedTextField rg;
     private javax.swing.JTextField rg1;
     private javax.swing.JTextField rgGerente;
     private javax.swing.JTextField rua;
