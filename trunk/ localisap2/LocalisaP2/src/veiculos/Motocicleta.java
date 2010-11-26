@@ -52,7 +52,7 @@ public class Motocicleta implements Veiculo, Serializable {
      * @param nivelDoTanque  - O nivel do tanque que o veiculo estah.
      * @throws Exception - Erro de algum parametro errado.
      */
-    public Motocicleta(String renavam, String modelo, String marca, TipoDePotencia tipoPotencia, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel, String dataDeAquisicao, int nivelDoTanque) throws Exception {
+    public Motocicleta(String renavam, String modelo, String marca, TipoDePotencia tipoPotencia,TipoDeFreio tipoFreio, int potencia, int cilindradas, int ano, Cor cor, TipoDeCombustivel tipoDeCombustivel, String dataDeAquisicao, int nivelDoTanque) throws Exception {
         this.setAno(ano);
         this.setCor(cor);
         this.setDataDeAquisicao(dataDeAquisicao);
@@ -64,6 +64,7 @@ public class Motocicleta implements Veiculo, Serializable {
         this.setRenavam(renavam);
         this.setTipoDeCombustivel(tipoDeCombustivel);
         this.setTipoDePotencia(tipoPotencia);
+        this.setTipoDeFreios(tipoFreio);
         this.locado = false;
     }
 

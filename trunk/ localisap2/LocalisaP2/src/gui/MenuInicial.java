@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -192,9 +193,9 @@ public class MenuInicial extends javax.swing.JFrame {
         String[] lista = new String[dadosAgencia.getPlano().size()];
         for (Plano p : dadosAgencia.getPlano()) {
             if(p instanceof PlanoAutomovel){
-               lista[i++] = p.getNome() + " - " + p.getPreco() + " (C)";
+               lista[i++] = p.getNome() + " - R$:" + p.getPreco() + " (C)";
             }else{
-            lista[i++] = p.getNome() + " - " + p.getPreco() + " (M)";
+            lista[i++] = p.getNome() + " - R$:" + p.getPreco() + " (M)";
         }
             }
         jListaPlanos.setListData(lista);
@@ -652,7 +653,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel15.setEnabled(false);
 
         cpf.setEnabled(false);
-        cpf.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cpf.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         telefone.setEnabled(false);
         telefone.setFont(new java.awt.Font("Tahoma", 0, 10));
@@ -735,9 +736,11 @@ public class MenuInicial extends javax.swing.JFrame {
                                 .addComponent(cep, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
                             .addComponent(cidade, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addComponent(rua, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
-                    .addComponent(limparCampos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(limparCampos)
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(87, 87, 87))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,8 +793,8 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(limparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(limparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -1057,7 +1060,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                 .addComponent(realizarPagamento)))
                         .addGap(25, 25, 25)
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1311,7 +1314,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(limparCampos3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jButton2.setText("Cadastrar Funcionario");
@@ -1368,7 +1371,7 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addComponent(apagarFuncionario)
                         .addGap(25, 25, 25)
                         .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1446,7 +1449,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel77.setEnabled(false);
         jPanel13.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 108, -1, -1));
 
-        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        renavamMoto.setFont(new java.awt.Font("Tahoma", 0, 10));
         renavamMoto.setEnabled(false);
         jPanel13.add(renavamMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 12, 84, 17));
 
@@ -1716,8 +1719,8 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(apagarVeiculo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                        .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1770,7 +1773,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Seguros", jPanel4);
@@ -1791,12 +1794,12 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        clienteLocacao.setFont(new java.awt.Font("Tahoma", 0, 10));
         clienteLocacao.setEnabled(false);
 
         jLabel51.setText("Cliente:");
 
-        dataDevolucaoLocacao.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        dataDevolucaoLocacao.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel59.setText("Data Devolucao:");
 
@@ -1976,7 +1979,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel50))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2117,7 +2120,7 @@ public class MenuInicial extends javax.swing.JFrame {
                             .addComponent(vidroEletricoPlanoCarro)
                             .addComponent(travaEletricaPlanoCarro)
                             .addComponent(bancosCouraPlanoCarro))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2219,7 +2222,7 @@ public class MenuInicial extends javax.swing.JFrame {
                         .addComponent(jLabel116)
                         .addGap(28, 28, 28)
                         .addComponent(nomePlanoMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2254,16 +2257,20 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel112)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTabbedPane6, 0, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel113))
-                    .addComponent(apagarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cadastrarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel113))
+                            .addComponent(apagarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cadastrarPlanoDeLocacao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jTabbedPane6, 0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2273,17 +2280,19 @@ public class MenuInicial extends javax.swing.JFrame {
                     .addComponent(jLabel112)
                     .addComponent(jLabel113))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(cadastrarPlanoDeLocacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(editarPlanoDeLocacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(apagarPlanoDeLocacao)
-                        .addGap(27, 27, 27)
-                        .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
 
         jTabbedPane1.addTab("Planos de Locação", jPanel6);
@@ -2332,13 +2341,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel98.setText("Nome:");
 
-        nomeGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nomeGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel99.setText("CPF:");
 
         cpfGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        rgGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        rgGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel100.setText("RG:");
 
@@ -2362,17 +2371,17 @@ public class MenuInicial extends javax.swing.JFrame {
 
         bairroGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
-        numeroGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        numeroGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel106.setText("Nº:");
 
         jLabel107.setText("Rua:");
 
-        ruaGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        ruaGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel108.setText("E-mail:");
 
-        emailGerente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        emailGerente.setFont(new java.awt.Font("Tahoma", 0, 10));
 
         jLabel109.setText("Telefone:");
 
@@ -2582,7 +2591,7 @@ public class MenuInicial extends javax.swing.JFrame {
                                             .addComponent(cepGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel110)))
                                     .addComponent(jLabel105))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                         .addComponent(atualizarAgenciaGerente))
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -2623,7 +2632,7 @@ public class MenuInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -2945,7 +2954,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     int potencia1 = Integer.parseInt(potencia);
                     int cilindradas1 = Integer.parseInt(cilindradas);
                     int ano1 = Integer.parseInt(ano);
-                    Motocicleta moto = new Motocicleta(renavam, modelo, marca, tipoPotenciaMoto, potencia1, cilindradas1, ano1, corMoto, combustivelMoto, data, nivelTanque);
+                    Motocicleta moto = new Motocicleta(renavam, modelo, marca, tipoPotenciaMoto,freioMoto,potencia1, cilindradas1, ano1, corMoto, combustivelMoto, data, nivelTanque);
                     dadosAgencia.adicionaVeiculo(moto);
                     atualizarFilial(dadosAgencia);
                     atualizarListaDeVeiculos();
@@ -3142,6 +3151,7 @@ public class MenuInicial extends javax.swing.JFrame {
             nome.setText(clienteP.getNome());
             cpf.setText(clienteP.getCpf());
             rg.setText(clienteP.getRg());
+            estado.setSelectedItem(clienteP.getEndereco().getEstado().toString());
             nascimento.setText(clienteP.getNascimento());
             naturalidade.setText(clienteP.getNaturalidade());
             cidade.setText(clienteP.getEndereco().getCidade());
@@ -3492,7 +3502,12 @@ public class MenuInicial extends javax.swing.JFrame {
 }//GEN-LAST:event_atualizarAgenciaGerenteActionPerformed
 
     private void efetuarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efetuarDevolucaoActionPerformed
-        // TODO add your handling code here:
+        int n = JOptionPane.showOptionDialog(rootPane, "Registrar problemas com o veiculo?", "Devolução", JOptionPane.YES_NO_OPTION, 3, null, opcoes, opcoes[1]);
+        JFrame telaProb = new TelaProblemas();
+        if (n == 0){
+            telaProb.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            telaProb.setVisible(true);
+        }
     }//GEN-LAST:event_efetuarDevolucaoActionPerformed
 
     private void boxPlanosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_boxPlanosFocusGained
@@ -3659,11 +3674,14 @@ public class MenuInicial extends javax.swing.JFrame {
         }//GEN-LAST:event_apagarPlanoDeLocacaoActionPerformed
 
         private void apagarLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarLocacaoActionPerformed
-            ((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex()).getVeiculo().setLocado(false);
-            atualizarListaDeVeiculos();
-            dadosAgencia.getLocacao().remove(((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex()));
-            atualizarListaDeLocacoes();
-            atualizarFilial(dadosAgencia);
+            int n = JOptionPane.showOptionDialog(rootPane, "Confirmar exclusão da locação?", "Confirmarção", JOptionPane.YES_NO_OPTION, 0, null, opcoes, opcoes[1]);
+            if (n == 0) {
+               ((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex()).getVeiculo().setLocado(false);
+                atualizarListaDeVeiculos();
+                dadosAgencia.getLocacao().remove(((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex()));
+                atualizarListaDeLocacoes();
+                atualizarFilial(dadosAgencia);
+            }
         }//GEN-LAST:event_apagarLocacaoActionPerformed
         
     private void setarMascaras() {
@@ -3839,6 +3857,7 @@ public class MenuInicial extends javax.swing.JFrame {
         GPSPlanoCarro.setEnabled(true);
         airBagPlanoCarro.setEnabled(true);
         jPanel17.setEnabled(true);
+        jPanel18.setEnabled(true);
         arCondicionadoPlanoCarro.setEnabled(true);
         direcaoHidraulicaPlanoCarro.setEnabled(true);
         jLabel48.setEnabled(true);
