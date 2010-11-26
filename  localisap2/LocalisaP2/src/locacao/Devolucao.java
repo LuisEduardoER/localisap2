@@ -53,7 +53,7 @@ public class Devolucao{
         this.problemas = problemas;
         cliente = locacao.getCliente();
         setCliente(cliente);
-
+        this.efetuaDevolucao();
     }
 
     /**
@@ -62,7 +62,6 @@ public class Devolucao{
     public void efetuaDevolucao() {
         if (getMultas() != 0) {
             cliente.setEmDebito(true);
-            cliente.setDivida(getMultas());
             cliente.setQuantidadeLocacao(-1);
         }
     }
