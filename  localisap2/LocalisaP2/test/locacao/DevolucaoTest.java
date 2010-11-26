@@ -39,6 +39,7 @@ public class DevolucaoTest {
     Endereco endereco;
     PlanoAutomovel planoCarroA;
     Devolucao devolucao;
+    ArrayList<Problema> problemas;
     @Before
     public void inicio() throws Exception {
         ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
@@ -54,7 +55,7 @@ public class DevolucaoTest {
         planoCarroA = new PlanoAutomovel("PlanoA", 55);
         veicu = new Automovel("123", "Corsa", "Chevrolet", 90, 2009, Cor.PRETO, TipoDeFreio.TAMBOR, TipoDeCombustivel.FLEX, "23/10/2009", 80, acessoriosOpcionais, TipoDePotencia.HP);
         loc = new Locacao(veicu, pessoa1, planoCarroA, "22/09/2010", "30/09/2010", 10);
-        devolucao = new Devolucao(loc,100,"01/10/2010",Problema.AMASSADOS_GRAVES);
+        devolucao = new Devolucao(loc,100,"01/10/2010",problemas);
     }
 
 

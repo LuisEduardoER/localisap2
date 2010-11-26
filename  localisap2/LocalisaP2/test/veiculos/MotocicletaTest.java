@@ -26,7 +26,7 @@ public class MotocicletaTest {
 
 	@Before
 	public void inicio() throws Exception{
-		moto = new Motocicleta("renavam", "modelo", "marca", TipoDePotencia.HP, 1000, 500, 2000, Cor.PRETO, TipoDeCombustivel.GASOLINA,  "27/11/2000",100);
+		moto = new Motocicleta("renavam", "modelo", "marca", TipoDePotencia.HP, TipoDeFreio.DISCO, 1000, 500, 2000, Cor.PRETO, TipoDeCombustivel.GASOLINA,  "27/11/2000",100);
 	}
 
 	@Test
