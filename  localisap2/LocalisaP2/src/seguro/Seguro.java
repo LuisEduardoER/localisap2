@@ -3,6 +3,7 @@
  */
 package seguro;
 
+import java.io.Serializable;
 import planos.*;
 
 /**
@@ -17,10 +18,11 @@ import planos.*;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Seguro {
+public class Seguro implements Serializable{
 
     private boolean seguroTotal;
     private double precoDoPlano;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Construtor que recebe se o seguro eh total e o Plano do automovel

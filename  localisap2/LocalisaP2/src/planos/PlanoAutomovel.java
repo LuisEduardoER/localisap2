@@ -20,7 +20,7 @@ import veiculos.Acessorio;
  *
  */
 public class PlanoAutomovel implements Plano, Serializable{
-    private List<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
+    private ArrayList<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
     private double preco;
     private String nome;
     private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class PlanoAutomovel implements Plano, Serializable{
      * Adiciona uma lista de acessorios que o plano contempla.
      * @param acessorios - Recebe uma lista de acessorios a serem adicionados
      */
-    public void adicionaListaAcessorios(List<Acessorio> acessorios) {
+    public void adicionaListaAcessorios(ArrayList<Acessorio> acessorios) {
         this.listaAcessorios = acessorios;
     }
 
@@ -92,7 +92,7 @@ public class PlanoAutomovel implements Plano, Serializable{
      * captura acessorios do plano
      * @return listaAcessorios
      */
-    public List<Acessorio> getAcessorios(){
+    public ArrayList<Acessorio> getAcessorios(){
         return listaAcessorios;
     }
 }

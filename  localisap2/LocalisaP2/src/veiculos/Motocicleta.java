@@ -38,7 +38,7 @@ public class Motocicleta implements Veiculo,Serializable{
 	private ArrayList<String> historicoDeLocacoes = new ArrayList<String>();
         private String codigoDaMoto;
         private static final long serialVersionUID = 1L;
-        private boolean locado = false;
+        private boolean locado;
 
 
 	/**
@@ -70,6 +70,7 @@ public class Motocicleta implements Veiculo,Serializable{
 		this.setRenavam(renavam);
 		this.setTipoDeCombustivel(tipoDeCombustivel);
 		this.setTipoDePotencia(tipoPotencia);
+                this.locado = false;
 }
 
 

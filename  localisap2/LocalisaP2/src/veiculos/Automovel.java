@@ -34,7 +34,7 @@ public class Automovel implements Veiculo,Serializable{
     private ArrayList<Acessorio> acessoriosOpcionais = new ArrayList<Acessorio>();
     private String codigoDoCarro;
     private static final long serialVersionUID = 1L;
-    private boolean locado = false;
+    private boolean locado;
     
     /**
      * Construtor de um automovel
@@ -68,6 +68,7 @@ public class Automovel implements Veiculo,Serializable{
         this.setRenavam(renavam);
         this.setTipoDeCombustivel(tipoDeCombustivel);
         this.setTipoDePotencia(tipoDePotencia);
+        this.locado = false;
     }
 
     /**
