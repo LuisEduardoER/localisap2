@@ -31,7 +31,7 @@ public enum Acessorio {
 
     /**
      * Captura o Nome completo do acessorio
-     * @return nomeCompleto
+     * @return - nome Completo
      */
     public String getNomeCompleto() {
         return nomeCompleto;

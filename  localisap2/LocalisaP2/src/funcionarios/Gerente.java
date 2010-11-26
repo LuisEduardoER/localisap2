@@ -47,8 +47,9 @@ public class Gerente extends PessoaAbstrata {
     }
 
     /**
-     * Construtor que cria um gerente com dados default     *
-     * @throws Exception
+     * Construtor que cria um gerente com dados default
+     *
+     * @throws Exception - Erro proveniente dos Sets
      */
     public Gerente() throws Exception {
         Endereco endereco = new Endereco(Endereco.UnidadeFederativa.PB, "Campina Grande", "Nacoes", "Essa daqui", 100, "58100-000", "Aqui perto");

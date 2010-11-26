@@ -43,11 +43,12 @@ public class Motocicleta implements Veiculo, Serializable {
      * @param modelo - O modelo do veiculo
      * @param marca - A marca do veiculo
      * @param tipoPotencia - O tipo de pontencia (hp ou cc)
+     * @param tipoFreio - O tipo do freio
      * @param potencia - A potencia do veiculo
      * @param cilindradas - As cilindradas da motocicleta
      * @param ano - O ano do veiculo
      * @param cor - A cor do veiculo
-     * @param tipoDeCombustivel
+     * @param tipoDeCombustivel - Tipo de Combustivel
      * @param dataDeAquisicao - A data que o veiculo foi adquirido
      * @param nivelDoTanque  - O nivel do tanque que o veiculo estah.
      * @throws Exception - Erro de algum parametro errado.

@@ -43,11 +43,8 @@ public class Filial implements Serializable{
 
     /**
      * Construtor que cria uma Agencia
-     * @param cnpj - Recebe como String o cnpj
-     * @param endereco
-     * @param telefone - Recebe como String o telefone
-     * @param inscEstadual - Recebe como String a inscricao estadual
-     * @param gerenteResponsavel - Recebe como Gerente  o gerente responsavel pela adm da agencia
+     *
+     * Parametros setados como Default
      */
     public Filial() {
         try {
@@ -72,7 +69,7 @@ public class Filial implements Serializable{
 
     /**
      * Capturar o Gerente de uma agencia
-     * @return Gerente
+     * @return O gerente da agencia
      */
     public Gerente getGerente(){
         return gerente;
@@ -126,9 +123,8 @@ public class Filial implements Serializable{
     /**
      * Permite mudar o Endereco
      * @param endereco - Recebe como Endereco o endereco
-     * @throws Exception
      */
-    public void setEndereco(Endereco endereco) throws Exception {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
 
     }
@@ -136,7 +132,7 @@ public class Filial implements Serializable{
     /**
      * Permite mudar a inscricao estadual
      * @param inscricaoEstadual - Recebe como String a inscricao estadual
-     * @throws Exception
+     * @throws Exception - Erro de inscricao vazia
      */
     public void setInscEstadual(String inscricaoEstadual) throws Exception {
         if (inscricaoEstadual.length() == 0) {
@@ -149,7 +145,7 @@ public class Filial implements Serializable{
     /**
      * Permite mudar o telefone
      * @param telefone - Recebe como String o telefone
-     * @throws Exception
+     * @throws Exception - Erro de telefone invalido
      */
     public void setTelefone(String telefone) throws Exception {
         if (telefone.length() < 10) {
@@ -242,7 +238,7 @@ public class Filial implements Serializable{
 
     /**
      * Retira um veiculo da lista de veiculos da Agencia
-     * @param index
+     * @param index - indice do veiculo
      */
     public void removeVeiculos(int index) {
         listaDeVeiculos.remove(listaDeVeiculos.toArray()[index]);

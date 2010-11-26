@@ -22,7 +22,7 @@ public interface Veiculo {
 
     /**
      * Metodo para informar se o veiculo esta ou nao locado.
-     * @param locado
+     * @param locado - Boolean se estah locado
      */
     void setLocado(boolean locado);
 

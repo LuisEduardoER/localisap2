@@ -33,6 +33,7 @@ public class Zelador extends PessoaAbstrata {
 
     /**
      * Construtor que cria um locador.
+     * 
      * @param cpf - Recebe como String o CPF
      * @param nome - Recebe como String o nome
      * @param rg - Recebe como String o rg

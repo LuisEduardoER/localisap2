@@ -25,6 +25,7 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Construtor que cria uma Pessoa Fisica.
+     *
      * @param cpf - Recebe como String o CPF
      * @param nome - Recebe como String o nome
      * @param rg - Recebe como String o rg
@@ -54,7 +55,7 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Captura o Cpf
-     * @return cpf
+     * @return - cpf
      */
     public String getCpf() {
         return cpf;
@@ -62,7 +63,7 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Captura o RG
-     * @return rg
+     * @return - rg
      */
     public String getRg() {
         return rg;
@@ -70,7 +71,7 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Captura a data de Nascimento
-     * @return nascimento
+     * @return - nascimento
      */
     public String getNascimento() {
         return nascimento;
@@ -78,7 +79,7 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Captura a cidade de origem
-     * @return naturalidade
+     * @return - naturalidade
      */
     public String getNaturalidade() {
         return naturalidade;
@@ -86,8 +87,8 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Edita o cpf
-     * @param cpf
-     * @throws Exception
+     * @param cpf - novo cpf
+     * @throws Exception - Cpf invalido
      */
     public void setCpf(String cpf) throws Exception {
         Validacao testeCpf = new Validacao();
@@ -100,8 +101,8 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Edita o rg
-     * @param rg
-     * @throws Exception
+     * @param rg - novo rg
+     * @throws Exception - RG vazio
      */
     public void setRg(String rg) throws Exception {
         if (rg.length() == 0) {
@@ -112,8 +113,8 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Edita a data de nascimento
-     * @param nascimento
-     * @throws Exception
+     * @param nascimento - nova data de nascimento
+     * @throws Exception - Data invalida
      */
     public void setNascimento(String nascimento) throws Exception {
         Validacao testaData = new Validacao();
@@ -126,8 +127,8 @@ public class PessoaFisica extends Cliente {
 
     /**
      * Edita a cidade de origem
-     * @param naturalidade
-     * @throws Exception
+     * @param naturalidade - nova cidade de origem
+     * @throws Exception - Naturalidade vazia
      */
     public void setNaturalidade(String naturalidade) throws Exception {
         if (naturalidade.length() == 0) {
