@@ -4,7 +4,6 @@
 package funcionarios;
 
 import clientes.Endereco;
-import agencias.Filial;
 
 /**
  *Classe Gerente
@@ -20,8 +19,6 @@ import agencias.Filial;
  *
  */
 public class Gerente extends PessoaAbstrata {
-
-    private Filial agencia;
 
     /**
      * Construtor que cria um gerente.

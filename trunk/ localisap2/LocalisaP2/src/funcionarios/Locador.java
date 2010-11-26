@@ -20,15 +20,6 @@ import clientes.Endereco;
  */
 public class Locador extends PessoaAbstrata {
 
-    private String cpf;
-    private String nome;
-    private String rg;
-    private String nascimento;
-    private String naturalidade;
-    private Endereco endereco;
-    private String telefone;
-    private String email;
-
     /**
      * Construtor que cria um locador.
      * @param cpf - Recebe como String o CPF
