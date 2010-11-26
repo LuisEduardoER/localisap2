@@ -52,13 +52,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="607" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="645" max="-2" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="221" max="32767" attributes="0"/>
+              <EmptySpace pref="239" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="201" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,8 +67,8 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel1" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="622" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,15 +118,15 @@
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="editarCliente" pref="151" max="32767" attributes="1"/>
-                                          <Component id="apagarCliente" alignment="0" pref="151" max="32767" attributes="1"/>
-                                          <Component id="cadastrarCliente" alignment="0" pref="151" max="32767" attributes="1"/>
+                                          <Component id="editarCliente" pref="170" max="32767" attributes="1"/>
+                                          <Component id="apagarCliente" alignment="0" pref="170" max="32767" attributes="1"/>
+                                          <Component id="cadastrarCliente" alignment="0" pref="170" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="verificarDebito" pref="150" max="32767" attributes="1"/>
-                                          <Component id="realizarPagamento" pref="150" max="32767" attributes="1"/>
-                                          <Component id="realizarLocacao" pref="150" max="32767" attributes="1"/>
+                                          <Component id="verificarDebito" pref="169" max="32767" attributes="1"/>
+                                          <Component id="realizarPagamento" pref="169" max="32767" attributes="1"/>
+                                          <Component id="realizarLocacao" pref="169" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -134,8 +134,8 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTabbedPane2" min="-2" pref="288" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jTabbedPane2" min="-2" pref="328" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -168,10 +168,10 @@
                                       <Component id="realizarPagamento" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="jTabbedPane2" min="-2" pref="287" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="jTabbedPane2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" pref="478" max="32767" attributes="1"/>
+                          <Component id="jScrollPane1" pref="547" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -409,7 +409,7 @@
                                   <Component id="limparCampos" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton1" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="16" max="32767" attributes="0"/>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -670,9 +670,9 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cidade1" pref="190" max="32767" attributes="1"/>
+                                          <Component id="cidade1" pref="230" max="32767" attributes="1"/>
                                           <Group type="102" alignment="1" attributes="1">
-                                              <Component id="bairro1" pref="122" max="32767" attributes="0"/>
+                                              <Component id="bairro1" pref="162" max="32767" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -683,30 +683,30 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="estado1" pref="56" max="32767" attributes="0"/>
+                                              <Component id="estado1" pref="96" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="nome1" alignment="0" pref="190" max="32767" attributes="1"/>
-                                          <Component id="email1" alignment="0" pref="190" max="32767" attributes="1"/>
-                                          <Component id="rua1" alignment="0" pref="190" max="32767" attributes="1"/>
-                                          <Component id="cnpj" alignment="0" pref="190" max="32767" attributes="1"/>
+                                          <Component id="nome1" alignment="0" pref="230" max="32767" attributes="1"/>
+                                          <Component id="email1" alignment="0" pref="230" max="32767" attributes="1"/>
+                                          <Component id="rua1" alignment="0" pref="230" max="32767" attributes="1"/>
+                                          <Component id="cnpj" alignment="0" pref="230" max="32767" attributes="1"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="telefone1" min="-2" pref="75" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Component id="cep1" pref="86" max="32767" attributes="0"/>
+                                              <Component id="cep1" pref="126" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="limparCampos1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                                      <EmptySpace pref="100" max="32767" attributes="0"/>
                                       <Component id="jButton8" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inscEstadual" pref="189" max="32767" attributes="0"/>
+                                      <Component id="inscEstadual" pref="229" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -776,7 +776,7 @@
                                   <Component id="limparCampos1" min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="jButton8" min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1041,7 +1041,7 @@
                                           <Component id="editarFuncionario" min="-2" pref="142" max="-2" attributes="1"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                                  <EmptySpace pref="67" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1078,7 +1078,7 @@
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="jPanel10" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" alignment="1" pref="478" max="32767" attributes="1"/>
+                          <Component id="jScrollPane2" alignment="1" pref="547" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -1148,76 +1148,79 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="1">
-                                          <Component id="bairro4" pref="176" max="32767" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="numero2" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="email2" alignment="0" pref="239" max="32767" attributes="1"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="nascimento1" alignment="1" max="32767" attributes="1"/>
-                                              <Component id="cpf1" alignment="1" min="-2" pref="83" max="-2" attributes="1"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="1">
+                                                  <Component id="bairro4" pref="216" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="rg1" pref="130" max="32767" attributes="0"/>
+                                                  <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="numero2" min="-2" pref="39" max="-2" attributes="0"/>
                                               </Group>
+                                              <Component id="email2" alignment="0" pref="279" max="32767" attributes="1"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="nascimento1" alignment="1" max="32767" attributes="1"/>
+                                                      <Component id="cpf1" alignment="1" min="-2" pref="83" max="-2" attributes="1"/>
+                                                  </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="estado2" min="-2" pref="54" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="rg1" pref="170" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="estado2" min="-2" pref="54" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="naturalidade1" alignment="0" pref="279" max="32767" attributes="1"/>
+                                              <Component id="nome2" alignment="0" pref="279" max="32767" attributes="1"/>
+                                              <Component id="cidade2" alignment="0" pref="279" max="32767" attributes="1"/>
+                                              <Component id="rua2" alignment="0" pref="279" max="32767" attributes="1"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="telefone2" min="-2" pref="75" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                                  <Component id="cep2" pref="175" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="naturalidade1" alignment="0" pref="239" max="32767" attributes="1"/>
-                                      <Component id="nome2" alignment="0" pref="239" max="32767" attributes="1"/>
-                                      <Component id="cidade2" alignment="0" pref="239" max="32767" attributes="1"/>
-                                      <Component id="rua2" alignment="0" pref="239" max="32767" attributes="1"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="telefone2" min="-2" pref="75" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jComboTipoFuncionario" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                          <Component id="cep2" pref="135" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jComboTipoFuncionario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="limparCampos3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="cadastrarFuncionario" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="limparCampos3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="cadastrarFuncionario" pref="158" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1291,7 +1294,7 @@
                               <Component id="limparCampos3" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="cadastrarFuncionario" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="103" max="32767" attributes="0"/>
+                          <EmptySpace pref="172" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1578,7 +1581,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTabbedPane4" alignment="0" pref="336" max="32767" attributes="0"/>
+                                  <Component id="jTabbedPane4" alignment="0" pref="374" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1618,9 +1621,9 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="apagarVeiculo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTabbedPane4" pref="415" max="32767" attributes="0"/>
+                              <Component id="jTabbedPane4" pref="484" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane3" pref="478" max="32767" attributes="1"/>
+                          <Component id="jScrollPane3" pref="547" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1713,7 +1716,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="240" width="98" height="17"/>
+                          <AbsoluteConstraints x="220" y="240" width="98" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1738,7 +1741,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="10" y="13" width="60" height="-1"/>
+                          <AbsoluteConstraints x="10" y="13" width="70" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1808,7 +1811,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="90" y="107" width="84" height="17"/>
+                          <AbsoluteConstraints x="120" y="110" width="84" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1845,7 +1848,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="210" y="160" width="100" height="17"/>
+                          <AbsoluteConstraints x="240" y="160" width="110" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1856,7 +1859,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="160" width="30" height="-1"/>
+                          <AbsoluteConstraints x="210" y="160" width="40" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1937,7 +1940,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="250" y="59" width="50" height="17"/>
+                          <AbsoluteConstraints x="270" y="60" width="50" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1967,7 +1970,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="90" y="158" width="80" height="17"/>
+                          <AbsoluteConstraints x="100" y="160" width="100" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1988,7 +1991,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="250" y="90" width="50" height="-1"/>
+                          <AbsoluteConstraints x="270" y="90" width="50" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2101,7 +2104,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="10" y="12" width="60" height="-1"/>
+                          <AbsoluteConstraints x="10" y="12" width="70" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2112,7 +2115,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="10" y="38" width="45" height="-1"/>
+                          <AbsoluteConstraints x="10" y="38" width="70" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2123,7 +2126,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="10" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="190" y="10" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2158,7 +2161,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="95" y="117" width="84" height="17"/>
+                          <AbsoluteConstraints x="120" y="120" width="84" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2210,7 +2213,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="100" y="290" width="-1" height="17"/>
+                          <AbsoluteConstraints x="60" y="290" width="-1" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2221,7 +2224,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="40" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="190" y="40" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2238,7 +2241,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="230" y="40" width="70" height="17"/>
+                          <AbsoluteConstraints x="240" y="40" width="70" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2282,7 +2285,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="130" y="190" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="140" y="190" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2293,7 +2296,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="130" y="210" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="140" y="210" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2341,7 +2344,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="130" y="230" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="140" y="230" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2351,7 +2354,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="250" y="90" width="50" height="17"/>
+                          <AbsoluteConstraints x="280" y="90" width="50" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2362,7 +2365,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="90" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="190" y="90" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2373,7 +2376,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="180" y="60" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="190" y="60" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2389,7 +2392,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="250" y="60" width="51" height="17"/>
+                          <AbsoluteConstraints x="280" y="60" width="51" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2408,7 +2411,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="210" y="150" width="-1" height="17"/>
+                          <AbsoluteConstraints x="250" y="150" width="-1" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2419,7 +2422,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="140" y="150" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="160" y="150" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2454,7 +2457,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="150" width="90" height="17"/>
+                          <AbsoluteConstraints x="40" y="150" width="110" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2464,7 +2467,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="230" y="10" width="70" height="17"/>
+                          <AbsoluteConstraints x="240" y="10" width="70" height="17"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2487,7 +2490,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
@@ -2498,12 +2501,12 @@
                               <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel56" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="jLabel85" alignment="0" pref="434" max="32767" attributes="0"/>
+                                  <Component id="jLabel56" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="jLabel85" alignment="0" pref="508" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2522,7 +2525,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel56" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="209" max="32767" attributes="0"/>
+                      <EmptySpace pref="278" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2589,32 +2592,34 @@
                           <Component id="jScrollPane4" min="-2" pref="236" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="efetuarDevolucao" min="-2" pref="135" max="-2" attributes="1"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="efetuarDevolucao" min="-2" pref="158" max="-2" attributes="1"/>
+                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                               <Component id="apagarLocacao" min="-2" pref="135" max="-2" attributes="1"/>
                                           </Group>
                                           <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel120" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanel7" alignment="0" max="32767" attributes="1"/>
                                   <Component id="jLabel121" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanel11" alignment="0" max="32767" attributes="1"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jPanel7" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="jPanel11" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2628,7 +2633,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane4" alignment="0" pref="478" max="32767" attributes="1"/>
+                          <Component id="jScrollPane4" alignment="0" pref="547" max="32767" attributes="1"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -2637,13 +2642,13 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Component id="jPanel7" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jPanel7" min="-2" pref="205" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel121" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2705,12 +2710,6 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="limparCamposLocacao" min="-2" pref="119" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="locar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -2744,14 +2743,19 @@
                                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                                       <Component id="locarMoto" min="-2" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Component id="locar" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <Component id="jLabel78" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="limparCamposLocacao" min="-2" pref="135" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2875,7 +2879,7 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="boxPlanosFocusGained"/>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="boxPlanosItemStateChanged"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel54">
@@ -2891,9 +2895,6 @@
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="boxVeiculosFocusGained"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel69">
                   <Properties>
@@ -2912,12 +2913,18 @@
                     <Property name="text" type="java.lang.String" value="Carro"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="locarCarroActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="locarMoto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Moto"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="locarMotoActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -2948,85 +2955,8 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="amassadosLeves" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="arranhoes" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tanqueErrado" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="jLabel118" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="nivelTanqueNovo" min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="perdaTotalOuRoubo" min="-2" max="-2" attributes="0"/>
-                                      <Component id="amassadosGraves" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel95" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="confirmarProblemas" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="atraso" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                          <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="dataAtraso" pref="86" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel95" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="arranhoes" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="amassadosLeves" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tanqueErrado" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="perdaTotalOuRoubo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="amassadosGraves" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="nivelTanqueNovo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel118" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="atraso" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel111" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="dataAtraso" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                              <Component id="jLabel119" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="confirmarProblemas" pref="20" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="true"/>
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel95">
@@ -3034,30 +2964,55 @@
                     <Property name="text" type="java.lang.String" value="Problemas com o veiculo:"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="13" y="13" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="arranhoes">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Arranh&#xf5;es"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="13" y="42" width="120" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="perdaTotalOuRoubo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Perda total / Roubo"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="180" y="40" width="160" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="amassadosLeves">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Amassados Leves"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="13" y="76" width="170" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="amassadosGraves">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Amassados Graves"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="180" y="80" width="160" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="confirmarProblemas">
                   <Properties>
@@ -3067,46 +3022,86 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarProblemasActionPerformed"/>
                   </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="136" y="166" width="91" height="23"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="tanqueErrado">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tanque Errado"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="13" y="104" width="130" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="nivelTanqueNovo">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="210" y="110" width="60" height="20"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="atraso">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Entregou com atraso"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="13" y="138" width="150" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="dataAtraso">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="270" y="140" width="70" height="20"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel111">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data:"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="215" y="141" width="50" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel118">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="-&gt;"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="157" y="109" width="20" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel119">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="-&gt;"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="170" y="140" width="30" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
               </SubComponents>
             </Container>
@@ -3173,7 +3168,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jScrollPane5" pref="478" max="32767" attributes="1"/>
+                              <Component id="jScrollPane5" pref="547" max="32767" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -3182,7 +3177,7 @@
                               <Component id="editarPlanoDeLocacao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="apagarPlanoDeLocacao" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="60" max="32767" attributes="0"/>
+                              <EmptySpace pref="129" max="32767" attributes="0"/>
                               <Component id="jTabbedPane6" min="-2" pref="304" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
@@ -3267,49 +3262,51 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel115" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel114" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="precoPlanoCarro" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="nomePlanoCarro" alignment="0" pref="110" max="32767" attributes="1"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="limparCamposPlanoCarro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="196" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="GPSPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="quatroPortasPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="arCondicionadoPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="airBagPlanoCarro" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="direcaoHidraulicaPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="vidroEletricoPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="travaEletricaPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="bancosCouraPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cadastrarPlanoCarro" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel115" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel114" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="precoPlanoCarro" alignment="0" max="32767" attributes="1"/>
+                                                  <Component id="nomePlanoCarro" alignment="0" pref="110" max="32767" attributes="1"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="limparCamposPlanoCarro" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="GPSPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="quatroPortasPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="arCondicionadoPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="airBagPlanoCarro" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="direcaoHidraulicaPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="vidroEletricoPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="travaEletricaPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="bancosCouraPlanoCarro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="cadastrarPlanoCarro" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="57" max="32767" attributes="0"/>
+                              <EmptySpace pref="95" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3509,7 +3506,7 @@
                                       <Component id="nomePlanoMoto" min="-2" pref="135" max="-2" attributes="1"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="60" max="32767" attributes="0"/>
+                              <EmptySpace pref="98" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3635,9 +3632,9 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel97" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="cepAgencia" pref="105" max="32767" attributes="0"/>
+                                      <Component id="cepAgencia" pref="123" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="estadoAgencia" alignment="1" pref="209" max="32767" attributes="0"/>
+                                  <Component id="estadoAgencia" alignment="1" pref="227" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -3648,23 +3645,23 @@
                               </Group>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cidadeAgencia" alignment="0" pref="209" max="32767" attributes="1"/>
+                                  <Component id="cidadeAgencia" alignment="0" pref="227" max="32767" attributes="1"/>
                                   <Group type="102" alignment="1" attributes="1">
-                                      <Component id="bairroAgencia" pref="141" max="32767" attributes="0"/>
+                                      <Component id="bairroAgencia" pref="159" max="32767" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel93" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="numeroAgencia" min="-2" pref="38" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="ruaAgencia" alignment="0" pref="209" max="32767" attributes="1"/>
+                                  <Component id="ruaAgencia" alignment="0" pref="227" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel90" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cnpjAgencia" alignment="1" pref="208" max="32767" attributes="1"/>
-                                  <Component id="inscEstadualAgencia" alignment="0" pref="208" max="32767" attributes="0"/>
+                                  <Component id="cnpjAgencia" alignment="1" pref="226" max="32767" attributes="1"/>
+                                  <Component id="inscEstadualAgencia" alignment="0" pref="226" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -3694,13 +3691,13 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="1">
-                                          <Component id="bairroGerente" pref="146" max="32767" attributes="0"/>
+                                          <Component id="bairroGerente" pref="166" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel106" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="numeroGerente" min="-2" pref="39" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="emailGerente" alignment="0" pref="209" max="32767" attributes="1"/>
+                                      <Component id="emailGerente" alignment="0" pref="229" max="32767" attributes="1"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="nascimentoGerente" alignment="1" max="32767" attributes="1"/>
@@ -3711,7 +3708,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel100" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="rgGerente" pref="100" max="32767" attributes="0"/>
+                                                  <Component id="rgGerente" pref="120" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel101" min="-2" max="-2" attributes="0"/>
@@ -3720,16 +3717,16 @@
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Component id="naturalidadeGerente" alignment="0" pref="209" max="32767" attributes="1"/>
-                                      <Component id="nomeGerente" alignment="0" pref="209" max="32767" attributes="1"/>
-                                      <Component id="cidadeGerente" alignment="0" pref="209" max="32767" attributes="1"/>
-                                      <Component id="ruaGerente" alignment="0" pref="209" max="32767" attributes="1"/>
+                                      <Component id="naturalidadeGerente" alignment="0" pref="229" max="32767" attributes="1"/>
+                                      <Component id="nomeGerente" alignment="0" pref="229" max="32767" attributes="1"/>
+                                      <Component id="cidadeGerente" alignment="0" pref="229" max="32767" attributes="1"/>
+                                      <Component id="ruaGerente" alignment="0" pref="229" max="32767" attributes="1"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="telefoneGerente" min="-2" pref="75" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel110" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                          <Component id="cepGerente" pref="105" max="32767" attributes="0"/>
+                                          <Component id="cepGerente" pref="125" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -3857,7 +3854,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="246" max="32767" attributes="0"/>
+                              <EmptySpace pref="315" max="32767" attributes="0"/>
                               <Component id="atualizarAgenciaGerente" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
