@@ -90,6 +90,10 @@ public class Locacao implements Serializable{
         return codigo;
     }
 
+    public Veiculo getVeiculo(){
+        return this.getVeiculo();
+    }
+
     /**
      * Metodo que permite pegar o cliente.
      * @return - O cliente
