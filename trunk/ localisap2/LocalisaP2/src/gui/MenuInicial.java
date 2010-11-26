@@ -2791,6 +2791,17 @@ public class MenuInicial extends javax.swing.JFrame {
         ativarCadastro();
     }//GEN-LAST:event_cadastrarClienteActionPerformed
 
+    public static boolean verificaInt( String str ){
+        boolean bool = false;
+        try{
+            int num = Integer.parseInt( str );
+            bool = true;
+        }catch( NumberFormatException exception ){
+            bool = false;
+        }   
+        return bool;
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Cliente cliente = null;
         String nomeC = nome.getText();
@@ -2807,54 +2818,57 @@ public class MenuInicial extends javax.swing.JFrame {
         String telefoneC = telefone.getText();
         String cepC = cep.getText();
 
-
-        if (jButton1.getText().equals("Cadastrar")) {
-            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
-                    || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
-                    || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
-                    || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
-            } else {
-                try {
-                    Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
-                    cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
-                    dadosAgencia.adicionaCliente(cliente);
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+        if (!(verificaInt(numeroC)))
+            JOptionPane.showMessageDialog(rootPane, "Numero deve ser um inteiro valido!","Aviso",2);
+        else{
+            if (jButton1.getText().equals("Cadastrar")) {
+                if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
+                        || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
+                        || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
+                        || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
+                    JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
+                } else {
+                    try {
+                        Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
+                        cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
+                        dadosAgencia.adicionaCliente(cliente);
+                        atualizarFilial(dadosAgencia);
+                        JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+                        atualizarListaDeClientes();
+                        limparCampos.doClick();
+                        desativarCadastro();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+                    }
                 }
-                atualizarFilial(dadosAgencia);
-                JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
-                atualizarListaDeClientes();
-                limparCampos.doClick();
-                desativarCadastro();
-            }
 
-        } else {
-            if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
-                    || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
-                    || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
-                    || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
-                try {
-                    PessoaFisica clienteS = (PessoaFisica) getClienteSelecionado();
-                    Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
-                    clienteS.setCpf(cpfC);
-                    clienteS.setEmail(emailC);
-                    clienteS.setNascimento(nascimentoC);
-                    clienteS.setNaturalidade(naturalidadeC);
-                    clienteS.setNome(nomeC);
-                    clienteS.setRg(rgC);
-                    clienteS.setTelefone(telefoneC);
-                    clienteS.setEndereco(end);
-                    atualizarFilial(dadosAgencia);
-                    atualizarListaDeClientes();
-                    JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
-                    limparCampos.setText("Limpar Campos");
-                    limparCampos.doClick();
-                    desativarCadastro();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+                if (nomeC.equals("") || cpfC.replace(" ", "").length() < 5 || rgC.equals("")
+                        || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
+                        || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
+                        || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
+                    JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
+                } else {
+                    try {
+                        PessoaFisica clienteS = (PessoaFisica) getClienteSelecionado();
+                        Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
+                        clienteS.setCpf(cpfC);
+                        clienteS.setEmail(emailC);
+                        clienteS.setNascimento(nascimentoC);
+                        clienteS.setNaturalidade(naturalidadeC);
+                        clienteS.setNome(nomeC);
+                        clienteS.setRg(rgC);
+                        clienteS.setTelefone(telefoneC);
+                        clienteS.setEndereco(end);
+                        atualizarFilial(dadosAgencia);
+                        atualizarListaDeClientes();
+                        JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
+                        limparCampos.setText("Limpar Campos");
+                        limparCampos.doClick();
+                        desativarCadastro();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+                    }
                 }
             }
         }
@@ -2874,52 +2888,56 @@ public class MenuInicial extends javax.swing.JFrame {
         String emailF = email1.getText();
         String telefoneF = telefone1.getText();
         String cepF = cep1.getText();
-        if (jButton8.getText().equals("Cadastrar")) {
-            if (nomeF.equals("") || cnpjF.replace(" ", "").length() < 5 || rzSocialF.equals("")
-                    || inscEstadualF.replace(" ", "").equals("") || estadoF == null
-                    || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
-                    || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
-            } else {
-                try {
-                    Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
-                    cliente = new PessoaJuridica(cnpjF, rzSocialF, nomeF, inscEstadualF, end, telefoneF, emailF);
-                    dadosAgencia.adicionaCliente(cliente);
-                    atualizarFilial(dadosAgencia);
-                    atualizarListaDeClientes();
-                    JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
-                    limparCampos1.doClick();
-                    desativarCadastro();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+        if (!(verificaInt(numeroF)))
+            JOptionPane.showMessageDialog(rootPane, "Numero deve ser um inteiro valido!","Aviso",2);
+        else{
+            if (jButton8.getText().equals("Cadastrar")) {
+                if (nomeF.equals("") || cnpjF.replace(" ", "").length() < 5 || rzSocialF.equals("")
+                        || inscEstadualF.replace(" ", "").equals("") || estadoF == null
+                        || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                        || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
+                    JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
+                } else {
+                    try {
+                        Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
+                        cliente = new PessoaJuridica(cnpjF, rzSocialF, nomeF, inscEstadualF, end, telefoneF, emailF);
+                        dadosAgencia.adicionaCliente(cliente);
+                        atualizarFilial(dadosAgencia);
+                        atualizarListaDeClientes();
+                        JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+                        limparCampos1.doClick();
+                        desativarCadastro();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+                    }
                 }
-            }
-        } else {
-            if (nomeF.equals("") || cnpjF.replace(" ", "").length() < 5 || rzSocialF.equals("")
-                    || inscEstadualF.replace(" ", "").length() < 5 || estadoF == null
-                    || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
-                    || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
-                try {
-                    PessoaJuridica pessoaS = (PessoaJuridica) getClienteSelecionado();
-                    Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
-                    pessoaS.setNome(nomeF);
-                    pessoaS.setRazaoSocial(rzSocialF);
-                    pessoaS.setEndereco(end);
-                    pessoaS.setInscricaoEstadual(inscEstadualF);
-                    pessoaS.setEmail(emailF);
-                    pessoaS.setTelefone(telefoneF);
-                    pessoaS.setCnpj(cnpjF);
+                if (nomeF.equals("") || cnpjF.replace(" ", "").length() < 5 || rzSocialF.equals("")
+                        || inscEstadualF.replace(" ", "").length() < 5 || estadoF == null
+                        || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
+                        || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
+                    JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
+                } else {
+                    try {
+                        PessoaJuridica pessoaS = (PessoaJuridica) getClienteSelecionado();
+                        Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
+                        pessoaS.setNome(nomeF);
+                        pessoaS.setRazaoSocial(rzSocialF);
+                        pessoaS.setEndereco(end);
+                        pessoaS.setInscricaoEstadual(inscEstadualF);
+                        pessoaS.setEmail(emailF);
+                        pessoaS.setTelefone(telefoneF);
+                        pessoaS.setCnpj(cnpjF);
 
-                    atualizarFilial(dadosAgencia);
-                    atualizarListaDeClientes();
-                    JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
-                    limparCampos1.setText("Limpar Campos");
-                    limparCampos1.doClick();
-                    desativarCadastro();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+                        atualizarFilial(dadosAgencia);
+                        atualizarListaDeClientes();
+                        JOptionPane.showMessageDialog(rootPane, "A edicao foi completada com sucesso!");
+                        limparCampos1.setText("Limpar Campos");
+                        limparCampos1.doClick();
+                        desativarCadastro();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+                    }
                 }
             }
         }
