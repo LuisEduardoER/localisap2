@@ -21,16 +21,6 @@ import clientes.Endereco;
  */
 public class Zelador extends PessoaAbstrata {
 
-    private String cpf;
-    private String nome;
-    private String rg;
-    private String nascimento;
-    private String naturalidade;
-    private Endereco endereco;
-    private String telefone;
-    private String email;
-    private String codigoDoLocador;
-
     /**
      * Construtor que cria um locador.
      * 
