@@ -2745,12 +2745,17 @@ public class MenuInicial extends javax.swing.JFrame {
         jTabbedPane1.addTab("Agência", jPanel14);
 
         jMenu1.setText("Sobre");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu1MousePressed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenuSair.setText("Sair");
         jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuSairMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuSairMousePressed(evt);
             }
         });
         jMenuBar1.add(jMenuSair);
@@ -2781,10 +2786,6 @@ public class MenuInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jMenuSairMouseClicked
 
     private void cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarClienteActionPerformed
         ativarCadastro();
@@ -3928,6 +3929,14 @@ public class MenuInicial extends javax.swing.JFrame {
                 }
             }
         }//GEN-LAST:event_confirmarProblemasActionPerformed
+
+        private void jMenu1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MousePressed
+            new telaSobre().setVisible(true);
+        }//GEN-LAST:event_jMenu1MousePressed
+
+        private void jMenuSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMousePressed
+            System.exit(0);
+        }//GEN-LAST:event_jMenuSairMousePressed
         
     private void setarMascaras() {
         try {
