@@ -5,6 +5,7 @@
 package locacao;
 
 import clientes.Cliente;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import verificacoes.Validacao;
@@ -31,7 +32,7 @@ public class Devolucao{
     private int precoMulta;
     private String dataEntrega, dataDevolucao;
     private Locacao locacao;
-    private Problema problema;
+    private ArrayList<Problema> problemas;
     private Cliente cliente;
 
     /**
@@ -43,13 +44,13 @@ public class Devolucao{
      * @param problema
      * @throws Exception
      */
-    public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, Problema problema) throws Exception {
+    public Devolucao(Locacao loc, int nivelDoTanqueFinal, String dataDevolucao, ArrayList<Problema> problemas) throws Exception {
         nivelDoTanqueInicial = loc.getNivelInicialTanque();
         this.nivelDoTanqueFinal = nivelDoTanqueFinal;
         setDataDevolucao(dataDevolucao);
         setDataEntrega(loc.getDataDevolucao());
         locacao = loc;
-        this.problema = problema;
+        this.problemas = problemas;
         cliente = locacao.getCliente();
         setCliente(cliente);
 
@@ -80,9 +81,9 @@ public class Devolucao{
             double atraso = diferencaData(dataEntrega, dataDevolucao) * 0.05 * locacao.getPlano().getPreco();
             multaAtraso = atraso;
         }
-        if (problema.getPreco() != 0) {
-            multaProblema = problema.getPreco();
-        }
+        for(Problema p: problemas)
+            if (p.getPreco() != 0)
+                multaProblema+= p.getPreco();
         return multaAtraso + multaProblema + multaTanque;
     }
 
