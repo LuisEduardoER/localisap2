@@ -55,7 +55,7 @@ public class Gerente extends PessoaAbstrata{
      * @throws Exception
      */
     public Gerente() throws Exception {
-        Endereco endereco = new Endereco(Endereco.UnidadeFederativa.PB, "Campina Grande", "Nacoes", "Essa daqui", 100, "58100000", "Aqui perto");
+        Endereco endereco = new Endereco(Endereco.UnidadeFederativa.PB, "Campina Grande", "Nacoes", "Essa daqui", 100, "58100-000", "Aqui perto");
         setCpf("587.672.837-30");
         setEmail("gerente@localisa.com");
         setEndereco(endereco);

@@ -2,12 +2,9 @@ package planos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import veiculos.Acessorio;
 
-import veiculos.Automovel;
-import veiculos.Veiculo;
 
 /**
  * Classe PlanoAutomovel
@@ -23,8 +20,6 @@ import veiculos.Veiculo;
  *
  */
 public class PlanoAutomovel implements Plano, Serializable{
-    private Collection<String> listaMarca = new ArrayList<String>();
-    private Collection<Veiculo> listaAuto = new ArrayList<Veiculo>();
     private List<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
     private double preco;
     private String nome;
@@ -55,39 +50,6 @@ public class PlanoAutomovel implements Plano, Serializable{
      */
     public void adicionaListaAcessorios(List<Acessorio> acessorios) {
         this.listaAcessorios = acessorios;
-    }
-
-    /**
-     * Adiciona um carro ao plano de locacao
-     * @param carro - Recebe um carro
-     * @throws Exception - Erro se o carro nao tiver os acessorios do plano
-     */
-    public void adicionaCarro(Automovel carro) throws Exception {
-        int tamanho = listaAcessorios.size();
-        int acertos = 0;
-        for (Acessorio item : carro.getOpcionais()) {
-            if (listaAcessorios.contains(item)) {
-                acertos++;
-            }
-        }
-        if (tamanho != acertos) {
-            throw new Exception("O carro nao atende as especicacoes do plano");
-        }
-        this.listaAuto.add(carro);
-
-    }
-
-    /**
-     * Remove o carro do plano
-     * @param carro - O carro a ser removido.
-     * @throws Exception - Erro se o carro nao existe no cadastro do plano.
-     */
-    public void removeCarro(Automovel carro) throws Exception {
-        if (!this.listaAuto.contains(carro)) {
-            throw new Exception("Esse modelo nao se encontra na lista do plano.");
-        } else {
-            listaAuto.remove(carro);
-        }
     }
 
     /**
@@ -126,42 +88,6 @@ public class PlanoAutomovel implements Plano, Serializable{
         return this.nome;
     }
 
-    /**
-     * Captura a lista de automoveis do plano
-     * @return - Em List a lista
-     */
-    public Collection<Veiculo> getListaAutomovel() {
-        return this.listaAuto;
-    }
-
-    /**
-     * Adiciona modelo de automovel ao plano
-     * @param modelo
-     * @throws Exception
-     */
-    public void adicionaModelo(String modelo)throws Exception{
-        if (modelo==null || modelo.length()<=0)
-            throw new Exception("Voce deve digitar algo no modelo");
-        if(listaMarca.contains(modelo)){
-            throw new Exception("O plano ja contem esse modelo");
-        }
-        listaMarca.add(modelo);
-    }
-    
-    /**
-     * Captura a lista de modelos do plano
-     * @return listaMarca
-     */
-    public Collection<String> getListaModelos(){
-        return listaMarca;
-    }
-    /**
-     * Adiciona uma lista de veiculos ao plano
-     * @param v
-     */
-    public void adicionaListaVeiculos(Collection<Veiculo> v){
-        listaAuto = v;
-    }
     /**
      * captura acessorios do plano
      * @return listaAcessorios

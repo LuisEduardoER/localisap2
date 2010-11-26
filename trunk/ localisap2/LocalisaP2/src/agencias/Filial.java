@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import locacao.Locacao;
 import planos.Plano;
-import planos.PlanoAutomovel;
-import planos.PlanoMoto;
 import veiculos.Veiculo;
 import verificacoes.Validacao;
 
@@ -39,7 +37,6 @@ public class Filial implements Serializable{
     private int numeroDeClientes;
     private Collection<Veiculo> listaDeVeiculos = new ArrayList<Veiculo>();
     private Collection<Plano> listaDePlanos = new ArrayList<Plano>();
-    private Collection<PlanoMoto> listaDePlanosMoto = new ArrayList<PlanoMoto>();
     private Collection<Pessoa> listaDeFuncionarios = new ArrayList<Pessoa>();
     private Collection<Cliente> listaDeClientes = new ArrayList<Cliente>();
     private Collection<Locacao> listaDeLocacoes = new ArrayList<Locacao>();
@@ -54,9 +51,9 @@ public class Filial implements Serializable{
      */
     public Filial() {
         try {
-            endereco = new Endereco(Endereco.UnidadeFederativa.PB, "Campina Grande", "Nacoes", "Essa daqui", 100, "58100000", "Aqui perto");
+            endereco = new Endereco(Endereco.UnidadeFederativa.PB, "Campina Grande", "Nacoes", "Essa daqui", 100, "58100-000", "Aqui perto");
             String cnpj = "25.216.024/0001-03";
-            String telefone = "0123456789";
+            String telefone = "(83)3333-3333";
             String inscEstadual = "0000";
             this.setCnpj(cnpj);
             this.setEndereco(endereco);
@@ -155,7 +152,7 @@ public class Filial implements Serializable{
      * @throws Exception
      */
     public void setTelefone(String telefone) throws Exception {
-        if (telefone.length() != 10) {
+        if (telefone.length() < 10) {
             throw new Exception("Um telefone valido deve ter o DDD + o numero");
         }
         this.telefone = telefone;
@@ -184,14 +181,6 @@ public class Filial implements Serializable{
      */
     public void adicionaPlano(Plano p) {
         listaDePlanos.add(p);
-    }
-
-    /**
-     * Metodo que adiciona um plano de moto
-     * @param p - O plano da moto
-     */
-    public void adicionaPlanoMoto(PlanoMoto p) {
-        listaDePlanosMoto.add(p);
     }
 
     /**
@@ -225,14 +214,6 @@ public class Filial implements Serializable{
      */
     public Collection<Plano> getPlano() {
         return listaDePlanos;
-    }
-
-    /**
-     * Metodo que retorna o plano de motos
-     * @return - O plano de moto
-     */
-    public Collection<PlanoMoto> getPlanoMoto() {
-        return listaDePlanosMoto;
     }
 
     /**
@@ -290,13 +271,6 @@ public class Filial implements Serializable{
     }
     public void removePlano(int index) {
         listaDePlanos.remove(listaDePlanos.toArray()[index]);
-    }
-    /**
-     * Metodo que remove um plano de moto
-     * @param p - o plano a ser removido
-     */
-    public void removePlanoMoto(PlanoMoto p) {
-        listaDePlanosMoto.remove(p);
     }
 
     /**
