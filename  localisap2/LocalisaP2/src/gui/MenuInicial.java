@@ -3666,7 +3666,8 @@ public class MenuInicial extends javax.swing.JFrame {
         }else{
             Locacao l = ((ArrayList<Locacao>)dadosAgencia.getLocacao()).get(jList4.getSelectedIndex());
             try{
-                Devolucao d = new Devolucao(l, l.getNivelInicialTanque(), l.getDataDevolucao(), null);
+                ArrayList<Problema> list = new ArrayList<Problema>();
+                Devolucao d = new Devolucao(l, l.getNivelInicialTanque(), l.getDataDevolucao(), list);
                 ((Veiculo)l.getVeiculo()).setLocado(false);
                 ((ArrayList<Locacao>)dadosAgencia.getLocacao()).remove(l);
                 JOptionPane.showMessageDialog(rootPane, "Devolução efetuada com sucesso!");
