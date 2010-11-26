@@ -52,17 +52,15 @@ public class PlanoTest {
 
 	@Test
 	public void testaAdicionaRemove() throws Exception{
-		planoCarroA.adicionaCarro(carro);
-		planoCarroB.adicionaCarro(carro);
+		
 		planoMotoA.adicionaMoto(moto);
 		planoMotoB.adicionaMoto(moto);
-		Assert.assertTrue(planoCarroA.getListaAutomovel().contains(carro));
-		Assert.assertTrue(planoCarroB.getListaAutomovel().contains(carro));
+		
 		Assert.assertTrue(planoMotoA.getListaMoto().contains(moto));
 		Assert.assertTrue(planoMotoB.getListaMoto().contains(moto));
-		planoCarroA.removeCarro(carro);
+		
 		planoMotoA.removeMoto(moto);
-		Assert.assertTrue(planoCarroA.getListaAutomovel().isEmpty());
+		
 		Assert.assertTrue(planoMotoA.getListaMoto().isEmpty());
 	}
 
