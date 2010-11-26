@@ -58,7 +58,7 @@ public class telaSobre extends javax.swing.JFrame {
         setTitle("Sobre");
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe\\Documents\\NetBeansProjects\\LocalisaP2\\src\\images\\Sample-6.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Sample-6.png"))); // NOI18N
 
         jButton1.setText("Fechar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,9 +93,9 @@ public class telaSobre extends javax.swing.JFrame {
 
         jLabel11.setText("Anderson - Coach / Geraldo - Cliente");
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe\\Documents\\NetBeansProjects\\LocalisaP2\\src\\images\\teste.png")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teste.png"))); // NOI18N
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe\\Documents\\NetBeansProjects\\LocalisaP2\\src\\images\\teste.png")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teste.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
