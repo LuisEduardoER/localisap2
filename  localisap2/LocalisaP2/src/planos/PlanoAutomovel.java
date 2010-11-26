@@ -2,9 +2,7 @@ package planos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import veiculos.Acessorio;
-
 
 /**
  * Classe PlanoAutomovel
@@ -19,7 +17,8 @@ import veiculos.Acessorio;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PlanoAutomovel implements Plano, Serializable{
+public class PlanoAutomovel implements Plano, Serializable {
+
     private ArrayList<Acessorio> listaAcessorios = new ArrayList<Acessorio>();
     private double preco;
     private String nome;
@@ -34,14 +33,6 @@ public class PlanoAutomovel implements Plano, Serializable{
         this.nome = nome;
         this.preco = preco;
 
-    }
-
-    /**
-     * Adiciona os acessorios que o plano contempla.
-     * @param item - Recebe o acessorio a ser adicionado no tipo Acessorios.
-     */
-    public void adicionaAcessorios(Acessorio item) {
-        listaAcessorios.add(item);
     }
 
     /**
@@ -92,7 +83,7 @@ public class PlanoAutomovel implements Plano, Serializable{
      * captura acessorios do plano
      * @return listaAcessorios
      */
-    public ArrayList<Acessorio> getAcessorios(){
+    public ArrayList<Acessorio> getAcessorios() {
         return listaAcessorios;
     }
 }

@@ -1,6 +1,5 @@
 package veiculos;
 
-
 import java.util.ArrayList;
 import java.io.Serializable;
 import verificacoes.Validacao;
@@ -18,7 +17,7 @@ import verificacoes.Validacao;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Automovel implements Veiculo,Serializable{
+public class Automovel implements Veiculo, Serializable {
 
     private String renavam;
     private String modelo;
@@ -35,7 +34,7 @@ public class Automovel implements Veiculo,Serializable{
     private String codigoDoCarro;
     private static final long serialVersionUID = 1L;
     private boolean locado;
-    
+
     /**
      * Construtor de um automovel
      *
@@ -204,7 +203,7 @@ public class Automovel implements Veiculo,Serializable{
      * Seta a lista de opcionais do veiculo.
      * @param listaOpcionais - A lista de opcionais.
      */
-    public void setOpcionais(ArrayList<Acessorio> listaOpcionais){
+    public void setOpcionais(ArrayList<Acessorio> listaOpcionais) {
         this.acessoriosOpcionais = listaOpcionais;
     }
 

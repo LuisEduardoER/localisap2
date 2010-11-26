@@ -1,11 +1,6 @@
 package planos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-
-import veiculos.Motocicleta;
-import veiculos.Veiculo;
 
 /**
  * Classe PlanoMoto
@@ -20,10 +15,8 @@ import veiculos.Veiculo;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class PlanoMoto implements Plano,Serializable {
+public class PlanoMoto implements Plano, Serializable {
 
-    private Collection<String> listaMarca = new ArrayList<String>();
-    private Collection<Veiculo> listaMoto = new ArrayList<Veiculo>();
     private int cilindradas;
     private double preco;
     private String nome;
@@ -39,44 +32,13 @@ public class PlanoMoto implements Plano,Serializable {
         this.nome = nome;
         this.preco = preco;
     }
-    /**
-     * Adiciona motos ao plano
-     * @param moto
-     */
-    public void adicionaMotos(Collection<Veiculo> moto){
-        listaMoto = moto;
-    }
+
     /**
      * Metodo que adiciona as cilindradas maxima do plano
      * @param cilindradas
      */
     public void adicionaCilindradas(int cilindradas) {
         this.cilindradas = cilindradas;
-    }
-
-    /**
-     * Adiciona uma moto ao plano de locacao
-     * @param moto - Recebe uma moto
-     * @throws Exception - Erro se a moto nao tiver as cilindradas do plano
-     */
-    public void adicionaMoto(Motocicleta moto) throws Exception {
-        if (moto.getCilindradas() > cilindradas) {
-            throw new Exception("A moto nao atende as especicacoes do plano");
-        }
-        this.listaMoto.add(moto);
-    }
-
-    /**
-     * Remove a moto do plano
-     * @param moto
-     * @throws Exception - Erro se o carro nao existe no cadastro do plano.
-     */
-    public void removeMoto(Motocicleta moto) throws Exception {
-        if (!this.listaMoto.contains(moto)) {
-            throw new Exception("Esse modelo nao se encontra na lista do plano.");
-        } else {
-            listaMoto.remove(moto);
-        }
     }
 
     /**
@@ -116,40 +78,10 @@ public class PlanoMoto implements Plano,Serializable {
     }
 
     /**
-     * Captura a lista de Motos do plano
-     * @return - Em List a lista de motos
+     * Captura as cilindradas do plano
+     * @return - As cilindradas do plano
      */
-    public Collection<Veiculo> getListaMoto() {
-        return this.listaMoto;
-    }
-
-    /**
-     * Adiciona um modelo ao plano
-     * @param modelo
-     * @throws Exception
-     */
-    public void adicionaModelo(String modelo) throws Exception {
-        if (modelo == null || modelo.length() <= 0) {
-            throw new Exception("Voce deve digitar algo no modelo");
-        }
-        if (listaMarca.contains(modelo)) {
-            throw new Exception("O plano ja contem esse modelo");
-        }
-        listaMarca.add(modelo);
-    }
-
-    /**
-     * Captura lista de modelos
-     * @return
-     */
-    public Collection<String> getListaModelos() {
-        return listaMarca;
-    }
-    /**
-     * Captura cilindradas do plano
-     * @return cilindradas
-     */
-    public  double getCilindradas(){
+    public double getCilindradas() {
         return cilindradas;
     }
 }

@@ -5,7 +5,6 @@ package funcionarios;
 
 import clientes.Endereco;
 import agencias.Filial;
-import java.io.Serializable;
 
 /**
  *Classe Gerente
@@ -20,10 +19,9 @@ import java.io.Serializable;
  * Universidade Federal de Campina Grande - Computacao
  *
  */
-public class Gerente extends PessoaAbstrata{
+public class Gerente extends PessoaAbstrata {
 
     private Filial agencia;
-    private String codigoDoGerente;
 
     /**
      * Construtor que cria um gerente.
@@ -33,13 +31,11 @@ public class Gerente extends PessoaAbstrata{
      * @param nascimento -  Recebe como String a data de nascimento
      * @param naturalidade - Recebe como String a naturalidade
      * @param endereco - Recebe como Endereco o endereco
-     * @param agencia - Recebe como Filial a agencia
      * @param telefone -  Recebe como String o telefone
      * @param email - Recebe como String o email
      * @throws Exception - Erros de parametros invalidos
      */
     public Gerente(String cpf, String nome, String rg, String nascimento, String naturalidade, Endereco endereco, String telefone, String email) throws Exception {
-        setAgencia(agencia);
         setCpf(cpf);
         setEmail(email);
         setEndereco(endereco);
@@ -64,22 +60,5 @@ public class Gerente extends PessoaAbstrata{
         setNome("Gerente Padrao");
         setRg("123456");
         setTelefone("(83)3333-3333");
-    }
-
-    /**
-     * Metodo que retorna a agencia do gerente
-     * @return - Retorna a agencia do gerente
-     */
-    public Filial getAgencia() {
-        return agencia;
-    }
-
-    /**
-     * Permite mudar a agencia.
-     * @param agencia - Recebe como Filial a agencia
-     */
-    public void setAgencia(Filial agencia) {
-        this.agencia = agencia;
-
     }
 }
