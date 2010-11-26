@@ -110,9 +110,9 @@ public class MenuInicial extends javax.swing.JFrame {
     }
     public Plano getPlanoSelecionado() {
         if (dadosAgencia.getPlano().toArray()[jListaPlanos.getSelectedIndex()] instanceof PlanoAutomovel) {
-            return (PlanoAutomovel) dadosAgencia.getVeiculos().toArray()[jListaPlanos.getSelectedIndex()];
+            return (PlanoAutomovel) dadosAgencia.getPlano().toArray()[jListaPlanos.getSelectedIndex()];
         } else {
-            return (PlanoMoto) dadosAgencia.getVeiculos().toArray()[jListaVeiculos.getSelectedIndex()];
+            return (PlanoMoto) dadosAgencia.getPlano().toArray()[jListaPlanos.getSelectedIndex()];
         }
 
     }
@@ -2813,14 +2813,14 @@ public class MenuInicial extends javax.swing.JFrame {
                     || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
                     || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
                     || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
                 try {
                     Endereco end = new Endereco(estadoC, cidadeC, bairroC, ruaC, Integer.parseInt(numeroC), cepC);
                     cliente = new PessoaFisica(cpfC, nomeC, rgC, nascimentoC, naturalidadeC, end, telefoneC, emailC);
                     dadosAgencia.adicionaCliente(cliente);
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
                 atualizarFilial(dadosAgencia);
                 JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
@@ -2834,7 +2834,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     || nascimentoC.replace(" ", "").length() < 5 || estadoC == null || naturalidadeC.equals("")
                     || cidadeC.equals("") || bairroC.equals("") || ruaC.equals("") || numeroC.equals("")
                     || emailC.equals("") || telefoneC.replace(" ", "").length() < 5 || cepC.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
                 try {
                     PessoaFisica clienteS = (PessoaFisica) getClienteSelecionado();
@@ -2854,7 +2854,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCampos.doClick();
                     desativarCadastro();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         }
@@ -2879,7 +2879,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     || inscEstadualF.replace(" ", "").equals("") || estadoF == null
                     || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
                     || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
                 try {
                     Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
@@ -2891,7 +2891,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCampos1.doClick();
                     desativarCadastro();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         } else {
@@ -2899,7 +2899,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     || inscEstadualF.replace(" ", "").length() < 5 || estadoF == null
                     || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
                     || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
                 try {
                     PessoaJuridica pessoaS = (PessoaJuridica) getClienteSelecionado();
@@ -2919,7 +2919,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCampos1.doClick();
                     desativarCadastro();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         }
@@ -2945,7 +2945,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     || nascimentoF.replace(" ", "").length() < 5 || estadoF == null || naturalidadeF.equals("")
                     || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
                     || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
                 try {
                     Endereco end = new Endereco(estadoF, cidadeF, bairroF, ruaF, Integer.parseInt(numeroF), cepF);
@@ -2963,7 +2963,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCampos3.doClick();
                     desativarCadastroFuncionarios();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         } else {
@@ -2971,7 +2971,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     || nascimentoF.replace(" ", "").length() < 5 || estadoF == null || naturalidadeF.equals("")
                     || cidadeF.equals("") || bairroF.equals("") || ruaF.equals("") || numeroF.equals("")
                     || emailF.equals("") || telefoneF.replace(" ", "").length() < 5 || cepF.replace(" ", "").length() < 5) {
-                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+                JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
             } else {
                 try {
                     Pessoa funcionarioS = getFuncionarioSelecionado();
@@ -2991,7 +2991,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCampos3.doClick();
                     desativarCadastroFuncionarios();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         }
@@ -3048,7 +3048,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 limparCamposCarro.doClick();
                 desativarCadastroVeiculo();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
             }
         } else {
             try {
@@ -3070,7 +3070,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 limparCamposCarro.doClick();
                 desativarCadastroVeiculo();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
             }
         }
     }//GEN-LAST:event_cadastrarCarroActionPerformed
@@ -3091,7 +3091,7 @@ public class MenuInicial extends javax.swing.JFrame {
         int nivelTanque = ((Integer) jSpinnerCombustivelMoto.getValue()).intValue();
         if (renavam.equals("") || modelo.equals("") || marca.equals("")
                 || potencia.equals("") || data.equals("") || cilindradas.equals("") || ano.equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!");
+            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados!","Aviso",2);
         } else {
             if (cadastrarMoto.getText().equals("Cadastrar")) {
                 try {
@@ -3108,7 +3108,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(rootPane, "Digitar apenas numeros nos campos de potencia, cilindradas e ano.");
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             } else {
                 try {
@@ -3129,7 +3129,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     limparCamposMoto.doClick();
                     desativarCadastroVeiculo();
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         }
@@ -3177,7 +3177,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 desativarCadastroPlanos();
                 JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
             }
         } else {
             try {
@@ -3192,7 +3192,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 desativarCadastroPlanos();
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
             }
         }
     }//GEN-LAST:event_cadastrarPlanoCarroActionPerformed
@@ -3215,7 +3215,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 desativarCadastroPlanos();
                 JOptionPane.showMessageDialog(rootPane, "Plano cadastrado com sucesso!");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
             }
         } else {
             try {
@@ -3229,57 +3229,61 @@ public class MenuInicial extends javax.swing.JFrame {
                 atualizarFilial(dadosAgencia);
                  desativarCadastroPlanos();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
             }
         }
 }//GEN-LAST:event_cadastrarPlanoMotoActionPerformed
 
     private void locarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locarActionPerformed
-        Cliente clienteL = getClienteSelecionado();
-        Plano planoL = null;
-        Veiculo veiculoL = null;
+        if(boxPlanos.getSelectedObjects()== null || boxVeiculos.getSelectedObjects()==null||dataDevolucaoLocacao.getText().replace(" ", "").length()<5)
+            JOptionPane.showMessageDialog(rootPane, "Voce deve preencher todos os dados da locação!","Aviso",2);
+        else{
+            Cliente clienteL = getClienteSelecionado();
+            Plano planoL = null;
+            Veiculo veiculoL = null;
 
-        ArrayList<PlanoAutomovel> listaPlanoCarro = new ArrayList<PlanoAutomovel>();
-        ArrayList<PlanoMoto> listaPlanoMoto = new ArrayList<PlanoMoto>();
-        for(Plano p : dadosAgencia.getPlano()){
-            if(p instanceof PlanoAutomovel)
-                listaPlanoCarro.add((PlanoAutomovel)p);
-            else
-                listaPlanoMoto.add((PlanoMoto) p);
-        }
-
-        ArrayList<Automovel> listaCarro = new ArrayList<Automovel>();
-        ArrayList<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
-        if (locarCarro.isSelected()){
-            for(Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(listaPlanoCarro.get(boxPlanos.getSelectedIndex()))){
-                    listaCarro.add((Automovel)v);
+            ArrayList<PlanoAutomovel> listaPlanoCarro = new ArrayList<PlanoAutomovel>();
+            ArrayList<PlanoMoto> listaPlanoMoto = new ArrayList<PlanoMoto>();
+            for(Plano p : dadosAgencia.getPlano()){
+                if(p instanceof PlanoAutomovel)
+                    listaPlanoCarro.add((PlanoAutomovel)p);
+                else
+                    listaPlanoMoto.add((PlanoMoto) p);
             }
-        }else{
-            for(Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(listaPlanoMoto.get(boxPlanos.getSelectedIndex()))){
-                    listaMoto.add((Motocicleta)v);
-            }
-        }
 
-        if (locarCarro.isSelected()) {
-            planoL = (PlanoAutomovel) listaPlanoCarro.toArray()[boxPlanos.getSelectedIndex()];
-            veiculoL = (Automovel) listaCarro.toArray()[boxVeiculos.getSelectedIndex()];
-        } else if (locarMoto.isSelected()) {
-            planoL = (PlanoMoto) listaPlanoMoto.toArray()[boxPlanos.getSelectedIndex()];
-            veiculoL = (Motocicleta) listaMoto.toArray()[boxVeiculos.getSelectedIndex()];
-        }
-        String dataEntregaL = dataDevolucaoLocacao.getText();
-        int seguroL = boxSeguro.getSelectedIndex();
-        try {
-            dadosAgencia.adicionaLocacao(new Locacao(veiculoL, clienteL, planoL, dataEntregaL, dataEntregaL, seguroL));
-            veiculoL.setLocado(true);
-            JOptionPane.showMessageDialog(rootPane, "Locacao adicionada com sucesso!");
-            atualizarFilial(dadosAgencia);
-            atualizarListaDeVeiculos();
-            atualizarListaDeLocacoes();
-            limparCamposLocacao.doClick();
-            desativarLocacao();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            ArrayList<Automovel> listaCarro = new ArrayList<Automovel>();
+            ArrayList<Motocicleta> listaMoto = new ArrayList<Motocicleta>();
+            if (locarCarro.isSelected()){
+                for(Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(listaPlanoCarro.get(boxPlanos.getSelectedIndex()))){
+                        listaCarro.add((Automovel)v);
+                }
+            }else{
+                for(Veiculo v : atualizarListaVeiculosDisponiveisParaPlanoLocacao(listaPlanoMoto.get(boxPlanos.getSelectedIndex()))){
+                        listaMoto.add((Motocicleta)v);
+                }
+            }
+
+            if (locarCarro.isSelected()) {
+                planoL = (PlanoAutomovel) listaPlanoCarro.toArray()[boxPlanos.getSelectedIndex()];
+                veiculoL = (Automovel) listaCarro.toArray()[boxVeiculos.getSelectedIndex()];
+            } else if (locarMoto.isSelected()) {
+                planoL = (PlanoMoto) listaPlanoMoto.toArray()[boxPlanos.getSelectedIndex()];
+                veiculoL = (Motocicleta) listaMoto.toArray()[boxVeiculos.getSelectedIndex()];
+            }
+            String dataEntregaL = dataDevolucaoLocacao.getText();
+            int seguroL = boxSeguro.getSelectedIndex();
+            try {
+                dadosAgencia.adicionaLocacao(new Locacao(veiculoL, clienteL, planoL, dataEntregaL, dataEntregaL, seguroL));
+                veiculoL.setLocado(true);
+                JOptionPane.showMessageDialog(rootPane, "Locacao adicionada com sucesso!");
+                atualizarFilial(dadosAgencia);
+                atualizarListaDeVeiculos();
+                atualizarListaDeLocacoes();
+                limparCamposLocacao.doClick();
+                desativarLocacao();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
+            }
         }
     }//GEN-LAST:event_locarActionPerformed
 
@@ -3664,7 +3668,7 @@ public class MenuInicial extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Digitar apenas numeros nos campos de numero");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
         }
 }//GEN-LAST:event_atualizarAgenciaGerenteActionPerformed
 
@@ -3903,7 +3907,7 @@ public class MenuInicial extends javax.swing.JFrame {
                     atualizarListaDeVeiculos();
                     atualizarListaDeLocacoes();
                 }catch(Exception e){
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Erro",2);
                 }
             }
         }//GEN-LAST:event_confirmarProblemasActionPerformed
