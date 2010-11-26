@@ -91,7 +91,7 @@ public class Locacao implements Serializable{
     }
 
     public Veiculo getVeiculo(){
-        return this.getVeiculo();
+        return this.veiculo;
     }
 
     /**
